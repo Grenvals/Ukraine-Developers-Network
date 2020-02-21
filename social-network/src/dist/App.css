@@ -2,19 +2,23 @@
   display: flex;
   flex-wrap: wrap;
 }
+
 .header {
   flex: 0 0 100%;
   background: #E8EEF6;
   height: 60px;
 }
+
 .aside {
   flex-basis: 20%;
   background: green;
 }
+
 .content {
   flex: 1 0 auto;
   background: yellow;
 }
+
 .footer {
   flex: 0 0 100%;
   height: 60px;

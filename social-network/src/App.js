@@ -17,7 +17,12 @@ const App = () => {
           </ul>
         </nav>
       </div>
-      <div className="content"></div>
+      <div className="content">
+        <div className="profile-bg"></div>
+        <div className="user-info"></div>
+        <div className="new-post"></div>
+        <div className="posts"></div>
+      </div>
       <div className="footer"></div>
     </div>
   );
