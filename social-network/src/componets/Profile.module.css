@@ -1,0 +1,8 @@
+
+.profile {
+  grid-area: profile;
+  background: yellow;
+}
+.nav {
+  display: block;
+}

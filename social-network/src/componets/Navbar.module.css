@@ -1,0 +1,12 @@
+
+.nav {
+  grid-area: nav;
+  flex-basis: 20%;
+  background: green;
+}
+.link {
+  color: rgb(31, 233, 31);
+}
+.active {
+  color: #fff;
+}

@@ -7,20 +7,3 @@
   min-height: 100vh;
   background: red;
 }
-
-.header {
-  grid-area: header;
-  background: #E8EEF6;
-  height: 60px;
-}
-
-.nav {
-  grid-area: nav;
-  flex-basis: 20%;
-  background: green;
-}
-
-.profile {
-  grid-area: profile;
-  background: yellow;
-}

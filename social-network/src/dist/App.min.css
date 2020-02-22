@@ -1,1 +1,1 @@
-.wrapper{display:grid;grid-template-areas:"header header" "nav profile";grid-template-rows:60px 1fr;grid-template-columns:20% 1fr;grid-gap:10px;min-height:100vh;background:red}.header{grid-area:header;background:#E8EEF6;height:60px}.nav{grid-area:nav;flex-basis:20%;background:green}.profile{grid-area:profile;background:#ff0}
+.wrapper{display:grid;grid-template-areas:"header header" "nav profile";grid-template-rows:60px 1fr;grid-template-columns:20% 1fr;grid-gap:10px;min-height:100vh;background:red}
