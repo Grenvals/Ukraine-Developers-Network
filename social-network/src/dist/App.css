@@ -1,26 +1,26 @@
 .wrapper {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-areas: "header header" "nav profile";
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 20% 1fr;
+  grid-gap: 10px;
+  min-height: 100vh;
+  background: red;
 }
 
 .header {
-  flex: 0 0 100%;
+  grid-area: header;
   background: #E8EEF6;
   height: 60px;
 }
 
-.aside {
+.nav {
+  grid-area: nav;
   flex-basis: 20%;
   background: green;
 }
 
-.content {
-  flex: 1 0 auto;
+.profile {
+  grid-area: profile;
   background: yellow;
-}
-
-.footer {
-  flex: 0 0 100%;
-  height: 60px;
-  background: grey;
 }
