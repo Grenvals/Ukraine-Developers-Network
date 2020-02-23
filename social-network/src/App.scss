@@ -1,11 +1,17 @@
-.wrapper {
+// Vars 
+
+// Global style
+.app-wrapper {
   display: grid;
-  grid-template-areas: "header header" "nav profile";
+  grid-template-areas: "header header" "nav content";
   grid-template-rows: 60px 1fr;
   grid-template-columns: 20% 1fr;
   grid-gap: 10px;
   min-height: 100vh;
   background: red;
+}
+.wrapper-content {
+  grid-area: content;
 }
 
 
