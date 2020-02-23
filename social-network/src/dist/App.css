@@ -7,6 +7,7 @@
   min-height: 100vh;
 }
 
-.wrapper-content {
+.content-wrapper {
   grid-area: content;
+  padding: 60px;
 }
