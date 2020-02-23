@@ -1,7 +1,8 @@
 
 .profile {
   grid-area: profile;
-  background: yellow;
+  background: #fff;
+  padding: 60px;
 }
 .nav {
   display: block;

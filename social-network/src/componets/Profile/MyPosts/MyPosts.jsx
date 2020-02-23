@@ -7,10 +7,9 @@ const MyPosts = () => {
 	return (
 		<div className="MyPosts">
 			<NewPost />
-			<PostItem />
-			<PostItem />
-			<PostItem />
-			<PostItem />
+			<PostItem message="Hi, how are you?" likes="11"/>
+			<PostItem message="You can do it!" likes="22" />
+			<PostItem message='Lets study React' likes="5" />
 		</div>
 	);
 
