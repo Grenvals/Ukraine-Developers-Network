@@ -12,7 +12,7 @@ const PostItem = (props) => {
 				</div>
 			</div>
 			<div className="content">
-				<p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quasi, earum dicta aliquid odio vero maxime itaque minima quae repudiandae ea. Modi sed fuga quibusdam assumenda quae repudiandae sit possimus! </p>
+				<p  className={style.message}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quasi, earum dicta aliquid odio vero maxime itaque minima quae repudiandae ea. Modi sed fuga quibusdam assumenda quae repudiandae sit possimus! </p>
 				<div className={style.preview}><img src="https://www.theswissholidays.com/rail-tour-packages/rail-tour-packages/images/glaciar-express-banner.jpg" alt="" /></div>
 			</div>
 			<div className="footer">

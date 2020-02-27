@@ -1,13 +1,17 @@
+@import "./../../../../scss/main.scss";
 .post {
 	margin: 0 auto;
-	margin-bottom: 40px;
-	box-shadow: 0 1px 10px 0 rgba(32, 33, 36, .28);
+	box-shadow: $shadow;
 	border-radius: 6px;
 	padding: 25px;
 	max-width: 600px;
+	background: #fff;
+	margin-bottom: 20px;
 }
 .header {
 	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
 }
 .title {
 	font-size: 16px;
@@ -27,8 +31,12 @@
 	width: 100%;
 	border-radius: 2px;
 	overflow: hidden;
+	margin-bottom: 10px;
 	img {
 		width: 100%;
 		max-width: 100%;
 	}
+}
+.message {
+	margin-bottom: 20px;
 }

@@ -1,0 +1,39 @@
+@import "./../../../../scss/main.scss";
+.newPost {
+	background: $second;
+	padding: 25px;
+	margin-bottom: 25px;
+	border-radius: 6px;
+	box-shadow: $shadow;
+	&__message {
+		width: 100%;
+		padding: 0px;
+		line-height: 1.6;
+		resize: none;
+		border-radius: 6px;
+		font-size: 14px;
+	}
+}
+.button {
+	display: block;
+	margin-right: 0px;
+	margin-left: auto;
+	background: $accent; 
+	text-transform: uppercase;
+	color: $second;
+	height: 40px;
+	line-height: 40px;
+	padding: 0px 20px;
+	min-width: 150px;
+	border-radius: 20px;
+	font-size: 12px;
+	font-weight: 600;
+	box-shadow: $shadow;
+	transition: background 0.2s;
+	&:hover {
+		background:	lighten($accent, 5%);
+	}
+	&:active {
+		background:	darken($accent, 10%);
+	}
+}

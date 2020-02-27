@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './Dialogs.module.css';
+import style from './Dialogs.module.scss';
 
 const Dialogs = () => {
 	return <div className="dialogs">

@@ -1,18 +1,20 @@
-// Vars 
-
+@import "scss/main.scss";
 // Global style
 .app-wrapper {
   display: grid;
   grid-template-areas: "header header" "nav content";
   grid-template-rows: 60px 1fr;
   grid-template-columns: 20% 1fr;
-  grid-gap: 0px;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
   min-height: 100vh;
-  // background: red;
+  background: #EDF2F6;
+  padding: 0px 0px;
 }
 .content-wrapper {
   grid-area: content;
-  padding: 60px;
+  padding: 0px 15px 0px 0px;
 }
+
 
 

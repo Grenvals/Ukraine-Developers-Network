@@ -1,11 +1,11 @@
 import React from 'react';
-import style from './NewPost.module.css';
+import style from './NewPost.module.scss';
 
 const NewPost = () => {
 	return (
-		<div className="new-post">
-			<textarea name="" id="" cols="30" rows="10"></textarea>
-			<button className="button">Submit</button>
+		<div className={style.newPost}>
+			<textarea className={style.newPost__message} name="" id="" cols="20" rows="5" placeholder="Write your messаge hier"></textarea>
+			<button className={style.button}>Submit</button>
 		</div>
 	);
 
