@@ -7,6 +7,7 @@ const Header = () => {
 			<div className={style.container}>
 				<div className={style.logo}>UDN	<span className={style.name}>Ukraine developers Network</span></div>
 				<div className={style.user}>
+					<div className={style.user__flag}></div>
 					<div className={style.user__name}>Victor</div>
 					<div className={style.user__logo}>
 						<div className="">

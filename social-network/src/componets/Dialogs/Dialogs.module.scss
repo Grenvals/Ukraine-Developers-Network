@@ -1,9 +1,25 @@
 
 @import "../../scss/main.scss";
-.profile {
-  background: #fff;
-  padding: 60px;
+
+.dialogs {
+  background: $second;
+  box-shadow: $shadow;
+  border-radius: 6px;
+  height: 550px;
+  display: grid;
+  grid-template-areas: "head head"
+                        "notification  massage";
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 50px auto;
 }
-.nav {
+
+.notificationList {
+  grid-area: notification;
+  border-right: 1px solid $first;
   display: block;
+}
+
+.notificationItem {
+	display: block;
+  border-bottom: 1px solid $first;
 }

@@ -3,6 +3,7 @@
   grid-area: nav;
   background: $first; 
   border-radius: 6px;
+  overflow: hidden;
   box-shadow: $shadow; 
   padding: 0px;
   list-style: none;
@@ -18,17 +19,31 @@
 
 .link {
   display: block;
-  height: 40px;
-  line-height: 40px;
+  height: 50px;
+  line-height: 50px;
   text-decoration: none;
   color: #2C5F1B;
   border-bottom: 1px solid rgb(206, 209, 214);
   padding: 0px 25px;
+  transition: height 0.3s ease-out;
+  transition: background 0.3s;
+  &:hover {
+    background: darken($first, 5%); 
+    border-bottom: darken($first, 5%);
+  }
+  &:active {
+    background: darken($first, 10%); 
+    border-bottom: darken($first, 10%);
+  }
 }
 .linkActive {
-  color: rgb(63, 21, 44);
-  height: 60px;
-  line-height: 60px;
-  background: #2C5F1B;
+  color: $first;
+  height: 50px;
+  line-height: 50px;
+  background: $accent; 
+  border-bottom: $accent;
+  &:hover {
+    background: $accent;
+  }
 }
 

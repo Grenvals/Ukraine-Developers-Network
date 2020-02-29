@@ -1,0 +1,52 @@
+
+@import "../../../scss/main.scss";
+.header {
+  grid-area: head;
+  height: 50px;
+  padding: 0px 20px;
+  @include flexbox();
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $first;
+  &__title {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 50px;
+    color: rgb(31, 26, 22);
+  }
+}
+
+.threeDots {
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+  background: rgb(114, 114, 114); 
+  position: relative;
+  margin: 0 14px;
+  &:before {
+    content: '';
+    position: absolute;
+    display: block;
+    height: 4px;
+    width: 4px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -10px;
+    background: rgb(114, 114, 114); 
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    display: block;
+    height: 4px;
+    width: 4px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -10px;
+    background: rgb(114, 114, 114); 
+  }
+}
+
+

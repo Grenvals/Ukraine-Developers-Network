@@ -35,6 +35,14 @@
       max-height: 100%;
     }
   }
+  &__flag {
+    background: $second;
+    height: 6px;
+    width: 6px;
+    border-radius: 6px;
+    margin-right: 12px;
+    background: $accent3;
+  }
   &__name {
     font-size: 12px;
     color: #fff;
