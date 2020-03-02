@@ -1,7 +1,7 @@
 @import "scss/main.scss";
 // Global style
 .app-wrapper {
-  display: grid; ddd
+  display: grid; 
   grid-template-areas: "header header" "nav content";
   grid-template-rows: 60px 1fr;
   grid-template-columns: 20% 1fr;
