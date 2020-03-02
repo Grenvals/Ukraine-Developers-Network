@@ -2,11 +2,15 @@ import React from "react";
 import style from "./NotificationItem.module.scss";
 import { NavLink } from "react-router-dom";
 
+
+
+
+
 const NotificationItem = props => {
   return (
     <NavLink
       exact
-      to={props.link}
+      to={"/dialogs/" + props.id}
       className={style.notificationItem}
       activeClassName={style.linkActive}
     >
