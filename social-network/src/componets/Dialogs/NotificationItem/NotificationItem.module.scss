@@ -1,6 +1,10 @@
 
 @import "../../../scss/main.scss";
 
+.notificationListItem {
+	display: block;
+  border-bottom: 1px solid $first;
+}
 .notificationItem {
 	@include flexbox();
   align-items: center;
