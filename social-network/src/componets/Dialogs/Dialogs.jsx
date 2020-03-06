@@ -32,7 +32,7 @@ import MessagesBlock from './MessagesBlock/MessagesBlock'
 // ]
 
 const Dialogs = props => {
-  let notificationItem = props.dialogs.map(d => (
+  let notificationItem = props.state.dialogsPage.dialogs.map(d => (
     <NotificationItem
       id={d.id}
       userName={d.userName}
@@ -41,7 +41,7 @@ const Dialogs = props => {
     />
   ))
 
-  let messageBlock = props.messages.map(m => (
+  let messageBlock = props.state.dialogsPage.messages.map(m => (
     <MessagesBlock message={m.lastMessage} />
   ))
 
