@@ -54,6 +54,19 @@ const Dialogs = props => {
       <div className={style.chat}>
         <Header title="Alexander Dmitriew" />
         <ul className={style.chatMessage}>{messageBlock}</ul>
+        <form action="#" className={style.newMessage}>
+          <textarea
+            name=""
+            id=""
+            cols="10"
+            rows="2"
+            className={style.newMessage__message}
+            placeholder="Write your messаge hier"
+          ></textarea>
+          <div className="button">
+            <button className={style.button}>Send</button>
+          </div>
+        </form>
       </div>
     </div>
   )

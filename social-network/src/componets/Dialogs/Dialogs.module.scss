@@ -14,6 +14,9 @@
 
 .chat {
   grid-area: chat;
+  @include flexbox();
+  flex-direction: column;
+
 }
 
 .notificationList {
@@ -23,5 +26,49 @@
 }
 
 .chatMessage {
+  flex: 1;
   padding: 20px 20px 0px 20px;
+  min-height: 300px;
+}
+
+.newMessage {
+  width: 100%;
+  border-top: 1px solid $first;
+  background: $second;
+  padding: 15px;
+  flex: 0 0 auto;
+
+  &__message {
+    width: 100%;
+    line-height: 1.6;
+    resize: none;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+}
+
+.button {
+  display: block;
+  margin-right: 0px;
+  margin-left: auto;
+  background: $accent;
+  text-transform: uppercase;
+  color: $second;
+  height: 35px;
+  line-height: 35px;
+  padding: 0px 20px;
+  min-width: 90px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: $shadow;
+  transition: background 0.2s;
+
+  &:hover {
+    background: lighten($accent, 5%);
+  }
+
+  &:active {
+    background: darken($accent, 10%);
+  }
 }
