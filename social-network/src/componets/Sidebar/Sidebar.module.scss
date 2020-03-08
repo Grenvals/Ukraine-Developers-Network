@@ -1,0 +1,11 @@
+@import "./../../scss/main.scss";
+
+.sidebar {
+  grid-area: sidebar;
+  align-self: start;
+  padding-left: 15px;
+
+  &>* {
+    margin-bottom: 15px;
+  }
+}

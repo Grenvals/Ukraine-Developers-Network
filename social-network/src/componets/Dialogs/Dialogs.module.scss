@@ -1,21 +1,19 @@
-
 @import "../../scss/main.scss";
 
 .dialogs {
   background: $second;
   box-shadow: $shadow;
   border-radius: 6px;
-  height: 550px;
+  height: 515px;
   display: grid;
   grid-template-areas: "head head"
-                        "notification  chat";
+    "notification  chat";
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 50px auto;
 }
 
 .chat {
   grid-area: chat;
-  // background: $accent3;
 }
 
 .notificationList {
@@ -27,4 +25,3 @@
 .chatMessage {
   padding: 20px 20px 0px 20px;
 }
- 

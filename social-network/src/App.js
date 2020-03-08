@@ -3,19 +3,19 @@ import React from 'react'
 import './App.scss'
 import { Route, BrowserRouter } from 'react-router-dom'
 import Header from './componets/Header/Header'
-import Navbar from './componets/Navbar/Navbar'
 import Profile from './componets/Profile/Profile'
 import Dialogs from './componets/Dialogs/Dialogs'
 import News from './componets/News/News'
 import Music from './componets/Music/Music'
 import Settings from './componets/Settings/Settings'
+import Sidebar from './componets/Sidebar/Sidebar'
 
 const App = props => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-        <Navbar />
+        <Sidebar />
         <div className="content-wrapper">
           <Route
             path="/profile"

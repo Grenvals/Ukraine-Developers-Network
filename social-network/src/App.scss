@@ -1,20 +1,21 @@
 @import "scss/main.scss";
+
 // Global style
 .app-wrapper {
-  display: grid; 
-  grid-template-areas: "header header" "nav content";
-  grid-template-rows: 60px 1fr;
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar content";
+  grid-auto-rows: auto;
   grid-template-columns: 20% 1fr;
   grid-column-gap: 15px;
   grid-row-gap: 15px;
-  min-height: 100vh;
   background: #EDF2F6;
   padding: 0px 0px;
+  padding-bottom: 15px;
 }
+
 .content-wrapper {
   grid-area: content;
   padding: 0px 15px 0px 0px;
 }
-
-
-
