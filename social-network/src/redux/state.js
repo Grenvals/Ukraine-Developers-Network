@@ -38,6 +38,14 @@ let state = {
       { id: 3, message: 'Lets study React', likes: 5 },
     ],
   },
+  sidebar: {
+    friends: [
+      { id: 1, name: 'Ihor', messagesCount: 2 },
+      { id: 1, name: 'Anton', messagesCount: 5 },
+      { id: 1, name: 'Nicolas', messagesCount: 1 },
+      { id: 1, name: 'Garold', messagesCount: 10 },
+    ],
+  },
 }
 
 export default state

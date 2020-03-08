@@ -3,11 +3,11 @@ import style from './Sidebar.module.scss'
 import Navbar from './Navbar/Navbar'
 import Friends from './Friends/Friends'
 
-const Sidebar = () => {
+const Sidebar = props => {
   return (
     <div className={style.sidebar}>
       <Navbar />
-      <Friends />
+      <Friends state={props.state} />
     </div>
   )
 }

@@ -1,0 +1,53 @@
+@import "./../../../../scss/main.scss";
+
+.listItem {
+  display: block;
+  flex: 0 1 33.33%;
+  padding: 15px;
+  transform: background 0.1s;
+
+  &:hover {
+    background: $first;
+  }
+}
+
+.messageCount {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  height: 20px;
+  width: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  background: $accent3;
+  color: $first;
+}
+
+.name {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  color: $accent;
+}
+
+.logo {
+  margin: 0 auto;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  position: relative;
+  margin-bottom: 3px;
+
+  img {
+    width: 45px;
+    height: 45px;
+    object-fit: fill;
+    border-radius: 50%;
+    max-width: 100%;
+    width: 100%;
+  }
+}
