@@ -45,6 +45,13 @@ const Dialogs = props => {
     <MessagesBlock message={m.lastMessage} />
   ))
 
+  let newMessages = React.createRef()
+
+  let addPost = () => {
+    let text = newMessages.current.value
+    alert(text)
+  }
+
   return (
     <div className={style.dialogs}>
       <Header title="Chat / Messages" />
@@ -56,6 +63,7 @@ const Dialogs = props => {
         <ul className={style.chatMessage}>{messageBlock}</ul>
         <form action="#" className={style.newMessage}>
           <textarea
+            ref={newMessages}
             name=""
             id=""
             cols="10"
@@ -64,7 +72,9 @@ const Dialogs = props => {
             placeholder="Write your messаge hier"
           ></textarea>
           <div className="button">
-            <button className={style.button}>Send</button>
+            <button className={style.button} onClick={addPost}>
+              Send
+            </button>
           </div>
         </form>
       </div>
