@@ -19,7 +19,9 @@ const App = props => {
         <div className="content-wrapper">
           <Route
             path="/profile"
-            render={() => <Profile state={props.state} />}
+            render={() => (
+              <Profile state={props.state} addPost={props.addPost} />
+            )}
           />
           <Route
             path="/dialogs"

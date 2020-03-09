@@ -1,12 +1,12 @@
 import React from 'react'
 import style from './NewPost.module.scss'
 
-const NewPost = () => {
+const NewPost = props => {
   let newMessages = React.createRef()
 
   let addPost = () => {
     let text = newMessages.current.value
-    alert(text)
+    props.addPost(text)
   }
 
   return (
