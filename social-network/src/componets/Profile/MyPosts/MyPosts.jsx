@@ -4,13 +4,17 @@ import PostItem from './Post/Post'
 import NewPost from './NewPost/NewPost'
 
 const MyPosts = props => {
-  let postItem = props.state.profilePage.posts.map(d => (
+  let postItem = props.state.posts.map(d => (
     <PostItem message={d.message} likes={d.likes} />
   ))
 
   return (
     <div className={style.posts}>
-      <NewPost addPost={props.addPost} />
+      <NewPost
+        addPost={props.addPost}
+        updateNewPostMessage={props.updateNewPostMessage}
+        newPostMessage={props.newPostMessage}
+      />
       {postItem}
     </div>
   )

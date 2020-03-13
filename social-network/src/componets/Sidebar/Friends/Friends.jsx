@@ -3,7 +3,7 @@ import style from './Friends.module.scss'
 import UserItem from './UserItem/UserItem'
 
 const Friends = props => {
-  let userItem = props.state.sidebar.friends.map(u => (
+  let userItem = props.state.map(u => (
     <UserItem name={u.name} messagesCount={u.messagesCount} />
   ))
 

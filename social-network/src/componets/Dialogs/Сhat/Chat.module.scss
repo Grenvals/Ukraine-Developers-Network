@@ -1,0 +1,14 @@
+@import "./../../../scss/main.scss";
+
+.chat {
+  grid-area: chat;
+  @include flexbox();
+  flex-direction: column;
+
+}
+
+.chatMessage {
+  flex: 1;
+  padding: 20px 20px 0px 20px;
+  min-height: 300px;
+}

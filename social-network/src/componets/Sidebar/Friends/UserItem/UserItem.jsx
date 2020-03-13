@@ -13,7 +13,7 @@ const UserItem = props => {
       >
         <div className={style.logo}>
           <img
-            src="https://pbs.twimg.com/profile_images/1167923688450052096/wvr50pbL_400x400.jpg"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRHyEwZiidXHLnJ4qyOeJR81Lyx_3Xt9gBQcdvuIZuXr9GVLga8"
             alt="logo"
           />
           <div className={style.messageCount}>{props.messagesCount}</div>

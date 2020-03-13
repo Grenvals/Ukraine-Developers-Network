@@ -30,6 +30,7 @@ let state = {
       { id: 1, lastMessage: 'Good food!' },
       { id: 2, lastMessage: 'Please buy the food!' },
     ],
+    newDialogMessage: 'Write your message',
   },
   profilePage: {
     posts: [
@@ -37,6 +38,7 @@ let state = {
       { id: 2, message: 'You can do it!', likes: 22 },
       { id: 3, message: 'Lets study React', likes: 5 },
     ],
+    newPostMessage: 'Write your message',
   },
   sidebar: {
     friends: [
@@ -48,13 +50,28 @@ let state = {
   },
 }
 
-export let addPost = postMessage => {
+let rerenderEntireThree = state => {
+  console.log('state changed')
+}
+
+export let addPost = () => {
   let newPost = {
     id: 5,
-    message: postMessage,
+    message: state.profilePage.newPostMessage,
     likes: 0,
   }
   state.profilePage.posts.push(newPost)
+  state.profilePage.newPostMessage = ''
+  rerenderEntireThree(state)
+}
+
+export const updateNewPostMessage = newMessage => {
+  state.profilePage.newPostMessage = newMessage
+  rerenderEntireThree(state)
+}
+
+export const subscribe = observer => {
+  rerenderEntireThree = observer // Паттерн наблюдатель, observer // publisher-subscribe (eddEventListener)
 }
 
 export default state

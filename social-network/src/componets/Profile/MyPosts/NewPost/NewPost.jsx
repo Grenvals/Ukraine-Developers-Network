@@ -5,8 +5,12 @@ const NewPost = props => {
   let newMessages = React.createRef()
 
   let addPost = () => {
+    props.addPost()
+  }
+
+  let onPostChange = () => {
     let text = newMessages.current.value
-    props.addPost(text)
+    props.updateNewPostMessage(text)
   }
 
   return (
@@ -17,7 +21,9 @@ const NewPost = props => {
         cols="20"
         rows="5"
         placeholder="Write your messаge hier"
-      ></textarea>
+        value={props.newPostMessage}
+        onChange={onPostChange}
+      />
       <button onClick={addPost} className={style.button}>
         Submit
       </button>

@@ -1,38 +1,45 @@
-
 @import "../../../scss/main.scss";
 
 .notificationListItem {
-	display: block;
+  display: block;
   border-bottom: 1px solid $first;
 }
+
 .notificationItem {
-	@include flexbox();
+  @include flexbox();
   align-items: center;
   padding: 20px;
   transition: background 0.1s;
   text-decoration: none;
   color: $accent;
+
   &:hover {
     background: $first;
   }
 }
+
 .name {
-	font-size: 14px;
-	font-weight: 600;
+  font-size: 14px;
+  font-weight: 600;
 }
+
 .lastMessage {
   font-size: 12px;
   color: $textLight;
 }
+
 .logo {
-	width: 45px;
-	height: 45px;
-	border-radius: 50%;
-	// overflow: hidden;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  // overflow: hidden;
+  background: $first;
   margin-right: 25px;
   position: relative;
-	img {
-    object-fit: fill;
+  object-fit: fill;
+
+  img {
+    // object-fit: fill;
     border-radius: 50%;
     max-width: 100%;
     width: 45px;
@@ -62,4 +69,3 @@
   margin-right: 0px;
   margin-left: auto;
 }
-

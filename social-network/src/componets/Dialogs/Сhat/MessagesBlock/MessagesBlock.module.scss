@@ -1,5 +1,4 @@
-
-@import "../../../scss/main.scss";
+@import "../../../../scss/main.scss";
 
 .messagesBlock {
   position: relative;
@@ -20,10 +19,12 @@
   border-radius: 12px;
   font-size: 14px;
   margin-bottom: 20px;
+
   &:last-child {
     margin-bottom: 0px;
   }
 }
+
 .messageDate {
   position: absolute;
   bottom: 4px;
@@ -43,11 +44,13 @@
   border-radius: 50%;
   background: $first;
   z-index: 1;
+
   img {
     width: 100%;
     object-fit: fill;
   }
 }
+
 .usersMessages {
   display: flex;
   flex-direction: column;
@@ -58,15 +61,18 @@
   margin-right: 0px;
   margin-left: auto;
   justify-content: end;
+
   .messageItem {
     margin-right: 0;
     margin-left: auto;
     background: $accent3;
     color: $first;
+
     &:last-child {
       margin-bottom: 0px;
     }
   }
+
   .authorLogo {
     left: auto;
     right: 0px;
