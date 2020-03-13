@@ -27,10 +27,10 @@ let state = {
       },
     ],
     messages: [
-      { id: 1, lastMessage: 'Good food!' },
-      { id: 2, lastMessage: 'Please buy the food!' },
+      { id: 1, message: 'Good food!' },
+      { id: 2, message: 'Please buy the food!' },
     ],
-    newDialogMessage: 'Write your message',
+    newDialogMessage: '',
   },
   profilePage: {
     posts: [
@@ -64,9 +64,23 @@ export let addPost = () => {
   state.profilePage.newPostMessage = ''
   rerenderEntireThree(state)
 }
+export let addMessage = () => {
+  let newMessage = {
+    id: 5,
+    message: state.dialogsPage.newDialogMessage,
+  }
+  state.dialogsPage.messages.push(newMessage)
+  state.dialogsPage.newDialogMessage = ''
+  rerenderEntireThree(state)
+}
 
 export const updateNewPostMessage = newMessage => {
   state.profilePage.newPostMessage = newMessage
+  rerenderEntireThree(state)
+}
+
+export const updateNewDialogsMessage = newMessage => {
+  state.dialogsPage.newDialogMessage = newMessage
   rerenderEntireThree(state)
 }
 

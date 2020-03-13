@@ -5,7 +5,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
-import { addPost, updateNewPostMessage } from './redux/state.js'
+import {
+  addPost,
+  addMessage,
+  updateNewPostMessage,
+  updateNewDialogsMessage,
+} from './redux/state.js'
 import { BrowserRouter } from 'react-router-dom'
 
 let rerenderEntireThree = state => {
@@ -14,7 +19,9 @@ let rerenderEntireThree = state => {
       <App
         state={state}
         addPost={addPost}
+        addMessage={addMessage}
         updateNewPostMessage={updateNewPostMessage}
+        updateNewDialogsMessage={updateNewDialogsMessage}
       />{' '}
     </BrowserRouter>,
     document.getElementById('root')

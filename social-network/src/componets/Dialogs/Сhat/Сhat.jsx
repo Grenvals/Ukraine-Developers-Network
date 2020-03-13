@@ -13,14 +13,19 @@ const Chat = props => {
     alert(text)
   }
   let messageBlock = props.state.messages.map(m => (
-    <MessagesBlock message={m.lastMessage} />
+    <MessagesBlock message={m.message} />
   ))
-
   return (
     <div className={style.chat}>
       <Header title="Alexander Dmitriew" />
-      <ul className={style.chatMessage}>{messageBlock}</ul>
-      <InputBlock />
+      <div className={style.chatBlock}>
+        <ul className={style.chatList}>{messageBlock}</ul>
+      </div>
+      <InputBlock
+        state={props.state}
+        updateNewDialogsMessage={props.updateNewDialogsMessage}
+        addMessage={props.addMessage}
+      />
     </div>
   )
 }

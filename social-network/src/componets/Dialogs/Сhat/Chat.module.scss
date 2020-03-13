@@ -7,8 +7,11 @@
 
 }
 
-.chatMessage {
+.chatBlock {
   flex: 1;
+  overflow: hidden;
+}
+
+.chatList {
   padding: 20px 20px 0px 20px;
-  min-height: 300px;
 }
