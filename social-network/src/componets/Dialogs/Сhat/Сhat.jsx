@@ -5,12 +5,6 @@ import MessagesBlock from './MessagesBlock/MessagesBlock'
 import InputBlock from './InputBlock/InputBlock'
 
 const Chat = props => {
-  // let newMessages = React.createRef()
-
-  // let addPost = () => {
-  //   let text = newMessages.current.value
-  //   alert(text)
-  // }
   let messageBlock = props.state.messages.map(m => (
     <MessagesBlock message={m.message} />
   ))

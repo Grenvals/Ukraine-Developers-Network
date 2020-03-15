@@ -1,3 +1,8 @@
+const UPDATE_NEW_POST_MESSAGE = 'UPDATE-NEW-POST-MESSAGE'
+const ADD_POST = 'ADD-POST'
+const ADD_MESSAGE = 'ADD-MESSAGE'
+const UPDATE_NEW_DIALODS_MESSAGE = 'UPDATE-NEW-DIALODS-MESSAGE'
+
 let store = {
   _state: {
     dialogsPage: {
@@ -86,5 +91,24 @@ let store = {
     }
   },
 }
+
+export const addPostActionCreator = message => ({
+  type: ADD_POST,
+  message: message,
+})
+export const updateNewPostMessageActionCreator = message => ({
+  type: UPDATE_NEW_POST_MESSAGE,
+  message: message,
+})
+
+export const addMessageActionCreator = message => ({
+  type: ADD_MESSAGE,
+  message: message,
+})
+
+export const onTextChangeActionCreator = message => ({
+  type: UPDATE_NEW_DIALODS_MESSAGE,
+  message: message,
+})
 
 export default store
