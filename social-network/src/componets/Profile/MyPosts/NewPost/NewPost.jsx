@@ -2,15 +2,16 @@ import React from 'react'
 import style from './NewPost.module.scss'
 
 const NewPost = props => {
+  debugger
   let newMessages = React.createRef()
 
   let addPost = () => {
-    props.addPost()
+    props.dispatch({ type: 'ADD-POST', message: newMessages })
   }
 
   let onPostChange = () => {
     let text = newMessages.current.value
-    props.updateNewPostMessage(text)
+    props.dispatch({ type: 'UPDATE-NEW-POST-MESSAGE', message: text })
   }
 
   return (

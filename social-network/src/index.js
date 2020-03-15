@@ -1,33 +1,21 @@
 import './index.css'
 import * as serviceWorker from './serviceWorker'
-import state, { subscribe } from './redux/state'
+import store from './redux/state'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
-import {
-  addPost,
-  addMessage,
-  updateNewPostMessage,
-  updateNewDialogsMessage,
-} from './redux/state.js'
 import { BrowserRouter } from 'react-router-dom'
 
 let rerenderEntireThree = state => {
   ReactDOM.render(
     <BrowserRouter>
-      <App
-        state={state}
-        addPost={addPost}
-        addMessage={addMessage}
-        updateNewPostMessage={updateNewPostMessage}
-        updateNewDialogsMessage={updateNewDialogsMessage}
-      />{' '}
+      <App state={store.getState()} dispatch={store.dispatch.bind(store)} />{' '}
     </BrowserRouter>,
     document.getElementById('root')
   )
 }
-rerenderEntireThree(state)
-subscribe(rerenderEntireThree) // Подписує subscribe на rerenderEntireThree
+rerenderEntireThree(store.getState())
+store.subscribe(rerenderEntireThree) // Подписує subscribe на rerenderEntireThree
 
 serviceWorker.unregister()

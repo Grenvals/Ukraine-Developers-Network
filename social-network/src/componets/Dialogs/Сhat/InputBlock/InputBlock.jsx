@@ -6,12 +6,12 @@ const InputBlock = props => {
 
   let addMessage = () => {
     let text = newMessages.current.value
-    props.addMessage()
+    props.dispatch({ type: 'ADD-MESSAGE', message: text })
   }
 
   let onTextChange = () => {
     let text = newMessages.current.value
-    props.updateNewDialogsMessage(text)
+    props.dispatch({ type: 'UPDATE-NEW-DIALODS-MESSAGE', message: text })
   }
 
   return (

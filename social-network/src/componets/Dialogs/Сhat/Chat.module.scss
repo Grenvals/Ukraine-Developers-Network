@@ -8,8 +8,9 @@
 }
 
 .chatBlock {
-  flex: 1;
-  overflow: hidden;
+  flex: 0 0 65%;
+  max-height: 360px;
+  overflow-y: auto;
 }
 
 .chatList {

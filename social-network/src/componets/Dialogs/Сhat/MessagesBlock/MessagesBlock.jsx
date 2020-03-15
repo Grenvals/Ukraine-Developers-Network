@@ -11,7 +11,7 @@ const MessagesBlock = props => {
         />
       </div>
       <div className={style.messageItem}>
-        <p className="messageContent">{props.message}</p>
+        <p className={style.messageText}>{props.message}</p>
         <div className={style.messageDate}>8:50</div>
       </div>
     </li>

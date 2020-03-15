@@ -1,5 +1,5 @@
-import React from "react";
-import style from "./Header.module.scss";
+import React from 'react'
+import style from './Header.module.scss'
 
 const Header = () => {
   return (
@@ -14,7 +14,7 @@ const Header = () => {
           <div className={style.user__logo}>
             <div className="">
               <img
-                src="https://pbs.twimg.com/profile_images/1167923688450052096/wvr50pbL_400x400.jpg"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRHyEwZiidXHLnJ4qyOeJR81Lyx_3Xt9gBQcdvuIZuXr9GVLga8"
                 alt=""
               />
             </div>
@@ -22,7 +22,7 @@ const Header = () => {
         </div>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

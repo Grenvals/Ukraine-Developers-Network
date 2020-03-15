@@ -25,6 +25,10 @@
   }
 }
 
+.messageText {
+  word-break: break-all;
+}
+
 .messageDate {
   position: absolute;
   bottom: 4px;

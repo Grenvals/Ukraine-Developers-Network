@@ -6,7 +6,6 @@ const Friends = props => {
   let userItem = props.state.map(u => (
     <UserItem name={u.name} messagesCount={u.messagesCount} />
   ))
-
   return (
     <div className={style.friends}>
       <h2 className={style.title}>Friends</h2>

@@ -11,8 +11,9 @@ const MyPosts = props => {
   return (
     <div className={style.posts}>
       <NewPost
-        addPost={props.addPost}
-        updateNewPostMessage={props.updateNewPostMessage}
+        dispatch={props.dispatch}
+        // addPost={props.addPost}
+        // updateNewPostMessage={props.updateNewPostMessage}
         newPostMessage={props.newPostMessage}
       />
       {postItem}

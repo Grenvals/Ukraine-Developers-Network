@@ -19,11 +19,7 @@ const Dialogs = props => {
       <ul className={style.notificationList}>
         <li className={style.notificationItem}>{notificationItem}</li>
       </ul>
-      <Chat
-        state={props.state}
-        addMessage={props.addMessage}
-        updateNewDialogsMessage={props.updateNewDialogsMessage}
-      />
+      <Chat state={props.state} dispatch={props.dispatch} />
     </div>
   )
 }
