@@ -5,7 +5,8 @@ import NotificationItem from './NotificationItem/NotificationItem'
 import Chat from './Сhat/Сhat'
 
 const Dialogs = props => {
-  let notificationItem = props.state.dialogs.map(d => (
+  let state = props.store.getState()
+  let notificationItem = state.dialogsPage.dialogs.map(d => (
     <NotificationItem
       id={d.id}
       userName={d.userName}
@@ -19,7 +20,7 @@ const Dialogs = props => {
       <ul className={style.notificationList}>
         <li className={style.notificationItem}>{notificationItem}</li>
       </ul>
-      <Chat state={props.state} dispatch={props.dispatch} />
+      <Chat state={state} dispatch={props.store.dispatch.bind(props.store)} />
     </div>
   )
 }

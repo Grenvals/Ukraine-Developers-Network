@@ -3,32 +3,27 @@ import style from './InputBlock.module.scss'
 import {
   addMessageActionCreator,
   onTextChangeActionCreator,
-} from './../../../../redux/state'
+} from './../../../../redux/dialogsReducer'
 
 const InputBlock = props => {
-  let newMessages = React.createRef()
-
   let addMessage = () => {
-    let text = newMessages.current.value
-    props.dispatch(addMessageActionCreator(text))
+    props.dispatch(addMessageActionCreator())
   }
 
-  let onTextChange = () => {
-    let text = newMessages.current.value
+  let onTextChange = event => {
+    let text = event.target.value
     props.dispatch(onTextChangeActionCreator(text))
   }
+  debugger
 
   return (
     <form action="#" className={style.newMessage}>
       <textarea
-        ref={newMessages}
-        name=""
-        id=""
         cols="10"
         rows="2"
         className={style.newMessage__message}
         placeholder="Write your messаge hier"
-        value={props.state.newDialogMessage}
+        value={props.state.dialogsPage.newDialogMessage}
         onChange={onTextChange}
       ></textarea>
       <div className="button">

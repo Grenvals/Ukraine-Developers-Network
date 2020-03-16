@@ -5,7 +5,8 @@ import MessagesBlock from './MessagesBlock/MessagesBlock'
 import InputBlock from './InputBlock/InputBlock'
 
 const Chat = props => {
-  let messageBlock = props.state.messages.map(m => (
+  // debugger
+  let messageBlock = props.state.dialogsPage.messages.map(m => (
     <MessagesBlock message={m.message} />
   ))
   return (

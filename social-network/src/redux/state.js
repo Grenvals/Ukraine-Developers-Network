@@ -1,7 +1,6 @@
-const UPDATE_NEW_POST_MESSAGE = 'UPDATE-NEW-POST-MESSAGE'
-const ADD_POST = 'ADD-POST'
-const ADD_MESSAGE = 'ADD-MESSAGE'
-const UPDATE_NEW_DIALODS_MESSAGE = 'UPDATE-NEW-DIALODS-MESSAGE'
+import profileReducer from './profileReducer'
+import dialogsReducer from './dialogsReducer'
+import sidebarReducer from './sidebarReducer'
 
 let store = {
   _state: {
@@ -65,50 +64,11 @@ let store = {
     this._callSubscriber = observer // Паттерн наблюдатель, observer // publisher-subscribe (eddEventListener)
   },
   dispatch(action) {
-    if (action.type === 'ADD-POST') {
-      let newPost = {
-        id: 5,
-        message: this._state.profilePage.newPostMessage,
-        likes: 0,
-      }
-      this._state.profilePage.posts.push(newPost)
-      this._state.profilePage.newPostMessage = ''
-      this._callSubscriber(this._state)
-    } else if (action.type === 'ADD-MESSAGE') {
-      let newMessage = {
-        id: 5,
-        message: this._state.dialogsPage.newDialogMessage,
-      }
-      this._state.dialogsPage.messages.push(newMessage)
-      this._state.dialogsPage.newDialogMessage = ''
-      this._callSubscriber(this._state)
-    } else if (action.type === 'UPDATE-NEW-POST-MESSAGE') {
-      this._state.profilePage.newPostMessage = action.message
-      this._callSubscriber(this._state)
-    } else if (action.type === 'UPDATE-NEW-DIALODS-MESSAGE') {
-      this._state.dialogsPage.newDialogMessage = action.message
-      this._callSubscriber(this._state)
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action)
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+    this._state.sidebar = sidebarReducer(this._state.sidebar, action)
+    this._callSubscriber(this._state)
   },
 }
-
-export const addPostActionCreator = message => ({
-  type: ADD_POST,
-  message: message,
-})
-export const updateNewPostMessageActionCreator = message => ({
-  type: UPDATE_NEW_POST_MESSAGE,
-  message: message,
-})
-
-export const addMessageActionCreator = message => ({
-  type: ADD_MESSAGE,
-  message: message,
-})
-
-export const onTextChangeActionCreator = message => ({
-  type: UPDATE_NEW_DIALODS_MESSAGE,
-  message: message,
-})
 
 export default store
