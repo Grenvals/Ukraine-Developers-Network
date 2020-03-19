@@ -11,6 +11,7 @@ import Settings from './componets/Settings/Settings'
 import Sidebar from './componets/Sidebar/Sidebar'
 
 const App = props => {
+  debugger
   return (
     <div className="app-wrapper">
       <Header />
