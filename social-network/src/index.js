@@ -8,7 +8,6 @@ import App from './App'
 import { BrowserRouter } from 'react-router-dom'
 
 let rerenderEntireThree = state => {
-  debugger
   ReactDOM.render(
     <BrowserRouter>
       <App

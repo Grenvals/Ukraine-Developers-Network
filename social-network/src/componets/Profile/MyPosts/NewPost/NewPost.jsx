@@ -1,20 +1,15 @@
 import React from 'react'
 import style from './NewPost.module.scss'
-import {
-  addPostActionCreator,
-  updateNewPostMessageActionCreator,
-} from '../../../../redux/profileReducer'
 
 const NewPost = props => {
-  debugger
   let newMessages = React.createRef()
 
-  let addPost = () => {
-    props.dispatch(addPostActionCreator())
+  let onAddPost = () => {
+    props.addPost()
   }
   let onPostChange = () => {
     let text = newMessages.current.value
-    props.dispatch(updateNewPostMessageActionCreator(text))
+    props.updateNewPostMessage(text)
   }
 
   return (
@@ -28,7 +23,7 @@ const NewPost = props => {
         value={props.newPostMessage}
         onChange={onPostChange}
       />
-      <button onClick={addPost} className={style.button}>
+      <button onClick={onAddPost} className={style.button}>
         Submit
       </button>
     </div>

@@ -4,16 +4,15 @@ import PostItem from './Post/Post'
 import NewPost from './NewPost/NewPost'
 
 const MyPosts = props => {
-  let postItem = props.state.posts.map(d => (
+  let postItem = props.posts.map(d => (
     <PostItem message={d.message} likes={d.likes} />
   ))
 
   return (
     <div className={style.posts}>
       <NewPost
-        dispatch={props.dispatch}
-        // addPost={props.addPost}
-        // updateNewPostMessage={props.updateNewPostMessage}
+        updateNewPostMessage={props.updateNewPostMessage}
+        addPost={props.addPost}
         newPostMessage={props.newPostMessage}
       />
       {postItem}

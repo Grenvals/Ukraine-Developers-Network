@@ -4,7 +4,6 @@ import Navbar from './Navbar/Navbar'
 import Friends from './Friends/Friends'
 
 const Sidebar = props => {
-  debugger
   return (
     <div className={style.sidebar}>
       <Navbar />
