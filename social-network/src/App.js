@@ -4,7 +4,7 @@ import './App.scss'
 import { Route } from 'react-router-dom'
 import Header from './componets/Header/Header'
 import Profile from './componets/Profile/Profile'
-import Dialogs from './componets/Dialogs/Dialogs'
+import DialogsContainer from './componets/Dialogs/DialogsContainer'
 import News from './componets/News/News'
 import Music from './componets/Music/Music'
 import Settings from './componets/Settings/Settings'
@@ -17,7 +17,10 @@ const App = props => {
       <Sidebar state={props.state.sidebar} />
       <div className="content-wrapper">
         <Route path="/profile" render={() => <Profile store={props.store} />} />
-        <Route path="/dialogs" render={() => <Dialogs store={props.store} />} />
+        <Route
+          path="/dialogs"
+          render={() => <DialogsContainer store={props.store} />}
+        />
         <Route path="/news" component={News} />
         <Route path="/music" component={Music} />
         <Route path="/settings" component={Settings} />

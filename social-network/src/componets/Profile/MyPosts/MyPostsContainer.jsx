@@ -12,7 +12,7 @@ const MyPostsContainer = props => {
   let posts = state.profilePage.posts
   let newPostMessage = state.profilePage.newPostMessage
   let updateNewPostMessage = text => {
-    props.store.dispatch(updateNewPostMessageActionCreator(text))
+    props.store.dispatch(updateNewPostMessageActionCreator())
   }
   let addPost = () => {
     props.store.dispatch(addPostActionCreator())

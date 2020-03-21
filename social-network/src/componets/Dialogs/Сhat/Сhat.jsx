@@ -6,7 +6,7 @@ import InputBlock from './InputBlock/InputBlock'
 
 const Chat = props => {
   // debugger
-  let messageBlock = props.state.dialogsPage.messages.map(m => (
+  let messageBlock = props.messages.map(m => (
     <MessagesBlock message={m.message} />
   ))
   return (
@@ -15,7 +15,11 @@ const Chat = props => {
       <div className={style.chatBlock}>
         <ul className={style.chatList}>{messageBlock}</ul>
       </div>
-      <InputBlock state={props.state} dispatch={props.dispatch} />
+      <InputBlock
+        addMessage={props.addMessage}
+        onTextChange={props.onTextChange}
+        newDialogMessage={props.newDialogMessage}
+      />
     </div>
   )
 }
