@@ -10,11 +10,7 @@ import { BrowserRouter } from 'react-router-dom'
 let rerenderEntireThree = state => {
   ReactDOM.render(
     <BrowserRouter>
-      <App
-        state={store.getState()}
-        store={store}
-        dispatch={store.dispatch.bind(store)}
-      />
+      <App store={store} />
     </BrowserRouter>,
     document.getElementById('root')
   )
