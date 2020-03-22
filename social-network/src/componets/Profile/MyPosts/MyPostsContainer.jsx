@@ -6,25 +6,31 @@ import {
   addPostActionCreator,
   updateNewPostMessageActionCreator,
 } from '../../../redux/profileReducer'
+import StoreContext from '../../../redux/context-store'
 
 const MyPostsContainer = props => {
-  let state = props.store.getState()
-  let posts = state.profilePage.posts
-  let newPostMessage = state.profilePage.newPostMessage
-  let updateNewPostMessage = text => {
-    props.store.dispatch(updateNewPostMessageActionCreator())
-  }
-  let addPost = () => {
-    props.store.dispatch(addPostActionCreator())
-  }
-
   return (
-    <MyPosts
-      posts={posts}
-      updateNewPostMessage={updateNewPostMessage}
-      addPost={addPost}
-      newPostMessage={newPostMessage}
-    />
+    <StoreContext>
+      {store => {
+        let state = store.getState()
+        let posts = state.profilePage.posts
+        let newPostMessage = state.profilePage.newPostMessage
+        let updateNewPostMessage = text => {
+          store.dispatch(updateNewPostMessageActionCreator())
+        }
+        let addPost = () => {
+          store.dispatch(addPostActionCreator())
+        }
+        return (
+          <MyPosts
+            posts={posts}
+            updateNewPostMessage={updateNewPostMessage}
+            addPost={addPost}
+            newPostMessage={newPostMessage}
+          />
+        )
+      }}
+    </StoreContext>
   )
 }
 

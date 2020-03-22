@@ -3,6 +3,7 @@ import style from './Friends.module.scss'
 import UserItem from './UserItem/UserItem'
 
 const Friends = props => {
+  debugger
   let userItem = props.state.map(u => (
     <UserItem name={u.name} messagesCount={u.messagesCount} />
   ))
