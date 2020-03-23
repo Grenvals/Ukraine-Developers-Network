@@ -9,12 +9,13 @@ import News from './componets/News/News'
 import Music from './componets/Music/Music'
 import Settings from './componets/Settings/Settings'
 import Sidebar from './componets/Sidebar/Sidebar'
+import SidebarContainer from './componets/Sidebar/SidebarContainer'
 
 const App = props => {
   return (
     <div className="app-wrapper">
       <Header />
-      <Sidebar />
+      <SidebarContainer />
       <div className="content-wrapper">
         <Route path="/profile" render={() => <Profile />} />
         <Route path="/dialogs" render={() => <DialogsContainer />} />

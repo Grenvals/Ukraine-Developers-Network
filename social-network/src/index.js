@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import { BrowserRouter } from 'react-router-dom'
-import { StoreContext, Provider } from './redux/context-store'
+import { Provider } from 'react-redux'
 
 let rerenderEntireThree = state => {
   ReactDOM.render(
