@@ -8,7 +8,6 @@ import DialogsContainer from './componets/Dialogs/DialogsContainer'
 import News from './componets/News/News'
 import Music from './componets/Music/Music'
 import Settings from './componets/Settings/Settings'
-import Sidebar from './componets/Sidebar/Sidebar'
 import SidebarContainer from './componets/Sidebar/SidebarContainer'
 
 const App = props => {
