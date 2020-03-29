@@ -4,33 +4,33 @@ const UPDATE_NEW_DIALODS_MESSAGE = 'UPDATE-NEW-DIALODS-MESSAGE'
 let initialState = {
   dialogs: [
     {
-      id: 1,
+      id: 0,
       userName: 'Anton Demin',
       messageCount: 4,
       lastMessage: 'Great, I’ll see you tomorrow!...',
     },
     {
-      id: 2,
+      id: 1,
       userName: 'Alexander Dmitriew',
       messageCount: 5,
       lastMessage: 'Great, I’ll see you tomorrow!...',
     },
     {
-      id: 3,
+      id: 2,
       userName: 'Nicolas Volodin',
       messageCount: 2,
       lastMessage: 'Hi Elaine! I have a question...',
     },
     {
-      id: 4,
+      id: 3,
       userName: 'Garold Insbruck',
       messageCount: 1,
       lastMessage: 'Great, I’ll see you tomorrow!...',
     },
   ],
   messages: [
-    { id: 1, message: 'Good food!' },
-    { id: 2, message: 'Please buy the food!' },
+    { id: 0, message: 'Good food!' },
+    { id: 1, message: 'Please buy the food!' },
   ],
   newDialogMessage: '',
 }

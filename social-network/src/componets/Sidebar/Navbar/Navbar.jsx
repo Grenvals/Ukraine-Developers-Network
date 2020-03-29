@@ -29,21 +29,21 @@ const Navbar = () => {
         <li className={style.list__item}>
           <NavLink
             exact
-            to="/news"
+            to="/users"
             className={style.link}
             activeClassName={style.linkActive}
           >
-            News
+            Users
           </NavLink>
         </li>
         <li className={style.list__item}>
           <NavLink
             exact
-            to="/music"
+            to="/news"
             className={style.link}
             activeClassName={style.linkActive}
           >
-            Music
+            News
           </NavLink>
         </li>
         <li className={style.list__item}>

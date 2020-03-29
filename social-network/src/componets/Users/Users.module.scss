@@ -1,0 +1,10 @@
+
+@import "./../../scss/main.scss";
+
+.users {
+	background-color: $second;
+	box-shadow: $shadow;
+  border-radius: 6px;
+	height: 100%;
+	max-width: 800px;
+}
