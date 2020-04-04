@@ -1,21 +1,26 @@
 import React from 'react'
 import style from './User.module.scss'
+import defaultUserPhoto from "../../../assets/images/user-default.svg"
 
 const User = props => {
   return (
     <li className={style.user}>
       <div className={style.preview}>
         <div className={style.photo}>
-          <img src={props.user.photoURL} alt="users foto" />
+         <img src={props.user.photos.small != null ? (
+          props.user.photos.small
+        ) : (
+          defaultUserPhoto
+        )} alt="users foto" />
         </div>
       </div>
       <div className={style.info}>
-        <h3 className={style.name}>{props.user.fullname}</h3>
+        <h3 className={style.name}>{props.user.name}</h3>
         <p className={style.status}>{props.user.status}</p>
       </div>
       <div className={style.location}>
-        <p className={style.country}>{props.user.location.country}</p>
-        <p className={style.city}>{props.user.location.city}</p>
+        <p className={style.country}>Ukraine</p>
+        <p className={style.city}>New York</p>
       </div>
       <div className={style.follow}>
         {props.user.followed ? (
