@@ -3,12 +3,14 @@ const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
+const SET_LOADING_STATUS = 'SET_LOADING_STATUS'
 
 let initialState = {
   users: [],
   pageSize: 10,
   totalUsersCount: 0,
   currentPage: 2,
+  isLoading: true,
 }
 
 let usersReducer = (state = initialState, action) => {
@@ -53,6 +55,12 @@ let usersReducer = (state = initialState, action) => {
         totalUsersCount: action.count,
       }
     }
+    case 'SET_LOADING_STATUS': {
+      return {
+        ...state,
+        isLoading: action.loading,
+      }
+    }
     default:
       return state
   }
@@ -79,6 +87,10 @@ export const setCurrentPageAC = currentPage => ({
 export const setTotalUsersCountAC = totalUsersCount => ({
   type: SET_TOTAL_USERS_COUNT,
   count: totalUsersCount,
+})
+export const setLoadingStatusAC = loadingStatus => ({
+  type: SET_LOADING_STATUS,
+  loading: loadingStatus,
 })
 
 export default usersReducer
