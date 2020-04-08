@@ -1,0 +1,30 @@
+
+@import "./../../../scss/main.scss";
+
+.countItem {
+	display: block;
+	height: 25px;
+	font-size: 12px;
+	box-shadow: $shadow;
+	line-height: 25px;
+	padding: 0px 8px;
+	min-width: 25px;
+	background: rgba($accent, 0.9);
+	margin-right: 4px;
+	color: $second;
+	border-radius: 7px;
+	transition: background 0.1s;
+	&:last-child {
+		margin-right: 0px;
+	}
+	&:hover {
+		cursor: pointer;
+		background: rgba($accent, 1);
+	}
+}
+.active {
+	background: $accent3;
+	&:hover {
+		background: $accent3;
+	}
+}

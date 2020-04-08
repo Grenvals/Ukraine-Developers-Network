@@ -3,7 +3,7 @@ import style from './UserInfo.module.scss'
 
 const UserInfo = () => {
   return (
-    <div className="userInfo">
+    <div className={style.userInfo}>
       <div className="profile-bg"></div>
       <div className="user-info"></div>
     </div>
