@@ -5,7 +5,6 @@ import UserInfo from './UserInfo/UserInfo'
 import Preloader from '../common/Preloader/Preloader'
 
 const Profile = props => {
-  console.log(props)
   if (!props.profile) {
     return <Preloader />
   } else {

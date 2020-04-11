@@ -1,8 +1,8 @@
 import React from 'react'
 import style from './Pagination.module.scss'
-import CountItem from './CountItem/CountItem'
-import arrowLeft from './../../assets/images/arrows/left-arrow.svg'
-import arrowRight from './../../assets/images/arrows/right-arrow.svg'
+import PaginationCountItem from './PaginationCountItem/PaginationCountItem'
+import arrowLeft from './../../../assets/images/arrows/left-arrow.svg'
+import arrowRight from './../../../assets/images/arrows/right-arrow.svg'
 
 const Pagination = props => {
   let pages = [...props.pages]
@@ -13,7 +13,7 @@ const Pagination = props => {
     pages.pop()
   }
   let countItem = pages.map(p => (
-    <CountItem
+    <PaginationCountItem
       key={p}
       countNumber={p}
       currentPage={props.currentPage}
@@ -21,7 +21,7 @@ const Pagination = props => {
     />
   ))
   let lastPagesCountItem = lastPages.map(p => (
-    <CountItem
+    <PaginationCountItem
       key={p}
       countNumber={p}
       currentPage={props.currentPage}

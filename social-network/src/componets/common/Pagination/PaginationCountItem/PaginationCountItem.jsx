@@ -1,7 +1,7 @@
 import React from 'react'
-import style from './CountItem.module.scss'
+import style from './PaginationCountItem.module.scss'
 
-const СountItem = props => {
+const PaginationСountItem = props => {
   let setCurrentPage = () => {
     props.setCurrentPage(props.countNumber)
 
@@ -13,4 +13,4 @@ const СountItem = props => {
   )
 }
 
-export default СountItem
+export default PaginationСountItem

@@ -2,18 +2,18 @@ import React from 'react'
 // import logo from './logo.svg';
 import './App.scss'
 import { Route } from 'react-router-dom'
-import Header from './componets/Header/Header'
 import DialogsContainer from './componets/Dialogs/DialogsContainer'
 import News from './componets/News/News'
 import Settings from './componets/Settings/Settings'
 import SidebarContainer from './componets/Sidebar/SidebarContainer'
 import UsersContainer from './componets/Users/UsersContainer'
 import ProfileContainer from './componets/Profile/ProfileContainer'
+import HeaderContainer from './componets/Header/HeaderContainer'
 
 const App = props => {
   return (
     <div className="app-wrapper">
-      <Header />
+      <HeaderContainer />
       <SidebarContainer />
       <div className="content-wrapper">
         <Route path="/profile/:userId?" render={() => <ProfileContainer />} />

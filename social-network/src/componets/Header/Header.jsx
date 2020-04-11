@@ -1,7 +1,10 @@
 import React from 'react'
 import style from './Header.module.scss'
+import { NavLink } from 'react-router-dom'
+import defaultUserPhoto from "../../assets/images/user-default.svg"
 
-const Header = () => {
+const Header = props => {
+  console.log(props)
   return (
     <header className={style.header}>
       <div className={style.container}>
@@ -10,15 +13,26 @@ const Header = () => {
         </div>
         <div className={style.user}>
           <div className={style.user__flag}></div>
-          <div className={style.user__name}>Victor</div>
+          <div className={style.user__name}>{props.login}</div>
           <div className={style.user__logo}>
-            <div className="">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRHyEwZiidXHLnJ4qyOeJR81Lyx_3Xt9gBQcdvuIZuXr9GVLga8"
-                alt=""
-              />
-            </div>
+            <img
+              src={props.isAuth ? (
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRHyEwZiidXHLnJ4qyOeJR81Lyx_3Xt9gBQcdvuIZuXr9GVLga8"
+              ) : (
+                defaultUserPhoto
+              )}
+              alt=""
+            />
           </div>
+          {props.isAuth ? (
+            <NavLink to={'/login'} className={style.button}>
+              Log out
+            </NavLink>
+          ) : (
+            <NavLink to={'/login'} className={style.button}>
+              Log in
+            </NavLink>
+          )}
         </div>
       </div>
     </header>
