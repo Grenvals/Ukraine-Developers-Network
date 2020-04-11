@@ -7,7 +7,7 @@ const SET_LOADING_STATUS = 'SET_LOADING_STATUS'
 
 let initialState = {
   users: [],
-  pageSize: 10,
+  pageSize: 7,
   totalUsersCount: 0,
   currentPage: 2,
   isLoading: true,

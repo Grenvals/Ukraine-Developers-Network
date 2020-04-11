@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './Users.module.scss'
-import Header from '../Head/Head'
+import Head from '../common/Head/Head'
 import User from './User/User'
 import Pagination from '../Pagination/Pagination'
 
@@ -12,7 +12,7 @@ const Users = props => {
     }
     return (
       <div className={style.users}>
-        <Header />
+        <Head title="Users" />
         <div className={style.settings}>
           <Pagination pages={pages}  setCurrentPage={props.onPageChanget} currentPage={props.currentPage} />
         </div>

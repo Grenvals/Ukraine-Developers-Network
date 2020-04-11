@@ -31,7 +31,8 @@
 }
 .name {
   font-size: 14px;
-	font-weight: 600;
+  font-weight: 600;
+  margin-bottom: 2px;
 }
 
 .status {
@@ -39,10 +40,13 @@
   color: $textLight;
 }
 
-
-.location {
-	font-size: 14px;
+.profile {
+  font-size: 14px;
 	margin-left: auto;
+	margin-right: 70px;
+}
+.location {
+  font-size: 14px;
 	margin-right: 70px;
 }
 .follow {
@@ -77,5 +81,13 @@
     &:hover {
       background: lighten($accent3, 5%);
     }
-	}
+  }
+  &_profile {
+    margin-left: 0px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 5px;
+    padding: 0px 20px;
+    min-width: 50px;
+  }
 }

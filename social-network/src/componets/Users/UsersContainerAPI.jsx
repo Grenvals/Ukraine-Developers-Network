@@ -5,7 +5,6 @@ import Preloader from '../common/Preloader/Preloader'
 
 class UsersContainerAPI extends React.Component {
   componentDidMount() {
-    debugger
     this.props.setLoadingStatus(true);
     axios
       .get(

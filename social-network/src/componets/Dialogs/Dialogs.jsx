@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './Dialogs.module.scss'
-import Header from '../Head/Head'
+import Head from '../common/Head/Head'
 import NotificationItem from './NotificationItem/NotificationItem'
 import Chat from './Сhat/Сhat'
 
@@ -16,7 +16,7 @@ const Dialogs = props => {
   ))
   return (
     <div className={style.dialogs}>
-      <Header />
+      <Head title="Chat / Messages" />
       <ul className={style.notificationList}>
         {notificationItem}
       </ul>

@@ -3,12 +3,12 @@ import React from 'react'
 import './App.scss'
 import { Route } from 'react-router-dom'
 import Header from './componets/Header/Header'
-import Profile from './componets/Profile/Profile'
 import DialogsContainer from './componets/Dialogs/DialogsContainer'
 import News from './componets/News/News'
 import Settings from './componets/Settings/Settings'
 import SidebarContainer from './componets/Sidebar/SidebarContainer'
 import UsersContainer from './componets/Users/UsersContainer'
+import ProfileContainer from './componets/Profile/ProfileContainer'
 
 const App = props => {
   return (
@@ -16,7 +16,7 @@ const App = props => {
       <Header />
       <SidebarContainer />
       <div className="content-wrapper">
-        <Route path="/profile" render={() => <Profile />} />
+        <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
         <Route path="/dialogs" render={() => <DialogsContainer />} />
         <Route path="/users" render={() => <UsersContainer />} />
         <Route path="/news" component={News} />

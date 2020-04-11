@@ -7,6 +7,10 @@
 .paginationList {
 	@include flexbox();
 	padding: 0px 5px;
+	font-size: 14px;
+}
+.dots {
+	padding: 0px 10px;
 }
 .button {
 	flex: 0 0 auto;

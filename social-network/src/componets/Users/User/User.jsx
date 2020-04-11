@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './User.module.scss'
 import defaultUserPhoto from "../../../assets/images/user-default.svg"
+import { NavLink } from 'react-router-dom'
 
 const User = props => {
   return (
@@ -17,6 +18,12 @@ const User = props => {
       <div className={style.info}>
         <h3 className={style.name}>{props.user.name}</h3>
         <p className={style.status}>{props.user.status}</p>
+      </div>
+      <div className={style.profile}>
+        <NavLink to={'/profile/' + props.user.id}  className={`${style.button} ${style.button_green} ${style.button_profile}`}> 
+        profile
+        </NavLink>
+       
       </div>
       <div className={style.location}>
         <p className={style.country}>Ukraine</p>

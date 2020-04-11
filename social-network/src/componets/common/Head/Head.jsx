@@ -1,10 +1,10 @@
 import React from 'react'
 import style from './Head.module.scss'
 
-const Header = props => {
+const Head = props => {
   return (
     <div className={style.header}>
-      <h2 className={style.header__title}>Chat / Messages</h2>
+      <h2 className={style.header__title}>{props.title}</h2>
       <div className="more">
         <div className={style.threeDots}></div>
       </div>
@@ -12,4 +12,4 @@ const Header = props => {
   )
 }
 
-export default Header
+export default Head
