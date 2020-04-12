@@ -1,0 +1,15 @@
+
+@import "../../../scss/main.scss";
+.preloader {
+	@include flexbox();
+	justify-content: center;
+	align-items: center;
+	min-height: 400px;
+	max-width: 800px;
+}
+.item {
+	width: 70px;
+}
+
+
+

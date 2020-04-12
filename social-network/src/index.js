@@ -6,23 +6,15 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
 
-let rerenderEntireThree = state => {
-  ReactDOM.render(
-    <BrowserRouter>
-      <App
-        state={store.getState()}
-        store={store}
-        dispatch={store.dispatch.bind(store)}
-      />
-    </BrowserRouter>,
-    document.getElementById('root')
-  )
-}
-rerenderEntireThree(store.getState())
-store.subscribe(() => {
-  let state = store.getState()
-  rerenderEntireThree(state)
-}) // Подписує subscribe на rerenderEntireThree
+ReactDOM.render(
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>,
+  document.getElementById('root')
+)
 
 serviceWorker.unregister()

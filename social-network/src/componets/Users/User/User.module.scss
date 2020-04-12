@@ -1,0 +1,93 @@
+
+@import "./../../../scss/main.scss";
+
+.user {
+	@include flexbox();
+  align-items: center;
+  padding: 20px;
+  transition: background 0.1s;
+  text-decoration: none;
+  color: $accent;
+	border-bottom: 1px solid $first;
+  &:hover {
+    background: $first;
+  }
+}
+.preview {
+	flex: 0 0 50px;
+	margin-right: 30px;
+	text-align: center;
+}
+.photo {
+	img {
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+	}
+}
+
+.info {
+	font-size: 14px;
+}
+.name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.status {
+  font-size: 12px;
+  color: $textLight;
+}
+
+.profile {
+  font-size: 14px;
+	margin-left: auto;
+	margin-right: 70px;
+}
+.location {
+  font-size: 14px;
+	margin-right: 70px;
+}
+.follow {
+	flex: 0 0 120px;
+}
+
+.button {
+  display: block;
+  margin-right: 0px;
+  margin-left: auto;
+  background: rgba($accent, 0.9);
+  text-transform: uppercase;
+  color: $second;
+  height: 40px;
+  line-height: 40px;
+  padding: 0px 20px;
+  min-width: 120px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: $shadow;
+  transition: background 0.2s;
+  &:hover {
+    background: lighten($accent, 5%);
+  }
+
+  &:active {
+    background: darken($accent, 10%);
+  }
+  &_green {
+    background: $accent3;
+    &:hover {
+      background: lighten($accent3, 5%);
+    }
+  }
+  &_profile {
+    margin-left: 0px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 5px;
+    padding: 0px 20px;
+    min-width: 50px;
+  }
+}

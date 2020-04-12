@@ -4,7 +4,7 @@ import UserItem from './UserItem/UserItem'
 
 const Friends = props => {
   let userItem = props.state.map(u => (
-    <UserItem name={u.name} messagesCount={u.messagesCount} />
+    <UserItem key={u.id} name={u.name} messagesCount={u.messagesCount} />
   ))
   return (
     <div className={style.friends}>

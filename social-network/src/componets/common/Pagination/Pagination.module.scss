@@ -1,0 +1,35 @@
+
+@import "./../../../scss/main.scss";
+
+.pagination {
+	@include flexbox();
+}
+.paginationList {
+	@include flexbox();
+	padding: 0px 5px;
+	font-size: 14px;
+}
+.dots {
+	padding: 0px 10px;
+}
+.button {
+	flex: 0 0 auto;
+	@include flexbox();
+	box-shadow: $shadow;
+	justify-content: center;
+	align-items: center;
+	border-radius: 7px;
+	height: 25px;
+	width: 25px;
+	background: rgba($accent, 0.9);
+	background: $accent3;
+	img {
+		width: 12px;
+	}
+	&:hover {
+		background: $accent3;
+	}
+}
+.disable {
+	background: rgba($accent3, 0.7);
+}
