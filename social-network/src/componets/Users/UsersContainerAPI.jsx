@@ -8,7 +8,12 @@ class UsersContainerAPI extends React.Component {
     this.props.setLoadingStatus(true);
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,  {
+          withCredentials: true,
+          headers: {
+            'API-KEY': '8fc471c4-748c-4bc5-bda6-3ac04c8f38c0',
+          },
+        }
       )
       .then(response => {
         this.props.setUsers(response.data.items)
@@ -26,7 +31,13 @@ class UsersContainerAPI extends React.Component {
     this.props.setLoadingStatus(true);
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`,
+        {
+          withCredentials: true,
+          headers: {
+            'API-KEY': '8fc471c4-748c-4bc5-bda6-3ac04c8f38c0',
+          },
+        }
       )
       .then(response => {
         this.props.setUsers(response.data.items)

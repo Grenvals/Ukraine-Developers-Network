@@ -9,6 +9,7 @@ let initialState = {
   login: null,
   isAuth: false,
   isLoading: true,
+  users: [],
 }
 
 let authReducer = (state = initialState, action) => {
