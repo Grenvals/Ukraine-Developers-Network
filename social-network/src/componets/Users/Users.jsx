@@ -23,6 +23,8 @@ const Users = props => {
               user={u}
               follow={props.follow}
               unfollow={props.unfollow}
+              followingInProgress={props.followingInProgress}
+              toogleFollowingProgress={props.toogleFollowingProgress}
             />
           ))}
         </ul>

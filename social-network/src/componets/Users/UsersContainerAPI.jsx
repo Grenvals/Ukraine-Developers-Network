@@ -34,6 +34,8 @@ class UsersContainerAPI extends React.Component {
             pageSize={this.props.pageSize}
             currentPage={this.props.currentPage}
             onPageChanget={this.onPageChanget}
+            followingInProgress={this.props.followingInProgress}
+            toogleFollowingProgress={this.props.toogleFollowingProgress}
           />
         )}
       </>

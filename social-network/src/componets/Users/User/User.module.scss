@@ -72,7 +72,9 @@
   &:hover {
     background: lighten($accent, 5%);
   }
-
+  &:disabled {
+    background: rgba($accent, 0.4);
+  }
   &:active {
     background: darken($accent, 10%);
   }
@@ -80,6 +82,9 @@
     background: $accent3;
     &:hover {
       background: lighten($accent3, 5%);
+    }
+    &:disabled {
+      background: rgba($accent3, 0.3);
     }
   }
   &_profile {
