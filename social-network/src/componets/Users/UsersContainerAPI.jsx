@@ -1,24 +1,14 @@
 import React from 'react'
 import Users from './Users'
 import Preloader from '../common/Preloader/Preloader'
-import { usersAPI } from '../../api/api'
 
 class UsersContainerAPI extends React.Component {
   componentDidMount() {
-    this.props.setLoadingStatus(true)
-    usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-      this.props.setUsers(data.items)
-      this.props.setTotalUsersCount(data.totalCount)
-      this.props.setLoadingStatus(false)
-    })
+    this.props.getUsers(this.props.currentPage, this.props.pageSize)
   }
   onPageChanget = pageNumber => {
+    this.props.getUsers(pageNumber, this.props.pageSize)
     this.props.setCurrentPage(pageNumber)
-    this.props.setLoadingStatus(true)
-    usersAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
-      this.props.setUsers(data.items)
-      this.props.setLoadingStatus(false)
-    })
   }
   render() {
     return (
