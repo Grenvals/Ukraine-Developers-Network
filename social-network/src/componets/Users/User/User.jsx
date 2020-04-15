@@ -2,7 +2,6 @@ import React from 'react'
 import style from './User.module.scss'
 import defaultUserPhoto from '../../../assets/images/user-default.svg'
 import { NavLink } from 'react-router-dom'
-import { usersAPI } from '../../../api/api'
 
 const User = props => {
   console.log(props)
@@ -44,13 +43,7 @@ const User = props => {
             )}
             className={`${style.button} ${style.button_green}`}
             onClick={() => {
-              props.toogleFollowingProgress(props.user.id, true)
-              usersAPI.followUser(props.user.id).then(data => {
-                if (data.resultCode === 0) {
-                  props.follow(props.user.id)
-                }
-                props.toogleFollowingProgress(props.user.id, false)
-              })
+              props.followUser(props.user.id)
             }}
           >
             follow
@@ -62,13 +55,7 @@ const User = props => {
             )}
             className={style.button}
             onClick={() => {
-              props.toogleFollowingProgress(props.user.id, true)
-              usersAPI.unfollowUser(props.user.id).then(data => {
-                if (data.resultCode === 0) {
-                  props.unfollow(props.user.id)
-                }
-                props.toogleFollowingProgress(props.user.id, false)
-              })
+              props.unfollowUser(props.user.id)
             }}
           >
             unfollow

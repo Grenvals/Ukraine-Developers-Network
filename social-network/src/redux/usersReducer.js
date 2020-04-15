@@ -120,4 +120,28 @@ export const getUsers = (currentPage, pageSize) => {
   }
 }
 
+export const followUser = userId => {
+  return dispatch => {
+    dispatch(toogleFollowingProgress(userId, true))
+    usersAPI.followUser(userId).then(data => {
+      if (data.resultCode === 0) {
+        dispatch(follow(userId))
+      }
+      dispatch(toogleFollowingProgress(userId, false))
+    })
+  }
+}
+
+export const unfollowUser = userId => {
+  return dispatch => {
+    dispatch(toogleFollowingProgress(userId, true))
+    usersAPI.unfollowUser(userId).then(data => {
+      if (data.resultCode === 0) {
+        dispatch(unfollow(userId))
+      }
+      dispatch(toogleFollowingProgress(userId, false))
+    })
+  }
+}
+
 export default usersReducer

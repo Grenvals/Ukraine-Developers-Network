@@ -18,14 +18,12 @@ class UsersContainerAPI extends React.Component {
         ) : (
           <Users
             users={this.props.users}
-            follow={this.props.follow}
-            unfollow={this.props.unfollow}
             totalUsersCount={this.props.totalUsersCount}
             pageSize={this.props.pageSize}
             currentPage={this.props.currentPage}
-            onPageChanget={this.onPageChanget}
             followingInProgress={this.props.followingInProgress}
-            toogleFollowingProgress={this.props.toogleFollowingProgress}
+            unfollowUser={this.props.unfollowUser}
+            followUser={this.props.followUser}
           />
         )}
       </>
