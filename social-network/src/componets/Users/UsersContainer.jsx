@@ -17,7 +17,7 @@ let mapStateToProps = state => {
 const UsersContainer = connect(mapStateToProps, {
   setCurrentPage,
   getUsers,
-  followUser, 
+  followUser,
   unfollowUser,
 })(UsersContainerAPI)
 
