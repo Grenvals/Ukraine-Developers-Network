@@ -2,7 +2,6 @@ import React from 'react'
 import style from './PaginationCountItem.module.scss'
 
 const PaginationСountItem = props => {
-  debugger
   let setCurrentPage = () => {
     props.setCurrentPage(props.countNumber)
 

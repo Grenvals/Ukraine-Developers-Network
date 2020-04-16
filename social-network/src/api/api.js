@@ -22,6 +22,9 @@ export const usersAPI = {
       .delete(`follow/${userId}`, {})
       .then(response => response.data)
   },
+  getProfile: userId => {
+    return instanse.get(`profile/` + userId, {}).then(response => response.data)
+  },
 }
 
 // axios
