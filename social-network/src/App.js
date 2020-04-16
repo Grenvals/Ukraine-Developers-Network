@@ -9,6 +9,7 @@ import SidebarContainer from './componets/Sidebar/SidebarContainer'
 import UsersContainer from './componets/Users/UsersContainer'
 import ProfileContainer from './componets/Profile/ProfileContainer'
 import HeaderContainer from './componets/Header/HeaderContainer'
+import Login from './componets/Login/News/Login'
 
 const App = props => {
   return (
@@ -16,6 +17,7 @@ const App = props => {
       <HeaderContainer />
       <SidebarContainer />
       <div className="content-wrapper">
+        <Route path="/login" render={() => <Login />} />
         <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
         <Route path="/dialogs" render={() => <DialogsContainer />} />
         <Route path="/users" render={() => <UsersContainer />} />

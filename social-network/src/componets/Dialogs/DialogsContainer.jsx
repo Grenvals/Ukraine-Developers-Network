@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import {
   addMessageActionCreator,
   onTextChangeActionCreator,
@@ -11,6 +11,7 @@ let mapStateToProps = state => {
     dialogs: state.dialogsPage.dialogs,
     messages: state.dialogsPage.messages,
     newDialogMessage: state.dialogsPage.newDialogMessage,
+    isAuth: state.auth.isAuth,
   }
 }
 
