@@ -3,10 +3,8 @@ import style from './Dialogs.module.scss'
 import Head from '../common/Head/Head'
 import NotificationItem from './NotificationItem/NotificationItem'
 import Chat from './Сhat/Сhat'
-import { Redirect } from 'react-router-dom'
 
 const Dialogs = props => {
-  if (!props.isAuth) return <Redirect to={'/Login'} />
   let notificationItem = props.dialogs.map(d => (
     <NotificationItem
       key={d.id}

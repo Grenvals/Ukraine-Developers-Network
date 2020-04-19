@@ -2,7 +2,13 @@ import React from 'react'
 import Users from './Users'
 import Preloader from '../common/Preloader/Preloader'
 import { connect } from 'react-redux'
-import {followUser, unfollowUser, setCurrentPage, getUsers} from '../../redux/usersReducer'
+import {
+  followUser,
+  unfollowUser,
+  setCurrentPage,
+  getUsers,
+} from '../../redux/usersReducer'
+import { withAuthRedirect } from '../../hoc/withAuthRedirect'
 
 class UsersContainerAPI extends React.Component {
   componentDidMount() {
@@ -41,15 +47,17 @@ let mapStateToProps = state => {
     totalUsersCount: state.usersPage.totalUsersCount,
     currentPage: state.usersPage.currentPage,
     isLoading: state.usersPage.isLoading,
-    followingInProgress: state.usersPage.followingInProgress, 
+    followingInProgress: state.usersPage.followingInProgress,
   }
 }
 
-const UsersContainer = connect(mapStateToProps, {
-  setCurrentPage,
-  getUsers,
-  followUser,
-  unfollowUser,
-})(UsersContainerAPI)
+const UsersContainer = withAuthRedirect(
+  connect(mapStateToProps, {
+    setCurrentPage,
+    getUsers,
+    followUser,
+    unfollowUser,
+  })(UsersContainerAPI)
+)
 
 export default UsersContainer
