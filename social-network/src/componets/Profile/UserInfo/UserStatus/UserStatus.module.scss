@@ -1,0 +1,32 @@
+@import "./../../../../scss/main.scss";
+.userStatus {
+	margin: 0 auto;
+	max-width: 200px;
+	font-size: 14px;
+	text-align: center;
+	position: relative;
+	padding-right: 14px;
+}
+.editImg {
+	position: absolute;
+	cursor: pointer;
+	top: 0px;
+	right: 0px;
+	width: 14px;
+	img {
+		max-width: 100%;
+		fill: $accent;
+	}
+}
+.inputBlock {
+	margin-right: 15px;
+	input {
+		border: 1px solid $accent;
+		border-radius: 4px;
+		padding: 0px 15px;
+		line-height: 1.8;
+	}
+}
+.statusText {
+	cursor: pointer;
+}

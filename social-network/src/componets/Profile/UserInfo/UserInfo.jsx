@@ -6,8 +6,8 @@ import facebookImg from '../../../assets/images/contacts/facebook.svg'
 import twitterImg from '../../../assets/images/contacts/twitter.svg'
 import instagramImg from '../../../assets/images/contacts/instagram.svg'
 import githubImg from '../../../assets/images/contacts/github.svg'
-
 import Head from '../../common/Head/Head'
+import UserStatus from './UserStatus/UserStatus'
 
 const UserInfo = props => {
   return (
@@ -30,6 +30,7 @@ const UserInfo = props => {
         <div className={style.userDescription}>
           {props.profile.lookingForAJobDescription}
         </div>
+        <UserStatus status={'my status'}/>
       </div>
       <div className={style.aboutUser}>
         <Head title="About user" />
