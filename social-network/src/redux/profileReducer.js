@@ -16,7 +16,6 @@ let initialState = {
 let profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD-POST': {
-      debugger
       let newPost = {
         id: 5,
         message: state.newPostMessage,
@@ -50,7 +49,6 @@ export const setUserProfile = profile => ({
 export const getUserProfile = userId => {
   return dispatch => {
     usersAPI.getProfile(userId).then(data => {
-      debugger
       dispatch(setUserProfile(data))
     })
   }
