@@ -7,11 +7,13 @@ const instanse = axios.create({
     'API-KEY': '8fc471c4-748c-4bc5-bda6-3ac04c8f38c0',
   },
 })
+
 export const authAPI = {
   getAuthUserData: () => {
     return instanse.get(`auth/me`, {})
   },
 }
+
 export const usersAPI = {
   getUsers: (currentPage = 1, pageSize = 10) => {
     return instanse
@@ -27,7 +29,26 @@ export const usersAPI = {
       .then(response => response.data)
   },
   getProfile: userId => {
+    console.log('api is old, please use profileAPI()')
+    return profileAPI.getProfile(userId)
+  },
+}
+
+export const profileAPI = {
+  getProfile: userId => {
     return instanse.get(`profile/` + userId, {}).then(response => response.data)
+  },
+  getStatus: userId => {
+    return instanse
+      .get(`profile/status/` + userId, {})
+      .then(response => response.data)
+  },
+  updateStatus: status => {
+    return instanse
+      .put(`profile/status/`, {
+        status: status,
+      })
+      .then(response => response.data)
   },
 }
 

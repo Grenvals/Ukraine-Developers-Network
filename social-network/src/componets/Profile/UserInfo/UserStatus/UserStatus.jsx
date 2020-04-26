@@ -5,6 +5,7 @@ import editImg from '../../../../assets/images/profile/edit.svg'
 export class UserStatus extends React.Component {
   state = {
     editMode: false,
+    status: this.props.status,
   }
   activateEditMode = () => {
     this.setState({
@@ -16,21 +17,29 @@ export class UserStatus extends React.Component {
     this.setState({
       editMode: false,
     })
+    this.props.updateUserStatus(this.state.status)
+  }
+
+  onStatusChange = (e) => {
+    this.setState({
+      status: e.currentTarget.value,
+    })
   }
   render() {
     return (
       <div className={style.userStatus}>
         {!this.state.editMode && (
           <div onClick={this.activateEditMode} className={style.statusText}>
-            <p>{this.props.status}</p>
+            <p>{this.props.status || 'not set'}</p>
           </div>
         )}
         {this.state.editMode && (
           <div className={style.inputBlock}>
             <input
+              onChange={this.onStatusChange}
+              value={this.state.status}
               autoFocus={true}
               onBlur={this.deactivateEditMode}
-              value={this.props.status}
               type="text"
             />
           </div>

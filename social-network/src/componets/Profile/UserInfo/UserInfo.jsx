@@ -30,7 +30,7 @@ const UserInfo = props => {
         <div className={style.userDescription}>
           {props.profile.lookingForAJobDescription}
         </div>
-        <UserStatus status={'my status'}/>
+        <UserStatus status={props.status} updateUserStatus={props.updateUserStatus}/>
       </div>
       <div className={style.aboutUser}>
         <Head title="About user" />
