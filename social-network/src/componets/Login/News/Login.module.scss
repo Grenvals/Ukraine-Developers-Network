@@ -1,5 +1,140 @@
 
-// @import "../../scss/main.scss";
-.news {
-	display: block;
+@import "../../../scss/main.scss";
+.login {
+	@include flexbox();
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	background: url(../../../assets/images/profile/background.jpg) center no-repeat;
+	border-radius: 8px;
+	background-size: cover;
+	position: relative;
+	overflow: hidden;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right:0;
+		bottom: 0;
+		z-index: 0;
+		background: rgba(0, 0, 0, 0.1);
+}
+}
+.formBlock {
+	font-size: 16px;
+	background: rgba($accent, 1);
+	width: 350px;
+	min-height: 200px;
+	border-radius: 8px;
+	color: #fff;
+	padding: 16px;
+	z-index: 1;
+}
+.form {
+	&__item {
+		margin-bottom: 20px;
+	}
+	&__label {
+		display: block;
+		font-size: 13px;
+		padding-left: 5px;
+		margin-bottom: 5px;
+		&_inline {
+			display: inline-block;
+		}
+	}
+	&__input {
+		display: block;
+		width: 100%;
+		padding: 0px 15px;
+		border: 1px solid $first;
+		border-radius: 8px;
+		line-height: 30px;
+		font-size: 14px;
+	}
+	&__title {
+		text-align: center;
+		text-transform: uppercase;
+		font-weight: 600;
+		letter-spacing: 1px;
+		margin-bottom: 10px;
+	}
+	&__quate {
+		text-align: right;
+		font-size: 13px;
+	}
+	&__button {
+		margin-bottom: 10px;
+	}
+}
+
+.button {
+  display: block;
+	margin-right: 0px;
+	margin-left: auto;
+  background: lighten($accent, 5%);
+  text-transform: uppercase;
+  color: $second;
+  height: 35px;
+  line-height: 35px;
+  padding: 0px 20px;
+  min-width: 90px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: $shadow;
+  transition: background 0.2s;
+  &:hover {
+    background: lighten($accent, 10%);
+  }
+
+  &:active {
+    background: darken($accent, 10%);
+  }
+}
+
+.checkbox {
+	@include flexbox();
+	// justify-content: flex-end;
+	align-items: center;
+	&__label {
+		font-size: 13px;
+		margin-left: 10px;
+		cursor: pointer;
+	}
+	&__box {
+		width: 15px;
+		height: 15px;
+		position: relative;
+		border-radius: 5px;
+		overflow: hidden;
+	}
+	&__input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		opacity: 0;
+		z-index: 1;
+		cursor: pointer;
+	}
+	&__input + span {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		border-radius: 7px;
+		background: white;
+		border: 2px solid $first;
+		cursor: pointer;
+		transition: background 0.1s;
+	}
+	&__input:checked + span {
+		background: $accent3;
+	}
 }

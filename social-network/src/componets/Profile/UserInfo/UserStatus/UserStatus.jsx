@@ -7,6 +7,13 @@ export class UserStatus extends React.Component {
     editMode: false,
     status: this.props.status,
   }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.status !== this.props.status) {
+      this.setState({
+        status: this.props.status,
+      })
+    }
+  }
   activateEditMode = () => {
     this.setState({
       editMode: true,
