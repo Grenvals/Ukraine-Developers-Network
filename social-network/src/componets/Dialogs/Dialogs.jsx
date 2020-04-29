@@ -4,6 +4,7 @@ import Head from '../common/Head/Head'
 import NotificationItem from './NotificationItem/NotificationItem'
 import Chat from './Сhat/Сhat'
 
+
 const Dialogs = props => {
   let notificationItem = props.dialogs.map(d => (
     <NotificationItem
@@ -23,8 +24,6 @@ const Dialogs = props => {
       <Chat
         messages={props.messages}
         addMessage={props.addMessage}
-        onTextChange={props.onTextChange}
-        newDialogMessage={props.newDialogMessage}
       />
     </div>
   )
