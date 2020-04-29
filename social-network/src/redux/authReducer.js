@@ -12,6 +12,7 @@ let initialState = {
   isAuth: false,
   isLoading: true,
   users: [],
+  errors: '',
 }
 
 let authReducer = (state = initialState, action) => {
@@ -83,6 +84,17 @@ export const getAuthUserData = () => {
       if (data.data.resultCode === 0) {
         let { id, email, login } = data.data.data
         dispatch(setAuthUserData(id, email, login))
+      }
+    })
+  }
+}
+
+export const logIn = (userEmail, userPassword, userRemember) => {
+  return dispatch => {
+    authAPI.logIn(userEmail, userPassword, userRemember).then(data => {
+      console.log(data)
+      if (data.data.resultCode === 0) {
+        getAuthUserData()
       }
     })
   }

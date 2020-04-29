@@ -12,6 +12,15 @@ export const authAPI = {
   getAuthUserData: () => {
     return instanse.get(`auth/me`, {})
   },
+  logIn: (userEmail, userPassword, userRemember) => {
+    return instanse
+      .post(`auth/login`, {
+        email: userEmail,
+        password: userPassword,
+        rememberMe: userRemember,
+      })
+      .then(response => response.data)
+  },
 }
 
 export const usersAPI = {

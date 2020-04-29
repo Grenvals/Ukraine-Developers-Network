@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom'
 import defaultUserPhoto from "../../assets/images/user-default.svg"
 
 const Header = props => {
-  console.log(props)
   return (
     <header className={style.header}>
       <div className={style.container}>
