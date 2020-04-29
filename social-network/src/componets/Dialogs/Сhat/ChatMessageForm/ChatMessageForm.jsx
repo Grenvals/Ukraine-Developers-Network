@@ -26,7 +26,6 @@ const AddMessageReduxForm = reduxForm({
 
 const ChatMessageForm = props => {
   const onSubmit = (formData) => {
-    console.log(formData.user_message)
     props.addMessage(formData.user_message)
   }
 
