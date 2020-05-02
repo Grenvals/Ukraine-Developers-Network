@@ -21,6 +21,9 @@ export const authAPI = {
       })
       .then(response => response.data)
   },
+  logOut: () => {
+    return instanse.delete(`auth/login`, {}).then(response => response.data)
+  },
 }
 
 export const usersAPI = {

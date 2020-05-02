@@ -1,10 +1,13 @@
 import React from 'react'
 import style from './NewPostForm.module.scss'
-import { Field, reduxForm } from 'redux-form'
-import { required, maxLengthCreator } from '../../../../utils/validators/validators'
-import { Textarea } from '../../../common/FormControls/FormControls';
+import { Field, reduxForm, reset } from 'redux-form'
+import {
+  required,
+  maxLengthCreator,
+} from '../../../../utils/validators/validators'
+import { Textarea } from '../../../common/FormControls/FormControls'
 
-const maxLength =  maxLengthCreator(10);
+const maxLength = maxLengthCreator(10)
 
 const NewPostCreateForm = props => {
   return (
@@ -14,7 +17,7 @@ const NewPostCreateForm = props => {
         placeholder="Write your messаge hier"
         name={'user_post_message'}
         component={Textarea}
-        validate={[required, maxLength ]}
+        validate={[required, maxLength]}
       />
       <button className={style.button}>Submit</button>
     </form>
@@ -25,9 +28,9 @@ const AddNewPostReduxForm = reduxForm({
 })(NewPostCreateForm)
 
 export const NewPostForm = props => {
-  const onSubmit = formData => {
-    console.log(formData.user_post_message)
+  const onSubmit = (formData, dispatch) => {
     props.addPost(formData.user_post_message)
+    dispatch(reset('NewPost'))
   }
   return <AddNewPostReduxForm onSubmit={onSubmit} />
 }

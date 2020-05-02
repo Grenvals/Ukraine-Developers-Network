@@ -48,8 +48,7 @@ let authReducer = (state = initialState, action) => {
     case 'SET_AUTH_USER_DATA': {
       return {
         ...state,
-        ...action.data,
-        isAuth: true,
+        ...action.payload,
       }
     }
     default:
@@ -71,10 +70,10 @@ export const setLoadingStatus = loadingStatus => ({
   type: SET_LOADING_STATUS,
   loading: loadingStatus,
 })
-export const setAuthUserData = (userId, email, login) => {
+export const setAuthUserData = (userId, email, login, isAuth) => {
   return {
     type: SET_AUTH_USER_DATA,
-    data: { userId, email, login },
+    payload: { userId, email, login, isAuth },
   }
 }
 
@@ -83,7 +82,7 @@ export const getAuthUserData = () => {
     authAPI.getAuthUserData().then(data => {
       if (data.data.resultCode === 0) {
         let { id, email, login } = data.data.data
-        dispatch(setAuthUserData(id, email, login))
+        dispatch(setAuthUserData(id, email, login, true))
       }
     })
   }
@@ -93,8 +92,21 @@ export const logIn = (userEmail, userPassword, userRemember) => {
   return dispatch => {
     authAPI.logIn(userEmail, userPassword, userRemember).then(data => {
       console.log(data)
-      if (data.data.resultCode === 0) {
-        getAuthUserData()
+      if (data.resultCode === 0) {
+        dispatch(getAuthUserData())
+      }
+    })
+  }
+}
+
+export const logOut = (userEmail, userPassword, userRemember) => {
+  return dispatch => {
+    authAPI.logOut().then(data => {
+      console.log(data)
+      debugger
+      if (data.resultCode === 0) {
+        debugger
+        dispatch(setAuthUserData(null, null, null, false))
       }
     })
   }

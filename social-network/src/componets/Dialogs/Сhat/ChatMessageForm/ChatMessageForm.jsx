@@ -1,24 +1,25 @@
 import React from 'react'
 import style from './ChatMessageForm.module.scss'
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm, reset } from 'redux-form'
 import { Textarea } from '../../../common/FormControls/FormControls'
-import { required, maxLengthCreator } from '../../../../utils/validators/validators'
+import {
+  required,
+  maxLengthCreator,
+} from '../../../../utils/validators/validators'
 
-const maxLength =  maxLengthCreator(10);
+const maxLength = maxLengthCreator(10)
 const AddMessageForm = props => {
   return (
     <form onSubmit={props.handleSubmit} className={style.newMessage}>
       <Field
         className={style.newMessage__message}
-        placeholder={"Write your messаge hier"}
+        placeholder={'Write your messаge hier'}
         name={'user_message'}
         component={Textarea}
-        validate={[required, maxLength ]}
-      /> 
+        validate={[required, maxLength]}
+      />
       <div className="button">
-        <button className={style.button}>
-          Send
-        </button>
+        <button className={style.button}>Send</button>
       </div>
     </form>
   )
@@ -29,15 +30,12 @@ const AddMessageReduxForm = reduxForm({
 })(AddMessageForm)
 
 const ChatMessageForm = props => {
-  const onSubmit = (formData) => {
+  const onSubmit = (formData, dispatch) => {
     props.addMessage(formData.user_message)
+    dispatch(reset('DialogsChat'))
   }
 
-  return (
-    <AddMessageReduxForm onSubmit={onSubmit} />
-  )
+  return <AddMessageReduxForm onSubmit={onSubmit} />
 }
-
-
 
 export default ChatMessageForm

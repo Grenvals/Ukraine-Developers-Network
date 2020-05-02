@@ -9,11 +9,10 @@
 	max-width: 800px;
 }
 .settings {
-	// @include flexbox();
+	@include flexbox();
 	overflow: auto;
 	justify-content: flex-end;
 	padding: 0px 20px;
-	margin: 0px 20px;
 	align-items: center;
 	height: 50px;
 	border-bottom: 1px solid $first;
