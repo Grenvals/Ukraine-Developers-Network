@@ -18,7 +18,6 @@ export class UserStatus extends React.Component {
     this.setState({
       editMode: true,
     })
-    // don`t use this.forseUpdate()
   }
   deactivateEditMode = () => {
     this.setState({
@@ -27,7 +26,7 @@ export class UserStatus extends React.Component {
     this.props.updateUserStatus(this.state.status)
   }
 
-  onStatusChange = (e) => {
+  onStatusChange = e => {
     this.setState({
       status: e.currentTarget.value,
     })

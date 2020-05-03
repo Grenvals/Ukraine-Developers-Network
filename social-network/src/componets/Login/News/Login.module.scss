@@ -66,7 +66,16 @@
 		font-size: 13px;
 	}
 	&__button {
+		@include flexbox();
+		align-items: center;
+		justify-content: space-between;
 		margin-bottom: 10px;
+	}
+	&__error {
+		display: inline-block;
+		font-size: 13px;
+		color: red;
+		margin-right: 15px;
 	}
 }
 
@@ -105,10 +114,10 @@
 		cursor: pointer;
 	}
 	&__box {
-		width: 15px;
-		height: 15px;
+		width: 14px;
+		height: 14px;
 		position: relative;
-		border-radius: 5px;
+		// border-radius: 5px;
 		overflow: hidden;
 	}
 	&__input {
@@ -128,7 +137,7 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		border-radius: 7px;
+		border-radius: 4px;
 		background: white;
 		border: 2px solid $first;
 		cursor: pointer;

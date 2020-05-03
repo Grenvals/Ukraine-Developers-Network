@@ -32,3 +32,14 @@ export const Textarea = props => {
     </FormControl>
   )
 }
+export const Checkbox = props => {
+  const { input, meta, ...restProps } = props
+  return (
+    <FormControl {...props}>
+      <div className={style.checkbox__box}>
+        <input className={style.checkbox__input} {...input} {...restProps} />
+        <span></span>
+      </div>
+    </FormControl>
+  )
+}

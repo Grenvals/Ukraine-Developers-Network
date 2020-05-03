@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './Login.module.scss'
 import { Field, reduxForm } from 'redux-form'
-import { Input } from '../../common/FormControls/FormControls'
+import { Input, Checkbox } from '../../common/FormControls/FormControls'
 import {
   required,
   maxLengthCreator,
@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 import { logIn } from '../../../redux/authReducer'
 import { Redirect } from 'react-router-dom'
 
-const maxLength = maxLengthCreator(40)
+const maxLength = maxLengthCreator(28)
 const LoginForm = props => {
   return (
     <form className="form" onSubmit={props.handleSubmit}>
@@ -45,17 +45,20 @@ const LoginForm = props => {
             <Field
               className={style.checkbox__input}
               name={'user_remember'}
-              component={Input}
+              component={Checkbox}
               type={'checkbox'}
             />
-            <span></span>
           </div>
           <label className={style.checkbox__label} htmlFor="user_remember">
             Remember me on this device
           </label>
         </div>
       </div>
+
       <div className={style.form__button}>
+        {props.error && (
+          <span className={style.form__error}>{props.error}</span>
+        )}
         <button className={style.button}>Submit</button>
       </div>
     </form>

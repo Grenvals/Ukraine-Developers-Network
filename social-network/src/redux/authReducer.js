@@ -1,4 +1,5 @@
 import { authAPI } from '../api/api'
+import { stopSubmit } from 'redux-form'
 
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
@@ -94,6 +95,12 @@ export const logIn = (userEmail, userPassword, userRemember) => {
       console.log(data)
       if (data.resultCode === 0) {
         dispatch(getAuthUserData())
+      } else {
+        let message =
+          data.messages.length > 0
+            ? 'Error on server: ' + data.messages[0]
+            : 'Errors, your login or emails are not valid'
+        dispatch(stopSubmit('Login', { _error: message }))
       }
     })
   }
@@ -103,7 +110,6 @@ export const logOut = (userEmail, userPassword, userRemember) => {
   return dispatch => {
     authAPI.logOut().then(data => {
       console.log(data)
-      debugger
       if (data.resultCode === 0) {
         debugger
         dispatch(setAuthUserData(null, null, null, false))
