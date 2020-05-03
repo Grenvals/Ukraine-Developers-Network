@@ -38,6 +38,9 @@
 .status {
   font-size: 12px;
   color: $textLight;
+  max-width: 200px;
+  max-height: 30px;
+  overflow: hidden;
 }
 
 .profile {

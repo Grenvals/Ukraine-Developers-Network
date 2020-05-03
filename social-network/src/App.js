@@ -1,7 +1,7 @@
 import React from 'react'
 // import logo from './logo.svg';
 import './App.scss'
-import { Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 import DialogsContainer from './componets/Dialogs/DialogsContainer'
 import News from './componets/News/News'
 import Settings from './componets/Settings/Settings'
@@ -10,25 +10,45 @@ import UsersContainer from './componets/Users/UsersContainer'
 import ProfileContainer from './componets/Profile/ProfileContainer'
 import HeaderContainer from './componets/Header/HeaderContainer'
 import Login from './componets/Login/News/Login'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { initializedApp } from './redux/appReducer'
+import Preloader from './componets/common/Preloader/Preloader'
 
-const App = props => {
-  return (
-    <div className="app-wrapper">
-      <HeaderContainer />
-      <SidebarContainer />
-      <div className="content-wrapper">
-        <Route path="/login" render={() => <Login />} />
-        <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
-        <Route path="/dialogs" render={() => <DialogsContainer />} />
-        <Route path="/users" render={() => <UsersContainer />} />
-        <Route path="/news" component={News} />
-        <Route path="/settings" component={Settings} />
+class App extends React.Component {
+  componentDidMount() {
+    this.props.initializedApp()
+  }
+  render() {
+    if (!this.props.initialized) {
+      return <Preloader />
+    }
+    return (
+      <div className="app-wrapper">
+        <HeaderContainer />
+        <SidebarContainer />
+        <div className="content-wrapper">
+          <Route path="/login" render={() => <Login />} />
+          <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
+          <Route path="/dialogs" render={() => <DialogsContainer />} />
+          <Route path="/users" render={() => <UsersContainer />} />
+          <Route path="/news" component={News} />
+          <Route path="/settings" component={Settings} />
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
-export default App
+let mapStateToProps = state => {
+  return {
+    initialized: state.app.initialized,
+  }
+}
+export default compose(
+  connect(mapStateToProps, { initializedApp }),
+  withRouter
+)(App)
 
 // ! Розібратися з компонентом Head, налагодити проброс заголовків.
 // ! Переписати на класові компоненти(user итд).

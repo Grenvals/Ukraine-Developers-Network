@@ -10,12 +10,15 @@ const Profile = props => {
   } else {
     return (
       <div className={`${style.profile} ${style.nav}`}>
-        <UserInfo profile={props.profile} status={props.status} updateUserStatus={props.updateUserStatus}/>
+        <UserInfo
+          profile={props.profile}
+          status={props.status}
+          updateUserStatus={props.updateUserStatus}
+        />
         <MyPostsContainer />
       </div>
     )
   }
- 
 }
 
 export default Profile
