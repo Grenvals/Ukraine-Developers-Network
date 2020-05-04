@@ -4,7 +4,6 @@ import defaultUserPhoto from '../../../assets/images/user-default.svg'
 import { NavLink } from 'react-router-dom'
 
 const User = props => {
-  console.log(props)
   return (
     <li className={style.user}>
       <div className={style.preview}>

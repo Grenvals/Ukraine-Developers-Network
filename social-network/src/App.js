@@ -65,3 +65,4 @@ export default compose(
 // ! Налаштувати валідацію
 // ! Підправити структуру форми login (на прикладі ChatMessageForm)
 // ! Розібратися з лейблами для форм
+// ! Todo list на react, счетчик
