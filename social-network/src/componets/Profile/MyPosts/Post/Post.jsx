@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './Post.module.scss'
 
-const PostItem = props => {
+const PostItem = React.memo(props => {
   return (
     <div className={style.post}>
       <div className={style.header}>
@@ -37,6 +37,6 @@ const PostItem = props => {
       </div>
     </div>
   )
-}
+})
 
 export default PostItem
