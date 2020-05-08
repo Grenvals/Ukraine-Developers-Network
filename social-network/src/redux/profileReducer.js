@@ -22,7 +22,7 @@ let profileReducer = (state = initialState, action) => {
         message: action.message,
         likes: 0,
       }
-      return { ...state, newPostMessage: '', posts: [newPost, ...state.posts] }
+      return { ...state, newPostMessage: '', posts: [...state.posts, newPost] }
     }
     case 'SET_USER_PROFILE': {
       return { ...state, profile: action.profile }

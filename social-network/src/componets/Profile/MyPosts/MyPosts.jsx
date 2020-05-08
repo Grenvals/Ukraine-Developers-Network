@@ -4,9 +4,9 @@ import PostItem from './Post/Post'
 import NewPostForm from './NewPostForm/NewPostForm'
 
 const MyPosts = React.memo(props => {
-  let postItem = props.posts.map(d => (
-    <PostItem key={d.id} message={d.message} likes={d.likes} />
-  ))
+  let postItem = [...props.posts]
+    .reverse()
+    .map(d => <PostItem key={d.id} message={d.message} likes={d.likes} />)
 
   return (
     <div className={style.posts}>
