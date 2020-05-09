@@ -1,7 +1,11 @@
 import React from 'react'
 import style from './Post.module.scss'
+import editImg from '../../../../assets/images/profile/edit.svg'
 
 const PostItem = React.memo(props => {
+  let deletePost = () => {
+    props.deletePost(props.id)
+  }
   return (
     <div className={style.post}>
       <div className={style.header}>
@@ -14,6 +18,16 @@ const PostItem = React.memo(props => {
         <div className="headerBlock">
           <p className={style.title}>{props.message}</p>
           <div className={style.date}>11.12.2020</div>
+        </div>
+        <div className={style.change}>
+          <img className={style.change__img} src={editImg} alt="edit" />
+          <ul className={style.change__list}>
+            <li className={style.change__item}>
+              <button className={style.change__button} onClick={deletePost}>
+                delete post
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
       <div className="content">

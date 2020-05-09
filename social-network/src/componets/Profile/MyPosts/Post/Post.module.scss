@@ -11,6 +11,7 @@
 }
 
 .header {
+  position: relative;
   @include flexbox();
   align-items: center;
   margin-bottom: 15px;
@@ -52,4 +53,44 @@
 
 .message {
   margin-bottom: 20px;
+}
+.change {
+position: absolute;
+top: 0px;
+right: 0px;
+height: 15px;
+width: 15px;
+&__img {
+  max-width: 100%;
+}
+&__list {
+  position: absolute;
+  min-width: 100px;
+  font-size: 14px;
+  top: 100%;
+  right: 0px;
+  text-align: center;
+  background: $first;
+  visibility: hidden;
+  transition: visibility 0.1s;
+  box-shadow: $shadow;
+}
+&__button {
+  background: lighten($accent, 20%);
+  color: $first;
+  height: 25px;
+  line-height: 25px;
+  border-radius: 4px;
+  padding: 0px 15px;
+  cursor: pointer;
+  transition: background 0.1s;
+  &:hover {
+    background: lighten($accent, 5%);
+  }
+}
+&:hover {
+  .change__list {
+    visibility: visible;
+  }
+}
 }
