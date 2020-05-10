@@ -11,9 +11,9 @@ import { logIn } from '../../../redux/authReducer'
 import { Redirect } from 'react-router-dom'
 
 const maxLength = maxLengthCreator(28)
-const LoginForm = props => {
+const LoginForm = ({ handleSubmit, error }) => {
   return (
-    <form className="form" onSubmit={props.handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <div className={style.form__item}>
         <label className={style.form__label} htmlFor="user_name">
           User name
@@ -56,9 +56,7 @@ const LoginForm = props => {
       </div>
 
       <div className={style.form__button}>
-        {props.error && (
-          <span className={style.form__error}>{props.error}</span>
-        )}
+        {error && <span className={style.form__error}>{error}</span>}
         <button className={style.button}>Submit</button>
       </div>
     </form>

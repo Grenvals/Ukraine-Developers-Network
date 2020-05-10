@@ -46,8 +46,8 @@ let mapStateToProps = state => {
   }
 }
 export default compose(
-  connect(mapStateToProps, { initializedApp }),
-  withRouter
+  withRouter,
+  connect(mapStateToProps, { initializedApp })
 )(App)
 
 // ! Розібратися з компонентом Head, налагодити проброс заголовків.
@@ -66,3 +66,4 @@ export default compose(
 // ! Підправити структуру форми login (на прикладі ChatMessageForm)
 // ! Розібратися з лейблами для форм
 // ! Todo list на react, счетчик
+// ! Деструктуризація пропсів, де потрібно

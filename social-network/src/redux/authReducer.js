@@ -96,7 +96,7 @@ export const logIn = (
     dispatch(getAuthUserData())
   } else {
     let message =
-      response.data.messages.length > 0
+      response.messages.length > 0
         ? 'Error on server: ' + response.messages[0]
         : 'Errors, your login or emails are not valid'
     dispatch(stopSubmit('Login', { _error: message }))
