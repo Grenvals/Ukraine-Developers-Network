@@ -1,11 +1,11 @@
 import { usersAPI } from '../api/api'
-const FOLLOW = 'FOLLOW'
-const UNFOLLOW = 'UNFOLLOW'
-const SET_USERS = 'SET_USERS'
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
-const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
-const SET_LOADING_STATUS = 'SET_LOADING_STATUS'
-const TOOGLE_FOLLOWNG_PROGRESS = 'TOOGLE_FOLLOWNG_PROGRESS'
+const FOLLOW = 'users/FOLLOW'
+const UNFOLLOW = 'users/UNFOLLOW'
+const SET_USERS = 'users/SET_USERS'
+const SET_CURRENT_PAGE = 'users/SET_CURRENT_PAGE'
+const SET_TOTAL_USERS_COUNT = 'users/SET_TOTAL_USERS_COUNT'
+const SET_LOADING_STATUS = 'users/SET_LOADING_STATUS'
+const TOOGLE_FOLLOWNG_PROGRESS = 'users/TOOGLE_FOLLOWNG_PROGRESS'
 
 let initialState = {
   users: [],
@@ -18,7 +18,7 @@ let initialState = {
 
 let usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'FOLLOW': {
+    case 'users/FOLLOW': {
       return {
         ...state,
         users: state.users.map(u => {
@@ -29,7 +29,7 @@ let usersReducer = (state = initialState, action) => {
         }),
       }
     }
-    case 'UNFOLLOW': {
+    case 'users/UNFOLLOW': {
       return {
         ...state,
         users: state.users.map(u => {
@@ -40,31 +40,31 @@ let usersReducer = (state = initialState, action) => {
         }),
       }
     }
-    case 'SET_USERS': {
+    case 'users/SET_USERS': {
       return {
         ...state,
         users: action.users,
       }
     }
-    case 'SET_CURRENT_PAGE': {
+    case 'users/SET_CURRENT_PAGE': {
       return {
         ...state,
         currentPage: action.currentPage,
       }
     }
-    case 'SET_TOTAL_USERS_COUNT': {
+    case 'users/SET_TOTAL_USERS_COUNT': {
       return {
         ...state,
         totalUsersCount: action.count,
       }
     }
-    case 'SET_LOADING_STATUS': {
+    case 'users/SET_LOADING_STATUS': {
       return {
         ...state,
         isLoading: action.loading,
       }
     }
-    case 'TOOGLE_FOLLOWNG_PROGRESS': {
+    case 'users/TOOGLE_FOLLOWNG_PROGRESS': {
       return {
         ...state,
         followingInProgress: action.isFetching
@@ -109,39 +109,44 @@ export const toogleFollowingProgress = (userId, isFetching) => ({
   isFetching: isFetching,
 })
 
-export const getRequestUsers = (currentPage, pageSize) => {
-  return dispatch => {
-    dispatch(setLoadingStatus(true))
-    usersAPI.getUsers(currentPage, pageSize).then(data => {
-      dispatch(setUsers(data.items))
-      dispatch(setTotalUsersCount(data.totalCount))
-      dispatch(setLoadingStatus(false))
-    })
-  }
+export const getRequestUsers = (currentPage, pageSize) => async dispatch => {
+  dispatch(setLoadingStatus(true))
+  let response = await usersAPI.getUsers(currentPage, pageSize)
+  dispatch(setUsers(response.items))
+  dispatch(setTotalUsersCount(response.totalCount))
+  dispatch(setLoadingStatus(false))
 }
 
-export const followUser = userId => {
-  return dispatch => {
-    dispatch(toogleFollowingProgress(userId, true))
-    usersAPI.followUser(userId).then(data => {
-      if (data.resultCode === 0) {
-        dispatch(follow(userId))
-      }
-      dispatch(toogleFollowingProgress(userId, false))
-    })
+const followUnfollowFlow = async (
+  dispatch,
+  userId,
+  apiMethod,
+  actionCreator
+) => {
+  dispatch(toogleFollowingProgress(userId, true))
+  let response = await apiMethod(userId)
+  if (response.resultCode === 0) {
+    dispatch(actionCreator(userId))
   }
+  dispatch(toogleFollowingProgress(userId, false))
 }
 
-export const unfollowUser = userId => {
-  return dispatch => {
-    dispatch(toogleFollowingProgress(userId, true))
-    usersAPI.unfollowUser(userId).then(data => {
-      if (data.resultCode === 0) {
-        dispatch(unfollow(userId))
-      }
-      dispatch(toogleFollowingProgress(userId, false))
-    })
-  }
+export const followUser = userId => dispatch => {
+  followUnfollowFlow(
+    dispatch,
+    userId,
+    usersAPI.followUser.bind(usersAPI),
+    follow
+  )
+}
+
+export const unfollowUser = userId => dispatch => {
+  followUnfollowFlow(
+    dispatch,
+    userId,
+    usersAPI.unfollowUser.bind(usersAPI),
+    unfollow
+  )
 }
 
 export default usersReducer
