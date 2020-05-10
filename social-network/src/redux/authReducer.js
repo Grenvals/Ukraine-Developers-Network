@@ -1,10 +1,10 @@
 import { authAPI } from '../api/api'
 import { stopSubmit } from 'redux-form'
 
-const FOLLOW = 'FOLLOW'
-const UNFOLLOW = 'UNFOLLOW'
-const SET_LOADING_STATUS = 'SET_LOADING_STATUS'
-const SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA'
+const FOLLOW = 'auth/FOLLOW'
+const UNFOLLOW = 'auth/UNFOLLOW'
+const SET_LOADING_STATUS = 'auth/SET_LOADING_STATUS'
+const SET_AUTH_USER_DATA = 'auth/SET_AUTH_USER_DATA'
 
 let initialState = {
   userId: null,
@@ -18,7 +18,7 @@ let initialState = {
 
 let authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'FOLLOW': {
+    case 'auth/FOLLOW': {
       return {
         ...state,
         users: state.users.map(u => {
@@ -29,7 +29,7 @@ let authReducer = (state = initialState, action) => {
         }),
       }
     }
-    case 'UNFOLLOW': {
+    case 'auth/UNFOLLOW': {
       return {
         ...state,
         users: state.users.map(u => {
@@ -40,13 +40,13 @@ let authReducer = (state = initialState, action) => {
         }),
       }
     }
-    case 'SET_LOADING_STATUS': {
+    case 'auth/SET_LOADING_STATUS': {
       return {
         ...state,
         isLoading: action.loading,
       }
     }
-    case 'SET_AUTH_USER_DATA': {
+    case 'auth/SET_AUTH_USER_DATA': {
       return {
         ...state,
         ...action.payload,
@@ -78,44 +78,39 @@ export const setAuthUserData = (userId, email, login, isAuth) => {
   }
 }
 
-export const getAuthUserData = () => {
-  return dispatch => {
-    return authAPI.getAuthUserData().then(data => {
-      console.log(data.data)
-      if (data.data.resultCode === 0) {
-        let { id, email, login } = data.data.data
-        dispatch(setAuthUserData(id, email, login, true))
-      }
-    })
+export const getAuthUserData = () => async dispatch => {
+  let response = await authAPI.getAuthUserData()
+  if (response.data.resultCode === 0) {
+    let { id, email, login } = response.data.data
+    dispatch(setAuthUserData(id, email, login, true))
   }
 }
 
-export const logIn = (userEmail, userPassword, userRemember) => {
-  return dispatch => {
-    authAPI.logIn(userEmail, userPassword, userRemember).then(data => {
-      console.log(data)
-      if (data.resultCode === 0) {
-        dispatch(getAuthUserData())
-      } else {
-        let message =
-          data.messages.length > 0
-            ? 'Error on server: ' + data.messages[0]
-            : 'Errors, your login or emails are not valid'
-        dispatch(stopSubmit('Login', { _error: message }))
-      }
-    })
+export const logIn = (
+  userEmail,
+  userPassword,
+  userRemember
+) => async dispatch => {
+  let response = await authAPI.logIn(userEmail, userPassword, userRemember)
+  if (response.resultCode === 0) {
+    dispatch(getAuthUserData())
+  } else {
+    let message =
+      response.data.messages.length > 0
+        ? 'Error on server: ' + response.messages[0]
+        : 'Errors, your login or emails are not valid'
+    dispatch(stopSubmit('Login', { _error: message }))
   }
 }
 
-export const logOut = (userEmail, userPassword, userRemember) => {
-  return dispatch => {
-    authAPI.logOut().then(data => {
-      console.log(data)
-      if (data.resultCode === 0) {
-        debugger
-        dispatch(setAuthUserData(null, null, null, false))
-      }
-    })
+export const logOut = (
+  userEmail,
+  userPassword,
+  userRemember
+) => async dispatch => {
+  let response = await authAPI.logOut()
+  if (response.resultCode === 0) {
+    dispatch(setAuthUserData(null, null, null, false))
   }
 }
 
