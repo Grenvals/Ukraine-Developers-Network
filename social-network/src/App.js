@@ -14,6 +14,9 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { initializedApp } from './redux/appReducer'
 import Preloader from './componets/common/Preloader/Preloader'
+import store from './redux/redux-store'
+import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
 
 class App extends React.Component {
   componentDidMount() {
@@ -45,10 +48,22 @@ let mapStateToProps = state => {
     initialized: state.app.initialized,
   }
 }
-export default compose(
+
+const AppContainer = compose(
   withRouter,
   connect(mapStateToProps, { initializedApp })
 )(App)
+
+export const SocialNetworkApp = props => {
+  return (
+    <BrowserRouter>
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    </BrowserRouter>
+  )
+}
+// export default SocialNetworkApp
 
 // ! Розібратися з компонентом Head, налагодити проброс заголовків.
 // ! Переписати на класові компоненти(user итд).
@@ -67,3 +82,4 @@ export default compose(
 // ! Розібратися з лейблами для форм
 // ! Todo list на react, счетчик
 // ! Деструктуризація пропсів, де потрібно
+// ! Прибрати експорти по дефолту
