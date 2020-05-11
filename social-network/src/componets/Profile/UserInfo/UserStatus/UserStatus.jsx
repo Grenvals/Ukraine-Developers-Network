@@ -35,8 +35,10 @@ export class UserStatus extends React.Component {
     return (
       <div className={style.userStatus}>
         {!this.state.editMode && (
-          <div onClick={this.activateEditMode} className={style.statusText}>
-            <p>{this.props.status || 'not set'}</p>
+          <div className={style.statusText}>
+            <p onClick={this.activateEditMode}>
+              {this.props.status || 'not set'}
+            </p>
           </div>
         )}
         {this.state.editMode && (
