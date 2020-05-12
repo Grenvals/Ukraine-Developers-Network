@@ -2,14 +2,10 @@ import React from 'react'
 // import logo from './logo.svg';
 import './App.scss'
 import { Route, withRouter } from 'react-router-dom'
-import DialogsContainer from './componets/Dialogs/DialogsContainer'
-import News from './componets/News/News'
 import Settings from './componets/Settings/Settings'
 import SidebarContainer from './componets/Sidebar/SidebarContainer'
-import UsersContainer from './componets/Users/UsersContainer'
 import ProfileContainer from './componets/Profile/ProfileContainer'
 import HeaderContainer from './componets/Header/HeaderContainer'
-import Login from './componets/Login/News/Login'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { initializedApp } from './redux/appReducer'
@@ -17,6 +13,11 @@ import Preloader from './componets/common/Preloader/Preloader'
 import store from './redux/redux-store'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
+import { withSuspense } from './hoc/withSuspense'
+const DialogsContainer = React.lazy(() => import('./componets/Dialogs/DialogsContainer'))
+const News = React.lazy(() => import('./componets/News/News'))
+const UsersContainer = React.lazy(() => import('./componets/Users/UsersContainer'))
+const Login = React.lazy(() => import('./componets/Login/News/Login'))
 
 class App extends React.Component {
   componentDidMount() {
@@ -31,11 +32,11 @@ class App extends React.Component {
         <HeaderContainer />
         <SidebarContainer />
         <div className="content-wrapper">
-          <Route path="/login" render={() => <Login />} />
+          <Route path="/login" render={withSuspense(Login)} />
           <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
-          <Route path="/dialogs" render={() => <DialogsContainer />} />
-          <Route path="/users" render={() => <UsersContainer />} />
-          <Route path="/news" component={News} />
+          <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
+          <Route path="/users" render={withSuspense(UsersContainer)} />
+          <Route path="/news" render={withSuspense(News)} />
           <Route path="/settings" component={Settings} />
         </div>
       </div>
@@ -49,10 +50,7 @@ let mapStateToProps = state => {
   }
 }
 
-const AppContainer = compose(
-  withRouter,
-  connect(mapStateToProps, { initializedApp })
-)(App)
+const AppContainer = compose(withRouter, connect(mapStateToProps, { initializedApp }))(App)
 
 export const SocialNetworkApp = props => {
   return (
@@ -83,3 +81,5 @@ export const SocialNetworkApp = props => {
 // ! Todo list на react, счетчик
 // ! Деструктуризація пропсів, де потрібно
 // ! Прибрати експорти по дефолту
+// ! Пагінатор, змінити назву на універсальну
+// ! Пописати тести

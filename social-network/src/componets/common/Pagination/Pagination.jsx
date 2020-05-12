@@ -7,14 +7,10 @@ import arrowRight from './../../../assets/images/arrows/right-arrow.svg'
 const Pagination = React.memo(props => {
   let [portionNumber, setPortionNumber] = useState(1)
   let pages = [...props.pages]
-
   let allPagesCount = props.pages.length
-
-  let portionSize = 10
-  let portionCount = Math.ceil(allPagesCount / portionSize)
-  let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1
-  let rightPortionPageNumber = portionNumber * portionSize
-  console.log(portionCount)
+  let portionCount = Math.ceil(allPagesCount / props.portionSize)
+  let leftPortionPageNumber = (portionNumber - 1) * props.portionSize + 1
+  let rightPortionPageNumber = portionNumber * props.portionSize
   let lastPages = []
 
   for (let i = 0; i <= 1; i++) {
