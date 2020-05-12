@@ -1,6 +1,5 @@
 import React from 'react'
 import Users from './Users'
-import Preloader from '../common/Preloader/Preloader'
 import { connect } from 'react-redux'
 import {
   followUser,
@@ -31,22 +30,17 @@ class UsersContainer extends React.Component {
   }
   render() {
     return (
-      <>
-        {this.props.isLoading ? (
-          <Preloader />
-        ) : (
-          <Users
-            users={this.props.users}
-            totalUsersCount={this.props.totalUsersCount}
-            pageSize={this.props.pageSize}
-            currentPage={this.props.currentPage}
-            onPageChanget={this.onPageChanget}
-            followingInProgress={this.props.followingInProgress}
-            unfollowUser={this.props.unfollowUser}
-            followUser={this.props.followUser}
-          />
-        )}
-      </>
+      <Users
+        users={this.props.users}
+        totalUsersCount={this.props.totalUsersCount}
+        pageSize={this.props.pageSize}
+        currentPage={this.props.currentPage}
+        onPageChanget={this.onPageChanget}
+        followingInProgress={this.props.followingInProgress}
+        unfollowUser={this.props.unfollowUser}
+        followUser={this.props.followUser}
+        isLoading={this.props.isLoading}
+      />
     )
   }
 }

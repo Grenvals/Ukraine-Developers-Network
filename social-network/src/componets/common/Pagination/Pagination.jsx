@@ -1,24 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from './Pagination.module.scss'
 import PaginationCountItem from './PaginationCountItem/PaginationCountItem'
 import arrowLeft from './../../../assets/images/arrows/left-arrow.svg'
 import arrowRight from './../../../assets/images/arrows/right-arrow.svg'
 
-const Pagination = props => {
+const Pagination = React.memo(props => {
+  let [portionNumber, setPortionNumber] = useState(1)
   let pages = [...props.pages]
 
   let allPagesCount = props.pages.length
 
   let portionSize = 10
-  let portionNumber = 2
-  let portionCount = Math.ceil(pages / portionSize)
+  let portionCount = Math.ceil(allPagesCount / portionSize)
   let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1
   let rightPortionPageNumber = portionNumber * portionSize
-
+  console.log(portionCount)
   let lastPages = []
-  let setPortionNumber = num => {
-    portionNumber = num
-  }
+
   for (let i = 0; i <= 1; i++) {
     lastPages.unshift(allPagesCount - i)
     pages.pop()
@@ -44,30 +42,43 @@ const Pagination = props => {
 
   return (
     <div className={style.pagination}>
-      <button
-        className={style.button}
-        onClick={() => {
-          setPortionNumber(portionNumber - 1)
-        }}
-      >
-        <img src={arrowLeft} alt="arrow" />
-      </button>
+      {leftPortionPageNumber <= 1 ? (
+        <span className={`${style.button} ${style.disable}`}>
+          {' '}
+          <img src={arrowLeft} alt="arrow" />
+        </span>
+      ) : (
+        <button
+          className={style.button}
+          onClick={() => {
+            setPortionNumber(portionNumber - 1)
+          }}
+        >
+          <img src={arrowLeft} alt="arrow" />
+        </button>
+      )}
       <ul className={style.paginationList}>
         {countItem}
         <li className={style.dots}> ... </li>
         {lastPagesCountItem}{' '}
       </ul>
       <ul></ul>
-      <button
-        className={style.button}
-        onClick={() => {
-          setPortionNumber(portionNumber + 1)
-        }}
-      >
-        <img src={arrowRight} alt="arrow" />
-      </button>
+      {portionNumber < portionCount - 1 ? (
+        <button
+          className={style.button}
+          onClick={() => {
+            setPortionNumber(portionNumber + 1)
+          }}
+        >
+          <img src={arrowRight} alt="arrow" />
+        </button>
+      ) : (
+        <span className={`${style.button} ${style.disable}`}>
+          <img src={arrowRight} alt="arrow" />
+        </span>
+      )}
     </div>
   )
-}
+})
 
 export default Pagination

@@ -118,6 +118,12 @@ input, button, a, label {
 	}
 }
 
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
 //<ОБОЛОЧКА>===========================================================================================================
 .wrapper{width: 100%;min-height: 100%;overflow: hidden;
 	// &.loaded{}

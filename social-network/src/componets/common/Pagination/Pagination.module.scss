@@ -31,5 +31,8 @@
 	}
 }
 .disable {
-	background: rgba($accent3, 0.7);
+	background: rgba($accent, 0.4);
+	&:hover {
+		background: rgba($accent, 0.4);
+	}
 }
