@@ -18,22 +18,17 @@ const UserInfo = props => {
       <div className={style.userGeneral}>
         <div className={style.userFoto}>
           <img
-            src={
-              props.profile.photos.large != null
-                ? props.profile.photos.large
-                : defaultUserPhoto
-            }
+            src={props.profile.photos.large != null ? props.profile.photos.large : defaultUserPhoto}
             alt="User Foto"
           />
         </div>
         <div className={style.userName}>{props.profile.fullName}</div>
-        <div className={style.userDescription}>
-          {props.profile.lookingForAJobDescription}
-        </div>
-        <UserStatus
-          status={props.status}
-          updateUserStatus={props.updateUserStatus}
-        />
+        <div className={style.userDescription}>{props.profile.lookingForAJobDescription}</div>
+        {props.isLoggedUser ? (
+          <UserStatus status={props.status} updateUserStatus={props.updateUserStatus} />
+        ) : (
+          <div className={style.userStatus}>{props.status}</div>
+        )}
       </div>
       <div className={style.aboutUser}>
         <Head title="About user" />
@@ -42,59 +37,29 @@ const UserInfo = props => {
       <div className={style.contacts}>
         <ul className={style.contactsList}>
           <li className={style.contactsItem}>
-            <a
-              className={style.contactsLink}
-              href={props.profile.contacts.facebook}
-            >
-              <img
-                className={style.contactsLogo}
-                src={facebookImg}
-                alt="facebook"
-              />
+            <a className={style.contactsLink} href={props.profile.contacts.facebook}>
+              <img className={style.contactsLogo} src={facebookImg} alt="facebook" />
             </a>
           </li>
           <li className={style.contactsItem}>
-            <a
-              className={style.contactsLink}
-              href={props.profile.contacts.twitter}
-            >
-              <img
-                className={style.contactsLogo}
-                src={twitterImg}
-                alt="twitter"
-              />
+            <a className={style.contactsLink} href={props.profile.contacts.twitter}>
+              <img className={style.contactsLogo} src={twitterImg} alt="twitter" />
             </a>
           </li>
           <li className={style.contactsItem}>
-            <a
-              className={style.contactsLink}
-              href={props.profile.contacts.instagram}
-            >
-              <img
-                className={style.contactsLogo}
-                src={instagramImg}
-                alt="instagram"
-              />
+            <a className={style.contactsLink} href={props.profile.contacts.instagram}>
+              <img className={style.contactsLogo} src={instagramImg} alt="instagram" />
             </a>
           </li>
           <li className={style.contactsItem}>
-            <a
-              className={style.contactsLink}
-              href={props.profile.contacts.github}
-            >
-              <img
-                className={style.contactsLogo}
-                src={githubImg}
-                alt="github"
-              />
+            <a className={style.contactsLink} href={props.profile.contacts.github}>
+              <img className={style.contactsLogo} src={githubImg} alt="github" />
             </a>
           </li>
         </ul>
       </div>
       <div className={style.detail}>
-        <div className={style.detailJob}>
-          Looking for a job: {props.profile.lookingForAJob}
-        </div>
+        <div className={style.detailJob}>Looking for a job: {props.profile.lookingForAJob}</div>
         <div className="">Website: {props.profile.contacts.website} </div>
       </div>
     </div>

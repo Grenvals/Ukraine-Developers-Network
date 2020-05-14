@@ -33,6 +33,7 @@ class ProfileContainer extends React.Component {
         profile={this.props.profile}
         status={this.props.status}
         updateUserStatus={this.props.updateUserStatus}
+        isLoggedUser={!this.props.match.params.userId}
       />
     )
   }

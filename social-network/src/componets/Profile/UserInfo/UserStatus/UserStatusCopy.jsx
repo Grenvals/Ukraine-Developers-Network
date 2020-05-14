@@ -29,13 +29,7 @@ const UserStatus = props => {
       )}
       {editMode && (
         <div className={style.inputBlock}>
-          <input
-            onChange={onStatusChange}
-            value={status}
-            autoFocus={true}
-            onBlur={deactivateEditMode}
-            type="text"
-          />
+          <input onChange={onStatusChange} value={status} autoFocus={true} onBlur={deactivateEditMode} type="text" />
         </div>
       )}
       <div className={style.editImg} onClick={activateEditMode}>
