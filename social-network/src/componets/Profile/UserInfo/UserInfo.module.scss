@@ -8,13 +8,6 @@
 	background-color: $second;
 	min-height: 300px;
 }
-.userStatus {
-	margin: 0 auto;
-	max-width: 200px;
-	font-size: 14px;
-	text-align: center;
-	position: relative;
-}
 
 .head {
 	width: 100%;
@@ -29,7 +22,6 @@
 		right:0;
 		bottom: 0;
 		background: rgba(0, 0, 0, 0.2)
-
 	}
 	&_img {
 		max-width: 100%;
@@ -42,23 +34,8 @@
 	position: relative;
 	margin-top: -75px;
 	padding: 0px 20px;
-	// width: 300px;
-	// border: 1px solid green;
 }
-.userFoto {
-	margin: 0 auto;
-	margin-bottom: 15px;
-	height: 150px;
-	width: 150px;
-	border: 2px solid $second;
-	// border-radius: 0 50% 50% 0;
-	border-radius: 50%;
-	overflow: hidden;
-	// border: 1px solid $first;
-	img {
-		max-width: 100%;
-	}
-}
+
 .userName {
 	text-align: center;
 	font-weight: 600; 

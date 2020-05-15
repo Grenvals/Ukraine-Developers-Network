@@ -20,8 +20,15 @@ const UserStatus = props => {
   let onStatusChange = e => {
     setStatus(e.currentTarget.value)
   }
+  if (!props.isLoggedUser) {
+    return (
+      <div className={style.userStatus}>
+        <p>{props.status || 'not set'}</p>
+      </div>
+    )
+  }
   return (
-    <div className={style.userStatus}>
+    <div className={`${style.userStatus} ${style.userStatus_active}`}>
       {!editMode && (
         <div onClick={activateEditMode} className={style.statusText}>
           <p>{props.status || 'not set'}</p>

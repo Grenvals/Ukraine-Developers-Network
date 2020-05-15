@@ -5,7 +5,10 @@
 	font-size: 14px;
 	text-align: center;
 	position: relative;
-	padding-right: 14px;
+	&_active {
+		padding-right: 14px;
+		cursor: pointer;
+	}
 }
 .editImg {
 	position: absolute;
@@ -26,7 +29,4 @@
 		padding: 0px 15px;
 		line-height: 1.8;
 	}
-}
-.statusText {
-	cursor: pointer;
 }

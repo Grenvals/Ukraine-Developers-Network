@@ -1,13 +1,13 @@
 import React from 'react'
 import style from './UserInfo.module.scss'
 import background from '../../../assets/images/profile/background.jpg'
-import defaultUserPhoto from '../../../assets/images/user-default.svg'
 import facebookImg from '../../../assets/images/contacts/facebook.svg'
 import twitterImg from '../../../assets/images/contacts/twitter.svg'
 import instagramImg from '../../../assets/images/contacts/instagram.svg'
 import githubImg from '../../../assets/images/contacts/github.svg'
 import Head from '../../common/Head/Head'
 import UserStatus from './UserStatus/UserStatusCopy'
+import { UserProfilePhoto } from '../../common/UserFoto/UserFoto'
 
 const UserInfo = props => {
   return (
@@ -16,19 +16,14 @@ const UserInfo = props => {
         <img className={style.head_img} src={background} alt="bg" />
       </div>
       <div className={style.userGeneral}>
-        <div className={style.userFoto}>
-          <img
-            src={props.profile.photos.large != null ? props.profile.photos.large : defaultUserPhoto}
-            alt="User Foto"
-          />
-        </div>
+        <UserProfilePhoto
+          isLoggedUser={props.isLoggedUser}
+          photo={props.profile.photos.large}
+          changeUserPhoto={props.changeUserPhoto}
+        />
         <div className={style.userName}>{props.profile.fullName}</div>
         <div className={style.userDescription}>{props.profile.lookingForAJobDescription}</div>
-        {props.isLoggedUser ? (
-          <UserStatus status={props.status} updateUserStatus={props.updateUserStatus} />
-        ) : (
-          <div className={style.userStatus}>{props.status}</div>
-        )}
+        <UserStatus status={props.status} isLoggedUser={props.isLoggedUser} updateUserStatus={props.updateUserStatus} />
       </div>
       <div className={style.aboutUser}>
         <Head title="About user" />
