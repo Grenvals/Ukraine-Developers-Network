@@ -6,10 +6,25 @@
   margin-bottom: 15px;
   height: 150px;
   width: 150px;
-  border: 2px solid $second;
-  border-radius: 50%;
   img {
     max-width: 100%;
+  }
+  &__container {
+    border: 2px solid $second;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right:0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.1)
+    }
   }
   &__upload {
     position: absolute;
@@ -25,7 +40,6 @@
     }
     label {
       @include flexbox();
-      cursor: pointer;
       height: 30px;
       width: 30px;
       background: $accent3;
@@ -33,6 +47,7 @@
       align-items: center;
       border-radius: 50%;
       transition: background 0.1s;
+      cursor: pointer;
       &:hover {
         background: darken($accent3, 5%);
       }

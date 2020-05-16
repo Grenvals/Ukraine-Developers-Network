@@ -36,9 +36,7 @@ export const usersAPI = {
     return instanse.post(`follow/${userId}`, {}).then(response => response.data)
   },
   unfollowUser: userId => {
-    return instanse
-      .delete(`follow/${userId}`, {})
-      .then(response => response.data)
+    return instanse.delete(`follow/${userId}`, {}).then(response => response.data)
   },
   getProfile: userId => {
     console.log('api is old, please use profileAPI()')
@@ -51,14 +49,23 @@ export const profileAPI = {
     return instanse.get(`profile/` + userId, {}).then(response => response.data)
   },
   getStatus: userId => {
-    return instanse
-      .get(`profile/status/` + userId, {})
-      .then(response => response.data)
+    return instanse.get(`profile/status/` + userId, {}).then(response => response.data)
   },
   updateStatus: status => {
     return instanse
       .put(`profile/status/`, {
         status: status,
+      })
+      .then(response => response.data)
+  },
+  updateUserPhoto: data => {
+    const formData = new FormData()
+    formData.append('image', data)
+    return instanse
+      .put(`profile/photo/`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       })
       .then(response => response.data)
   },

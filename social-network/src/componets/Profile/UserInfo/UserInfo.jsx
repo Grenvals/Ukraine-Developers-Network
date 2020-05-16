@@ -19,11 +19,17 @@ const UserInfo = props => {
         <UserProfilePhoto
           isLoggedUser={props.isLoggedUser}
           photo={props.profile.photos.large}
-          changeUserPhoto={props.changeUserPhoto}
+          updateUserPhoto={props.updateUserPhoto}
         />
         <div className={style.userName}>{props.profile.fullName}</div>
-        <div className={style.userDescription}>{props.profile.lookingForAJobDescription}</div>
-        <UserStatus status={props.status} isLoggedUser={props.isLoggedUser} updateUserStatus={props.updateUserStatus} />
+        <div className={style.userDescription}>
+          {props.profile.lookingForAJobDescription}
+        </div>
+        <UserStatus
+          status={props.status}
+          isLoggedUser={props.isLoggedUser}
+          updateUserStatus={props.updateUserStatus}
+        />
       </div>
       <div className={style.aboutUser}>
         <Head title="About user" />
@@ -54,7 +60,9 @@ const UserInfo = props => {
         </ul>
       </div>
       <div className={style.detail}>
-        <div className={style.detailJob}>Looking for a job: {props.profile.lookingForAJob}</div>
+        <div className={style.detailJob}>
+          Looking for a job: {props.profile.lookingForAJob}
+        </div>
         <div className="">Website: {props.profile.contacts.website} </div>
       </div>
     </div>
