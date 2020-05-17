@@ -1,11 +1,12 @@
 @import "../../scss/main.scss";
 
 .dialogs {
-  position: absolute;
-  top: 75px;
-  bottom: 15px;
-  right: 15px;
-  left: 0px;
+  // position: absolute;
+  // top: 15px;
+  // bottom: 15px;
+  // right: 15px;
+  // left: 0px;
+  height: 100%;
   background: $second;
   box-shadow: $shadow;
   border-radius: 6px;

@@ -1,4 +1,6 @@
 import React from 'react'
+import PerfectScrollbar from 'react-perfect-scrollbar'
+import 'react-perfect-scrollbar/dist/css/styles.css'
 // import logo from './logo.svg';
 import './App.scss'
 import { Route, withRouter } from 'react-router-dom'
@@ -27,17 +29,20 @@ class App extends React.Component {
     if (!this.props.initialized) {
       return <Preloader />
     }
+
     return (
       <div className="app-wrapper">
         <HeaderContainer />
         <SidebarContainer />
         <div className="content-wrapper">
-          <Route path="/login" render={withSuspense(Login)} />
-          <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
-          <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
-          <Route path="/users" render={withSuspense(UsersContainer)} />
-          <Route path="/news" render={withSuspense(News)} />
-          <Route path="/settings" component={Settings} />
+          <PerfectScrollbar className="scrollbar" component="div">
+            <Route path="/login" render={withSuspense(Login)} />
+            <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
+            <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
+            <Route path="/users" render={withSuspense(UsersContainer)} />
+            <Route path="/news" render={withSuspense(News)} />
+            <Route path="/settings" component={Settings} />
+          </PerfectScrollbar>
         </div>
       </div>
     )
@@ -50,7 +55,10 @@ let mapStateToProps = state => {
   }
 }
 
-const AppContainer = compose(withRouter, connect(mapStateToProps, { initializedApp }))(App)
+const AppContainer = compose(
+  withRouter,
+  connect(mapStateToProps, { initializedApp })
+)(App)
 
 export const SocialNetworkApp = props => {
   return (
