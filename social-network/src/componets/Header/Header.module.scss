@@ -1,11 +1,16 @@
 @import "./../../scss/main.scss";
 
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   grid-area: header;
   background: $accent;
   color: #fff;
   height: 60px;
   box-shadow: $shadow;
+  z-index: 999;
 }
 .header .container {
   @include flexbox();

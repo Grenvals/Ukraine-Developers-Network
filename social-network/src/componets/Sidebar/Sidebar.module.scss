@@ -1,9 +1,12 @@
 @import "./../../scss/main.scss";
 
 .sidebar {
+  position: fixed;
+  width: 300px;
+  top: 75px;
+  left: 0px;
   grid-area: sidebar;
-  align-self: start;
-  padding-left: 15px;
+  padding: 0px 15px;
 
   &>* {
     margin-bottom: 15px;

@@ -2,22 +2,14 @@
 
 // Global style
 .app-wrapper {
-  display: grid;
-  grid-template-areas:
-    "header header"
-    "sidebar content";
-  grid-auto-rows: auto;
-  grid-template-rows: 60px auto;
-  grid-template-columns: 20% 1fr;
-  grid-column-gap: 15px;
-  grid-row-gap: 15px;
   background: #EDF2F6;
   padding: 0px 0px;
-  padding-bottom: 15px;
   min-height: 100vh;
 }
 
 .content-wrapper {
-  grid-area: content;
-  padding: 0px 15px 0px 0px;
+  position: relative;
+  margin-left: 300px;
+  padding: 75px 15px 16px 0px;
+  min-height: 100vh;
 }

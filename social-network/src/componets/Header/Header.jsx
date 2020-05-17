@@ -16,8 +16,8 @@ const Header = props => {
           <div className={style.user__logo}>
             <img
               src={
-                props.isAuth
-                  ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRHyEwZiidXHLnJ4qyOeJR81Lyx_3Xt9gBQcdvuIZuXr9GVLga8'
+                props.isAuth && props.profile != null
+                  ? props.profile.photos.large
                   : defaultUserPhoto
               }
               alt=""

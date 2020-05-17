@@ -37,6 +37,14 @@ const Users = props => {
           ))}
         </ul>
       )}
+      <div className={style.settings}>
+        <Pagination
+          pages={pages}
+          setCurrentPage={props.onPageChanget}
+          currentPage={props.currentPage}
+          portionSize={10}
+        />
+      </div>
     </div>
   )
 }
