@@ -1,12 +1,12 @@
 @import "./../../../../scss/main.scss";
 .userStatus {
 	margin: 0 auto;
-	max-width: 200px;
+	// max-width: 200px;
 	font-size: 14px;
 	text-align: center;
 	position: relative;
 	&_active {
-		padding-right: 14px;
+		padding: 0px 14px;
 		cursor: pointer;
 	}
 }
@@ -22,7 +22,7 @@
 	}
 }
 .inputBlock {
-	margin-right: 15px;
+	margin: 0px 15px;
 	input {
 		border: 1px solid $accent;
 		border-radius: 4px;

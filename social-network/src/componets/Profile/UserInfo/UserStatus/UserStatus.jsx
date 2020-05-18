@@ -36,9 +36,7 @@ export class UserStatus extends React.Component {
       <div className={style.userStatus}>
         {!this.state.editMode && (
           <div className={style.statusText}>
-            <p onClick={this.activateEditMode}>
-              {this.props.status || 'not set'}
-            </p>
+            <p onClick={this.activateEditMode}>{this.props.status || 'not set'}</p>
           </div>
         )}
         {this.state.editMode && (
@@ -52,9 +50,11 @@ export class UserStatus extends React.Component {
             />
           </div>
         )}
-        <div className={style.editImg} onClick={this.activateEditMode}>
-          <img src={editImg} alt="edit" />
-        </div>
+        {this.state.editMode && (
+          <div className={style.editImg} onClick={this.activateEditMode}>
+            <img src={editImg} alt="edit" />
+          </div>
+        )}
       </div>
     )
   }

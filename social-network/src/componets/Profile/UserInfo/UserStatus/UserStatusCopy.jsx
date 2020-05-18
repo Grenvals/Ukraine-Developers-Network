@@ -34,7 +34,7 @@ const UserStatus = props => {
           <p>{props.status || 'not set'}</p>
         </div>
       )}
-      {editMode && (
+      {editMode ? (
         <div className={style.inputBlock}>
           <input
             onChange={onStatusChange}
@@ -44,10 +44,11 @@ const UserStatus = props => {
             type="text"
           />
         </div>
+      ) : (
+        <div className={style.editImg} onClick={activateEditMode}>
+          <img src={editImg} alt="edit" />
+        </div>
       )}
-      <div className={style.editImg} onClick={activateEditMode}>
-        <img src={editImg} alt="edit" />
-      </div>
     </div>
   )
 }

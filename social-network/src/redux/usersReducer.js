@@ -10,7 +10,7 @@ const TOOGLE_FOLLOWNG_PROGRESS = 'users/TOOGLE_FOLLOWNG_PROGRESS'
 
 let initialState = {
   users: [],
-  pageSize: 7,
+  pageSize: 25,
   totalUsersCount: 0,
   currentPage: 2,
   isLoading: true,
@@ -112,12 +112,7 @@ export const getRequestUsers = (currentPage, pageSize) => async dispatch => {
   dispatch(setLoadingStatus(false))
 }
 
-const followUnfollowFlow = async (
-  dispatch,
-  userId,
-  apiMethod,
-  actionCreator
-) => {
+const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) => {
   dispatch(toogleFollowingProgress(userId, true))
   let response = await apiMethod(userId)
   if (response.resultCode === 0) {
@@ -127,21 +122,11 @@ const followUnfollowFlow = async (
 }
 
 export const followUser = userId => dispatch => {
-  followUnfollowFlow(
-    dispatch,
-    userId,
-    usersAPI.followUser.bind(usersAPI),
-    follow
-  )
+  followUnfollowFlow(dispatch, userId, usersAPI.followUser.bind(usersAPI), follow)
 }
 
 export const unfollowUser = userId => dispatch => {
-  followUnfollowFlow(
-    dispatch,
-    userId,
-    usersAPI.unfollowUser.bind(usersAPI),
-    unfollow
-  )
+  followUnfollowFlow(dispatch, userId, usersAPI.unfollowUser.bind(usersAPI), unfollow)
 }
 
 export default usersReducer
