@@ -2,16 +2,15 @@ import React from 'react'
 import style from './Login.module.scss'
 import { Field, reduxForm } from 'redux-form'
 import { Input, Checkbox } from '../../common/FormControls/FormControls'
-import {
-  required,
-  maxLengthCreator,
-} from '../../../utils/validators/validators'
+import { required, maxLengthCreator } from '../../../utils/validators/validators'
 import { connect } from 'react-redux'
-import { logIn } from '../../../redux/authReducer'
+import { logIn, getCaptchaUrl } from '../../../redux/authReducer'
 import { Redirect } from 'react-router-dom'
+import reload from '../../../assets/images/reload.svg'
+import check from '../../../assets/images/check.svg'
 
 const maxLength = maxLengthCreator(28)
-const LoginForm = ({ handleSubmit, error }) => {
+const LoginForm = ({ handleSubmit, captcha, updateCaptcha, error }) => {
   return (
     <form className="form" onSubmit={handleSubmit}>
       <div className={style.form__item}>
@@ -47,17 +46,52 @@ const LoginForm = ({ handleSubmit, error }) => {
               name={'user_remember'}
               component={Checkbox}
               type={'checkbox'}
+              id={'userRemember'}
             />
           </div>
-          <label className={style.checkbox__label} htmlFor="user_remember">
+          <label className={style.checkbox__label} htmlFor="userRemember">
             Remember me on this device
           </label>
         </div>
       </div>
+      {captcha === null ? (
+        <div className={style.form__captchaStatus}>
+          <img src={check} alt="check" />
+          <p className="">Captcha not required</p>
+        </div>
+      ) : (
+        <div className={style.form__item}>
+          <label className={style.form__label} htmlFor="captcha">
+            Security code
+          </label>
+          <div className={style.form__security}>
+            <div className={style.form__captcha}>
+              <button
+                className={style.form__refreshButton}
+                type="button"
+                onClick={updateCaptcha}
+              >
+                <img src={reload} alt="captcha" />
+              </button>
+              <img src={captcha} alt="captcha" />
+            </div>
+            <Field
+              className={style.form__input}
+              placeholder="answer"
+              name={'user_captcha'}
+              component={Input}
+              validate={[required, maxLength]}
+              id={captcha}
+            />
+          </div>
+        </div>
+      )}
 
       <div className={style.form__button}>
         {error && <span className={style.form__error}>{error}</span>}
-        <button className={style.button}>Submit</button>
+        <button type="submit" className={style.button}>
+          Submit
+        </button>
       </div>
     </form>
   )
@@ -72,7 +106,8 @@ const Login = props => {
     props.logIn(
       formData.user_email,
       formData.user_password,
-      formData.user_remember
+      formData.user_remember,
+      formData.user_captcha
     )
   }
   if (props.isAuth) {
@@ -83,7 +118,11 @@ const Login = props => {
     <div className={style.login}>
       <div className={style.formBlock}>
         <h1 className={style.form__title}>Login</h1>
-        <LoginReduxForm onSubmit={onSubmit} />
+        <LoginReduxForm
+          onSubmit={onSubmit}
+          captcha={props.captcha}
+          updateCaptcha={props.getCaptchaUrl}
+        />
         <p className={style.form__quate}>
           Have the courage to follow your heart and intuition. Steve Jobs
         </p>
@@ -94,7 +133,8 @@ const Login = props => {
 let mapStateToProps = state => {
   return {
     isAuth: state.auth.isAuth,
+    captcha: state.auth.captcha,
   }
 }
 
-export default connect(mapStateToProps, { logIn })(Login)
+export default connect(mapStateToProps, { logIn, getCaptchaUrl })(Login)

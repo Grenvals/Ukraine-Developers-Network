@@ -12,17 +12,23 @@ export const authAPI = {
   getAuthUserData: () => {
     return instanse.get(`auth/me`, {})
   },
-  logIn: (userEmail, userPassword, userRemember) => {
+  logIn: (userEmail, userPassword, userRemember, captcha = null) => {
     return instanse
       .post(`auth/login`, {
         email: userEmail,
         password: userPassword,
         rememberMe: userRemember,
+        captcha: captcha,
       })
       .then(response => response.data)
   },
   logOut: () => {
     return instanse.delete(`auth/login`, {}).then(response => response.data)
+  },
+}
+export const securityAPI = {
+  getCaptchaUrl: () => {
+    return instanse.get(`security/get-captcha-url`, {})
   },
 }
 
