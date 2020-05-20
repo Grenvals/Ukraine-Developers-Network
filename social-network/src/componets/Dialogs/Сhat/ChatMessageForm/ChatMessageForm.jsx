@@ -1,11 +1,8 @@
 import React from 'react'
 import style from './ChatMessageForm.module.scss'
 import { Field, reduxForm, reset } from 'redux-form'
-import { Textarea } from '../../../common/FormControls/FormControls'
-import {
-  required,
-  maxLengthCreator,
-} from '../../../../utils/validators/validators'
+import { Textarea } from '../../../common/Form/FormControls/FormControls'
+import { required, maxLengthCreator } from '../../../../utils/validators/validators'
 
 const maxLength = maxLengthCreator(10)
 const AddMessageForm = props => {

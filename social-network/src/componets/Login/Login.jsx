@@ -1,13 +1,13 @@
 import React from 'react'
 import style from './Login.module.scss'
 import { Field, reduxForm } from 'redux-form'
-import { Input, Checkbox } from '../../common/FormControls/FormControls'
-import { required, maxLengthCreator } from '../../../utils/validators/validators'
+import { Input, Checkbox } from '../common/Form/FormControls/FormControls'
+import { required, maxLengthCreator } from '../../utils/validators/validators'
 import { connect } from 'react-redux'
-import { logIn, getCaptchaUrl } from '../../../redux/authReducer'
+import { logIn, getCaptchaUrl } from '../../redux/authReducer'
 import { Redirect } from 'react-router-dom'
-import reload from '../../../assets/images/reload.svg'
-import check from '../../../assets/images/check.svg'
+import reload from '../../assets/images/reload.svg'
+import check from '../../assets/images/check.svg'
 
 const maxLength = maxLengthCreator(28)
 const LoginForm = ({ handleSubmit, captcha, updateCaptcha, error }) => {
@@ -102,7 +102,6 @@ const LoginReduxForm = reduxForm({
 
 const Login = props => {
   const onSubmit = formData => {
-    console.log(formData)
     props.logIn(
       formData.user_email,
       formData.user_password,

@@ -8,7 +8,6 @@ import {
   updateUserPhoto,
 } from '../../redux/profileReducer'
 import { withRouter } from 'react-router'
-// import { withAuthRedirect } from '../../hoc/withAuthRedirect'
 import { compose } from 'redux'
 
 class ProfileContainer extends React.Component {
@@ -61,5 +60,4 @@ export default compose(
     updateUserPhoto,
   }),
   withRouter
-  // withAuthRedirect,
 )(ProfileContainer)

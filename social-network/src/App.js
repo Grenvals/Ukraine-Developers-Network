@@ -4,7 +4,6 @@ import 'react-perfect-scrollbar/dist/css/styles.css'
 // import logo from './logo.svg';
 import './App.scss'
 import { Route, withRouter } from 'react-router-dom'
-import Settings from './componets/Settings/Settings'
 import SidebarContainer from './componets/Sidebar/SidebarContainer'
 import ProfileContainer from './componets/Profile/ProfileContainer'
 import HeaderContainer from './componets/Header/HeaderContainer'
@@ -16,10 +15,11 @@ import store from './redux/redux-store'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { withSuspense } from './hoc/withSuspense'
+import { SettingsContainers } from './componets/Settings/SettingsContainer'
 const DialogsContainer = React.lazy(() => import('./componets/Dialogs/DialogsContainer'))
 const News = React.lazy(() => import('./componets/News/News'))
 const UsersContainer = React.lazy(() => import('./componets/Users/UsersContainer'))
-const Login = React.lazy(() => import('./componets/Login/News/Login'))
+const Login = React.lazy(() => import('./componets/Login/Login'))
 
 class App extends React.Component {
   componentDidMount() {
@@ -41,7 +41,7 @@ class App extends React.Component {
             <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
             <Route path="/users" render={withSuspense(UsersContainer)} />
             <Route path="/news" render={withSuspense(News)} />
-            <Route path="/settings" component={Settings} />
+            <Route path="/settings" component={SettingsContainers} />
           </PerfectScrollbar>
         </div>
       </div>

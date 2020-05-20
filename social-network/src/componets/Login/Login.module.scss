@@ -1,10 +1,10 @@
 
-@import "../../../scss/main.scss";
+@import "../../scss/main.scss";
 .login {
 	@include flexbox();
 	justify-content: center;
 	align-items: center;
-	background: url(../../../assets/images/profile/background.jpg) center no-repeat;
+	background: url(../../assets/images/profile/background.jpg) center no-repeat;
 	border-radius: 8px;
 	background-size: cover;
 	overflow: hidden;

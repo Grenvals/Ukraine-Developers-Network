@@ -1,5 +1,65 @@
 
 @import "./../../scss/main.scss";
 .settings {
-	display: block;
+	background: $second;
+	border-radius: 8px;
+	overflow: hidden;
+	min-height: 180%;
+	max-width: 750px;
+	&__container {
+		padding: 15px 30px;
+	}
+	&__background {
+		width: 100%;
+		overflow: hidden;
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right:0;
+			bottom: 0;
+			background: rgba(0, 0, 0, 0.1)
+		}
+		img {
+			height: 150px;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+	&__form {
+		&_inline {
+			@include flexbox();
+			align-items: center;
+		}
+	}
+}
+.button {
+  display: block;
+	margin-right: 0px;
+	margin-left: auto;
+  background: lighten($accent, 5%);
+  text-transform: uppercase;
+  color: $second;
+  height: 35px;
+  line-height: 35px;
+  padding: 0px 20px;
+  min-width: 90px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: $shadow;
+  transition: background 0.2s;
+  &:hover {
+    background: lighten($accent, 10%);
+  }
+
+  &:active {
+    background: darken($accent, 10%);
+	}
+	&:disabled {
+		cursor: default;
+		background: lighten($accent, 20%);
+	}
 }
