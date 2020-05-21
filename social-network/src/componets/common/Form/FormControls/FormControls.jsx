@@ -42,3 +42,20 @@ export const Checkbox = props => {
     </FormControl>
   )
 }
+
+export const ToogleButton = props => {
+  const { input, meta, ...restProps } = props
+  return (
+    <FormControl {...props}>
+      <label className={style.toggle}>
+        <input
+          type="checkbox"
+          className={style.toggle__input}
+          {...input}
+          {...restProps}
+        />
+        <div className={style.toggle__control}></div>
+      </label>
+    </FormControl>
+  )
+}

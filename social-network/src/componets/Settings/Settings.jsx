@@ -3,45 +3,23 @@ import style from './Settings.module.scss'
 import background from '../../assets/images/settings/settings-bg.jpg'
 import Head from '../common/Head/Head'
 import { UserProfilePhoto } from '../common/UserFoto/UserFoto'
-import { InputItem } from '../common/Form/FormItem/InputItem'
-import { maxLengthCreator, required } from '../../utils/validators/validators'
-import { reduxForm } from 'redux-form'
 import Preloader from '../common/Preloader/Preloader'
-
-const maxLength = maxLengthCreator(30)
-
-const PrevievInfoForm = ({ handleSubmit, error, pristine, submitting }) => {
-  return (
-    <form
-      className={`${style.settings__form} ${style.settings__form_inline}`}
-      onSubmit={handleSubmit}
-    >
-      <InputItem
-        label="Status"
-        placeholder="user status"
-        name="user_status"
-        validate={[required, maxLength]}
-      />
-      <button type="submit" className={style.button} disabled={pristine || submitting}>
-        Save
-      </button>
-    </form>
-  )
-}
-
-const PrevievInfoReduxForm = reduxForm({
-  form: 'user',
-})(PrevievInfoForm)
+import { StatusReduxForm } from './StatusReduxForm/StatusReduxForm'
+import { ProfileReduxForm } from './ProfileReduxForm/ProfileReduxForm'
 
 const Settings = props => {
   if (!props.profile || !props.status) {
     return <Preloader />
   } else {
-    const data = {
-      user_status: props.status,
+    const initialData = {
+      status: props.status,
     }
+    console.log(props)
     const onSubmit = formData => {
-      props.updateUserStatus(formData.user_status)
+      props.updateUserStatus(formData.status)
+    }
+    const onProfileSubmit = formData => {
+      props.updateUserProfile(props.profile.userId, formData)
     }
     return (
       <div className={style.settings}>
@@ -55,9 +33,9 @@ const Settings = props => {
             photo={props.profile.photos.large}
             updateUserPhoto={props.updateUserPhoto}
           />
-          <PrevievInfoReduxForm initialValues={data} onSubmit={onSubmit} />
+          <StatusReduxForm initialValues={initialData} onSubmit={onSubmit} />
         </div>
-        <Head title="User profile settings" />
+        <ProfileReduxForm initialValues={props.profile} onSubmit={onProfileSubmit} />
       </div>
     )
   }

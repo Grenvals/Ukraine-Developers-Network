@@ -8,6 +8,7 @@ import {
   getUserStatus,
   updateUserStatus,
   updateUserPhoto,
+  updateUserProfile,
 } from '../../redux/profileReducer'
 
 class SettingsContainer extends React.Component {
@@ -45,6 +46,7 @@ export const SettingsContainers = compose(
     getUserStatus,
     updateUserStatus,
     updateUserPhoto,
+    updateUserProfile,
   }),
   withAuthRedirect
 )(SettingsContainer)

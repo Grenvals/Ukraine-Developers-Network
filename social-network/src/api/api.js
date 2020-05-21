@@ -75,6 +75,9 @@ export const profileAPI = {
       })
       .then(response => response.data)
   },
+  updateProfile: profile => {
+    return instanse.put(`profile/`, profile).then(response => response.data)
+  },
 }
 
 // axios

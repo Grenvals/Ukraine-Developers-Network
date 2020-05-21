@@ -1,4 +1,5 @@
 import { usersAPI, profileAPI } from '../api/api'
+import { stopSubmit } from 'redux-form'
 const ADD_POST = 'profile/ADD-POST'
 const DELETE_POST = 'profile/DELETE-POST'
 const SET_USER_PROFILE = 'profile/SET_USER_PROFILE'
@@ -71,6 +72,22 @@ export const saveFotoSuccess = data => ({
 export const getUserProfile = userId => async dispatch => {
   let response = await usersAPI.getProfile(userId)
   dispatch(setUserProfile(response))
+}
+
+export const updateUserProfile = (userId, formData) => async dispatch => {
+  let response = await profileAPI.updateProfile(formData)
+  if (response.resultCode === 0) {
+    dispatch(getUserProfile(userId))
+  } else {
+    let key = response.messages[0].match(/Contacts->(\w+)/)[1].toLowerCase()
+    dispatch(
+      stopSubmit('userProfile', {
+        contacts: { [key]: response.messages[0] },
+      })
+    )
+    // dispatch(stopSubmit('userProfile', { _error: response.messages[0] }))
+    // return Promise.reject(response.messages[0])
+  }
 }
 
 export const getUserStatus = userId => async dispatch => {

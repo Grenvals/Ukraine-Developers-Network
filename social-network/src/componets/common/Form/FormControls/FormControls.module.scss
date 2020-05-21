@@ -1,7 +1,45 @@
-
 @import "../../../../scss/main.scss";
+
 .error {
   padding: 0px 5px;
   color: $error;
   font-size: 13px;
+}
+
+.toggle {
+  cursor: pointer;
+  &__control {
+    margin-right: 10px;
+    transition: 0.3s ease;
+    width: 40px;
+    height: 20px;
+    display: block;
+    border: 1px solid lighten($accent, 30%);
+    border-radius: 20px;
+    position: relative;
+    &:after {
+      transition: 0.3s ease;
+      content: "";
+      width: 20px;
+      height:  20px;
+      display: block;
+      background-color: $accent;
+      border-radius: 50%;
+      box-shadow: $shadow;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+    }
+  }
+  &__input {
+    display: none;
+    &:checked +.toggle__control {
+      border-color: $accent3;
+      background-color: $accent3;
+      &:after {
+        left: 20px; 
+      }
+    }
+  }
 }
