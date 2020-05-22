@@ -3,7 +3,7 @@ import PerfectScrollbar from 'react-perfect-scrollbar'
 import 'react-perfect-scrollbar/dist/css/styles.css'
 // import logo from './logo.svg';
 import './App.scss'
-import { Route, withRouter } from 'react-router-dom'
+import { Route, withRouter, Switch, Redirect } from 'react-router-dom'
 import SidebarContainer from './componets/Sidebar/SidebarContainer'
 import ProfileContainer from './componets/Profile/ProfileContainer'
 import HeaderContainer from './componets/Header/HeaderContainer'
@@ -16,6 +16,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { withSuspense } from './hoc/withSuspense'
 import { SettingsContainers } from './componets/Settings/SettingsContainer'
+import { NotFound } from './componets/NotFound/NotFound'
 const DialogsContainer = React.lazy(() => import('./componets/Dialogs/DialogsContainer'))
 const News = React.lazy(() => import('./componets/News/News'))
 const UsersContainer = React.lazy(() => import('./componets/Users/UsersContainer'))
@@ -36,12 +37,16 @@ class App extends React.Component {
         <SidebarContainer />
         <div className="content-wrapper">
           <PerfectScrollbar className="scrollbar" component="div">
-            <Route path="/login" render={withSuspense(Login)} />
-            <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
-            <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
-            <Route path="/users" render={withSuspense(UsersContainer)} />
-            <Route path="/news" render={withSuspense(News)} />
-            <Route path="/settings" component={SettingsContainers} />
+            <Switch>
+              <Route exact path="/" render={() => <Redirect to={'/profile'} />} />
+              <Route path="/login" render={withSuspense(Login)} />
+              <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
+              <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
+              <Route path="/users" render={withSuspense(UsersContainer)} />
+              <Route path="/news" render={withSuspense(News)} />
+              <Route path="/settings" component={SettingsContainers} />
+              <Route path="*" render={withSuspense(NotFound)} />
+            </Switch>
           </PerfectScrollbar>
         </div>
       </div>

@@ -1,0 +1,52 @@
+
+@import "./../../scss/main.scss";
+.notFound {
+	@include flexbox();
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	&__item {
+	 text-align: center;
+	}
+	&__title {
+		font-size: 130px;
+		font-weight: 600;
+		line-height: 1.1;
+		color: $accent;
+	}
+	&__subtitle {
+		font-size: 18px;
+		font-weight: 600;
+		color: $accent;
+		margin-bottom: 20px;
+	}
+}
+
+.button {
+  display: inline-block;
+	margin-right: 0px;
+	margin-left: auto;
+  background: lighten($accent, 5%);
+  text-transform: uppercase;
+  color: $second;
+  height: 35px;
+  line-height: 35px;
+  padding: 0px 20px;
+  min-width: 90px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: $shadow;
+  transition: background 0.2s;
+  &:hover {
+    background: lighten($accent, 10%);
+  }
+
+  &:active {
+    background: darken($accent, 10%);
+	}
+	&:disabled {
+		cursor: default;
+		background: lighten($accent, 20%);
+	}
+}
