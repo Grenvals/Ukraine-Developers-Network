@@ -1,0 +1,19 @@
+@import "./../../../scss/main.scss";
+.contactIcon {
+	&__link {
+		cursor: pointer;
+	}
+	&__logo {
+		width: 40px;
+		height: 40px;
+		border-radius: 50px;
+		object-fit: contain;
+		transition: border 0.2s;
+		&:hover {
+			border: 1px solid $first;
+		}
+		&:active {
+			border: 2px solid $first;
+		}
+	}
+}

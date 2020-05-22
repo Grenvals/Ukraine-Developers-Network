@@ -15,7 +15,8 @@ import { reduxForm } from 'redux-form'
 import { maxLengthCreator, required } from '../../../utils/validators/validators'
 
 export const maxLength = maxLengthCreator(60)
-export const maxLengthTextarea = maxLengthCreator(600)
+export const maxLengthSummury = maxLengthCreator(200)
+export const maxLengthAboutMe = maxLengthCreator(600)
 
 const ProfileForm = ({ handleSubmit, error, pristine, submitting }) => {
   return (
@@ -40,7 +41,7 @@ const ProfileForm = ({ handleSubmit, error, pristine, submitting }) => {
           label="Description"
           placeholder="About you"
           name="lookingForAJobDescription"
-          validate={[required, maxLengthTextarea]}
+          validate={[required, maxLengthSummury]}
           rows="5"
         />
         <TextareaItem
@@ -48,7 +49,7 @@ const ProfileForm = ({ handleSubmit, error, pristine, submitting }) => {
           label="About me"
           placeholder="About you"
           name="aboutMe"
-          validate={[required, maxLengthTextarea]}
+          validate={[required, maxLengthAboutMe]}
         />
         <div className={style.form__button}>
           {error && <span className={style.form__error}>{error}</span>}

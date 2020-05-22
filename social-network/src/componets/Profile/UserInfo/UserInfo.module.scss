@@ -54,19 +54,6 @@
 	line-height: 1.7;
 }
 
-.contacts {
-	padding: 20px;
-	&List {
-		@include flexbox();
-	}
-	&Item {
-		font-size: 14px;
-		margin-right: 10px;
-	}
-	&Logo {
-		width: 40px;
-	}
-}
 .detail {
 	padding: 20px;
 }

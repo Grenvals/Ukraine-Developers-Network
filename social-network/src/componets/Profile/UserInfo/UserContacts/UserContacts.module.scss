@@ -1,0 +1,11 @@
+@import "./../../../../scss/main.scss";
+
+.contacts {
+  @include flexbox();
+  & > * {
+    margin-right: 10px;
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
