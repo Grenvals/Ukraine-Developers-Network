@@ -15,7 +15,7 @@ import { reduxForm } from 'redux-form'
 import { maxLengthCreator, required } from '../../../utils/validators/validators'
 
 export const maxLength = maxLengthCreator(60)
-export const maxLengthTextarea = maxLengthCreator(300)
+export const maxLengthTextarea = maxLengthCreator(600)
 
 const ProfileForm = ({ handleSubmit, error, pristine, submitting }) => {
   return (
@@ -33,6 +33,7 @@ const ProfileForm = ({ handleSubmit, error, pristine, submitting }) => {
           placeholder="userId"
           name="userId"
           validate={[required, maxLength]}
+          disabled={true}
         />
         <CheckboxItem label="Looking for a job" name="lookingForAJob" />
         <TextareaItem
@@ -40,13 +41,25 @@ const ProfileForm = ({ handleSubmit, error, pristine, submitting }) => {
           placeholder="About you"
           name="lookingForAJobDescription"
           validate={[required, maxLengthTextarea]}
+          rows="5"
         />
         <TextareaItem
+          className={style.aboutMe}
           label="About me"
           placeholder="About you"
           name="aboutMe"
           validate={[required, maxLengthTextarea]}
         />
+        <div className={style.form__button}>
+          {error && <span className={style.form__error}>{error}</span>}
+          <button
+            type="submit"
+            className={style.button}
+            disabled={pristine || submitting}
+          >
+            Save
+          </button>
+        </div>
       </div>
       <Head title="Contacts" />
       <div className={style.settings__container}>
@@ -85,12 +98,16 @@ const ProfileForm = ({ handleSubmit, error, pristine, submitting }) => {
           validate={[required, maxLength]}
           icon={siteIcon}
         />
-      </div>
-      <div className={style.form__button}>
-        {error && <span className={style.form__error}>{error}</span>}
-        <button type="submit" className={style.button} disabled={pristine || submitting}>
-          Save
-        </button>
+        <div className={style.form__button}>
+          {error && <span className={style.form__error}>{error}</span>}
+          <button
+            type="submit"
+            className={style.button}
+            disabled={pristine || submitting}
+          >
+            Save
+          </button>
+        </div>
       </div>
     </form>
   )

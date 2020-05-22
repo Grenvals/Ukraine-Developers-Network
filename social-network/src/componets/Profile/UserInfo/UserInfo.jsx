@@ -8,6 +8,7 @@ import githubImg from '../../../assets/images/contacts/github.svg'
 import Head from '../../common/Head/Head'
 import UserStatus from './UserStatus/UserStatusCopy'
 import { UserProfilePhoto } from '../../common/UserFoto/UserFoto'
+import { NavLink } from 'react-router-dom'
 
 const UserInfo = props => {
   return (
@@ -30,6 +31,11 @@ const UserInfo = props => {
           isLoggedUser={props.isLoggedUser}
           updateUserStatus={props.updateUserStatus}
         />
+        {props.isLoggedUser && (
+          <NavLink to={'/settings'} className={style.button}>
+            Edit profile
+          </NavLink>
+        )}
       </div>
       <div className={style.aboutUser}>
         <Head title="About user" />

@@ -1,8 +1,6 @@
 import React from 'react'
 import style from './Settings.module.scss'
 import background from '../../assets/images/settings/settings-bg.jpg'
-import Head from '../common/Head/Head'
-import { UserProfilePhoto } from '../common/UserFoto/UserFoto'
 import Preloader from '../common/Preloader/Preloader'
 import { StatusReduxForm } from './StatusReduxForm/StatusReduxForm'
 import { ProfileReduxForm } from './ProfileReduxForm/ProfileReduxForm'
@@ -14,7 +12,6 @@ const Settings = props => {
     const initialData = {
       status: props.status,
     }
-    console.log(props)
     const onSubmit = formData => {
       props.updateUserStatus(formData.status)
     }
@@ -26,15 +23,12 @@ const Settings = props => {
         <div className={style.settings__background}>
           <img src={background} alt="bg" />
         </div>
-        <Head title="Previev settings" />
-        <div className={style.settings__container}>
-          <UserProfilePhoto
-            isLoggedUser={true}
-            photo={props.profile.photos.large}
-            updateUserPhoto={props.updateUserPhoto}
-          />
-          <StatusReduxForm initialValues={initialData} onSubmit={onSubmit} />
-        </div>
+        <StatusReduxForm
+          initialValues={initialData}
+          onSubmit={onSubmit}
+          photo={props.profile.photos.large}
+          updateUserPhoto={props.updateUserPhoto}
+        />
         <ProfileReduxForm initialValues={props.profile} onSubmit={onProfileSubmit} />
       </div>
     )

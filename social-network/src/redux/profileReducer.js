@@ -85,8 +85,6 @@ export const updateUserProfile = (userId, formData) => async dispatch => {
         contacts: { [key]: response.messages[0] },
       })
     )
-    // dispatch(stopSubmit('userProfile', { _error: response.messages[0] }))
-    // return Promise.reject(response.messages[0])
   }
 }
 

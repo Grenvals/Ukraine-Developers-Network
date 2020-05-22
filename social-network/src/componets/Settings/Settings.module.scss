@@ -7,7 +7,7 @@
 	min-height: 180%;
 	max-width: 750px;
 	&__container {
-		padding: 15px 30px;
+		padding: 25px 30px;
 	}
 	&__background {
 		width: 100%;
@@ -62,4 +62,8 @@
 		cursor: default;
 		background: lighten($accent, 20%);
 	}
+}
+.aboutMe {
+	resize: none;
+	min-height: 300px;
 }

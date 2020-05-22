@@ -12,12 +12,13 @@
 	&__textarea {
 		display: block;
 		width: 100%;
-		padding: 0px 15px;
+		padding: 10px 15px;
 		border: 1px solid darken($first, 30%);
 		border-radius: 8px;
 		line-height: 1.7;
 		font-size: 14px;
 		resize: none;
+
 	}
 	&__label {
 		display: block;

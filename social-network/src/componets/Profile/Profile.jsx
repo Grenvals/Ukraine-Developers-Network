@@ -17,7 +17,7 @@ const Profile = props => {
           isLoggedUser={props.isLoggedUser}
           updateUserPhoto={props.updateUserPhoto}
         />
-        <MyPostsContainer />
+        {props.isLoggedUser && <MyPostsContainer />}
       </div>
     )
   }
