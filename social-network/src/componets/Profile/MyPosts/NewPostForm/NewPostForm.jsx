@@ -3,6 +3,7 @@ import style from './NewPostForm.module.scss'
 import { Field, reduxForm, reset } from 'redux-form'
 import { required, maxLengthCreator } from '../../../../utils/validators/validators'
 import { Textarea } from '../../../common/Form/FormControls/FormControls'
+import { Button } from '../../../Buttons/Buttons'
 
 const maxLength = maxLengthCreator(10)
 
@@ -16,7 +17,7 @@ const NewPostCreateForm = props => {
         component={Textarea}
         validate={[required, maxLength]}
       />
-      <button className={style.button}>Submit</button>
+      <Button />
     </form>
   )
 }

@@ -1,0 +1,57 @@
+@import "./../../scss/main.scss";
+
+.button {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+	margin-right: 0px;
+	margin-left: auto;
+  background: lighten($accent, 5%);
+  text-transform: uppercase;
+  color: $second;
+  height: 35px;
+  line-height: 35px;
+  padding: 0px 25px;
+  min-width: 90px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: $shadow;
+  transition: background 0.2s;
+  &__wrap {
+    text-align: right;
+  }
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);;
+    width: 12px;
+    height: 12px;
+    object-fit: contain;
+  }
+  &:hover {
+    background: lighten($accent, 10%);
+  }
+  &:active {
+    background: darken($accent, 10%);
+	}
+	&:disabled {
+		cursor: default;
+		background: lighten($accent, 20%);
+  }
+  &_accent {
+    background: $accent3;
+    &:hover {
+      background: lighten($accent3, 5%);
+    }
+    &:disabled {
+      background: rgba($accent3, 0.3);
+    }
+  }
+  &_withIcon {
+    .button__text {
+      padding-left: 15px;
+    }
+  }
+}

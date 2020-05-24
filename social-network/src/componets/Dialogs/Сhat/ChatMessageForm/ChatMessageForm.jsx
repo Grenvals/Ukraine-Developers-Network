@@ -3,6 +3,7 @@ import style from './ChatMessageForm.module.scss'
 import { Field, reduxForm, reset } from 'redux-form'
 import { Textarea } from '../../../common/Form/FormControls/FormControls'
 import { required, maxLengthCreator } from '../../../../utils/validators/validators'
+import { Button } from '../../../Buttons/Buttons'
 
 const maxLength = maxLengthCreator(10)
 const AddMessageForm = props => {
@@ -15,9 +16,7 @@ const AddMessageForm = props => {
         component={Textarea}
         validate={[required, maxLength]}
       />
-      <div className="button">
-        <button className={style.button}>Send</button>
-      </div>
+      <Button />
     </form>
   )
 }

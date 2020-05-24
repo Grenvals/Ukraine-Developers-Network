@@ -1,14 +1,13 @@
 @import "./../../../scss/main.scss";
 
 .chat {
-  grid-area: chat;
   @include flexbox();
   flex-direction: column;
 
 }
 
 .chatBlock {
-  flex: 0 0 65%;
+  flex: 1;
   max-height: 360px;
   // overflow-y: auto;
 }

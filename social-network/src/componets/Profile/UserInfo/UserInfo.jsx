@@ -4,8 +4,8 @@ import background from '../../../assets/images/profile/background.jpg'
 import Head from '../../common/Head/Head'
 import UserStatus from './UserStatus/UserStatusCopy'
 import { UserProfilePhoto } from '../../common/UserFoto/UserFoto'
-import { NavLink } from 'react-router-dom'
 import { UserContacts } from './UserContacts/UserContacts'
+import { NavLinkButton } from '../../Buttons/Buttons'
 
 const UserInfo = props => {
   return (
@@ -29,9 +29,11 @@ const UserInfo = props => {
           updateUserStatus={props.updateUserStatus}
         />
         {props.isLoggedUser && (
-          <NavLink to={'/settings'} className={style.button}>
-            Edit profile
-          </NavLink>
+          <NavLinkButton
+            link={'/settings'}
+            className={style.userInfo__button}
+            name={'Edit profile'}
+          />
         )}
       </div>
       <div className={style.aboutUser}>

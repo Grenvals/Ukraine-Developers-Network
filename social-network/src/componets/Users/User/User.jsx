@@ -1,18 +1,23 @@
 import React from 'react'
 import style from './User.module.scss'
 import defaultUserPhoto from '../../../assets/images/user-default.svg'
-import { NavLink } from 'react-router-dom'
+import userIcon from '../../../assets/images/user-icon.svg'
+import { Button, NavLinkButton } from '../../Buttons/Buttons'
 
 const User = props => {
+  const follow = () => {
+    props.followUser(props.user.id)
+  }
+  const unfollow = () => {
+    props.unfollowUser(props.user.id)
+  }
   return (
     <li className={style.user}>
       <div className={style.preview}>
         <div className={style.photo}>
           <img
             src={
-              props.user.photos.small != null
-                ? props.user.photos.small
-                : defaultUserPhoto
+              props.user.photos.small != null ? props.user.photos.small : defaultUserPhoto
             }
             alt="users foto"
           />
@@ -23,12 +28,11 @@ const User = props => {
         <p className={style.status}>{props.user.status}</p>
       </div>
       <div className={style.profile}>
-        <NavLink
-          to={'/profile/' + props.user.id}
-          className={`${style.button} ${style.button_green} ${style.button_profile}`}
-        >
-          profile
-        </NavLink>
+        <NavLinkButton
+          name={'Profile'}
+          link={'/profile/' + props.user.id}
+          icon={userIcon}
+        />
       </div>
       <div className={style.location}>
         <p className={style.country}>Ukraine</p>
@@ -36,29 +40,18 @@ const User = props => {
       </div>
       <div className={style.follow}>
         {!props.user.followed ? (
-          <button
-            disabled={props.followingInProgress.some(
-              id => id === props.user.id
-            )}
-            className={`${style.button} ${style.button_green}`}
-            onClick={() => {
-              props.followUser(props.user.id)
-            }}
-          >
-            follow
-          </button>
+          <Button
+            name={'Follow'}
+            disabled={props.followingInProgress.some(id => id === props.user.id)}
+            onClick={follow}
+            accent={true}
+          />
         ) : (
-          <button
-            disabled={props.followingInProgress.some(
-              id => id === props.user.id
-            )}
-            className={style.button}
-            onClick={() => {
-              props.unfollowUser(props.user.id)
-            }}
-          >
-            unfollow
-          </button>
+          <Button
+            name={'Unfollow'}
+            disabled={props.followingInProgress.some(id => id === props.user.id)}
+            onClick={unfollow}
+          />
         )}
       </div>
     </li>

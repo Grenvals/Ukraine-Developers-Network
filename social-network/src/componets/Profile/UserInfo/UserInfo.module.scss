@@ -1,5 +1,6 @@
 @import "./../../../scss/main.scss";
 .userInfo {
+	position: relative;
 	display: block;
 	overflow: hidden;
 	border-radius: 8px;
@@ -7,6 +8,11 @@
 	box-shadow: $shadow;
 	background-color: $second;
 	min-height: 300px;
+	&__button {
+		position: absolute;
+		top: 90px;
+		right: 15px;
+	}
 }
 
 .head {

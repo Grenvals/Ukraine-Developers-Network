@@ -19,7 +19,7 @@ const Users = props => {
           pages={pages}
           setCurrentPage={props.onPageChanget}
           currentPage={props.currentPage}
-          portionSize={10}
+          portionSize={5}
         />
       </div>
       {props.isLoading ? (
@@ -42,7 +42,7 @@ const Users = props => {
           pages={pages}
           setCurrentPage={props.onPageChanget}
           currentPage={props.currentPage}
-          portionSize={10}
+          portionSize={5}
         />
       </div>
     </div>

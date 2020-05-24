@@ -13,6 +13,7 @@ import {
 } from '../../common/Form/FormItem/InputItem'
 import { reduxForm } from 'redux-form'
 import { maxLengthCreator, required } from '../../../utils/validators/validators'
+import { Button } from '../../Buttons/Buttons'
 
 export const maxLength = maxLengthCreator(60)
 export const maxLengthSummury = maxLengthCreator(200)
@@ -51,16 +52,8 @@ const ProfileForm = ({ handleSubmit, error, pristine, submitting }) => {
           name="aboutMe"
           validate={[required, maxLengthAboutMe]}
         />
-        <div className={style.form__button}>
-          {error && <span className={style.form__error}>{error}</span>}
-          <button
-            type="submit"
-            className={style.button}
-            disabled={pristine || submitting}
-          >
-            Save
-          </button>
-        </div>
+        {error && <span className={style.form__error}>{error}</span>}
+        <Button name={'Save'} disabled={pristine || submitting} />
       </div>
       <Head title="Contacts" />
       <div className={style.settings__container}>
@@ -99,16 +92,8 @@ const ProfileForm = ({ handleSubmit, error, pristine, submitting }) => {
           validate={[required, maxLength]}
           icon={siteIcon}
         />
-        <div className={style.form__button}>
-          {error && <span className={style.form__error}>{error}</span>}
-          <button
-            type="submit"
-            className={style.button}
-            disabled={pristine || submitting}
-          >
-            Save
-          </button>
-        </div>
+        {<span className={style.form__error}>{error}</span>}
+        <Button name={'Save'} disabled={pristine || submitting} />
       </div>
     </form>
   )
