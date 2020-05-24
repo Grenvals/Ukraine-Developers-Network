@@ -39,20 +39,11 @@
 }
 
 .authorLogo {
+  z-index: 1;
   position: absolute;
   bottom: -10px;
-  left: 0px;
-  height: 35px;
+  right: 0px;
   width: 35px;
-  overflow: hidden;
-  border-radius: 50%;
-  background: $first;
-  z-index: 1;
-
-  img {
-    width: 100%;
-    object-fit: fill;
-  }
 }
 
 .usersMessages {
@@ -75,11 +66,6 @@
     &:last-child {
       margin-bottom: 0px;
     }
-  }
-
-  .authorLogo {
-    left: auto;
-    right: 0px;
   }
 
   .messageDate {

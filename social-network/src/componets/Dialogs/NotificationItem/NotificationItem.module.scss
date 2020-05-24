@@ -29,37 +29,8 @@
 }
 
 .logo {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  // overflow: hidden;
-  background: $first;
-  margin-right: 25px;
-  position: relative;
-  object-fit: fill;
-
-  img {
-    // object-fit: fill;
-    border-radius: 50%;
-    max-width: 100%;
-    width: 45px;
-    height: 45px;
-  }
-}
-
-.messageCount {
-  position: absolute;
-  bottom: -4px;
-  right: -4px;
-  height: 20px;
-  width: 20px;
-  line-height: 20px;
-  border-radius: 50%;
-  text-align: center;
-  font-size: 10px;
-  font-weight: 600;
-  background: $accent3;
-  color: $first;
+  width: 50px;
+  margin-right: 15px;
 }
 
 .iconMessage {

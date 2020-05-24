@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './NotificationItem.module.scss'
 import { NavLink } from 'react-router-dom'
+import { UserPhoto } from '../../common/UserFoto/UserFoto'
 
 const NotificationItem = props => {
   return (
@@ -12,11 +13,7 @@ const NotificationItem = props => {
         activeClassName={style.linkActive}
       >
         <div className={style.logo}>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRHyEwZiidXHLnJ4qyOeJR81Lyx_3Xt9gBQcdvuIZuXr9GVLga8"
-            alt="logo"
-          />
-          <div className={style.messageCount}>{props.messageCount}</div>
+          <UserPhoto count={props.messageCount} />
         </div>
         <div className="headerBlock">
           <p className={style.name}> {props.userName}</p>

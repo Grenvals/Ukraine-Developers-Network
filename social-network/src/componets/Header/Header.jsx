@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './Header.module.scss'
 import { NavLink } from 'react-router-dom'
-import defaultUserPhoto from '../../assets/images/user-default.svg'
+import { UserPhoto } from '../common/UserFoto/UserFoto'
 
 const Header = props => {
   return (
@@ -14,13 +14,8 @@ const Header = props => {
           <div className={style.user__flag}></div>
           <div className={style.user__name}>{props.login}</div>
           <div className={style.user__logo}>
-            <img
-              src={
-                props.isAuth && props.profile != null
-                  ? props.profile.photos.large
-                  : defaultUserPhoto
-              }
-              alt=""
+            <UserPhoto
+              photo={props.isAuth && props.profile != null && props.profile.photos.large}
             />
           </div>
           {props.isAuth ? (

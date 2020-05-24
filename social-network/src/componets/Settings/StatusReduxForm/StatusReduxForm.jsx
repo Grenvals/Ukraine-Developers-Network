@@ -21,11 +21,14 @@ const StatusForm = ({
     <div className="">
       <Head title="Previev settings" />
       <div className={style.settings__container}>
-        <UserProfilePhoto
-          isLoggedUser={true}
-          photo={photo}
-          updateUserPhoto={updateUserPhoto}
-        />
+        <div className="">
+          <UserProfilePhoto
+            isLoggedUser={true}
+            photo={photo}
+            updateUserPhoto={updateUserPhoto}
+          />
+        </div>
+
         <form
           className={`${style.settings__form} ${style.settings__form_inline}`}
           onSubmit={handleSubmit}

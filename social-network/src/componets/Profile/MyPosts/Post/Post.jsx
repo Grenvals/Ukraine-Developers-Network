@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './Post.module.scss'
 import editImg from '../../../../assets/images/profile/edit.svg'
+import { UserPhoto } from '../../../common/UserFoto/UserFoto'
 
 const PostItem = React.memo(props => {
   let deletePost = () => {
@@ -10,10 +11,7 @@ const PostItem = React.memo(props => {
     <div className={style.post}>
       <div className={style.header}>
         <div className={style.logo}>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRHyEwZiidXHLnJ4qyOeJR81Lyx_3Xt9gBQcdvuIZuXr9GVLga8"
-            alt="logo"
-          />
+          <UserPhoto />
         </div>
         <div className="headerBlock">
           <p className={style.title}>{props.message}</p>
@@ -32,10 +30,9 @@ const PostItem = React.memo(props => {
       </div>
       <div className="content">
         <p className={style.message}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-          quasi, earum dicta aliquid odio vero maxime itaque minima quae
-          repudiandae ea. Modi sed fuga quibusdam assumenda quae repudiandae sit
-          possimus!{' '}
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quasi, earum
+          dicta aliquid odio vero maxime itaque minima quae repudiandae ea. Modi sed fuga
+          quibusdam assumenda quae repudiandae sit possimus!{' '}
         </p>
         <div className={style.preview}>
           <img

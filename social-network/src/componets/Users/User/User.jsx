@@ -1,8 +1,8 @@
 import React from 'react'
 import style from './User.module.scss'
-import defaultUserPhoto from '../../../assets/images/user-default.svg'
 import userIcon from '../../../assets/images/user-icon.svg'
 import { Button, NavLinkButton } from '../../Buttons/Buttons'
+import { UserPhotoLink } from '../../common/UserFoto/UserFoto'
 
 const User = props => {
   const follow = () => {
@@ -15,11 +15,9 @@ const User = props => {
     <li className={style.user}>
       <div className={style.preview}>
         <div className={style.photo}>
-          <img
-            src={
-              props.user.photos.small != null ? props.user.photos.small : defaultUserPhoto
-            }
-            alt="users foto"
+          <UserPhotoLink
+            link={'/profile/' + props.user.id}
+            photo={props.user.photos.small != null && props.user.photos.small}
           />
         </div>
       </div>

@@ -30,15 +30,8 @@
   @include flexbox();
   align-items: center;
   &__logo {
-    height: 40px;
     width: 40px;
-    border-radius: 50%;
-    overflow: hidden;
     margin-left: 15px;
-    img {
-      max-width: 100%;
-      max-height: 100%;
-    }
   }
   &__flag {
     background: $second;

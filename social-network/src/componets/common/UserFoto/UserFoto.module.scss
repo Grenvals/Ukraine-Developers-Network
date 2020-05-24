@@ -6,9 +6,6 @@
   margin-bottom: 15px;
   height: 150px;
   width: 150px;
-  img {
-    max-width: 100%;
-  }
   &__container {
     border: 2px solid $second;
     height: 100%;
@@ -28,8 +25,23 @@
   }
   &__upload {
     position: absolute;
+    @include flexbox();
     bottom: 6%;
     right: 6%;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    background: $accent3;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: background 0.1s;
+    &:hover {
+      background: darken($accent3, 5%);
+    }
+    &:active {
+      background: darken($accent3, 8%);
+    }
     input {
       width: 0.1px;
       height: 0.1px;
@@ -38,28 +50,45 @@
       position: absolute;
       z-index: -1;
     }
-    label {
-      @include flexbox();
-      height: 30px;
-      width: 30px;
-      background: $accent3;
-      justify-content: center;
-      align-items: center;
-      border-radius: 50%;
-      transition: background 0.1s;
-      cursor: pointer;
-      &:hover {
-        background: darken($accent3, 5%);
-      }
-      &:active {
-        background: darken($accent3, 8%);
-      }
-    }
     img {
       width: 16px;
     }
   }
   &__fileIcon {
     fill: $second;
+  }
+}
+
+.photo {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  &__img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  &__count {
+    @include flexbox();
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    bottom: 4%;
+    right: -4%;
+    height: 35%;
+    width: 35%;
+    height: 35%;
+    line-height: 1.6;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 600;
+    background: $accent3;
+    color: $first;
   }
 }
