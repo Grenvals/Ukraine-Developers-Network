@@ -10,7 +10,7 @@
   border-radius: 50%;
   padding: 14px;
   box-shadow: $shadowgreen;
-  &__animate, &:before, &:after {
+  &__animate, &__animate:after, &:before, &:after {
     position: absolute;
     top: 46%;
     left: 46%;
@@ -20,14 +20,41 @@
     line-height: 18px;
     text-align: center;
     border-radius: 50%;
-    font-size: 8px;
+    font-size: 9px;
     color: $second;
   }
   &__animate {
-    animation: orbit2 12s linear infinite; 
-    background: $accent;
+    top: 40%;
+    left: 40%;
+    border: 1px solid $accent3;
     text-transform: uppercase;
-    font-size: 6px;
+    animation: orbit2 8s linear infinite;
+    height: 40px;
+    width: 40px;
+    &:before {
+      content: 'js';
+      position: absolute;
+      background: darken($accent2, 10%);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      display: block;
+      width: 18px;
+      height: 18px;
+    }
+    &:after {
+      width: 19px;
+      height: 19px;
+      background: rgb(16, 77, 94);
+      font-size: 9px;
+      content: 'React';
+      text-transform: uppercase;
+      top: 28%;
+      left: 28%;
+      animation: orbit1 3s linear infinite;
+      font-size: 5px;
+    }
   }
   &:before {
     background: $accent3;
@@ -35,9 +62,11 @@
     animation: orbit2 10s linear infinite;
   }
   &:after {
-    content: 'JS';
-    background: darken($accent2, 10%);
-    animation: orbit2 8s linear infinite;
+    content: 'html';
+    background: $accent;
+    text-transform: uppercase;
+    font-size: 6px;
+    animation: orbit2 12s linear infinite;
   }
   &__container {
     height: 100%;
@@ -122,6 +151,10 @@
   }
 }
 
+@keyframes orbit1 {
+  from { transform: rotate(0deg) translateX(20px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(20px) rotate(-360deg); }
+ }
 @keyframes orbit2 {
   from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
   to   { transform: rotate(360deg) translateX(100px) rotate(-360deg); }

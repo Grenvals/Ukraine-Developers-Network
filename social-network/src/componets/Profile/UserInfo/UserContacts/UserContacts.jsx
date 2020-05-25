@@ -3,6 +3,7 @@ import style from './UserContacts.module.scss'
 import facebookImg from '../../../../assets/images/contacts/facebook.svg'
 import twitterImg from '../../../../assets/images/contacts/twitter.svg'
 import instagramImg from '../../../../assets/images/contacts/instagram.svg'
+import websiteImg from '../../../../assets/images/contacts/site.svg'
 import githubImg from '../../../../assets/images/contacts/github.svg'
 import { ContactIcon } from '../../../common/Contacts/Contacts'
 import cn from 'classnames'
@@ -14,7 +15,7 @@ export const UserContacts = ({ contacts, className = null }) => {
       <ContactIcon name={'twitter'} link={contacts.twitter} icon={twitterImg} />
       <ContactIcon name={'instagram'} link={contacts.instagram} icon={instagramImg} />
       <ContactIcon name={'github'} link={contacts.github} icon={githubImg} />
-      <ContactIcon name={'instagram'} link={contacts.instagram} icon={instagramImg} />
+      <ContactIcon name={'instagram'} link={contacts.website} icon={websiteImg} />
     </ul>
   )
 }

@@ -14,8 +14,6 @@
 		right: 15px;
 		margin-left: 15px;
 	}
-	&__contacts {
-	}
 	&__container {
 		display: flex;
 		justify-content: center;
@@ -34,7 +32,7 @@
 		margin-top: -85px;
 		padding: 0px 15px;
 	}
-	&__description {
+	&__jobDescription {
 		margin: 0 auto;
 		text-align: center;
 		color: lighten($accent, 30%);
@@ -42,11 +40,38 @@
 		margin-bottom: 10px;
 		max-width: 500px;
 	}
-	&__about {
+	&__description {
 		padding: 15px;
 	}
 }
 
-.aboutUserText {
-	line-height: 1.7;
+.description {
+	font-size: 14px;
+	line-height: 1.8;
+	&__about {
+		margin-bottom: 15px;
+	}
+	&__item {
+		margin-bottom: 15px;
+		font-weight: 600;
+		&:last-child {
+			margin-bottom: 0px;
+		}
+	}
+	&__text {
+		font-weight: 400;
+		margin-left: 15px;
+	}
+	&__status {
+		display: inline-block;
+		margin-left: 5px;
+		background: $accent3;
+		color: $first;
+		text-transform: uppercase;
+		font-size: 12px;
+		line-height: 20px;
+		padding: 0px 10px;
+		border-radius: 10px;
+		height: 20px;
+	}
 }

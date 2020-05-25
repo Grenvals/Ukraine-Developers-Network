@@ -18,4 +18,13 @@
 			border: 2px solid $first;
 		}
 	}
+	&__disable {
+		opacity: 0.9;
+		&:hover {
+			border: 0px;
+		}
+		&:active {
+			border: 0px;
+		}
+	}
 }

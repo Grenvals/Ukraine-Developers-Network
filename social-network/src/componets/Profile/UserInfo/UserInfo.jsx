@@ -8,23 +8,29 @@ import { UserContacts } from './UserContacts/UserContacts'
 import { NavLinkButton } from '../../common/Buttons/Buttons'
 import { Head, HeadImage } from '../../common/Head/Head'
 
-const UserInfo = props => {
+const UserInfo = ({
+  profile,
+  isLoggedUser,
+  updateUserPhoto,
+  status,
+  updateUserStatus,
+}) => {
   return (
     <div className={style.userInfo}>
       <HeadImage image={backgroundImg} />
       <div className={style.userInfo__main}>
         <UserProfilePhoto
-          isLoggedUser={props.isLoggedUser}
-          photo={props.profile.photos.large}
-          updateUserPhoto={props.updateUserPhoto}
+          isLoggedUser={isLoggedUser}
+          photo={profile.photos.large}
+          updateUserPhoto={updateUserPhoto}
         />
-        <h1 className={style.userInfo__name}>{props.profile.fullName}</h1>
+        <h1 className={style.userInfo__name}>{profile.fullName}</h1>
         <div className={style.userInfo__container}>
           <UserContacts
             className={style.userInfo__contacts}
-            contacts={props.profile.contacts}
+            contacts={profile.contacts}
           />
-          {props.isLoggedUser && (
+          {isLoggedUser && (
             <NavLinkButton
               link={'/settings'}
               className={style.userInfo__button}
@@ -33,24 +39,37 @@ const UserInfo = props => {
             />
           )}
         </div>
-        <div className={style.userInfo__description}>
-          {props.profile.lookingForAJobDescription}
-        </div>
-
         <UserStatus
-          status={props.status}
-          isLoggedUser={props.isLoggedUser}
-          updateUserStatus={props.updateUserStatus}
+          status={status}
+          isLoggedUser={isLoggedUser}
+          updateUserStatus={updateUserStatus}
         />
+        <div className={style.userInfo__jobDescription}>
+          {profile.lookingForAJobDescription
+            ? profile.lookingForAJobDescription
+            : 'description not set'}
+        </div>
       </div>
       <Head title="About user" />
-      <div className={style.userInfo__about}>
-        <p className={style.aboutUserText}>{props.profile.aboutMe} </p>
-        <div className={style.detail}>
-          <div className={style.detailJob}>
-            Looking for a job: {props.profile.lookingForAJob}
-          </div>
-          <div className="">Website: {props.profile.contacts.website} </div>
+      <div className={`${style.userInfo__description} ${style.description}`}>
+        <p className={style.description__about}>
+          {profile.aboutMe ? profile.aboutMe : 'Sorry, user didn`t write about...'}{' '}
+        </p>
+        <div className={style.description__item}>
+          Looking for a job:{' '}
+          <span className={style.description__status}>
+            {profile.lookingForAJob ? 'true' : 'false'}
+          </span>
+        </div>
+        <div className={style.description__item}>
+          Website:
+          <a
+            href={profile.contacts.website}
+            target="blank"
+            className={style.description__text}
+          >
+            {profile.contacts.website ? profile.contacts.website : 'not set'}
+          </a>
         </div>
       </div>
     </div>

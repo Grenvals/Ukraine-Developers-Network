@@ -53,6 +53,7 @@
   width: 100%;
   overflow: hidden;
   position: relative;
+  background: $first;
   &:before {
     content: '';
     position: absolute;
