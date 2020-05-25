@@ -1,0 +1,36 @@
+@import "./../../../../scss/main.scss";
+
+.description {
+	font-size: 14px;
+	line-height: 1.8;
+	padding: 15px;
+	&__about {
+		margin-bottom: 15px;
+	}
+	&__item {
+		margin-bottom: 15px;
+		font-weight: 600;
+		&:last-child {
+			margin-bottom: 0px;
+		}
+	}
+	&__text {
+		font-weight: 400;
+		margin-left: 15px;
+	}
+	&__status {
+		display: inline-block;
+		margin-left: 5px;
+		color: $first;
+		background: $accent;
+		text-transform: uppercase;
+		font-size: 12px;
+		line-height: 20px;
+		padding: 0px 10px;
+		border-radius: 10px;
+		height: 20px;
+		&_active {
+			background: $accent3;
+		}
+	}
+}

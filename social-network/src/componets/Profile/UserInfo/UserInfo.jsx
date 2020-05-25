@@ -7,6 +7,7 @@ import { UserProfilePhoto } from '../../common/UserFoto/UserFoto'
 import { UserContacts } from './UserContacts/UserContacts'
 import { NavLinkButton } from '../../common/Buttons/Buttons'
 import { Head, HeadImage } from '../../common/Head/Head'
+import { UserDescription } from './UserDescription/UserDescription'
 
 const UserInfo = ({
   profile,
@@ -51,27 +52,7 @@ const UserInfo = ({
         </div>
       </div>
       <Head title="About user" />
-      <div className={`${style.userInfo__description} ${style.description}`}>
-        <p className={style.description__about}>
-          {profile.aboutMe ? profile.aboutMe : 'Sorry, user didn`t write about...'}{' '}
-        </p>
-        <div className={style.description__item}>
-          Looking for a job:{' '}
-          <span className={style.description__status}>
-            {profile.lookingForAJob ? 'true' : 'false'}
-          </span>
-        </div>
-        <div className={style.description__item}>
-          Website:
-          <a
-            href={profile.contacts.website}
-            target="blank"
-            className={style.description__text}
-          >
-            {profile.contacts.website ? profile.contacts.website : 'not set'}
-          </a>
-        </div>
-      </div>
+      <UserDescription profile={profile}></UserDescription>
     </div>
   )
 }
