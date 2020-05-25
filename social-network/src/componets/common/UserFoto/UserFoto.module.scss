@@ -4,14 +4,45 @@
   position: relative;
   margin: 0 auto;
   margin-bottom: 15px;
-  height: 150px;
-  width: 150px;
+  height: 200px;
+  width: 200px;
+  border: 1px solid $accent3;
+  border-radius: 50%;
+  padding: 14px;
+  box-shadow: $shadowgreen;
+  &__animate, &:before, &:after {
+    position: absolute;
+    top: 46%;
+    left: 46%;
+    display: block;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 8px;
+    color: $second;
+  }
+  &__animate {
+    animation: orbit2 12s linear infinite; 
+    background: $accent;
+    text-transform: uppercase;
+    font-size: 6px;
+  }
+  &:before {
+    background: $accent3;
+    content: 'css';
+    animation: orbit2 10s linear infinite;
+  }
+  &:after {
+    content: 'JS';
+    background: darken($accent2, 10%);
+    animation: orbit2 8s linear infinite;
+  }
   &__container {
-    border: 2px solid $second;
     height: 100%;
     width: 100%;
     border-radius: 50%;
-    overflow: hidden;
     position: relative;
     &:before {
       content: '';
@@ -24,6 +55,7 @@
     }
   }
   &__upload {
+    z-index: 1;
     position: absolute;
     @include flexbox();
     bottom: 6%;
@@ -53,9 +85,6 @@
     img {
       width: 16px;
     }
-  }
-  &__fileIcon {
-    fill: $second;
   }
 }
 
@@ -92,3 +121,8 @@
     color: $first;
   }
 }
+
+@keyframes orbit2 {
+  from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+ }

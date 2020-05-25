@@ -4,6 +4,7 @@ import background from '../../assets/images/settings/settings-bg.jpg'
 import Preloader from '../common/Preloader/Preloader'
 import { StatusReduxForm } from './StatusReduxForm/StatusReduxForm'
 import { ProfileReduxForm } from './ProfileReduxForm/ProfileReduxForm'
+import { HeadImage } from '../common/Head/Head'
 
 const Settings = props => {
   if (!props.profile || !props.status) {
@@ -20,9 +21,7 @@ const Settings = props => {
     }
     return (
       <div className={style.settings}>
-        <div className={style.settings__background}>
-          <img src={background} alt="bg" />
-        </div>
+        <HeadImage image={background} />
         <StatusReduxForm
           initialValues={initialData}
           onSubmit={onSubmit}

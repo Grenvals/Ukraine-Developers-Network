@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './Header.module.scss'
-import { NavLink } from 'react-router-dom'
 import { UserPhoto } from '../common/UserFoto/UserFoto'
+import { Button, NavLinkButton } from '../common/Buttons/Buttons'
 
 const Header = props => {
   return (
@@ -19,13 +19,18 @@ const Header = props => {
             />
           </div>
           {props.isAuth ? (
-            <button onClick={props.logOut} className={style.button}>
-              Log out
-            </button>
+            <Button
+              className={style.header__button}
+              onClick={props.logOut}
+              name={'Log out'}
+              type={'button'}
+            />
           ) : (
-            <NavLink to={'/login'} className={style.button}>
-              Log in
-            </NavLink>
+            <NavLinkButton
+              className={style.header__button}
+              name={'Log in'}
+              link={'/login'}
+            />
           )}
         </div>
       </div>

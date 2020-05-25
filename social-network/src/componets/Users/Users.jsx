@@ -1,9 +1,9 @@
 import React from 'react'
 import style from './Users.module.scss'
-import Head from '../common/Head/Head'
 import User from './User/User'
 import Pagination from '../common/Pagination/Pagination'
 import Preloader from '../common/Preloader/Preloader'
+import { Head } from '../common/Head/Head'
 
 const Users = props => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)

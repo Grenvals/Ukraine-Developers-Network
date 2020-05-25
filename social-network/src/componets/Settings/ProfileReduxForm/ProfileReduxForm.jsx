@@ -5,7 +5,6 @@ import githubIcon from '../../../assets/images/contacts/github.svg'
 import instagramIcon from '../../../assets/images/contacts/instagram.svg'
 import twitterIcon from '../../../assets/images/contacts/twitter.svg'
 import siteIcon from '../../../assets/images/contacts/site.svg'
-import Head from '../../common/Head/Head'
 import {
   InputItem,
   CheckboxItem,
@@ -13,7 +12,8 @@ import {
 } from '../../common/Form/FormItem/InputItem'
 import { reduxForm } from 'redux-form'
 import { maxLengthCreator, required } from '../../../utils/validators/validators'
-import { Button } from '../../Buttons/Buttons'
+import { Button } from '../../common/Buttons/Buttons'
+import { Head } from '../../common/Head/Head'
 
 export const maxLength = maxLengthCreator(60)
 export const maxLengthSummury = maxLengthCreator(200)

@@ -3,7 +3,7 @@ import style from './ChatMessageForm.module.scss'
 import { Field, reduxForm, reset } from 'redux-form'
 import { Textarea } from '../../../common/Form/FormControls/FormControls'
 import { required, maxLengthCreator } from '../../../../utils/validators/validators'
-import { Button } from '../../../Buttons/Buttons'
+import { Button } from '../../../common/Buttons/Buttons'
 
 const maxLength = maxLengthCreator(10)
 const AddMessageForm = props => {

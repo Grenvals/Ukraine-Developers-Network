@@ -11,6 +11,9 @@
   height: 60px;
   box-shadow: $shadow;
   z-index: 999;
+  &__button {
+    margin-left: 15px;
+  }
 }
 .header .container {
   @include flexbox();
@@ -45,30 +48,5 @@
     font-size: 12px;
     color: #fff;
     font-weight: 600;
-  }
-}
-
-.button {
-  display: block;
-  margin-left: 15px;
-  background: lighten($accent, 5%);
-  text-transform: uppercase;
-  color: $second;
-  height: 35px;
-  line-height: 35px;
-  padding: 0px 20px;
-  min-width: 90px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  box-shadow: $shadow;
-  transition: background 0.2s;
-
-  &:hover {
-    background: lighten($accent, 10%);
-  }
-
-  &:active {
-    background: darken($accent, 10%);
   }
 }

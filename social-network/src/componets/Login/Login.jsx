@@ -8,6 +8,7 @@ import { logIn, getCaptchaUrl } from '../../redux/authReducer'
 import { Redirect } from 'react-router-dom'
 import reload from '../../assets/images/reload.svg'
 import check from '../../assets/images/check.svg'
+import { Button } from '../common/Buttons/Buttons'
 
 const maxLength = maxLengthCreator(28)
 const LoginForm = ({ handleSubmit, captcha, updateCaptcha, error }) => {
@@ -89,9 +90,7 @@ const LoginForm = ({ handleSubmit, captcha, updateCaptcha, error }) => {
 
       <div className={style.form__button}>
         {error && <span className={style.form__error}>{error}</span>}
-        <button type="submit" className={style.button}>
-          Submit
-        </button>
+        <Button className={style.login__button} />
       </div>
     </form>
   )

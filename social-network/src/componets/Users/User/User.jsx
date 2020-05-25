@@ -1,8 +1,8 @@
 import React from 'react'
 import style from './User.module.scss'
 import userIcon from '../../../assets/images/user-icon.svg'
-import { Button, NavLinkButton } from '../../Buttons/Buttons'
 import { UserPhotoLink } from '../../common/UserFoto/UserFoto'
+import { NavLinkButton, Button } from '../../common/Buttons/Buttons'
 
 const User = props => {
   const follow = () => {

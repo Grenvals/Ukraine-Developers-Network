@@ -1,7 +1,8 @@
 import React from 'react'
 import style from './Head.module.scss'
+import defaultBg from '../../../assets/images/background.jpg'
 
-const Head = props => {
+export const Head = props => {
   return (
     <div className={style.header}>
       <h2 className={style.header__title}>{props.title}</h2>
@@ -12,4 +13,10 @@ const Head = props => {
   )
 }
 
-export default Head
+export const HeadImage = ({ image = defaultBg, className }) => {
+  return (
+    <div className={style.headImage}>
+      <img className={style.headImage__img} src={image} alt="bg" />
+    </div>
+  )
+}

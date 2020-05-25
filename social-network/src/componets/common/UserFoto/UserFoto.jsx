@@ -44,6 +44,7 @@ export const UserProfilePhoto = ({ updateUserPhoto, photo, isLoggedUser }) => {
           />
         </label>
       )}
+      <div className={style.userFoto__animate}>html</div>
     </div>
   )
 }

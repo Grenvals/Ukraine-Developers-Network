@@ -4,7 +4,7 @@
 	@include flexbox();
 	justify-content: center;
 	align-items: center;
-	background: url(../../assets/images/profile/background.jpg) center no-repeat;
+	background: url(../../assets/images/background.jpg) center no-repeat;
 	border-radius: 8px;
 	background-size: cover;
 	overflow: hidden;
@@ -18,7 +18,10 @@
 		bottom: 0;
 		z-index: 0;
 		background: rgba(0, 0, 0, 0.1);
-}
+	}
+	&__button {
+		width: 100%;
+	}
 }
 .formBlock {
 	font-size: 16px;
@@ -130,31 +133,6 @@
 			font-size: 13px;
 		}
 	}
-}
-
-.button {
-  display: block;
-	margin-right: 0px;
-	margin-left: auto;
-  background: lighten($accent, 5%);
-  text-transform: uppercase;
-  color: $second;
-  height: 35px;
-  line-height: 35px;
-  padding: 0px 20px;
-  min-width: 90px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  box-shadow: $shadow;
-  transition: background 0.2s;
-  &:hover {
-    background: lighten($accent, 10%);
-  }
-
-  &:active {
-    background: darken($accent, 10%);
-  }
 }
 
 .checkbox {

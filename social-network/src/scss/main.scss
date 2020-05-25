@@ -30,58 +30,6 @@
 //<Шрифт по умолчанию>==========================================================================================
 $fontfamily:"Open Sans";
 //</Шрифт по умолчанию>==========================================================================================
-
-//</ШРИФТЫ>=======================================================================================================
-
-// @font-face {
-// 	font-family: 'Open Sans';
-// 	src: url('../fonts/OpenSans-Bold.eot');
-// 	src: local('../fonts/Open Sans Bold'), local('../fonts/OpenSans-Bold'),
-// 		url('../fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
-// 		url('../fonts/OpenSans-Bold.woff') format('woff'),
-// 		url('../fonts/OpenSans-Bold.ttf') format('truetype');
-// 	font-weight: bold;
-// 	font-style: normal;
-// 	font-display: swap;
-// }
- 
-// @font-face {
-// 	font-family: 'Open Sans';
-// 	src: url('../fonts/OpenSans-Regular.eot');
-// 	src: local('../fonts/Open Sans Regular'), local('../fonts/OpenSans-Regular'),
-// 		url('../fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
-// 		url('../fonts/OpenSans-Regular.woff') format('woff'),
-// 		url('../fonts/OpenSans-Regular.ttf') format('truetype');
-// 	font-weight: normal;
-// 	font-style: normal;
-// 	font-display: swap;
-// }
-
-// @font-face {
-// 	font-family: 'Myriad Pro';
-// 	src: url('../fonts/MyriadPro-Bold.eot');
-// 	src: local('../fonts/Myriad Pro Bold'), local('../fonts/MyriadPro-Bold'),
-// 		url('../fonts/MyriadPro-Bold.eot?#iefix') format('embedded-opentype'),
-// 		url('../fonts/MyriadPro-Bold.woff') format('woff'),
-// 		url('../fonts/MyriadPro-Bold.ttf') format('truetype');
-// 	font-weight: bold;
-// 	font-style: normal;
-// 	font-display: swap;
-// }
-
-// @font-face {
-// 	font-family: 'Myriad Pro';
-// 	src: url('../fonts/MyriadPro-Regular.eot');
-// 	src: local('../fonts/Myriad Pro Regular'), local('../fonts/MyriadPro-Regular'),
-// 		url('../fonts/MyriadPro-Regular.eot?#iefix') format('embedded-opentype'),
-// 		url('../fonts/MyriadPro-Regular.woff') format('woff'),
-// 		url('../fonts/MyriadPro-Regular.ttf') format('truetype');
-// 	font-weight: normal;
-// 	font-style: normal;
-// 	font-display: swap;
-// }
-
-//</ПЕРЕМЕННЫЕ>===========================================================================================================
 @import "vars.scss";
 
 //<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
@@ -131,7 +79,5 @@ input, button, a, label {
 
 //<ОСНОВНАЯ СЕТКА>===========================================================================================================
 .container{max-width:1970+px;margin: 0 auto;width: 100%; padding: 0 15px;
-	@media (max-width:$md1+px){max-width: 970px;}
-	@media (max-width:$md2+px){max-width: 750px;}
 	@media (max-width:$md3+px){max-width: none;padding:0 10px;}
 }

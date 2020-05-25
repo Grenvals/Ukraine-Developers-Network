@@ -4,8 +4,8 @@ import { InputItem } from '../../common/Form/FormItem/InputItem'
 import { maxLengthCreator, required } from '../../../utils/validators/validators'
 import { reduxForm } from 'redux-form'
 import { UserProfilePhoto } from '../../common/UserFoto/UserFoto'
-import Head from '../../common/Head/Head'
-import { Button } from '../../Buttons/Buttons'
+import { Button } from '../../common/Buttons/Buttons'
+import { Head } from '../../common/Head/Head'
 
 export const maxLength = maxLengthCreator(100)
 

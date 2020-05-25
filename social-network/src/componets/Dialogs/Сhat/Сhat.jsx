@@ -1,10 +1,10 @@
 import React from 'react'
 import style from './Chat.module.scss'
-import Head from '../../common/Head/Head'
 import MessagesBlock from './MessagesBlock/MessagesBlock'
 import ChatMessageForm from './ChatMessageForm/ChatMessageForm'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import 'react-perfect-scrollbar/dist/css/styles.css'
+import { Head } from '../../common/Head/Head'
 
 const Chat = props => {
   let messageBlock = props.messages.map(m => (
