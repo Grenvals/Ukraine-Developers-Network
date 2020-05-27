@@ -3,12 +3,15 @@
 
 .navbarLink {
   list-style: none;
-  @media (max-width: $md4+px) {
+  // border-radius: 8px;
+  overflow: hidden;
+  @media (max-width: $md3+px) {
     flex: 1;
   }
   &__img {
     position: absolute;
-    width: 20px;
+    width: 17px;
+    height: 17px;
     top: 50%;
     transform: translateY(-50%);
     left: 15px;
@@ -25,29 +28,26 @@
   &__link {
     position: relative;
     display: block;
-    height: 50px;
-    line-height: 50px;
+    background: $second;
+    height: 49px;
+    line-height: 49px;
     text-decoration: none;
     color: $textLight;
-    border-bottom: 1px solid $first;
     padding: 0px 25px;
     padding-left: 50px;
-    transition: height 0.3s ease-out;
-    transition: background 0.3s;
+    transition: background 0.2s;
+    @media (max-width: $md3+px) {
+      border-bottom: 0px;
+    }
     &:hover {
       background: darken($first, 5%);
-      border-bottom: darken($first, 5%);
     }
     &:active {
       background: darken($first, 10%);
-      border-bottom: darken($first, 10%);
     }
     &_active {
       color: $first;
-      height: 50px;
-      line-height: 50px;
       background: $accent;
-      border-bottom: $accent;
       &:hover {
         background: $accent;
       }

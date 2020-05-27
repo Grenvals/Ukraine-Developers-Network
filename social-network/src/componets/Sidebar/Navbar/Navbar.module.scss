@@ -1,19 +1,29 @@
 @import "./../../../scss/main.scss";
 
 .navbar {
-  background: $second;
+  border-radius: 6px;
+  box-shadow: $shadow;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: $shadow;
   padding: 0px;
   list-style: none;
   @media (max-width: $md3+px) {
     border-radius: 0px;
+    background: $first;
   }
   &__list {
     padding: 0px;
+    & > * {
+      margin-bottom: 1px;
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
     @media (max-width: $md3+px) {
       @include flexbox();
+      // max-width: 700px;
+      margin-right: 0;
+      margin-left: auto;
     }
   }
 }
