@@ -6,7 +6,7 @@ const MessagesBlock = props => {
   return (
     <li className={`${style.messagesBlock} ${style.usersMessages}`}>
       <div className={style.authorLogo}>
-        <UserPhoto />
+        <UserPhoto photo={props.photo} />
       </div>
       <div className={style.messageItem}>
         <p className={style.messageText}>{props.message}</p>

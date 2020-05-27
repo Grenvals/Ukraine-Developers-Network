@@ -9,12 +9,13 @@ let mapStateToProps = state => {
   return {
     dialogs: state.dialogsPage.dialogs,
     messages: state.dialogsPage.messages,
+    profile: state.auth.profile,
   }
 }
 
 let mapDispatchToProps = dispatch => {
   return {
-    addMessage: (message) => {
+    addMessage: message => {
       dispatch(addMessageActionCreator(message))
     },
   }

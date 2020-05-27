@@ -34,7 +34,7 @@ class SettingsContainer extends React.Component {
 
 let mapStateToProps = state => {
   return {
-    profile: state.profilePage.profile,
+    profile: state.auth.profile,
     status: state.profilePage.status,
     autorizedUserId: state.auth.userId,
   }

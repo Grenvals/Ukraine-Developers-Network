@@ -1,10 +1,12 @@
 import { authAPI, securityAPI } from '../api/api'
 import { stopSubmit } from 'redux-form'
+import { usersAPI } from '../api/api'
 
 const FOLLOW = 'auth/FOLLOW'
 const UNFOLLOW = 'auth/UNFOLLOW'
 const SET_LOADING_STATUS = 'auth/SET_LOADING_STATUS'
 const SET_AUTH_USER_DATA = 'auth/SET_AUTH_USER_DATA'
+const SET_AUTH_USER_PROFILE = 'auth/SET_AUTH_USER_PROFILE'
 const SET_CAPTCHA_URL = 'auth/SET_CAPTCHA_URL'
 
 let initialState = {
@@ -16,10 +18,14 @@ let initialState = {
   users: [],
   errors: '',
   captcha: null,
+  profile: null,
 }
 
 let authReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'auth/SET_AUTH_USER_PROFILE': {
+      return { ...state, profile: action.profile }
+    }
     case 'auth/FOLLOW': {
       return {
         ...state,
@@ -85,6 +91,12 @@ export const setAuthUserData = (userId, email, login, isAuth) => {
     payload: { userId, email, login, isAuth },
   }
 }
+
+export const setAuthUserProfile = profile => ({
+  type: SET_AUTH_USER_PROFILE,
+  profile,
+})
+
 export const setCaptchaUrl = captchaUrl => {
   return {
     type: SET_CAPTCHA_URL,
@@ -97,7 +109,13 @@ export const getAuthUserData = () => async dispatch => {
   if (response.data.resultCode === 0) {
     let { id, email, login } = response.data.data
     dispatch(setAuthUserData(id, email, login, true))
+    dispatch(getAuthUserProfile(id))
   }
+}
+
+export const getAuthUserProfile = userId => async dispatch => {
+  let response = await usersAPI.getProfile(userId)
+  dispatch(setAuthUserProfile(response))
 }
 
 export const logIn = (

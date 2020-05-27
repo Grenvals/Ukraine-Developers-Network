@@ -1,63 +1,54 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import style from './UserStatus.module.scss'
 import editImg from '../../../../assets/images/profile/edit.svg'
 
-export class UserStatus extends React.Component {
-  state = {
-    editMode: false,
-    status: this.props.status,
+export const UserStatus = props => {
+  const [editMode, setEditMode] = useState(false)
+  const [status, setStatus] = useState(props.status)
+  useEffect(() => {
+    setStatus(props.status)
+  }, [props.status])
+
+  let activateEditMode = () => {
+    setEditMode(true)
   }
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.status !== this.props.status) {
-      this.setState({
-        status: this.props.status,
-      })
-    }
-  }
-  activateEditMode = () => {
-    this.setState({
-      editMode: true,
-    })
-  }
-  deactivateEditMode = () => {
-    this.setState({
-      editMode: false,
-    })
-    this.props.updateUserStatus(this.state.status)
+  let deactivateEditMode = () => {
+    setEditMode(false)
+    props.updateUserStatus(status)
   }
 
-  onStatusChange = e => {
-    this.setState({
-      status: e.currentTarget.value,
-    })
+  let onStatusChange = e => {
+    setStatus(e.currentTarget.value)
   }
-  render() {
+  if (!props.isLoggedUser) {
     return (
       <div className={style.userStatus}>
-        {!this.state.editMode && (
-          <div className={style.statusText}>
-            <p onClick={this.activateEditMode}>{this.props.status || 'status not set'}</p>
-          </div>
-        )}
-        {this.state.editMode && (
-          <div className={style.inputBlock}>
-            <input
-              onChange={this.onStatusChange}
-              value={this.state.status}
-              autoFocus={true}
-              onBlur={this.deactivateEditMode}
-              type="text"
-            />
-          </div>
-        )}
-        {this.state.editMode && (
-          <div className={style.editImg} onClick={this.activateEditMode}>
-            <img src={editImg} alt="edit" />
-          </div>
-        )}
+        <p>{props.status || 'not set'}</p>
       </div>
     )
   }
+  return (
+    <div className={`${style.userStatus} ${style.userStatus_active}`}>
+      {!editMode && (
+        <div onClick={activateEditMode} className={style.statusText}>
+          <p>{props.status || 'status not set'}</p>
+        </div>
+      )}
+      {editMode ? (
+        <div className={style.inputBlock}>
+          <input
+            onChange={onStatusChange}
+            value={status}
+            autoFocus={true}
+            onBlur={deactivateEditMode}
+            type="text"
+          />
+        </div>
+      ) : (
+        <div className={style.editImg} onClick={activateEditMode}>
+          <img src={editImg} alt="edit" />
+        </div>
+      )}
+    </div>
+  )
 }
-
-export default UserStatus

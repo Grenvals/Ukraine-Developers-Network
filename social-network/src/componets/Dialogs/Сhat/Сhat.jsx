@@ -8,7 +8,11 @@ import { Head } from '../../common/Head/Head'
 
 const Chat = props => {
   let messageBlock = props.messages.map(m => (
-    <MessagesBlock key={m.id} message={m.message} />
+    <MessagesBlock
+      key={m.id}
+      message={m.message}
+      photo={props.profile != null && props.profile.photos.large}
+    />
   ))
 
   return (

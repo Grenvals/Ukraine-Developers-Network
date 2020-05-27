@@ -18,7 +18,11 @@ const Dialogs = props => {
     <div className={style.dialogs}>
       <Head title="Chat / Messages" />
       <ul className={style.notificationList}>{notificationItem}</ul>
-      <Chat messages={props.messages} addMessage={props.addMessage} />
+      <Chat
+        messages={props.messages}
+        addMessage={props.addMessage}
+        profile={props.profile}
+      />
     </div>
   )
 }
