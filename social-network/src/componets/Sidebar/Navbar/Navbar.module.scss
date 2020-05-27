@@ -1,53 +1,19 @@
 @import "./../../../scss/main.scss";
 
-.nav {
+.navbar {
   background: $second;
   border-radius: 6px;
   overflow: hidden;
   box-shadow: $shadow;
   padding: 0px;
   list-style: none;
-  // height: 300px;
-}
-
-.list {
-  padding: 0px;
-}
-
-.list__item {
-  list-style: none;
-}
-
-.link {
-  display: block;
-  height: 50px;
-  line-height: 50px;
-  text-decoration: none;
-  color: $textLight;
-  border-bottom: 1px solid $first;
-  padding: 0px 25px;
-  transition: height 0.3s ease-out;
-  transition: background 0.3s;
-
-  &:hover {
-    background: darken($first, 5%);
-    border-bottom: darken($first, 5%);
+  @media (max-width: $md3+px) {
+    border-radius: 0px;
   }
-
-  &:active {
-    background: darken($first, 10%);
-    border-bottom: darken($first, 10%);
-  }
-}
-
-.linkActive {
-  color: $first;
-  height: 50px;
-  line-height: 50px;
-  background: $accent;
-  border-bottom: $accent;
-
-  &:hover {
-    background: $accent;
+  &__list {
+    padding: 0px;
+    @media (max-width: $md3+px) {
+      @include flexbox();
+    }
   }
 }

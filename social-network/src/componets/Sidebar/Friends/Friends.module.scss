@@ -8,6 +8,9 @@
   // padding: 15px;
   text-decoration: none;
   color: $accent;
+  @media (max-width: $md3+px) {
+    display: none;
+  }
 }
 
 .title {

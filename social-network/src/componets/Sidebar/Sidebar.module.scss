@@ -5,10 +5,20 @@
   width: 300px;
   top: 75px;
   left: 0px;
-  grid-area: sidebar;
   padding: 0px 15px;
-
+  z-index: 999;
   &>* {
     margin-bottom: 15px;
+  }
+  @media (max-width: $md3+px) {
+    width: auto;
+    top: auto;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 0px;
+    &>* {
+      margin-bottom: 0px;
+    }
   }
 }

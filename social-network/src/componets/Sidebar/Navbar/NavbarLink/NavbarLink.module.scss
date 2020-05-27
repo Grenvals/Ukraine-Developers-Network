@@ -1,0 +1,56 @@
+@import "./../../../../scss/main.scss";
+
+
+.navbarLink {
+  list-style: none;
+  @media (max-width: $md4+px) {
+    flex: 1;
+  }
+  &__img {
+    position: absolute;
+    width: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15px;
+    @media (max-width: $md3+px) {
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+  &__title{
+    @media (max-width: $md3+px) {
+      display: none;
+    }
+  }
+  &__link {
+    position: relative;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    text-decoration: none;
+    color: $textLight;
+    border-bottom: 1px solid $first;
+    padding: 0px 25px;
+    padding-left: 50px;
+    transition: height 0.3s ease-out;
+    transition: background 0.3s;
+    &:hover {
+      background: darken($first, 5%);
+      border-bottom: darken($first, 5%);
+    }
+    &:active {
+      background: darken($first, 10%);
+      border-bottom: darken($first, 10%);
+    }
+    &_active {
+      color: $first;
+      height: 50px;
+      line-height: 50px;
+      background: $accent;
+      border-bottom: $accent;
+      &:hover {
+        background: $accent;
+      }
+    }
+  }
+}

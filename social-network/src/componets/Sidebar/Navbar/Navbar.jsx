@@ -1,64 +1,24 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import style from "./Navbar.module.scss";
+import React from 'react'
+import style from './Navbar.module.scss'
+import profileIcon from '../../../assets/images/nav/user.svg'
+import messageIcon from '../../../assets/images/nav/message.svg'
+import usersIcon from '../../../assets/images/nav/users.svg'
+import newspaperIcon from '../../../assets/images/nav/newspaper.svg'
+import settingsIcon from '../../../assets/images/nav/settings.svg'
+import { NavbarLink } from './NavbarLink/NavbarLink'
 
 const Navbar = () => {
   return (
-    <nav className={style.nav}>
-      <ul className={style.list}>
-        <li className={style.list__item}>
-          <NavLink
-            exact
-            to="/profile"
-            className={style.link}
-            activeClassName={style.linkActive}
-          >
-            Profile
-          </NavLink>
-        </li>
-        <li className={style.list__item}>
-          <NavLink
-            exact
-            to="/dialogs"
-            className={style.link}
-            activeClassName={style.linkActive}
-          >
-            Messages
-          </NavLink>
-        </li>
-        <li className={style.list__item}>
-          <NavLink
-            exact
-            to="/users"
-            className={style.link}
-            activeClassName={style.linkActive}
-          >
-            Users
-          </NavLink>
-        </li>
-        <li className={style.list__item}>
-          <NavLink
-            exact
-            to="/news"
-            className={style.link}
-            activeClassName={style.linkActive}
-          >
-            News
-          </NavLink>
-        </li>
-        <li className={style.list__item}>
-          <NavLink
-            exact
-            to="/settings"
-            className={style.link}
-            activeClassName={style.linkActive}
-          >
-            Settings
-          </NavLink>
-        </li>
+    <nav className={style.navbar}>
+      <ul className={style.navbar__list}>
+        <NavbarLink link={'/profile'} linkIcon={profileIcon} title={'Profile'} />
+        <NavbarLink link={'/dialogs'} linkIcon={messageIcon} title={'Messages'} />
+        <NavbarLink link={'/users'} linkIcon={usersIcon} title={'Users'} />
+        <NavbarLink link={'/news'} linkIcon={newspaperIcon} title={'News'} />
+        <NavbarLink link={'/settings'} linkIcon={settingsIcon} title={'Settings'} />
       </ul>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

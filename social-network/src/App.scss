@@ -11,6 +11,9 @@
   margin-left: 285px;
   padding: 60px 0px 0px 0px;
   height: 100%;
+  @media (max-width: $md3+px) {
+    margin-left: 0px;
+  }
 }
 
 .scrollbar {
