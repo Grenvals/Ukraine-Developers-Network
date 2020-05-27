@@ -29,6 +29,7 @@
 		padding: 0px 10px;
 		border-radius: 10px;
 		height: 20px;
+		box-shadow: $shadowligth;
 		&_active {
 			background: $accent3;
 		}

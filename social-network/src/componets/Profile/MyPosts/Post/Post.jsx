@@ -2,6 +2,7 @@ import React from 'react'
 import style from './Post.module.scss'
 import editImg from '../../../../assets/images/profile/edit.svg'
 import { UserPhoto } from '../../../common/UserFoto/UserFoto'
+import { LikesCount } from '../../../common/likesCount/LikesCount'
 
 const PostItem = React.memo(props => {
   let deletePost = () => {
@@ -14,8 +15,8 @@ const PostItem = React.memo(props => {
           <UserPhoto />
         </div>
         <div className="headerBlock">
-          <p className={style.title}>{props.message}</p>
-          <div className={style.date}>11.12.2020</div>
+          <p className={style.title}>Valentyn Dubin</p>
+          <div className={style.date}>{props.date}</div>
         </div>
         <div className={style.change}>
           <img className={style.change__img} src={editImg} alt="edit" />
@@ -29,21 +30,16 @@ const PostItem = React.memo(props => {
         </div>
       </div>
       <div className="content">
-        <p className={style.message}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quasi, earum
-          dicta aliquid odio vero maxime itaque minima quae repudiandae ea. Modi sed fuga
-          quibusdam assumenda quae repudiandae sit possimus!{' '}
-        </p>
-        <div className={style.preview}>
-          <img
-            src="https://www.theswissholidays.com/rail-tour-packages/rail-tour-packages/images/glaciar-express-banner.jpg"
-            alt=""
-          />
-        </div>
+        <p className={style.message}>{props.message}</p>
+        {props.image && (
+          <div className={style.preview}>
+            <img src={props.image} alt="post images" />
+          </div>
+        )}
       </div>
       <div className="footer">
         <div className="likes">
-          <div className="likeCount">Likes {props.likes}</div>
+          <LikesCount likes={props.likes} />
         </div>
       </div>
     </div>

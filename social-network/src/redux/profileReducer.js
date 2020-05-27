@@ -1,5 +1,9 @@
 import { usersAPI, profileAPI } from '../api/api'
 import { stopSubmit } from 'redux-form'
+import postImage1 from '../assets/images/profile/posts/jobs-1.jpg'
+import postImage2 from '../assets/images/profile/posts/P10рр132.JPG'
+import postImage3 from '../assets/images/profile/posts/P1013597.JPG'
+// jobs-1
 const ADD_POST = 'profile/ADD-POST'
 const DELETE_POST = 'profile/DELETE-POST'
 const SET_USER_PROFILE = 'profile/SET_USER_PROFILE'
@@ -9,9 +13,30 @@ const SAVE_PHOTO_SUCCESS = 'profile/SAVE_PHOTO_SUCCESS'
 let initialState = {
   profile: null,
   posts: [
-    { id: 1, message: 'Hi, how are you?', likes: 11 },
-    { id: 2, message: 'You can do it!', likes: 22 },
-    { id: 3, message: 'Lets study React', likes: 5 },
+    {
+      id: 1,
+      message:
+        'Have the courage to follow your heart and intuition. They somehow already know what you truly want to become. Everything else is secondary.',
+      date: '11.05.2020',
+      image: postImage1,
+      likes: 11,
+    },
+    {
+      id: 2,
+      message:
+        'Sometimes when you innovate, you make mistakes. It is best to admit them quickly, and get on with improving your other innovations.',
+      date: '15.05.2020',
+      image: postImage2,
+      likes: 22,
+    },
+    {
+      id: 3,
+      message:
+        'Sometimes when you innovate, you make mistakes. It is best to admit them quickly, and get on with improving your other innovations.',
+      date: '27.05.2020',
+      image: postImage3,
+      likes: 5,
+    },
   ],
   newPostMessage: '',
   status: '',
@@ -21,8 +46,9 @@ let profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'profile/ADD-POST': {
       let newPost = {
-        id: 5,
+        id: state.posts.length + 1,
         message: action.message,
+        date: action.date,
         likes: 0,
       }
       return { ...state, newPostMessage: '', posts: [...state.posts, newPost] }
@@ -47,9 +73,10 @@ let profileReducer = (state = initialState, action) => {
   }
 }
 
-export const addPostActionCreator = message => ({
+export const addPostActionCreator = (message, date) => ({
   type: ADD_POST,
   message: message,
+  date: date,
 })
 export const deletePostActionCreator = id => ({
   type: DELETE_POST,

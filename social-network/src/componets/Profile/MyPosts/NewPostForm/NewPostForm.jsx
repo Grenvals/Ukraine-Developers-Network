@@ -5,7 +5,7 @@ import { required, maxLengthCreator } from '../../../../utils/validators/validat
 import { Textarea } from '../../../common/Form/FormControls/FormControls'
 import { Button } from '../../../common/Buttons/Buttons'
 
-const maxLength = maxLengthCreator(10)
+const maxLength = maxLengthCreator(150)
 
 const NewPostCreateForm = props => {
   return (
@@ -27,7 +27,8 @@ const AddNewPostReduxForm = reduxForm({
 
 export const NewPostForm = props => {
   const onSubmit = (formData, dispatch) => {
-    props.addPost(formData.user_post_message)
+    const date = new Date().toLocaleString().slice(0, -3)
+    props.addPost(formData.user_post_message, date)
     dispatch(reset('NewPost'))
   }
   return <AddNewPostReduxForm onSubmit={onSubmit} />

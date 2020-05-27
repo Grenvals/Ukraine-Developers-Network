@@ -1,0 +1,19 @@
+@import "../../../scss/main.scss";
+
+.likesCount {
+  position: relative;
+  padding-left: 25px;
+  &__img {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    height: 17px;
+    width: 17px;
+    object-fit: contain;
+  }
+  &__value {
+    font-weight: 600;
+    font-size: 14px;
+  }
+}

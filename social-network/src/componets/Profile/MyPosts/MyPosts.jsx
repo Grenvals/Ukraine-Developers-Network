@@ -11,6 +11,8 @@ const MyPosts = React.memo(props => {
         key={d.id}
         id={d.id}
         message={d.message}
+        date={d.date}
+        image={d.image}
         likes={d.likes}
         deletePost={props.deletePost}
       />

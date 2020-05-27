@@ -13,8 +13,8 @@ let mapStateToProps = state => {
 }
 let mapDispatchToProps = dispatch => {
   return {
-    addPost: message => {
-      dispatch(addPostActionCreator(message))
+    addPost: (message, date) => {
+      dispatch(addPostActionCreator(message, date))
     },
     deletePost: id => {
       dispatch(deletePostActionCreator(id))
