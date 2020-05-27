@@ -1,20 +1,7 @@
 
-@import "./../../../scss/main.scss";
+@import "./../../../../scss/main.scss";
 
-.pagination {
-	@include flexbox();
-	&__list {
-		@include flexbox();
-		padding: 0px 10px;
-		font-size: 14px;
-	}
-	&__dots {
-		padding: 0px 10px;
-	}
-}
-
-
-.button {
+.paginationButton {
 	flex: 0 0 auto;
 	@include flexbox();
 	box-shadow: $shadowligth;
@@ -31,10 +18,10 @@
 	&:hover {
 		background: $accent3;
 	}
-}
-.disable {
-	background: rgba($accent, 0.4);
-	&:hover {
+	&_disable {
 		background: rgba($accent, 0.4);
+		&:hover {
+			background: rgba($accent, 0.4);
+		}
 	}
 }

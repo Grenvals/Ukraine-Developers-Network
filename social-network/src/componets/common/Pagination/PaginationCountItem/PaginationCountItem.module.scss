@@ -21,10 +21,10 @@
 		cursor: pointer;
 		background: rgba($accent, 1);
 	}
-}
-.active {
-	background: $accent3;
-	&:hover {
+	&_active {
 		background: $accent3;
+		&:hover {
+			background: $accent3;
+		}
 	}
 }

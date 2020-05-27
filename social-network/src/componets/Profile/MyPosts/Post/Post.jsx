@@ -12,10 +12,10 @@ const PostItem = React.memo(props => {
     <div className={style.post}>
       <div className={style.header}>
         <div className={style.logo}>
-          <UserPhoto />
+          <UserPhoto photo={props.userPhoto} />
         </div>
         <div className="headerBlock">
-          <p className={style.title}>Valentyn Dubin</p>
+          <p className={style.title}>{props.userName}</p>
           <div className={style.date}>{props.date}</div>
         </div>
         <div className={style.change}>

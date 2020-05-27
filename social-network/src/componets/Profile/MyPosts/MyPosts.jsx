@@ -10,6 +10,8 @@ const MyPosts = React.memo(props => {
       <PostItem
         key={d.id}
         id={d.id}
+        userName={props.profile.fullName}
+        userPhoto={props.profile.photos.large}
         message={d.message}
         date={d.date}
         image={d.image}

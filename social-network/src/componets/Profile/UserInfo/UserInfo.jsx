@@ -24,6 +24,7 @@ const UserInfo = ({
           isLoggedUser={isLoggedUser}
           photo={profile.photos.large}
           updateUserPhoto={updateUserPhoto}
+          userId={profile.userId}
         />
         <h1 className={style.userInfo__name}>{profile.fullName}</h1>
         <div className={style.userInfo__container}>

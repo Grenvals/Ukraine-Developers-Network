@@ -9,6 +9,7 @@ import { connect } from 'react-redux'
 let mapStateToProps = state => {
   return {
     posts: state.profilePage.posts,
+    profile: state.auth.profile,
   }
 }
 let mapDispatchToProps = dispatch => {

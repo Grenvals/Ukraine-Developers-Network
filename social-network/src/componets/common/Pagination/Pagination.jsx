@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import style from './Pagination.module.scss'
 import PaginationCountItem from './PaginationCountItem/PaginationCountItem'
 import arrowLeft from './../../../assets/images/arrows/left-arrow.svg'
 import arrowRight from './../../../assets/images/arrows/right-arrow.svg'
+import { PaginationButton } from './PaginationButton/PaginationButton'
 
 const Pagination = React.memo(props => {
   let [portionNumber, setPortionNumber] = useState(1)
+  let [leftButtonMode, setleftButtonMode] = useState(false)
+  let [RightButtonMode, setRigthButtonMode] = useState(false)
   let pages = [...props.pages]
   let allPagesCount = props.pages.length
   let portionCount = Math.ceil(allPagesCount / props.portionSize)
@@ -17,7 +20,7 @@ const Pagination = React.memo(props => {
     lastPages.unshift(allPagesCount - i)
     pages.pop()
   }
-  let countItem = pages
+  const countItem = pages
     .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
     .map(p => (
       <PaginationCountItem
@@ -27,7 +30,8 @@ const Pagination = React.memo(props => {
         setCurrentPage={props.setCurrentPage}
       />
     ))
-  let lastPagesCountItem = lastPages.map(p => (
+
+  const lastPagesCountItem = lastPages.map(p => (
     <PaginationCountItem
       key={p}
       countNumber={p}
@@ -35,44 +39,43 @@ const Pagination = React.memo(props => {
       setCurrentPage={props.setCurrentPage}
     />
   ))
+  const onLeftButtonClick = () => {
+    setPortionNumber(portionNumber - 1)
+  }
+  const onRightButtonClick = () => {
+    setPortionNumber(portionNumber + 1)
+  }
+
+  useEffect(() => {
+    if (leftPortionPageNumber <= 1) {
+      setleftButtonMode(false)
+    } else {
+      setleftButtonMode(true)
+    }
+    if (portionNumber < portionCount - 1) {
+      setRigthButtonMode(true)
+    } else {
+      setRigthButtonMode(true)
+    }
+  }, [leftPortionPageNumber, portionCount, portionNumber])
 
   return (
     <div className={style.pagination}>
-      {leftPortionPageNumber <= 1 ? (
-        <span className={`${style.button} ${style.disable}`}>
-          {' '}
-          <img src={arrowLeft} alt="arrow" />
-        </span>
-      ) : (
-        <button
-          className={style.button}
-          onClick={() => {
-            setPortionNumber(portionNumber - 1)
-          }}
-        >
-          <img src={arrowLeft} alt="arrow" />
-        </button>
-      )}
-      <ul className={style.paginationList}>
+      <PaginationButton
+        icon={arrowLeft}
+        onClick={onLeftButtonClick}
+        active={leftButtonMode}
+      />
+      <ul className={style.pagination__list}>
         {countItem}
-        <li className={style.dots}> ... </li>
+        <li className={style.pagination__dots}> ... </li>
         {lastPagesCountItem}{' '}
       </ul>
-      <ul></ul>
-      {portionNumber < portionCount - 1 ? (
-        <button
-          className={style.button}
-          onClick={() => {
-            setPortionNumber(portionNumber + 1)
-          }}
-        >
-          <img src={arrowRight} alt="arrow" />
-        </button>
-      ) : (
-        <span className={`${style.button} ${style.disable}`}>
-          <img src={arrowRight} alt="arrow" />
-        </span>
-      )}
+      <PaginationButton
+        icon={arrowRight}
+        onClick={onRightButtonClick}
+        active={RightButtonMode}
+      />
     </div>
   )
 })

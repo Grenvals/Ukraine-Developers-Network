@@ -3,6 +3,7 @@ import { stopSubmit } from 'redux-form'
 import postImage1 from '../assets/images/profile/posts/jobs-1.jpg'
 import postImage2 from '../assets/images/profile/posts/P10рр132.JPG'
 import postImage3 from '../assets/images/profile/posts/P1013597.JPG'
+import { getAuthUserProfile } from './authReducer'
 // jobs-1
 const ADD_POST = 'profile/ADD-POST'
 const DELETE_POST = 'profile/DELETE-POST'
@@ -105,6 +106,7 @@ export const updateUserProfile = (userId, formData) => async dispatch => {
   let response = await profileAPI.updateProfile(formData)
   if (response.resultCode === 0) {
     dispatch(getUserProfile(userId))
+    dispatch(getAuthUserProfile(userId))
   } else {
     let key = response.messages[0].match(/Contacts->(\w+)/)[1].toLowerCase()
     dispatch(
@@ -127,10 +129,11 @@ export const updateUserStatus = status => async dispatch => {
   }
 }
 
-export const updateUserPhoto = data => async dispatch => {
+export const updateUserPhoto = (data, id) => async dispatch => {
   let response = await profileAPI.updateUserPhoto(data)
   if (response.resultCode === 0) {
     dispatch(saveFotoSuccess(response.data.photos))
+    dispatch(getAuthUserProfile(id))
   }
 }
 

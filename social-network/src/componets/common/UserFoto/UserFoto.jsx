@@ -25,10 +25,10 @@ export const UserPhotoLink = ({ photo, link = '/', count = 0 }) => {
   )
 }
 
-export const UserProfilePhoto = ({ updateUserPhoto, photo, isLoggedUser }) => {
+export const UserProfilePhoto = ({ updateUserPhoto, photo, isLoggedUser, userId }) => {
   const onMainPhotoSelected = e => {
     if (e.target.files.length > 0) {
-      updateUserPhoto(e.target.files[0])
+      updateUserPhoto(e.target.files[0], userId)
     }
   }
   return (
