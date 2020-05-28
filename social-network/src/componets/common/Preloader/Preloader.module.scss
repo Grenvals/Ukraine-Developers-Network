@@ -16,10 +16,10 @@
 	}
 }
 	.loader {
-		width: 100px;
-		height: 100px;
+		width: 70px;
+		height: 70px;
 		&__circle {
-			margin: (100px * .25 - 2px)  0 0 (100px *.25 - 2px);
+			margin: (70px * .25 - 2px)  0 0 (70px *.25 - 2px);
 			width: 50%;
 			height: 50%;
 			border: 3px solid $accent;

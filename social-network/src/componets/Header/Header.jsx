@@ -1,14 +1,14 @@
-import React from 'react'
-import style from './Header.module.scss'
-import { UserPhoto } from '../common/UserFoto/UserFoto'
-import { Button, NavLinkButton } from '../common/Buttons/Buttons'
+import React from 'react';
+import style from './Header.module.scss';
+import { UserPhoto } from '../common/UserFoto/UserFoto';
+import { Button, NavLinkButton } from '../common/Buttons/Buttons';
 
 const Header = props => {
   return (
     <header className={style.header}>
       <div className={style.container}>
-        <div className={style.logo}>
-          UDN <span className={style.name}>Ukraine developers Network</span>
+        <div className={style.header__logo}>
+          UDN <h1 className={style.header__title}>Ukraine developers Network</h1>
         </div>
         <div className={style.user}>
           <div className={style.user__flag}></div>
@@ -35,7 +35,7 @@ const Header = props => {
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

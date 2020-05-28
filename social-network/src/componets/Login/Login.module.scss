@@ -1,12 +1,12 @@
 
 @import "../../scss/main.scss";
+
 .login {
 	@include flexbox();
+	position: relative;
 	justify-content: center;
 	align-items: center;
-	background: url(../../assets/images/background.jpg) center no-repeat;
 	border-radius: 8px;
-	background-size: cover;
 	overflow: hidden;
 	height: 100%;
 	&:before {
@@ -19,41 +19,26 @@
 		z-index: 0;
 		background: rgba(0, 0, 0, 0.1);
 	}
-	&__button {
+	&__background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
 		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: 0;
 	}
-}
-.formBlock {
-	font-size: 16px;
-	background: rgba($accent, 1);
-	width: 350px;
-	min-height: 200px;
-	border-radius: 8px;
-	color: #fff;
-	padding: 16px;
-	z-index: 1;
-}
-.form {
-	&__item {
-		margin-bottom: 20px;
-	}
-	&__label {
-		display: block;
-		font-size: 13px;
-		padding-left: 5px;
-		margin-bottom: 5px;
-		&_inline {
-			display: inline-block;
-		}
-	}
-	&__input {
-		display: block;
-		width: 100%;
-		padding: 0px 15px;
-		border: 1px solid $first;
+	&__container {
+		font-size: 16px;
+		background: rgba($accent, 1);
+		width: 350px;
+		min-height: 200px;
 		border-radius: 8px;
-		line-height: 30px;
-		font-size: 14px;
+		color: #fff;
+		padding: 16px;
+		z-index: 1;
 	}
 	&__title {
 		text-align: center;
@@ -65,116 +50,5 @@
 	&__quate {
 		text-align: right;
 		font-size: 13px;
-	}
-	&__button {
-		@include flexbox();
-		align-items: center;
-		justify-content: space-between;
-		margin-bottom: 10px;
-	}
-	&__error {
-		display: inline-block;
-		font-size: 13px;
-		color: red;
-		margin-right: 15px;
-	}
-	&__security {
-		@include flexbox();
-	}
-	&__refreshButton {
-		position: absolute;
-		top: 0px;
-		right: -32px;
-		width: 32px;
-		height: 32px;
-		background: $accent3;
-		border-radius: 0px 8px 8px 0px;
-		transition: background 0.1s;
-		&:hover {
-			background: darken($accent3, 10%);
-		}
-		&:active {
-			background: darken($accent3, 15%);
-		}
-		img {
-			width: 15px;
-		}
-	}
-	&__captchaStatus {
-		display: inline-block;
-		padding: 0px 10px 0px 28px;
-		font-size: 12px;
-		line-height: 25px;
-		position: relative;
-		background: $accent3;
-		border-radius: 8px;
-		margin-bottom: 5px;
-		img {
-			width: 15px;
-			position: absolute;
-			top: 50%;
-			left: 5px;
-			transform: translateY(-50%);
-		}
-	}
-	&__captcha {
-		position: relative;
-		width: 250px;
-		margin-right: 48px;
-		img {
-			max-width: 100%;
-			border-radius: 8px 0px 8px 8px;
-		}
-	}
-	&__captchaBlock {
-		@include flexbox();
-		flex-direction: column;
-		p {
-			font-size: 13px;
-		}
-	}
-}
-
-.checkbox {
-	@include flexbox();
-	// justify-content: flex-end;
-	align-items: center;
-	&__label {
-		font-size: 13px;
-		margin-left: 10px;
-		cursor: pointer;
-	}
-	&__box {
-		width: 14px;
-		height: 14px;
-		position: relative;
-		// border-radius: 5px;
-		overflow: hidden;
-	}
-	&__input {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		opacity: 0;
-		z-index: 1;
-		cursor: pointer;
-	}
-	&__input + span {
-		display: block;
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		border-radius: 4px;
-		background: white;
-		border: 2px solid $first;
-		cursor: pointer;
-		transition: background 0.1s;
-	}
-	&__input:checked + span {
-		background: $accent3;
 	}
 }

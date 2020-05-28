@@ -1,6 +1,6 @@
-import React from 'react'
-import style from './NotFound.module.scss'
-import { NavLinkButton } from '../common/Buttons/Buttons'
+import React from 'react';
+import style from './NotFound.module.scss';
+import { NavLinkButton } from '../common/Buttons/Buttons';
 
 export const NotFound = props => {
   return (
@@ -11,5 +11,5 @@ export const NotFound = props => {
         <NavLinkButton name={'Home'} link={'/profile'} />
       </div>
     </div>
-  )
-}
+  );
+};
