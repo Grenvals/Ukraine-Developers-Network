@@ -1,6 +1,6 @@
-import React from 'react'
-import style from './Head.module.scss'
-import defaultBg from '../../../assets/images/background.jpg'
+import React from 'react';
+import style from './Head.module.scss';
+import defaultBg from '../../../assets/images/background.jpg';
 
 export const Head = props => {
   return (
@@ -10,13 +10,13 @@ export const Head = props => {
         <div className={style.threeDots}></div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const HeadImage = ({ image = defaultBg, className }) => {
   return (
     <div className={style.headImage}>
       <img className={style.headImage__img} src={image} alt="bg" />
     </div>
-  )
-}
+  );
+};

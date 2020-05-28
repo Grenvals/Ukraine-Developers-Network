@@ -12,29 +12,3 @@
 		padding: 0px 10px;
 	}
 }
-
-
-.button {
-	flex: 0 0 auto;
-	@include flexbox();
-	box-shadow: $shadowligth;
-	justify-content: center;
-	align-items: center;
-	border-radius: 6px;
-	height: 25px;
-	width: 25px;
-	background: rgba($accent, 0.9);
-	background: $accent3;
-	img {
-		width: 12px;
-	}
-	&:hover {
-		background: $accent3;
-	}
-}
-.disable {
-	background: rgba($accent, 0.4);
-	&:hover {
-		background: rgba($accent, 0.4);
-	}
-}

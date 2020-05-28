@@ -1,24 +1,25 @@
-import React, { useState, useEffect } from 'react'
-import style from './Pagination.module.scss'
-import PaginationCountItem from './PaginationCountItem/PaginationCountItem'
-import arrowLeft from './../../../assets/images/arrows/left-arrow.svg'
-import arrowRight from './../../../assets/images/arrows/right-arrow.svg'
-import { PaginationButton } from './PaginationButton/PaginationButton'
+import React, { useState, useEffect } from 'react';
+import style from './Pagination.module.scss';
+import PaginationCountItem from './PaginationCountItem/PaginationCountItem';
+import arrowLeft from './../../../assets/images/arrows/left-arrow.svg';
+import arrowRight from './../../../assets/images/arrows/right-arrow.svg';
+import { PaginationButton } from './PaginationButton/PaginationButton';
 
 const Pagination = React.memo(props => {
-  let [portionNumber, setPortionNumber] = useState(1)
-  let [leftButtonMode, setleftButtonMode] = useState(false)
-  let [RightButtonMode, setRigthButtonMode] = useState(false)
-  let pages = [...props.pages]
-  let allPagesCount = props.pages.length
-  let portionCount = Math.ceil(allPagesCount / props.portionSize)
-  let leftPortionPageNumber = (portionNumber - 1) * props.portionSize + 1
-  let rightPortionPageNumber = portionNumber * props.portionSize
-  let lastPages = []
+  let [portionNumber, setPortionNumber] = useState(1);
+  let [leftButtonMode, setleftButtonMode] = useState(false);
+  let [RightButtonMode, setRigthButtonMode] = useState(false);
+
+  let pages = [...props.pages];
+  let allPagesCount = props.pages.length;
+  let portionCount = Math.ceil(allPagesCount / props.portionSize);
+  let leftPortionPageNumber = (portionNumber - 1) * props.portionSize + 1;
+  let rightPortionPageNumber = portionNumber * props.portionSize;
+  let lastPages = [];
 
   for (let i = 0; i <= 1; i++) {
-    lastPages.unshift(allPagesCount - i)
-    pages.pop()
+    lastPages.unshift(allPagesCount - i);
+    pages.pop();
   }
   const countItem = pages
     .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
@@ -29,7 +30,7 @@ const Pagination = React.memo(props => {
         currentPage={props.currentPage}
         setCurrentPage={props.setCurrentPage}
       />
-    ))
+    ));
 
   const lastPagesCountItem = lastPages.map(p => (
     <PaginationCountItem
@@ -38,26 +39,26 @@ const Pagination = React.memo(props => {
       currentPage={props.currentPage}
       setCurrentPage={props.setCurrentPage}
     />
-  ))
+  ));
   const onLeftButtonClick = () => {
-    setPortionNumber(portionNumber - 1)
-  }
+    setPortionNumber(portionNumber - 1);
+  };
   const onRightButtonClick = () => {
-    setPortionNumber(portionNumber + 1)
-  }
+    setPortionNumber(portionNumber + 1);
+  };
 
   useEffect(() => {
     if (leftPortionPageNumber <= 1) {
-      setleftButtonMode(false)
+      setleftButtonMode(false);
     } else {
-      setleftButtonMode(true)
+      setleftButtonMode(true);
     }
     if (portionNumber < portionCount - 1) {
-      setRigthButtonMode(true)
+      setRigthButtonMode(true);
     } else {
-      setRigthButtonMode(true)
+      setRigthButtonMode(false);
     }
-  }, [leftPortionPageNumber, portionCount, portionNumber])
+  }, [leftPortionPageNumber, portionCount, portionNumber]);
 
   return (
     <div className={style.pagination}>
@@ -77,7 +78,7 @@ const Pagination = React.memo(props => {
         active={RightButtonMode}
       />
     </div>
-  )
-})
+  );
+});
 
-export default Pagination
+export default Pagination;
