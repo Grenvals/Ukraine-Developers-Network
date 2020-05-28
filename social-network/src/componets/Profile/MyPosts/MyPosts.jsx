@@ -1,7 +1,7 @@
-import React from 'react'
-import style from './MyPosts.module.scss'
-import PostItem from './Post/Post'
-import NewPostForm from './NewPostForm/NewPostForm'
+import React from 'react';
+import style from './MyPosts.module.scss';
+import PostItem from './Post/Post';
+import { NewPostForm } from './NewPostForm/NewPostForm';
 
 const MyPosts = React.memo(props => {
   let postItem = [...props.posts]
@@ -18,14 +18,14 @@ const MyPosts = React.memo(props => {
         likes={d.likes}
         deletePost={props.deletePost}
       />
-    ))
+    ));
 
   return (
     <div className={style.posts}>
       <NewPostForm addPost={props.addPost} />
       {postItem}
     </div>
-  )
-})
+  );
+});
 
-export default MyPosts
+export default MyPosts;

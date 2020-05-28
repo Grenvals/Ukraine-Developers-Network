@@ -1,17 +1,17 @@
-import React from 'react'
-import style from './NewPostForm.module.scss'
-import { Field, reduxForm, reset } from 'redux-form'
-import { required, maxLengthCreator } from '../../../../utils/validators/validators'
-import { Textarea } from '../../../common/Form/FormControls/FormControls'
-import { Button } from '../../../common/Buttons/Buttons'
+import React from 'react';
+import style from './NewPostForm.module.scss';
+import { Field, reduxForm, reset } from 'redux-form';
+import { required, maxLengthCreator } from '../../../../utils/validators/validators';
+import { Textarea } from '../../../common/Form/FormControls/FormControls';
+import { Button } from '../../../common/Buttons/Buttons';
 
-const maxLength = maxLengthCreator(150)
+const maxLength = maxLengthCreator(150);
 
 const NewPostCreateForm = props => {
   return (
-    <form onSubmit={props.handleSubmit} className={style.newPost}>
+    <form className={style.newPostForm} onSubmit={props.handleSubmit}>
       <Field
-        className={style.newPost__message}
+        className={style.newPostForm__message}
         placeholder="Write your messаge hier"
         name={'user_post_message'}
         component={Textarea}
@@ -19,19 +19,17 @@ const NewPostCreateForm = props => {
       />
       <Button />
     </form>
-  )
-}
+  );
+};
 const AddNewPostReduxForm = reduxForm({
   form: 'NewPost',
-})(NewPostCreateForm)
+})(NewPostCreateForm);
 
 export const NewPostForm = props => {
   const onSubmit = (formData, dispatch) => {
-    const date = new Date().toLocaleString().slice(0, -3)
-    props.addPost(formData.user_post_message, date)
-    dispatch(reset('NewPost'))
-  }
-  return <AddNewPostReduxForm onSubmit={onSubmit} />
-}
-
-export default NewPostForm
+    const date = new Date().toLocaleString().slice(0, -3);
+    props.addPost(formData.user_post_message, date);
+    dispatch(reset('NewPost'));
+  };
+  return <AddNewPostReduxForm onSubmit={onSubmit} />;
+};
