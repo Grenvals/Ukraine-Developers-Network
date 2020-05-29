@@ -4,10 +4,23 @@
 	@include flexbox();
 	justify-content: center;
 	align-items: center;
-	height: 100%;
+	min-height: 100%;
 	width: 100%;
 	background: rgba(0, 0, 0, 0.1);
 	flex: 1; 
+}
+
+.loader {
+	width: 70px;
+	height: 70px;
+	&__circle {
+		margin: (70px * .25 - 2px)  0 0 (70px *.25 - 2px);
+		width: 50%;
+		height: 50%;
+		border: 3px solid $accent;
+		border-radius: 50%;
+		animation: circlePulse 1s ease infinite;
+	}
 }
 
 @keyframes rotate {
@@ -15,18 +28,6 @@
 		transform: rotate(360deg);
 	}
 }
-	.loader {
-		width: 70px;
-		height: 70px;
-		&__circle {
-			margin: (70px * .25 - 2px)  0 0 (70px *.25 - 2px);
-			width: 50%;
-			height: 50%;
-			border: 3px solid $accent;
-			border-radius: 50%;
-			animation: circlePulse 1s ease infinite;
-		}
-	}
 
 @keyframes circlePulse {
 	0% {

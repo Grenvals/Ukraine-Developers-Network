@@ -2,9 +2,9 @@
 
 .userItem {
   display: block;
-  flex: 0 1 33.33%;
-  padding: 15px;
-  transform: background 0.1s;
+  flex: 0 0 33.33%;
+  width: 33%;
+  translate: background 0.1s;
   &:hover {
     background: darken($first, 5%);
   }
@@ -14,12 +14,26 @@
       margin-bottom: 0px;
     }
   }
+  &__link {
+    display: block;
+    padding: 15px 10px;
+  }
+  &__photo {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 7px;
+  }
   &__name {
+    width: 100%;
     text-align: center;
     font-size: 12px;
     font-weight: 600;
     text-decoration: none;
     color: $accent;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 

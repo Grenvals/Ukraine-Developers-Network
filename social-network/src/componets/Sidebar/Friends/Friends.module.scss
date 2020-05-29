@@ -2,10 +2,9 @@
 
 .friends {
   background: $second;
-  border-radius: 6px;
+  border-radius: 10px;
   overflow: hidden;
   box-shadow: $shadow;
-  // padding: 15px;
   text-decoration: none;
   color: $accent;
   @media (max-width: $md3+px) {
@@ -18,14 +17,58 @@
   text-align: center;
   font-size: 12px;
   font-weight: 600;
-  border-bottom: 1px solid $first;
   line-height: 25px;
   height: 25px;
+  color: $first;
+  background: $accent;
 }
 
 .list {
   @include flexbox();
   flex-wrap: wrap;
+  &__more {
+    @include flexbox();
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 33.33%;
+    width: 33%;
+    translate: background 0.1s;
+    &:hover {
+      background: darken($first, 5%);
+    }
+  }
+  &__threeDots {
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    background: rgb(114, 114, 114); 
+    position: relative;
+    margin: 0 14px;
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 4px;
+      width: 4px;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -10px;
+      background: rgb(114, 114, 114); 
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 4px;
+      width: 4px;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      right: -10px;
+      background: rgb(114, 114, 114); 
+    }
+  }
 }
 
 .listItem {
@@ -68,7 +111,6 @@
   height: 45px;
   border-radius: 50%;
   position: relative;
-
   img {
     width: 45px;
     height: 45px;

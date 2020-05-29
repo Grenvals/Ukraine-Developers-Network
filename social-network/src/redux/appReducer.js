@@ -1,10 +1,11 @@
-import { getAuthUserData } from './authReducer'
+import { getAuthUserData } from './authReducer';
+import { getDialogsUsersList } from './dialogsReducer';
 
-const INITIALIZED_SUCSESS = 'INITIALIZED_SUCSESS'
+const INITIALIZED_SUCSESS = 'INITIALIZED_SUCSESS';
 
 let initialState = {
   initialized: false,
-}
+};
 
 let appReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -12,27 +13,29 @@ let appReducer = (state = initialState, action) => {
       return {
         ...state,
         initialized: true,
-      }
+      };
     }
     default:
-      return state
+      return state;
   }
-}
+};
 
 export const initializedSuccess = () => {
   return {
     type: INITIALIZED_SUCSESS,
-  }
-}
+  };
+};
 
 export const initializedApp = () => dispatch => {
-  let promise = dispatch(getAuthUserData())
+  const getUserData = dispatch(getAuthUserData());
+  const getDialogs = dispatch(getDialogsUsersList());
+  // Watchers
+  setInterval(() => {
+    dispatch(getDialogsUsersList());
+  }, 20000);
+  Promise.all([getUserData, getDialogs]).then(() => {
+    dispatch(initializedSuccess());
+  });
+};
 
-  // Promise.all([promise1, promise2, promise3]).then(() => {})
-
-  promise.then(() => {
-    dispatch(initializedSuccess())
-  })
-}
-
-export default appReducer
+export default appReducer;

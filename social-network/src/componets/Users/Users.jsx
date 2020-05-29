@@ -1,15 +1,15 @@
-import React from 'react'
-import style from './Users.module.scss'
-import User from './User/User'
-import Pagination from '../common/Pagination/Pagination'
-import Preloader from '../common/Preloader/Preloader'
-import { Head } from '../common/Head/Head'
+import React from 'react';
+import style from './Users.module.scss';
+import User from './User/User';
+import Pagination from '../common/Pagination/Pagination';
+import Preloader from '../common/Preloader/Preloader';
+import { Head } from '../common/Head/Head';
 
 const Users = props => {
-  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
-  let pages = []
+  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+  let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
-    pages.push(i)
+    pages.push(i);
   }
   return (
     <div className={style.users}>
@@ -33,6 +33,7 @@ const Users = props => {
               followingInProgress={props.followingInProgress}
               followUser={props.followUser}
               unfollowUser={props.unfollowUser}
+              startDialogWithUser={props.startDialogWithUser}
             />
           ))}
         </ul>
@@ -46,7 +47,7 @@ const Users = props => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Users
+export default Users;

@@ -1,16 +1,13 @@
 // import React from 'react'
-import { connect } from 'react-redux'
-import Sidebar from './Sidebar'
+import { connect } from 'react-redux';
+import Sidebar from './Sidebar';
 
 let mapStateToProps = state => {
   return {
-    sidebar: state.sidebar.friends,
-  }
-}
-let mapDispatchToProps = dispatch => {
-  return {}
-}
+    dialogs: state.dialogsPage.dialogs,
+  };
+};
 
-const SidebarContainer = connect(mapStateToProps, mapDispatchToProps)(Sidebar)
+const SidebarContainer = connect(mapStateToProps, {})(Sidebar);
 
-export default SidebarContainer
+export default SidebarContainer;

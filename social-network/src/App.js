@@ -1,34 +1,34 @@
-import React from 'react'
-import PerfectScrollbar from 'react-perfect-scrollbar'
-import 'react-perfect-scrollbar/dist/css/styles.css'
+import React from 'react';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import 'react-perfect-scrollbar/dist/css/styles.css';
 // import logo from './logo.svg';
-import './App.scss'
-import { Route, withRouter, Switch, Redirect } from 'react-router-dom'
-import SidebarContainer from './componets/Sidebar/SidebarContainer'
-import ProfileContainer from './componets/Profile/ProfileContainer'
-import HeaderContainer from './componets/Header/HeaderContainer'
-import { connect } from 'react-redux'
-import { compose } from 'redux'
-import { initializedApp } from './redux/appReducer'
-import Preloader from './componets/common/Preloader/Preloader'
-import store from './redux/redux-store'
-import { BrowserRouter } from 'react-router-dom'
-import { Provider } from 'react-redux'
-import { withSuspense } from './hoc/withSuspense'
-import { SettingsContainers } from './componets/Settings/SettingsContainer'
-import { NotFound } from './componets/NotFound/NotFound'
-const DialogsContainer = React.lazy(() => import('./componets/Dialogs/DialogsContainer'))
-const News = React.lazy(() => import('./componets/News/News'))
-const UsersContainer = React.lazy(() => import('./componets/Users/UsersContainer'))
-const Login = React.lazy(() => import('./componets/Login/Login'))
+import './App.scss';
+import { Route, withRouter, Switch, Redirect } from 'react-router-dom';
+import SidebarContainer from './componets/Sidebar/SidebarContainer';
+import ProfileContainer from './componets/Profile/ProfileContainer';
+import HeaderContainer from './componets/Header/HeaderContainer';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { initializedApp } from './redux/appReducer';
+import Preloader from './componets/common/Preloader/Preloader';
+import store from './redux/redux-store';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { withSuspense } from './hoc/withSuspense';
+import { SettingsContainers } from './componets/Settings/SettingsContainer';
+import { NotFound } from './componets/NotFound/NotFound';
+const DialogsContainer = React.lazy(() => import('./componets/Dialogs/DialogsContainer'));
+const News = React.lazy(() => import('./componets/News/News'));
+const UsersContainer = React.lazy(() => import('./componets/Users/UsersContainer'));
+const Login = React.lazy(() => import('./componets/Login/Login'));
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.initializedApp()
+    this.props.initializedApp();
   }
   render() {
     if (!this.props.initialized) {
-      return <Preloader />
+      return <Preloader className="app__preloader" />;
     }
 
     return (
@@ -50,20 +50,20 @@ class App extends React.Component {
           </PerfectScrollbar>
         </div>
       </div>
-    )
+    );
   }
 }
 
 let mapStateToProps = state => {
   return {
     initialized: state.app.initialized,
-  }
-}
+  };
+};
 
 const AppContainer = compose(
   withRouter,
   connect(mapStateToProps, { initializedApp })
-)(App)
+)(App);
 
 export const SocialNetworkApp = props => {
   return (
@@ -72,8 +72,8 @@ export const SocialNetworkApp = props => {
         <AppContainer />
       </Provider>
     </BrowserRouter>
-  )
-}
+  );
+};
 // export default SocialNetworkApp
 
 // ! Розібратися з компонентом Head, налагодити проброс заголовків.

@@ -1,14 +1,15 @@
-import React from 'react'
-import Users from './Users'
-import { connect } from 'react-redux'
+import React from 'react';
+import Users from './Users';
+import { connect } from 'react-redux';
 import {
   followUser,
   unfollowUser,
   setCurrentPage,
   getRequestUsers,
-} from '../../redux/usersReducer'
-import { withAuthRedirect } from '../../hoc/withAuthRedirect'
-import { compose } from 'redux'
+} from '../../redux/usersReducer';
+import { startDialogWithUser } from '../../redux/dialogsReducer';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 import {
   getUsers,
   getPageSize,
@@ -16,18 +17,18 @@ import {
   getCurrentPage,
   getIsLoading,
   getFollowingInProgress,
-} from '../../redux/users-selectors'
+} from '../../redux/users-selectors';
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-    const { currentPage, pageSize } = this.props
-    this.props.getUsers(currentPage, pageSize)
+    const { currentPage, pageSize } = this.props;
+    this.props.getUsers(currentPage, pageSize);
   }
   onPageChanget = pageNumber => {
-    const { pageSize } = this.props
-    this.props.getUsers(pageNumber, pageSize)
-    this.props.setCurrentPage(pageNumber)
-  }
+    const { pageSize } = this.props;
+    this.props.getUsers(pageNumber, pageSize);
+    this.props.setCurrentPage(pageNumber);
+  };
   render() {
     return (
       <Users
@@ -40,8 +41,9 @@ class UsersContainer extends React.Component {
         unfollowUser={this.props.unfollowUser}
         followUser={this.props.followUser}
         isLoading={this.props.isLoading}
+        startDialogWithUser={this.props.startDialogWithUser}
       />
-    )
+    );
   }
 }
 
@@ -53,8 +55,8 @@ let mapStateToProps = state => {
     currentPage: getCurrentPage(state),
     isLoading: getIsLoading(state),
     followingInProgress: getFollowingInProgress(state),
-  }
-}
+  };
+};
 
 export default compose(
   connect(mapStateToProps, {
@@ -62,6 +64,7 @@ export default compose(
     getUsers: getRequestUsers,
     followUser,
     unfollowUser,
+    startDialogWithUser,
   }),
   withAuthRedirect
-)(UsersContainer)
+)(UsersContainer);

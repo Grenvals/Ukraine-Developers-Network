@@ -1,16 +1,19 @@
-import React from 'react'
-import style from './User.module.scss'
-import userIcon from '../../../assets/images/user-icon.svg'
-import { UserPhotoLink } from '../../common/UserFoto/UserFoto'
-import { NavLinkButton, Button } from '../../common/Buttons/Buttons'
+import React from 'react';
+import style from './User.module.scss';
+import userIcon from '../../../assets/images/user-icon.svg';
+import { UserPhotoLink } from '../../common/UserFoto/UserFoto';
+import { NavLinkButton, Button } from '../../common/Buttons/Buttons';
 
 const User = props => {
   const follow = () => {
-    props.followUser(props.user.id)
-  }
+    props.followUser(props.user.id);
+  };
   const unfollow = () => {
-    props.unfollowUser(props.user.id)
-  }
+    props.unfollowUser(props.user.id);
+  };
+  const startDialogWithUser = () => {
+    props.startDialogWithUser(props.user.id);
+  };
   return (
     <li className={style.user}>
       <div className={style.preview}>
@@ -33,8 +36,9 @@ const User = props => {
         />
       </div>
       <div className={style.location}>
-        <p className={style.country}>Ukraine</p>
-        <p className={style.city}>New York</p>
+        {/* <p className={style.country}>Ukraine</p>
+        <p className={style.city}>New York</p> */}
+        <Button name={'Message'} onClick={startDialogWithUser} />
       </div>
       <div className={style.follow}>
         {!props.user.followed ? (
@@ -53,7 +57,7 @@ const User = props => {
         )}
       </div>
     </li>
-  )
-}
+  );
+};
 
-export default User
+export default User;
