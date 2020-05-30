@@ -17,7 +17,7 @@ const NewPostCreateForm = props => {
         component={Textarea}
         validate={[required, maxLength]}
       />
-      <Button />
+      <Button name={'Submit'} />
     </form>
   );
 };

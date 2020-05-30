@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Users.module.scss';
 import User from './User/User';
 import Pagination from '../common/Pagination/Pagination';
-import Preloader from '../common/Preloader/Preloader';
+import { Preloader } from '../common/Preloader/Preloader';
 import { Head } from '../common/Head/Head';
 
 const Users = props => {
@@ -30,6 +30,11 @@ const Users = props => {
             <User
               key={u.id}
               user={u}
+              id={u.id}
+              photo={u.photos.small}
+              name={u.name}
+              status={u.status}
+              followed={u.followed}
               followingInProgress={props.followingInProgress}
               followUser={props.followUser}
               unfollowUser={props.unfollowUser}

@@ -12,42 +12,39 @@
   &:hover {
     background: $first;
   }
-}
-.preview {
-	flex: 0 0 50px;
-	margin-right: 30px;
-	text-align: center;
-}
-.photo {
-  width: 65px;
-}
-
-.info {
-	font-size: 14px;
-}
-.name {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 2px;
-}
-
-.status {
-  font-size: 12px;
-  color: $textLight;
-  max-width: 200px;
-  max-height: 30px;
-  overflow: hidden;
-}
-
-.profile {
-  font-size: 14px;
-	margin-left: auto;
-	margin-right: 70px;
-}
-.location {
-  font-size: 14px;
-	margin-right: 70px;
-}
-.follow {
-	flex: 0 0 120px;
+  &__logo {
+    flex: 0 0 60px;
+    width: 60px;
+    margin-right: 30px;
+  }
+  &__info {
+    flex: 1 1 auto;
+  }
+  &__name, &__status {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  &__status {
+    font-size: 12px;
+    color: $textLight;
+    max-width: 200px;
+    max-height: 30px;
+    overflow: hidden;
+  }
+  &__profile {
+    margin-left: auto;
+    margin-right: 60px;
+  }
+  &__dialog {
+    margin-right: 20px;
+  }
+  &__follow {
+    min-width: 135px;
+  }
 }

@@ -1,5 +1,5 @@
 import { dialogsAPI } from '../api/api';
-
+// Actions
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const SET_DIALOGS_USERS_LIST = 'dialogs/SET_DIALOGS_USERS_LIST';
 
@@ -44,7 +44,7 @@ export const setDialogsUsersList = usersList => ({
   usersList: usersList,
 });
 
-// Thunks
+// Async
 export const getDialogsUsersList = () => async dispatch => {
   const response = await dialogsAPI.getDialogsUsersList();
   const dialogsList = response.map(u => {
@@ -59,9 +59,10 @@ export const getDialogsUsersList = () => async dispatch => {
   dispatch(setDialogsUsersList(dialogsList));
 };
 
-export const startDialogWithUser = async userId => {
+export const startDialogWithUser = async ({ userId, dispatch }) => {
   const response = await dialogsAPI.startDialog(userId);
   if (response.resultCode === 0) {
+    dispatch(getDialogsUsersList());
     console.log('success');
   }
 };

@@ -1,0 +1,63 @@
+@import "./../../../scss/main.scss";
+
+.dialogsPanel {
+  background: $second;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: $shadow;
+  text-decoration: none;
+  color: $accent;
+  @media (max-width: $md3+px) {
+    display: none;
+  }
+  &__title {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 25px;
+    height: 25px;
+    color: $first;
+    background: $accent;
+  }
+  &__list {
+    @include flexbox();
+    flex-wrap: wrap;
+  }
+  &__button {
+    @include flexbox();
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 33.33%;
+    width: 33%;
+    translate: background 0.1s;
+    &:hover {
+      background: darken($first, 5%);
+    }
+  }
+  &__dots {
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    background: rgb(114, 114, 114); 
+    position: relative;
+    margin: 0 14px;
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 4px;
+      width: 4px;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgb(114, 114, 114); 
+    }
+    &:before {
+      left: -10px;
+    }
+    &:after {
+      right: -10px;
+    }
+  }
+}

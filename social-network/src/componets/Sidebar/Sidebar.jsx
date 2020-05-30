@@ -1,15 +1,22 @@
 import React from 'react';
 import style from './Sidebar.module.scss';
-import Navbar from './Navbar/Navbar';
-import Friends from './Friends/Friends';
+import { connect } from 'react-redux';
+import { DialogsPanel } from './DialogsPanel/DialogsPanel';
+import { Navbar } from './Navbar/Navbar';
 
-const Sidebar = props => {
+export const Sidebar = ({ dialogs }) => {
   return (
     <div className={style.sidebar}>
       <Navbar />
-      <Friends state={props.dialogs} />
+      <DialogsPanel state={dialogs} />
     </div>
   );
 };
 
-export default Sidebar;
+const mapStateToProps = state => {
+  return {
+    dialogs: state.dialogsPage.dialogs,
+  };
+};
+
+export const SidebarContainer = connect(mapStateToProps, {})(Sidebar);

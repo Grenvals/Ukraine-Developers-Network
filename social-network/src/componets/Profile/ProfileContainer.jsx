@@ -1,45 +1,45 @@
-import React from 'react'
-import Profile from './Profile'
-import { connect } from 'react-redux'
+import React from 'react';
+import ProfileUI from './Profile';
+import { connect } from 'react-redux';
 import {
   getUserProfile,
   getUserStatus,
   updateUserStatus,
   updateUserPhoto,
-} from '../../redux/profileReducer'
-import { withRouter } from 'react-router'
-import { compose } from 'redux'
+} from '../../redux/profileReducer';
+import { withRouter } from 'react-router';
+import { compose } from 'redux';
 
 class ProfileContainer extends React.Component {
   refreshProfile() {
-    let userId = this.props.match.params.userId
+    let userId = this.props.match.params.userId;
     if (!userId) {
-      userId = this.props.autorizedUserId
+      userId = this.props.autorizedUserId;
       if (!userId) {
-        this.props.history.push('/login')
+        this.props.history.push('/login');
       }
     }
-    this.props.getUserProfile(userId)
-    this.props.getUserStatus(userId)
+    this.props.getUserProfile(userId);
+    this.props.getUserStatus(userId);
   }
   componentDidMount() {
-    this.refreshProfile()
+    this.refreshProfile();
   }
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.match.params.userId !== prevProps.match.params.userId) {
-      this.refreshProfile()
+      this.refreshProfile();
     }
   }
   render() {
     return (
-      <Profile
+      <ProfileUI
         {...this.props}
         profile={this.props.profile}
         status={this.props.status}
         updateUserStatus={this.props.updateUserStatus}
         isLoggedUser={!this.props.match.params.userId}
       />
-    )
+    );
   }
 }
 
@@ -49,10 +49,10 @@ let mapStateToProps = state => {
     status: state.profilePage.status,
     autorizedUserId: state.auth.userId,
     isAuth: state.auth.isAuth,
-  }
-}
+  };
+};
 
-export default compose(
+export const Profile = compose(
   connect(mapStateToProps, {
     getUserProfile,
     getUserStatus,
@@ -60,4 +60,4 @@ export default compose(
     updateUserPhoto,
   }),
   withRouter
-)(ProfileContainer)
+)(ProfileContainer);

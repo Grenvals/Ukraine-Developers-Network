@@ -1,61 +1,62 @@
 import React from 'react';
-import style from './User.module.scss';
-import userIcon from '../../../assets/images/user-icon.svg';
 import { UserPhotoLink } from '../../common/UserFoto/UserFoto';
 import { NavLinkButton, Button } from '../../common/Buttons/Buttons';
+import style from './User.module.scss';
+import userIcon from '../../../assets/images/user-icon.svg';
+import messageIcon from '../../../assets/images/message-white.svg';
+import followIcon from '../../../assets/images/users/follow.svg';
+import unfollowIcon from '../../../assets/images/users/unfollow.svg';
 
-const User = props => {
+const User = ({
+  id,
+  photo,
+  name,
+  status,
+  followed,
+  followUser,
+  unfollowUser,
+  followingInProgress,
+  startDialogWithUser,
+}) => {
   const follow = () => {
-    props.followUser(props.user.id);
+    followUser(id);
   };
   const unfollow = () => {
-    props.unfollowUser(props.user.id);
+    unfollowUser(id);
   };
-  const startDialogWithUser = () => {
-    props.startDialogWithUser(props.user.id);
+  const startDialog = () => {
+    startDialogWithUser(id);
   };
   return (
     <li className={style.user}>
-      <div className={style.preview}>
-        <div className={style.photo}>
-          <UserPhotoLink
-            link={'/profile/' + props.user.id}
-            photo={props.user.photos.small != null && props.user.photos.small}
-          />
-        </div>
+      <UserPhotoLink
+        className={style.user__logo}
+        link={'/profile/' + id}
+        photo={photo != null && photo}
+      />
+      <div className={style.user__info}>
+        <h3 className={style.user__name}>{name}</h3>
+        <p className={style.user__status}>{status}</p>
       </div>
-      <div className={style.info}>
-        <h3 className={style.name}>{props.user.name}</h3>
-        <p className={style.status}>{props.user.status}</p>
-      </div>
-      <div className={style.profile}>
-        <NavLinkButton
-          name={'Profile'}
-          link={'/profile/' + props.user.id}
-          icon={userIcon}
-        />
-      </div>
-      <div className={style.location}>
-        {/* <p className={style.country}>Ukraine</p>
-        <p className={style.city}>New York</p> */}
-        <Button name={'Message'} onClick={startDialogWithUser} />
-      </div>
-      <div className={style.follow}>
-        {!props.user.followed ? (
-          <Button
-            name={'Follow'}
-            disabled={props.followingInProgress.some(id => id === props.user.id)}
-            onClick={follow}
-            accent={true}
-          />
-        ) : (
-          <Button
-            name={'Unfollow'}
-            disabled={props.followingInProgress.some(id => id === props.user.id)}
-            onClick={unfollow}
-          />
-        )}
-      </div>
+      <NavLinkButton
+        className={style.user__profile}
+        link={'/profile/' + id}
+        icon={userIcon}
+      />
+      <Button
+        className={style.user__dialog}
+        name={'Message'}
+        onClick={startDialog}
+        icon={messageIcon}
+      />
+      <Button
+        className={style.user__follow}
+        name={followed ? 'Unfollow' : 'Follow'}
+        disabled={followingInProgress.some(userId => userId === id)}
+        onClick={followed ? unfollow : follow}
+        accent={!followed && true}
+        icon={followed ? unfollowIcon : followIcon}
+      />
     </li>
   );
 };

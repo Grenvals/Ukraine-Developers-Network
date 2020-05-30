@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Preloader.module.scss';
 import cn from 'classnames';
 
-const Preloader = ({ className = null }) => {
+export const Preloader = ({ className = null }) => {
   return (
     <div className={cn(style.preloader, { [className]: className !== null })}>
       <div className={style.loader}>
@@ -11,5 +11,3 @@ const Preloader = ({ className = null }) => {
     </div>
   );
 };
-
-export default Preloader;

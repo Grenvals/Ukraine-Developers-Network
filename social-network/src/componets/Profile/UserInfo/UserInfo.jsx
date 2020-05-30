@@ -1,13 +1,14 @@
-import React from 'react'
-import style from './UserInfo.module.scss'
-import backgroundImg from '../../../assets/images/profile/profile-bg.jpg'
-import editIcon from '../../../assets/images/edit-white.svg'
-import { UserStatus } from './UserStatus/UserStatus'
-import { UserProfilePhoto } from '../../common/UserFoto/UserFoto'
-import { UserContacts } from './UserContacts/UserContacts'
-import { NavLinkButton } from '../../common/Buttons/Buttons'
-import { Head, HeadImage } from '../../common/Head/Head'
-import { UserDescription } from './UserDescription/UserDescription'
+import React from 'react';
+import style from './UserInfo.module.scss';
+import backgroundImg from '../../../assets/images/profile/profile-bg.jpg';
+import editIcon from '../../../assets/images/edit-white.svg';
+import messageIcon from '../../../assets/images/message-white.svg';
+import { UserStatus } from './UserStatus/UserStatus';
+import { UserProfilePhoto } from '../../common/UserFoto/UserFoto';
+import { UserContacts } from './UserContacts/UserContacts';
+import { NavLinkButton } from '../../common/Buttons/Buttons';
+import { Head, HeadImage } from '../../common/Head/Head';
+import { UserDescription } from './UserDescription/UserDescription';
 
 const UserInfo = ({
   profile,
@@ -32,12 +33,19 @@ const UserInfo = ({
             className={style.userInfo__contacts}
             contacts={profile.contacts}
           />
-          {isLoggedUser && (
+          {isLoggedUser ? (
             <NavLinkButton
               link={'/settings'}
               className={style.userInfo__button}
               name={'Edit profile'}
               icon={editIcon}
+            />
+          ) : (
+            <NavLinkButton
+              link={'/dialogs/' + profile.userId}
+              className={style.userInfo__button}
+              name={'Send message'}
+              icon={messageIcon}
             />
           )}
         </div>
@@ -55,7 +63,7 @@ const UserInfo = ({
       <Head title="About user" />
       <UserDescription profile={profile}></UserDescription>
     </div>
-  )
-}
+  );
+};
 
-export default UserInfo
+export default UserInfo;

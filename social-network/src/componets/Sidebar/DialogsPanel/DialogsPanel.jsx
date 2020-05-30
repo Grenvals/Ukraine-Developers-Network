@@ -1,9 +1,9 @@
 import React from 'react';
-import style from './Friends.module.scss';
+import style from './DialogsPanel.module.scss';
 import UserItem from './UserItem/UserItem';
 import { NavLink } from 'react-router-dom';
 
-const Friends = props => {
+export const DialogsPanel = props => {
   let userItem = props.state
     .slice(0, 5)
     .map(u => (
@@ -16,16 +16,14 @@ const Friends = props => {
       />
     ));
   return (
-    <div className={style.friends}>
-      <h2 className={style.title}>Dialods</h2>
-      <ul className={style.list}>
+    <div className={style.dialogsPanel}>
+      <h2 className={style.dialogsPanel__title}>Dialods</h2>
+      <ul className={style.dialogsPanel__list}>
         {userItem}
-        <NavLink className={style.list__more} to={'/dialogs/'} exact>
-          <div className={style.list__threeDots}></div>
+        <NavLink className={style.dialogsPanel__button} to={'/dialogs/'} exact>
+          <div className={style.dialogsPanel__dots}></div>
         </NavLink>
       </ul>
     </div>
   );
 };
-
-export default Friends;

@@ -7,7 +7,7 @@ import newspaperIcon from '../../../assets/images/nav/newspaper.svg';
 import settingsIcon from '../../../assets/images/nav/settings.svg';
 import { NavbarLink } from './NavbarLink/NavbarLink';
 
-const Navbar = () => {
+export const Navbar = () => {
   return (
     <nav className={style.navbar}>
       <ul className={style.navbar__list}>
@@ -20,5 +20,3 @@ const Navbar = () => {
     </nav>
   );
 };
-
-export default Navbar;

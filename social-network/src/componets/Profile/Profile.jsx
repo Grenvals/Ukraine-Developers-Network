@@ -1,12 +1,12 @@
-import React from 'react'
-import style from './Profile.module.scss'
-import MyPostsContainer from './MyPosts/MyPostsContainer'
-import UserInfo from './UserInfo/UserInfo'
-import Preloader from '../common/Preloader/Preloader'
+import React from 'react';
+import style from './Profile.module.scss';
+import MyPostsContainer from './MyPosts/MyPostsContainer';
+import UserInfo from './UserInfo/UserInfo';
+import { Preloader } from '../common/Preloader/Preloader';
 
 const Profile = props => {
   if (!props.profile) {
-    return <Preloader />
+    return <Preloader />;
   } else {
     return (
       <div className={`${style.profile} ${style.nav}`}>
@@ -19,8 +19,8 @@ const Profile = props => {
         />
         {props.isLoggedUser && <MyPostsContainer />}
       </div>
-    )
+    );
   }
-}
+};
 
-export default Profile
+export default Profile;
