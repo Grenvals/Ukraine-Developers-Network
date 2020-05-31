@@ -28,13 +28,13 @@ export const initializedSuccess = () => {
 
 export const initializedApp = () => dispatch => {
   const getUserData = dispatch(getAuthUserData());
-  const getDialogs = dispatch(getDialogsUsersList());
   // Watchers
-  setInterval(() => {
-    dispatch(getDialogsUsersList());
-  }, 20000);
-  Promise.all([getUserData, getDialogs]).then(() => {
+  Promise.all([getUserData]).then(() => {
     dispatch(initializedSuccess());
+    dispatch(getDialogsUsersList());
+    setInterval(() => {
+      dispatch(getDialogsUsersList());
+    }, 20000);
   });
 };
 

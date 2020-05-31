@@ -61,9 +61,14 @@ export const dialogsAPI = {
   getDialogsUsersList: () => {
     return instanse.get(`dialogs/`, {}).then(response => response.data);
   },
-  getUsersMessagesList: userId => {
+  getDialogMessagesList: userId => {
     return instanse
       .get(`dialogs/` + userId + `/messages`, {})
+      .then(response => response.data);
+  },
+  sendMessage: (userId, message) => {
+    return instanse
+      .post(`dialogs/` + userId + `/messages`, message)
       .then(response => response.data);
   },
 };

@@ -1,6 +1,7 @@
 @import "../../../../scss/main.scss";
 
 .messagesBlock {
+  flex: 1;
   position: relative;
   padding: 10px 0px;
   padding-left: 50px;
@@ -10,6 +11,7 @@
 }
 
 .messageItem {
+  box-shadow: $shadowligth;
   position: relative;
   display: inline-block;
   margin-left: 0;

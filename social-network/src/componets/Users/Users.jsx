@@ -14,7 +14,7 @@ const Users = props => {
   return (
     <div className={style.users}>
       <Head title="Users" />
-      <div className={style.settings}>
+      <div className={style.users__settings}>
         <Pagination
           pages={pages}
           setCurrentPage={props.onPageChanget}
@@ -25,7 +25,7 @@ const Users = props => {
       {props.isLoading ? (
         <Preloader />
       ) : (
-        <ul className="body">
+        <ul className={style.users__list}>
           {props.users.map(u => (
             <User
               key={u.id}
@@ -43,7 +43,7 @@ const Users = props => {
           ))}
         </ul>
       )}
-      <div className={style.settings}>
+      <div className={style.users__settings}>
         <Pagination
           pages={pages}
           setCurrentPage={props.onPageChanget}

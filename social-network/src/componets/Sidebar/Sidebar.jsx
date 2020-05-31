@@ -8,7 +8,7 @@ export const Sidebar = ({ dialogs }) => {
   return (
     <div className={style.sidebar}>
       <Navbar />
-      <DialogsPanel state={dialogs} />
+      {dialogs.length !== 0 && <DialogsPanel state={dialogs} />}
     </div>
   );
 };

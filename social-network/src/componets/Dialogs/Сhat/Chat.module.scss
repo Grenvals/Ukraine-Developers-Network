@@ -1,17 +1,16 @@
 @import "./../../../scss/main.scss";
 
 .chat {
+  grid-row: 1 / span 2;
   @include flexbox();
   flex-direction: column;
-
 }
 
 .chatBlock {
   flex: 1;
-  max-height: 360px;
-  // overflow-y: auto;
 }
 
 .chatList {
+  flex: 1;
   padding: 20px 20px 0px 20px;
 }
