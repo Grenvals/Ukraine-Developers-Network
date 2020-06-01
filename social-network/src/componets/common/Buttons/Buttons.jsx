@@ -10,11 +10,15 @@ export const NavLinkButton = ({
   icon = null,
   accent = false,
   adaptive = false,
+  onClick,
 }) => {
   return (
     <div className={className}>
       <NavLink
         to={link}
+        onClick={() => {
+          onClick();
+        }}
         className={cn(
           style.button,
           { [style.button_withIcon]: icon !== null },

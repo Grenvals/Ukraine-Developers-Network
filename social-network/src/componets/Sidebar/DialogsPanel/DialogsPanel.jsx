@@ -1,7 +1,7 @@
-import React from 'react';
-import style from './DialogsPanel.module.scss';
-import UserItem from './UserItem/UserItem';
 import { NavLink } from 'react-router-dom';
+import React from 'react';
+import UserItem from './UserItem/UserItem';
+import style from './DialogsPanel.module.scss';
 
 export const DialogsPanel = props => {
   let userItem = props.state
@@ -13,6 +13,7 @@ export const DialogsPanel = props => {
         userLogo={u.photos.small}
         userName={u.userName}
         newMessagesCount={u.newMessagesCount}
+        openDialogWithUser={props.openDialogWithUser}
       />
     ));
   return (

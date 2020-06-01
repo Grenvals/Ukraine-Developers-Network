@@ -1,19 +1,25 @@
-import React from 'react'
-import style from './Chat.module.scss'
-import MessagesBlock from './MessagesBlock/MessagesBlock'
-import ChatMessageForm from './ChatMessageForm/ChatMessageForm'
-import PerfectScrollbar from 'react-perfect-scrollbar'
-import 'react-perfect-scrollbar/dist/css/styles.css'
-import { Head } from '../../common/Head/Head'
+import React from 'react';
+import style from './Chat.module.scss';
+import MessagesBlock from './MessagesBlock/MessagesBlock';
+import ChatMessageForm from './ChatMessageForm/ChatMessageForm';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import { Head } from '../../common/Head/Head';
 
 const Chat = props => {
   let messageBlock = props.messages.map(m => (
     <MessagesBlock
       key={m.id}
-      message={m.message}
+      body={m.body}
+      addedAt={m.addedAt}
+      senderId={m.senderId}
+      userId={props.profile.userId}
+      activeDialogUserId={props.activeDialogUserId}
+      viewed={m.viewed}
       photo={props.profile != null && props.profile.photos.large}
+      dialogs={props.dialogs}
     />
-  ))
+  ));
 
   return (
     <div className={style.chat}>
@@ -23,9 +29,12 @@ const Chat = props => {
           <ul className={style.chatList}>{messageBlock}</ul>
         </PerfectScrollbar>
       </div>
-      <ChatMessageForm addMessage={props.addMessage} />
+      <ChatMessageForm
+        sendMessage={props.sendMessage}
+        activeDialogUserId={props.activeDialogUserId}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default Chat
+export default Chat;

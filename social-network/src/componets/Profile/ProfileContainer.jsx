@@ -15,7 +15,7 @@ class ProfileContainer extends React.Component {
     let userId = this.props.match.params.userId;
     if (!userId) {
       userId = this.props.autorizedUserId;
-      if (!userId) {
+      if (!userId || !this.props.isAuth) {
         this.props.history.push('/login');
       }
     }
@@ -28,6 +28,9 @@ class ProfileContainer extends React.Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.match.params.userId !== prevProps.match.params.userId) {
       this.refreshProfile();
+    }
+    if (!this.props.isAuth) {
+      this.props.history.push('/login');
     }
   }
   render() {

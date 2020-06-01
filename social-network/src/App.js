@@ -1,21 +1,24 @@
-import React from 'react';
 import './App.scss';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { Route, withRouter, Switch, Redirect } from 'react-router-dom';
-import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
-import { SidebarContainer } from './componets/Sidebar/Sidebar';
-import { Profile } from './componets/Profile/ProfileContainer';
-import { Header } from './componets/Header/HeaderContainer';
-import { initializedApp } from './redux/appReducer';
-import { Preloader } from './componets/common/Preloader/Preloader';
+
+import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
+
 import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { withSuspense } from './hoc/withSuspense';
-import { SettingsContainers } from './componets/Settings/SettingsContainer';
+import { Header } from './componets/Header/HeaderContainer';
 import { NotFound } from './componets/NotFound/NotFound';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Preloader } from './componets/common/Preloader/Preloader';
+import { Profile } from './componets/Profile/ProfileContainer';
+import { Provider } from 'react-redux';
+import React from 'react';
+import { SettingsContainers } from './componets/Settings/SettingsContainer';
+import { SidebarContainer } from './componets/Sidebar/Sidebar';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { initializedApp } from './redux/appReducer';
 import { store } from './redux/redux-store';
+import { withSuspense } from './hoc/withSuspense';
+
 const DialogsContainer = React.lazy(() => import('./componets/Dialogs/DialogsContainer'));
 const News = React.lazy(() => import('./componets/News/News'));
 const UsersContainer = React.lazy(() => import('./componets/Users/UsersContainer'));
@@ -40,7 +43,7 @@ class App extends React.Component {
               <Route exact path="/" render={() => <Redirect to={'/profile'} />} />
               <Route path="/login" render={withSuspense(Login)} />
               <Route path="/profile/:userId?" render={() => <Profile />} />
-              <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
+              <Route path="/dialogs/:userId?" render={withSuspense(DialogsContainer)} />
               <Route path="/users" render={withSuspense(UsersContainer)} />
               <Route path="/news" render={withSuspense(News)} />
               <Route path="/settings" component={SettingsContainers} />

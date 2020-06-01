@@ -1,10 +1,14 @@
-// import React from 'react'
-import { addMessage } from './../../redux/dialogsReducer';
-import { getDialogsUsersList } from './../../redux/dialogsReducer';
+import {
+  getDialogMessages,
+  getDialogsUsersList,
+  sendMessage,
+} from './../../redux/dialogsReducer';
+
 import Dialogs from './Dialogs';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
-import { compose } from 'redux';
+import { withRouter } from 'react-router';
 
 let mapStateToProps = state => {
   return {
@@ -16,8 +20,10 @@ let mapStateToProps = state => {
 
 export default compose(
   connect(mapStateToProps, {
-    addMessage,
     getDialogsUsersList,
+    getDialogMessages,
+    sendMessage,
   }),
-  withAuthRedirect
+  withAuthRedirect,
+  withRouter
 )(Dialogs);

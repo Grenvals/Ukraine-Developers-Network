@@ -1,19 +1,40 @@
-import React from 'react'
-import style from './MessagesBlock.module.scss'
-import { UserPhoto } from '../../../common/UserFoto/UserFoto'
+import React from 'react';
+import { UserPhoto } from '../../../common/UserFoto/UserFoto';
+import cn from 'classnames';
+import style from './MessagesBlock.module.scss';
 
-const MessagesBlock = props => {
+const MessagesBlock = ({
+  body,
+  addedAt,
+  senderId,
+  userId,
+  activeDialogUserId,
+  viewed,
+  photo,
+  dialogs,
+}) => {
+  let userLogo = photo;
+  if (senderId !== userId) {
+    const user = dialogs.filter(e => e.id === senderId);
+    userLogo = user[0].photos.small;
+  }
   return (
-    <li className={`${style.messagesBlock} ${style.usersMessages}`}>
-      <div className={style.authorLogo}>
-        <UserPhoto photo={props.photo} />
-      </div>
-      <div className={style.messageItem}>
-        <p className={style.messageText}>{props.message}</p>
-        <div className={style.messageDate}>8:50</div>
+    <li
+      className={cn(style.message, {
+        [style.message_authUser]: senderId === userId,
+      })}>
+      <UserPhoto
+        className={cn(style.message__logo, {
+          [style.message__logo_authUser]: senderId === userId,
+        })}
+        photo={userLogo}
+      />
+      <div className={style.message__item}>
+        <p className={style.message__text}>{body}</p>
+        <div className={style.message__date}>{addedAt}</div>
       </div>
     </li>
-  )
-}
+  );
+};
 
-export default MessagesBlock
+export default MessagesBlock;

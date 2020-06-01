@@ -54,7 +54,7 @@ const LoginForm = ({ handleSubmit, captcha, updateCaptcha, error }) => {
       <Captcha captcha={captcha} updateCaptcha={updateCaptcha} />
       <div className={style.loginForm__buttonItem}>
         {error && <span className={style.loginForm__error}>{error}</span>}
-        <Button className={style.loginForm__button} />
+        <Button className={style.loginForm__button} name={'Log in'} />
       </div>
     </form>
   );

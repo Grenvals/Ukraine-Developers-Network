@@ -43,8 +43,9 @@ const User = ({
         link={'/profile/' + id}
         icon={userIcon}
       />
-      <Button
+      <NavLinkButton
         className={style.user__dialog}
+        link={'/dialogs/' + id}
         name={'Message'}
         onClick={startDialog}
         icon={messageIcon}

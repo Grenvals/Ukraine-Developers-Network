@@ -5,7 +5,7 @@ import { Textarea } from '../../../common/Form/FormControls/FormControls';
 import { required, maxLengthCreator } from '../../../../utils/validators/validators';
 import { Button } from '../../../common/Buttons/Buttons';
 
-const maxLength = maxLengthCreator(10);
+const maxLength = maxLengthCreator(100);
 const AddMessageForm = props => {
   return (
     <form onSubmit={props.handleSubmit} className={style.newMessage}>
@@ -25,9 +25,9 @@ const AddMessageReduxForm = reduxForm({
   form: 'DialogsChat',
 })(AddMessageForm);
 
-const ChatMessageForm = props => {
+const ChatMessageForm = ({ activeDialogUserId, sendMessage }) => {
   const onSubmit = (formData, dispatch) => {
-    props.addMessage(formData.user_message);
+    sendMessage(activeDialogUserId, formData.user_message);
     dispatch(reset('DialogsChat'));
   };
 

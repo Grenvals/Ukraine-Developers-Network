@@ -2,13 +2,11 @@ import { dialogsAPI } from '../api/api';
 // Actions
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const SET_DIALOGS_USERS_LIST = 'dialogs/SET_DIALOGS_USERS_LIST';
+const SET_DIALOG_MESSAGES = 'dialogs/SET_DIALOG_MESSAGES';
 
 const initialState = {
   dialogs: [],
-  messages: [
-    { id: 0, message: 'Good food!' },
-    { id: 1, message: 'Please buy the food!' },
-  ],
+  messages: [],
   newDialogMessage: '',
 };
 
@@ -28,6 +26,9 @@ const dialogsReducer = (state = initialState, action) => {
     case 'dialogs/SET_DIALOGS_USERS_LIST': {
       return { ...state, dialogs: action.usersList };
     }
+    case 'dialogs/SET_DIALOG_MESSAGES': {
+      return { ...state, messages: action.messages };
+    }
     default:
       return state;
   }
@@ -42,6 +43,11 @@ export const addMessage = message => ({
 export const setDialogsUsersList = usersList => ({
   type: SET_DIALOGS_USERS_LIST,
   usersList: usersList,
+});
+
+export const setDialogMessages = messages => ({
+  type: SET_DIALOG_MESSAGES,
+  messages: messages,
 });
 
 // Async
@@ -59,12 +65,35 @@ export const getDialogsUsersList = () => async dispatch => {
   dispatch(setDialogsUsersList(dialogsList));
 };
 
-export const startDialogWithUser = async ({ userId, dispatch }) => {
-  const response = await dialogsAPI.startDialog(userId);
+export const getDialogMessages = userId => async dispatch => {
+  const response = await dialogsAPI.getDialogMessagesList(userId);
+  const messages = response.items.map(u => {
+    const addedAt = u.addedAt.split('T');
+    addedAt[1] = addedAt[1].split('', 5).join('');
+    return {
+      ...u,
+      addedAt: addedAt.join(' '),
+    };
+  });
+  dispatch(setDialogMessages(messages));
+};
+
+export const sendMessage = (userId, message) => async dispatch => {
+  const response = await dialogsAPI.sendMessage(userId, message);
   if (response.resultCode === 0) {
-    dispatch(getDialogsUsersList());
-    console.log('success');
+    dispatch(getDialogMessages(userId));
   }
+};
+
+export const startDialogWithUser = userId => async dispatch => {
+  await dialogsAPI.startDialogWithUser(userId);
+  dispatch(getDialogsUsersList());
+  dispatch(getDialogMessages(userId));
+};
+
+export const openDialogWithUser = userId => dispatch => {
+  dispatch(getDialogsUsersList());
+  dispatch(getDialogMessages(userId));
 };
 
 export default dialogsReducer;

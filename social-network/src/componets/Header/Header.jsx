@@ -3,7 +3,7 @@ import style from './Header.module.scss';
 import { UserPhoto } from '../common/UserFoto/UserFoto';
 import { Button, NavLinkButton } from '../common/Buttons/Buttons';
 
-const Header = props => {
+const Header = ({ login, isAuth, profile, logOut }) => {
   return (
     <header className={style.header}>
       <div className={style.container}>
@@ -12,16 +12,14 @@ const Header = props => {
         </div>
         <div className={style.user}>
           <div className={style.user__flag}></div>
-          <div className={style.user__name}>{props.login}</div>
+          <div className={style.user__name}>{login}</div>
           <div className={style.user__logo}>
-            <UserPhoto
-              photo={props.isAuth && props.profile != null && props.profile.photos.large}
-            />
+            <UserPhoto photo={isAuth && profile != null && profile.photos.large} />
           </div>
-          {props.isAuth ? (
+          {isAuth ? (
             <Button
               className={style.header__button}
-              onClick={props.logOut}
+              onClick={logOut}
               name={'Log out'}
               type={'button'}
             />

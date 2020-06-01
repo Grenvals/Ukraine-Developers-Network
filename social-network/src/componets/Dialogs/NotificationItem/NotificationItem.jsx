@@ -10,14 +10,19 @@ const NotificationItem = ({
   userLogo,
   newMessagesCount,
   lastUserActivity,
+  getDialogMessages,
 }) => {
+  const onClick = () => {
+    getDialogMessages(id);
+  };
   return (
     <li className={style.notificationListItem}>
       <NavLink
         exact
         to={'/dialogs/' + id}
         className={style.notificationItem}
-        activeClassName={style.linkActive}>
+        activeClassName={style.linkActive}
+        onClick={onClick}>
         <div className={style.logo}>
           <UserPhotoLink
             photo={userLogo}

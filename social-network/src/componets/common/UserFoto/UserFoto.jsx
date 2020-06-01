@@ -14,7 +14,7 @@ export const UserPhoto = ({ photo = null, count, className = null }) => {
           src={photo && photo !== null ? photo : defaultUserPhoto}
           alt="logo"
         />
-        {count || (count === 0 && <div className={style.photo__count}>{count}</div>)}
+        {count || (count >= 0 && <div className={style.photo__count}>{count}</div>)}
       </div>
     </div>
   );
