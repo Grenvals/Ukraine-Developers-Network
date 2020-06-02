@@ -1,4 +1,4 @@
-//<МИКСИНЫ>===============================================================================================
+// Mixins
 @mixin anim($time,$delay){-webkit-transition: all $time ease $delay;-moz-transition: all $time ease $delay;-ms-transition: all $time ease $delay;-o-transition: all $time ease $delay;transition: all $time ease $delay;}
 @mixin anim_cubic($time, $delay) {-webkit-transition:all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;-moz-transition:all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;-ms-transition:all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;-o-transition:all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;transition:all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;}
 @mixin rotate($deg){-moz-transform: rotate($deg);-ms-transform: rotate($deg);-webkit-transform: rotate($deg);-o-transform: rotate($deg);transform: rotate($deg);}
@@ -8,31 +8,12 @@
 @mixin tr($x,$y,$z){transform: translate3d($x, $y, $z);};
 @mixin flexbox() {display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;font-size: 0;} 
 @mixin flexorder($val){-webkit-box-ordinal-group: $val;-moz-box-ordinal-group: $val;-ms-flex-order: $val;-webkit-order: $val;order: $val;}
-//</МИКСИНЫ>===============================================================================================
-.ibg {
-	background-color: #fff;
-  background-position: center;
-  background-size: cover;
-	background-repeat: no-repeat; 
-	img {
-		display: none;
-	}
-}
-//<ШРИФТЫ>===============================================================================================
-
-//<Подключаем шрифты>=======================================================================================
-
-//</Подключаем шрифты>=======================================================================================
-.text {
-	color: green;   
-}
-
-//<Шрифт по умолчанию>==========================================================================================
+ 
 $fontfamily:"Open Sans";
-//</Шрифт по умолчанию>==========================================================================================
+ 
 @import "vars.scss";
 
-//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+// Reset 
 *{padding: 0px;margin: 0px;border: 0px;}
 *,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
 :focus,:active{outline: none;}
@@ -72,12 +53,9 @@ input, button, a, label {
 	box-sizing: border-box;
 }
 
-//<ОБОЛОЧКА>===========================================================================================================
+// Grid
 .wrapper{width: 100%;min-height: 100%;overflow: hidden;
-	// &.loaded{}
 }
-
-//<ОСНОВНАЯ СЕТКА>===========================================================================================================
 .container{max-width:1970+px;margin: 0 auto;width: 100%; padding: 0 15px;
 	@media (max-width:$md3+px){max-width: none;padding:0 10px;}
 }

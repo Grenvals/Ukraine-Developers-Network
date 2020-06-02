@@ -3,8 +3,13 @@
 .newMessage {
   @include flexbox();
   flex-direction: column;
-  width: 100%;
   border-top: 1px solid $first;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 130px;
+  width: 100%;
   background: $second;
   padding: 15px 20px;
   flex: 0 0 auto;

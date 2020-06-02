@@ -1,0 +1,23 @@
+@import "../../../scss/main.scss";
+
+.dialogs {
+  flex: 0 0 350px;
+  height: 100%;
+  position: relative;
+  &__container {
+    position: absolute;
+    top: 49px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    overflow: hidden;
+  }
+  &__scrollbar {
+    padding: 0px;
+  }
+  &__usersList {
+    border-right: 1px solid $first;
+    display: block;
+    width: 100%;
+  }
+}

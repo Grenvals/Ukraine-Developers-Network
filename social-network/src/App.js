@@ -4,6 +4,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 
 import { BrowserRouter } from 'react-router-dom';
+import { DialogsContainer } from './componets/Dialogs/Dialogs';
 import { Header } from './componets/Header/HeaderContainer';
 import { NotFound } from './componets/NotFound/NotFound';
 import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -19,7 +20,6 @@ import { initializedApp } from './redux/appReducer';
 import { store } from './redux/redux-store';
 import { withSuspense } from './hoc/withSuspense';
 
-const DialogsContainer = React.lazy(() => import('./componets/Dialogs/DialogsContainer'));
 const News = React.lazy(() => import('./componets/News/News'));
 const UsersContainer = React.lazy(() => import('./componets/Users/UsersContainer'));
 const Login = React.lazy(() => import('./componets/Login/Login'));
@@ -38,18 +38,18 @@ class App extends React.Component {
         <Header />
         <SidebarContainer />
         <div className="content-wrapper">
-          <PerfectScrollbar className="scrollbar" component="div">
-            <Switch>
-              <Route exact path="/" render={() => <Redirect to={'/profile'} />} />
-              <Route path="/login" render={withSuspense(Login)} />
-              <Route path="/profile/:userId?" render={() => <Profile />} />
-              <Route path="/dialogs/:userId?" render={withSuspense(DialogsContainer)} />
-              <Route path="/users" render={withSuspense(UsersContainer)} />
-              <Route path="/news" render={withSuspense(News)} />
-              <Route path="/settings" component={SettingsContainers} />
-              <Route path="*" render={withSuspense(NotFound)} />
-            </Switch>
-          </PerfectScrollbar>
+          {/* <PerfectScrollbar className="scrollbar" component="div"> */}
+          <Switch>
+            <Route exact path="/" render={() => <Redirect to={'/profile'} />} />
+            <Route path="/login" render={withSuspense(Login)} />
+            <Route path="/profile/:userId?" render={() => <Profile />} />
+            <Route path="/dialogs/:userId?" render={() => <DialogsContainer />} />
+            <Route path="/users" render={withSuspense(UsersContainer)} />
+            <Route path="/news" render={withSuspense(News)} />
+            <Route path="/settings" component={SettingsContainers} />
+            <Route path="*" render={withSuspense(NotFound)} />
+          </Switch>
+          {/* </PerfectScrollbar> */}
         </div>
       </div>
     );
@@ -76,7 +76,6 @@ export const SocialNetworkApp = props => {
     </BrowserRouter>
   );
 };
-// export default SocialNetworkApp
 
 // ! Розібратися з компонентом Head, налагодити проброс заголовків.
 // ! Переписати на класові компоненти(user итд).

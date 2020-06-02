@@ -1,9 +1,9 @@
 import React from 'react';
 import { UserPhoto } from '../../../common/UserFoto/UserFoto';
 import cn from 'classnames';
-import style from './MessagesBlock.module.scss';
+import style from './Message.module.scss';
 
-const MessagesBlock = ({
+export const Message = ({
   body,
   addedAt,
   senderId,
@@ -36,5 +36,3 @@ const MessagesBlock = ({
     </li>
   );
 };
-
-export default MessagesBlock;

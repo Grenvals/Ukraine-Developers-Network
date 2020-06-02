@@ -1,14 +1,15 @@
+import 'react-perfect-scrollbar/dist/css/styles.css';
+
+import { ChatMessageForm } from './ChatMessageForm/ChatMessageForm';
+import { Head } from '../../common/Head/Head';
+import { Message } from './Message/Message';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 import React from 'react';
 import style from './Chat.module.scss';
-import MessagesBlock from './MessagesBlock/MessagesBlock';
-import ChatMessageForm from './ChatMessageForm/ChatMessageForm';
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import 'react-perfect-scrollbar/dist/css/styles.css';
-import { Head } from '../../common/Head/Head';
 
-const Chat = props => {
+export const Chat = props => {
   let messageBlock = props.messages.map(m => (
-    <MessagesBlock
+    <Message
       key={m.id}
       body={m.body}
       addedAt={m.addedAt}
@@ -20,7 +21,6 @@ const Chat = props => {
       dialogs={props.dialogs}
     />
   ));
-
   return (
     <div className={style.chat}>
       <Head title="Messages" />
@@ -36,5 +36,3 @@ const Chat = props => {
     </div>
   );
 };
-
-export default Chat;
