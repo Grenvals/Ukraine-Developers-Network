@@ -1,12 +1,9 @@
 @import "./../../scss/main.scss";
 
 .sidebar {
-  position: fixed;
-  width: 300px;
-  top: 75px;
-  left: 0px;
-  padding: 0px 15px;
-  z-index: 999;
+  flex: 0 0 270px;
+  width: 270px;
+  margin: 15px 0px 15px 15px;
   &>* {
     margin-bottom: 15px;
   }

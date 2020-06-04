@@ -1,28 +1,31 @@
-import React from 'react';
-import Users from './Users';
-import { connect } from 'react-redux';
 import {
   followUser,
-  unfollowUser,
-  setCurrentPage,
   getRequestUsers,
+  setCurrentPage,
+  unfollowUser,
 } from '../../redux/usersReducer';
-import { startDialogWithUser } from '../../redux/dialogsReducer';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
-import { compose } from 'redux';
 import {
-  getUsers,
+  getCurrentPage,
+  getFollowingInProgress,
+  getIsLoading,
   getPageSize,
   getTotalUsersCount,
-  getCurrentPage,
-  getIsLoading,
-  getFollowingInProgress,
+  getUsers,
 } from '../../redux/users-selectors';
+
+import React from 'react';
+import { Users } from './Users';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { startDialogWithUser } from '../../redux/dialogsReducer';
+import { toogleRightSidebar } from './../../redux/sidebarReducer';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 class UsersContainer extends React.Component {
   componentDidMount() {
     const { currentPage, pageSize } = this.props;
     this.props.getUsers(currentPage, pageSize);
+    this.props.toogleRightSidebar(true);
   }
   onPageChanget = pageNumber => {
     const { pageSize } = this.props;
@@ -65,6 +68,7 @@ export default compose(
     followUser,
     unfollowUser,
     startDialogWithUser,
+    toogleRightSidebar,
   }),
   withAuthRedirect
 )(UsersContainer);

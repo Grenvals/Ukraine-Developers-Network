@@ -1,5 +1,6 @@
-import { usersAPI } from '../api/api';
 import { updateObjectInArray } from '../utils/object-helper';
+import { usersAPI } from '../api/api';
+
 const FOLLOW = 'users/FOLLOW';
 const UNFOLLOW = 'users/UNFOLLOW';
 const SET_USERS = 'users/SET_USERS';
@@ -11,8 +12,8 @@ const TOOGLE_FOLLOWNG_PROGRESS = 'users/TOOGLE_FOLLOWNG_PROGRESS';
 let initialState = {
   users: [],
   pageSize: 25,
-  totalUsersCount: 0,
-  currentPage: 15,
+  totalUsersCount: null,
+  currentPage: 1,
   isLoading: true,
   followingInProgress: [],
 };

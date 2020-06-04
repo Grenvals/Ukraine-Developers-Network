@@ -1,13 +1,36 @@
-let initialState = {
-  friends: [
-    { id: 1, name: 'Ihor', messagesCount: 2 },
-    { id: 2, name: 'Anton', messagesCount: 5 },
-    { id: 3, name: 'Nicolas', messagesCount: 1 },
-    { id: 4, name: 'Garold', messagesCount: 10 },
-  ],
-}
+const TOOGLE_LEFT_SIDEBAR = 'sidebar/TOOGLE_LEFT_SIDEBAR';
+const TOOGLE_RIGHT_SIDEBAR = 'sidebar/TOOGLE_RIGHT_SIDEBAR';
 
-let sidebarReducer = (state = initialState, action) => {
-  return state
-}
-export default sidebarReducer
+const initialState = {
+  isActiveLeftSidebar: true,
+  isActiveRightSidebar: true,
+};
+
+export const sidebarReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'sidebar/TOOGLE_LEFT_SIDEBAR': {
+      return {
+        ...state,
+        isActiveLeftSidebar: action.isActive,
+      };
+    }
+    case 'sidebar/TOOGLE_RIGHT_SIDEBAR': {
+      return {
+        ...state,
+        isActiveRightSidebar: action.isActive,
+      };
+    }
+    default:
+      return state;
+  }
+};
+
+export const toogleRightSidebar = isActive => ({
+  type: TOOGLE_RIGHT_SIDEBAR,
+  isActive: isActive,
+});
+
+export const toogleLeftSidebar = isActive => ({
+  type: TOOGLE_LEFT_SIDEBAR,
+  isActive: isActive,
+});

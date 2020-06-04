@@ -10,6 +10,7 @@ import { DialogsList } from './DialogsList/DialogsList';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import style from './Dialogs.module.scss';
+import { toogleRightSidebar } from './../../redux/sidebarReducer';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { withRouter } from 'react-router';
 
@@ -20,11 +21,15 @@ const Dialogs = ({
   sendMessage,
   getDialogsUsersList,
   getDialogMessages,
+  toogleRightSidebar,
   match,
 }) => {
   useEffect(() => {
     getDialogsUsersList();
   }, [getDialogsUsersList]);
+  useEffect(() => {
+    toogleRightSidebar(false);
+  }, [toogleRightSidebar]);
   let activeDialogUserId = match.params.userId;
   return (
     <div className={style.dialogs}>
@@ -61,6 +66,7 @@ export const DialogsContainer = compose(
     getDialogsUsersList,
     getDialogMessages,
     sendMessage,
+    toogleRightSidebar,
   }),
   withAuthRedirect,
   withRouter

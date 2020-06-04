@@ -1,23 +1,26 @@
-import React from 'react'
-import { compose } from 'redux'
-import { connect } from 'react-redux'
-import Settings from './Settings'
-import { withAuthRedirect } from '../../hoc/withAuthRedirect'
 import {
   getUserProfile,
   getUserStatus,
-  updateUserStatus,
   updateUserPhoto,
   updateUserProfile,
-} from '../../redux/profileReducer'
+  updateUserStatus,
+} from '../../redux/profileReducer';
+
+import React from 'react';
+import Settings from './Settings';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { toogleRightSidebar } from './../../redux/sidebarReducer';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 class SettingsContainer extends React.Component {
   refreshUserDate() {
-    this.props.getUserProfile(this.props.autorizedUserId)
-    this.props.getUserStatus(this.props.autorizedUserId)
+    this.props.getUserProfile(this.props.autorizedUserId);
+    this.props.getUserStatus(this.props.autorizedUserId);
   }
   componentDidMount() {
-    this.refreshUserDate()
+    this.refreshUserDate();
+    this.props.toogleRightSidebar(true);
   }
 
   render() {
@@ -28,7 +31,7 @@ class SettingsContainer extends React.Component {
         status={this.props.status}
         updateUserStatus={this.props.updateUserStatus}
       />
-    )
+    );
   }
 }
 
@@ -37,8 +40,8 @@ let mapStateToProps = state => {
     profile: state.auth.profile,
     status: state.profilePage.status,
     autorizedUserId: state.auth.userId,
-  }
-}
+  };
+};
 
 export const SettingsContainers = compose(
   connect(mapStateToProps, {
@@ -47,6 +50,7 @@ export const SettingsContainers = compose(
     updateUserStatus,
     updateUserPhoto,
     updateUserProfile,
+    toogleRightSidebar,
   }),
   withAuthRedirect
-)(SettingsContainer)
+)(SettingsContainer);

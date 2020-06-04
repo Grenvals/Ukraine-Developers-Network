@@ -1,11 +1,15 @@
 
 @import "./../../scss/main.scss";
 .settings {
-	background: $second;
-	border-radius: 8px;
-	overflow: hidden;
-	min-height: 180%;
-	max-width: 750px;
+
+	height: 100%;
+	max-width: 800px;
+	&__wrap {
+		margin: 15px;
+		background: $second;
+		border-radius: 8px;
+		overflow: hidden;
+	}
 	&__container {
 		padding: 25px 30px;
 	}
@@ -14,6 +18,9 @@
 			@include flexbox();
 			align-items: center;
 		}
+	}
+	&__scrollbar {
+
 	}
 }
 

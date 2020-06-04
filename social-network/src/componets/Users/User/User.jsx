@@ -1,11 +1,12 @@
+import { Button, NavLinkButton } from '../../common/Buttons/Buttons';
+
 import React from 'react';
 import { UserPhotoLink } from '../../common/UserFoto/UserFoto';
-import { NavLinkButton, Button } from '../../common/Buttons/Buttons';
-import style from './User.module.scss';
-import userIcon from '../../../assets/images/user-icon.svg';
-import messageIcon from '../../../assets/images/message-white.svg';
 import followIcon from '../../../assets/images/users/follow.svg';
+import messageIcon from '../../../assets/images/message-white.svg';
+import style from './User.module.scss';
 import unfollowIcon from '../../../assets/images/users/unfollow.svg';
+import userIcon from '../../../assets/images/user-icon.svg';
 
 const User = ({
   id,
@@ -24,8 +25,10 @@ const User = ({
   const unfollow = () => {
     unfollowUser(id);
   };
+  const onClick = () => {};
   const startDialog = () => {
     startDialogWithUser(id);
+    console.log(startDialogWithUser);
   };
   return (
     <li className={style.user}>
@@ -42,6 +45,7 @@ const User = ({
         className={style.user__profile}
         link={'/profile/' + id}
         icon={userIcon}
+        onClick={onClick}
       />
       <NavLinkButton
         className={style.user__dialog}

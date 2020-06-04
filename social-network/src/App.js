@@ -1,4 +1,3 @@
-import './App.scss';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 
 import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
@@ -7,7 +6,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { DialogsContainer } from './componets/Dialogs/Dialogs';
 import { Header } from './componets/Header/HeaderContainer';
 import { NotFound } from './componets/NotFound/NotFound';
-import PerfectScrollbar from 'react-perfect-scrollbar';
 import { Preloader } from './componets/common/Preloader/Preloader';
 import { Profile } from './componets/Profile/ProfileContainer';
 import { Provider } from 'react-redux';
@@ -18,6 +16,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { initializedApp } from './redux/appReducer';
 import { store } from './redux/redux-store';
+import style from './App.module.scss';
 import { withSuspense } from './hoc/withSuspense';
 
 const News = React.lazy(() => import('./componets/News/News'));
@@ -30,26 +29,27 @@ class App extends React.Component {
   }
   render() {
     if (!this.props.initialized) {
-      return <Preloader className="app__preloader" />;
+      return <Preloader className={style.app__preloader} />;
     }
-
+    debugger;
     return (
-      <div className="app-wrapper">
-        <Header />
-        <SidebarContainer />
-        <div className="content-wrapper">
-          {/* <PerfectScrollbar className="scrollbar" component="div"> */}
-          <Switch>
-            <Route exact path="/" render={() => <Redirect to={'/profile'} />} />
-            <Route path="/login" render={withSuspense(Login)} />
-            <Route path="/profile/:userId?" render={() => <Profile />} />
-            <Route path="/dialogs/:userId?" render={() => <DialogsContainer />} />
-            <Route path="/users" render={withSuspense(UsersContainer)} />
-            <Route path="/news" render={withSuspense(News)} />
-            <Route path="/settings" component={SettingsContainers} />
-            <Route path="*" render={withSuspense(NotFound)} />
-          </Switch>
-          {/* </PerfectScrollbar> */}
+      <div className={style.app}>
+        <div className={style.app__wrap}>
+          <Header />
+          <SidebarContainer />
+          <div className={style.app__container}>
+            <Switch>
+              <Route exact path="/" render={() => <Redirect to={'/profile'} />} />
+              <Route path="/login" render={withSuspense(Login)} />
+              <Route path="/profile/:userId?" render={() => <Profile />} />
+              <Route path="/dialogs/:userId?" render={() => <DialogsContainer />} />
+              <Route path="/users" render={withSuspense(UsersContainer)} />
+              <Route path="/news" render={withSuspense(News)} />
+              <Route path="/settings" component={SettingsContainers} />
+              <Route path="*" render={withSuspense(NotFound)} />
+            </Switch>
+          </div>
+          {this.props.isActiveRightSidebar && <div className={style.app__leftBar}></div>}
         </div>
       </div>
     );
@@ -59,6 +59,8 @@ class App extends React.Component {
 let mapStateToProps = state => {
   return {
     initialized: state.app.initialized,
+    dialogs: state.dialogsPage.dialogs,
+    isActiveRightSidebar: state.sidebar.isActiveRightSidebar,
   };
 };
 

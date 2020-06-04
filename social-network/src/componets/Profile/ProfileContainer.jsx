@@ -1,14 +1,16 @@
-import React from 'react';
-import ProfileUI from './Profile';
-import { connect } from 'react-redux';
 import {
   getUserProfile,
   getUserStatus,
-  updateUserStatus,
   updateUserPhoto,
+  updateUserStatus,
 } from '../../redux/profileReducer';
-import { withRouter } from 'react-router';
+
+import ProfileUI from './Profile';
+import React from 'react';
 import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { toogleRightSidebar } from './../../redux/sidebarReducer';
+import { withRouter } from 'react-router';
 
 class ProfileContainer extends React.Component {
   refreshProfile() {
@@ -24,6 +26,7 @@ class ProfileContainer extends React.Component {
   }
   componentDidMount() {
     this.refreshProfile();
+    this.props.toogleRightSidebar(true);
   }
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.match.params.userId !== prevProps.match.params.userId) {
@@ -61,6 +64,7 @@ export const Profile = compose(
     getUserStatus,
     updateUserStatus,
     updateUserPhoto,
+    toogleRightSidebar,
   }),
   withRouter
 )(ProfileContainer);

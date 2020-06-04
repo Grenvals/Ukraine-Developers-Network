@@ -1,11 +1,11 @@
-import React from 'react';
-import style from './Sidebar.module.scss';
-import { connect } from 'react-redux';
 import { DialogsPanel } from './DialogsPanel/DialogsPanel';
 import { Navbar } from './Navbar/Navbar';
+import React from 'react';
+import { connect } from 'react-redux';
 import { openDialogWithUser } from '../../redux/dialogsReducer';
+import style from './Sidebar.module.scss';
 
-export const Sidebar = ({ dialogs, startDialogWithUser }) => {
+export const Sidebar = ({ dialogs, startDialogWithUser, match }) => {
   return (
     <div className={style.sidebar}>
       <Navbar />

@@ -1,10 +1,11 @@
-import React from 'react';
-import style from './Settings.module.scss';
-import background from '../../assets/images/settings/settings-bg.jpg';
-import { Preloader } from '../common/Preloader/Preloader';
-import { StatusReduxForm } from './StatusReduxForm/StatusReduxForm';
-import { ProfileReduxForm } from './ProfileReduxForm/ProfileReduxForm';
 import { HeadImage } from '../common/Head/Head';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Preloader } from '../common/Preloader/Preloader';
+import { ProfileReduxForm } from './ProfileReduxForm/ProfileReduxForm';
+import React from 'react';
+import { StatusReduxForm } from './StatusReduxForm/StatusReduxForm';
+import background from '../../assets/images/settings/settings-bg.jpg';
+import style from './Settings.module.scss';
 
 const Settings = props => {
   if (!props.profile || !props.status) {
@@ -21,14 +22,18 @@ const Settings = props => {
     };
     return (
       <div className={style.settings}>
-        <HeadImage image={background} />
-        <StatusReduxForm
-          initialValues={initialData}
-          onSubmit={onSubmit}
-          photo={props.profile.photos.large}
-          updateUserPhoto={props.updateUserPhoto}
-        />
-        <ProfileReduxForm initialValues={props.profile} onSubmit={onProfileSubmit} />
+        <PerfectScrollbar className={style.settings__scrollbar} component="div">
+          <div className={style.settings__wrap}>
+            <HeadImage image={background} />
+            <StatusReduxForm
+              initialValues={initialData}
+              onSubmit={onSubmit}
+              photo={props.profile.photos.large}
+              updateUserPhoto={props.updateUserPhoto}
+            />
+            <ProfileReduxForm initialValues={props.profile} onSubmit={onProfileSubmit} />
+          </div>
+        </PerfectScrollbar>
       </div>
     );
   }

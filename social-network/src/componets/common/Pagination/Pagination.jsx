@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import style from './Pagination.module.scss';
+import React, { useEffect, useState } from 'react';
+
+import { PaginationButton } from './PaginationButton/PaginationButton';
 import PaginationCountItem from './PaginationCountItem/PaginationCountItem';
 import arrowLeft from './../../../assets/images/arrows/left-arrow.svg';
 import arrowRight from './../../../assets/images/arrows/right-arrow.svg';
-import { PaginationButton } from './PaginationButton/PaginationButton';
+import style from './Pagination.module.scss';
 
 const Pagination = React.memo(props => {
   let [portionNumber, setPortionNumber] = useState(1);
@@ -70,7 +71,7 @@ const Pagination = React.memo(props => {
       <ul className={style.pagination__list}>
         {countItem}
         <li className={style.pagination__dots}> ... </li>
-        {lastPagesCountItem}{' '}
+        {portionCount > 2 && lastPagesCountItem}
       </ul>
       <PaginationButton
         icon={arrowRight}

@@ -1,13 +1,14 @@
-import React from 'react'
-import style from './Post.module.scss'
-import editImg from '../../../../assets/images/profile/edit.svg'
-import { UserPhoto } from '../../../common/UserFoto/UserFoto'
-import { LikesCount } from '../../../common/likesCount/LikesCount'
+import { LikesCount } from '../../../common/likesCount/LikesCount';
+import React from 'react';
+import { UserPhoto } from '../../../common/UserFoto/UserFoto';
+import editImg from '../../../../assets/images/profile/edit.svg';
+import style from './Post.module.scss';
 
-const PostItem = React.memo(props => {
+const PostItem = props => {
+  console.log(props);
   let deletePost = () => {
-    props.deletePost(props.id)
-  }
+    props.deletePost(props.id);
+  };
   return (
     <div className={style.post}>
       <div className={style.header}>
@@ -43,7 +44,7 @@ const PostItem = React.memo(props => {
         </div>
       </div>
     </div>
-  )
-})
+  );
+};
 
-export default PostItem
+export default PostItem;

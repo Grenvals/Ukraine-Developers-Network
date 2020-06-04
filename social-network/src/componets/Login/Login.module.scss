@@ -6,9 +6,10 @@
 	position: relative;
 	justify-content: center;
 	align-items: center;
-	border-radius: 8px;
+	// border-radius: 8px;
 	overflow: hidden;
 	height: 100%;
+	margin-left: 15px;
 	&:before {
 		content: '';
 		position: absolute;

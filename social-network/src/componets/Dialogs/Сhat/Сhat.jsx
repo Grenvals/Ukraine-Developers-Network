@@ -24,9 +24,9 @@ export const Chat = props => {
   return (
     <div className={style.chat}>
       <Head title="Messages" />
-      <div className={style.chatBlock}>
+      <div className={style.chat__wrap}>
         <PerfectScrollbar className="scrollbar" component="div">
-          <ul className={style.chatList}>{messageBlock}</ul>
+          <ul className={style.chat__list}>{messageBlock}</ul>
         </PerfectScrollbar>
       </div>
       <ChatMessageForm

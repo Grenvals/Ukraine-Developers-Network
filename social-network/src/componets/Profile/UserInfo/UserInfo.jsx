@@ -1,14 +1,15 @@
+import { Head, HeadImage } from '../../common/Head/Head';
+
+import { NavLinkButton } from '../../common/Buttons/Buttons';
 import React from 'react';
-import style from './UserInfo.module.scss';
+import { UserContacts } from './UserContacts/UserContacts';
+import { UserDescription } from './UserDescription/UserDescription';
+import { UserProfilePhoto } from '../../common/UserFoto/UserFoto';
+import { UserStatus } from './UserStatus/UserStatus';
 import backgroundImg from '../../../assets/images/profile/profile-bg.jpg';
 import editIcon from '../../../assets/images/edit-white.svg';
 import messageIcon from '../../../assets/images/message-white.svg';
-import { UserStatus } from './UserStatus/UserStatus';
-import { UserProfilePhoto } from '../../common/UserFoto/UserFoto';
-import { UserContacts } from './UserContacts/UserContacts';
-import { NavLinkButton } from '../../common/Buttons/Buttons';
-import { Head, HeadImage } from '../../common/Head/Head';
-import { UserDescription } from './UserDescription/UserDescription';
+import style from './UserInfo.module.scss';
 
 const UserInfo = ({
   profile,
@@ -17,6 +18,7 @@ const UserInfo = ({
   status,
   updateUserStatus,
 }) => {
+  const onClick = () => {};
   return (
     <div className={style.userInfo}>
       <HeadImage image={backgroundImg} />
@@ -39,6 +41,7 @@ const UserInfo = ({
               className={style.userInfo__button}
               name={'Edit profile'}
               icon={editIcon}
+              onClick={onClick}
             />
           ) : (
             <NavLinkButton
