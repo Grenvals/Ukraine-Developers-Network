@@ -1,21 +1,22 @@
-import React from 'react';
-import style from './Login.module.scss';
-import { connect } from 'react-redux';
-import { logIn, getCaptchaUrl } from '../../redux/authReducer';
-import { Redirect } from 'react-router-dom';
-import { LoginReduxForm } from './LoginForm/LoginForm';
-import backgroundImg from '../../assets/images/background.jpg';
+import { getCaptchaUrl, logIn } from '../../redux/authReducer';
 
-const Login = props => {
+import { LoginReduxForm } from './LoginForm/LoginForm';
+import React from 'react';
+import { Redirect } from 'react-router-dom';
+import backgroundImg from '../../assets/images/background.jpg';
+import { connect } from 'react-redux';
+import style from './Login.module.scss';
+
+const Login = ({ logIn, isAuth, captcha, getCaptchaUrl }) => {
   const onSubmit = formData => {
-    props.logIn(
+    logIn(
       formData.user_email,
       formData.user_password,
       formData.user_remember,
       formData.user_captcha
     );
   };
-  if (props.isAuth) {
+  if (isAuth) {
     return <Redirect to={'/Profile'} />;
   }
   return (
@@ -24,8 +25,8 @@ const Login = props => {
         <h2 className={style.login__title}>Login</h2>
         <LoginReduxForm
           onSubmit={onSubmit}
-          captcha={props.captcha}
-          updateCaptcha={props.getCaptchaUrl}
+          captcha={captcha}
+          updateCaptcha={getCaptchaUrl}
         />
         <p className={style.login__quate}>
           Have the courage to follow your heart and intuition. Steve Jobs

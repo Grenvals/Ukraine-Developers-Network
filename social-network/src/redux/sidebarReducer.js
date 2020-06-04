@@ -3,7 +3,7 @@ const TOOGLE_RIGHT_SIDEBAR = 'sidebar/TOOGLE_RIGHT_SIDEBAR';
 
 const initialState = {
   isActiveLeftSidebar: true,
-  isActiveRightSidebar: true,
+  isActiveRightSidebar: false,
 };
 
 export const sidebarReducer = (state = initialState, action) => {
