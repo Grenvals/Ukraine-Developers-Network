@@ -1,14 +1,14 @@
 export const dateHandler = dateStr => {
-  console.log(dateStr);
-  const date = new Date(dateStr);
+  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const date = new Date(dateStr.slice(-1) === 'Z' ? dateStr : dateStr + 'Z');
   const dateOptions = {
-    timezone: 'UTC',
+    timezone: timeZone,
     month: 'short',
     day: 'numeric',
     hour: 'numeric',
     minute: 'numeric',
   };
-  return date.toLocaleString('eng', dateOptions);
+  return new Intl.DateTimeFormat('en-US', dateOptions).format(date);
 };
 
 export const stringSpaceHandler = string => {
