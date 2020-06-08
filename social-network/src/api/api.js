@@ -62,7 +62,6 @@ export const dialogsAPI = {
     return instanse.get(`dialogs/`, {}).then(response => response.data);
   },
   getDialogMessagesList: userId => {
-    console.log(userId);
     return instanse
       .get(`dialogs/` + userId + `/messages`, {})
       .then(response => response.data);

@@ -5,7 +5,6 @@ import editImg from '../../../../assets/images/profile/edit.svg';
 import style from './Post.module.scss';
 
 const PostItem = props => {
-  console.log(props);
   let deletePost = () => {
     props.deletePost(props.id);
   };

@@ -1,4 +1,7 @@
+import { dateHandler, stringSpaceHandler } from '../utils/handlers/handlers';
+
 import { dialogsAPI } from '../api/api';
+
 // Actions
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const SET_DIALOGS_USERS_LIST = 'dialogs/SET_DIALOGS_USERS_LIST';
@@ -54,12 +57,10 @@ export const setDialogMessages = messages => ({
 export const getDialogsUsersList = () => async dispatch => {
   const response = await dialogsAPI.getDialogsUsersList();
   const dialogsList = response.map(u => {
-    const date = u.lastUserActivityDate.split('T');
-    date[1] = date[1].split('', 5).join('');
     return {
       ...u,
-      userName: u.userName.split(/(?=[A-Z])/).join(' '),
-      lastUserActivityDate: date.join(' '),
+      userName: stringSpaceHandler(u.userName),
+      lastUserActivityDate: dateHandler(u.lastUserActivityDate),
     };
   });
   dispatch(setDialogsUsersList(dialogsList));
@@ -68,11 +69,9 @@ export const getDialogsUsersList = () => async dispatch => {
 export const getDialogMessages = userId => async dispatch => {
   const response = await dialogsAPI.getDialogMessagesList(userId);
   const messages = response.items.map(u => {
-    const addedAt = u.addedAt.split('T');
-    addedAt[1] = addedAt[1].split('', 5).join('');
     return {
       ...u,
-      addedAt: addedAt.join(' '),
+      addedAt: dateHandler(u.addedAt),
     };
   });
   dispatch(setDialogMessages(messages));

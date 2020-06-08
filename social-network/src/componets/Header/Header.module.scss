@@ -30,6 +30,7 @@
   .container {
     @include flexbox();
     justify-content: space-between;
+    max-width: 1420px;
   }
 }
 

@@ -10,6 +10,7 @@ import { Preloader } from './componets/common/Preloader/Preloader';
 import { Profile } from './componets/Profile/ProfileContainer';
 import { Provider } from 'react-redux';
 import React from 'react';
+import { RightSidebarContainer } from './componets/Sidebar/RightSidebar';
 import { SettingsContainers } from './componets/Settings/SettingsContainer';
 import { SidebarContainer } from './componets/Sidebar/Sidebar';
 import { compose } from 'redux';
@@ -31,7 +32,6 @@ class App extends React.Component {
     if (!this.props.initialized) {
       return <Preloader className={style.app__preloader} />;
     }
-    debugger;
     return (
       <div className={style.app}>
         <div className={style.app__wrap}>
@@ -49,7 +49,7 @@ class App extends React.Component {
               <Route path="*" render={withSuspense(NotFound)} />
             </Switch>
           </div>
-          {this.props.isActiveRightSidebar && <div className={style.app__leftBar}></div>}
+          {this.props.isActiveRightSidebar && <RightSidebarContainer />}
         </div>
       </div>
     );

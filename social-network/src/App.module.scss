@@ -8,7 +8,7 @@
     @include flexbox();
     height: 100vh;
     width: 100%;
-    max-width: 1920px;
+    max-width: 1420px;
     margin: 0 auto;
   }
   &__container {
@@ -16,13 +16,8 @@
     padding: 0px;
     position: relative;
     height: 100%;
-    // overflow: auto;
   }
   &__preloader {
     height: 100vh;
-  }
-  &__leftBar {
-    flex: 0 0 300px;
-    background: yellowgreen;
   }
 }

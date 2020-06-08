@@ -1,0 +1,45 @@
+@import "./../../../../scss/main.scss";
+
+.newsItem {
+  translate: background 0.1s;
+  &:hover {
+    background: darken($first, 5%);
+  }
+  &__article {
+    @include flexbox();
+    align-items: center;
+  }
+  &__link {
+    display: block;
+    width: 100%;
+    padding: 5px 15px;
+    text-decoration: none;
+    color: $textLight;
+  }
+  &__title {
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    max-height: 32px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  &__photo {
+    display: block;
+    flex: 0 0 40px;
+    width: 40px;
+    border-radius: 10px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  &__date {
+    display: block;
+    font-size: 10px;
+    // text-align: right;
+  }
+}
+
