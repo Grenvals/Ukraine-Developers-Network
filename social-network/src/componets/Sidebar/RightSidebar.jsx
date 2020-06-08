@@ -1,14 +1,17 @@
 import { NewsPanel } from './NewsPanel/NewsPanel';
 import React from 'react';
 import { connect } from 'react-redux';
-import { openDialogWithUser } from '../../redux/dialogsReducer';
 import style from './Sidebar.module.scss';
 
-export const RightSidebar = ({ dialogs, startDialogWithUser, match }) => {
+export const RightSidebar = ({ dialogs, getTopHeadlines, headlines, match }) => {
   return (
     <div className={style.rightSidebar}>
-      {dialogs.length !== 0 && (
-        <NewsPanel state={dialogs} openDialogWithUser={openDialogWithUser} />
+      {headlines && (
+        <NewsPanel
+          state={dialogs}
+          headlines={headlines}
+          getTopHeadlines={getTopHeadlines}
+        />
       )}
     </div>
   );
@@ -16,10 +19,8 @@ export const RightSidebar = ({ dialogs, startDialogWithUser, match }) => {
 
 const mapStateToProps = state => {
   return {
-    dialogs: state.dialogsPage.dialogs,
+    headlines: state.news.headlines,
   };
 };
 
-export const RightSidebarContainer = connect(mapStateToProps, { openDialogWithUser })(
-  RightSidebar
-);
+export const RightSidebarContainer = connect(mapStateToProps, {})(RightSidebar);

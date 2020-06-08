@@ -1,5 +1,6 @@
 import { getAuthUserData } from './authReducer';
 import { getDialogsUsersList } from './dialogsReducer';
+import { getTopHeadlines } from './newsReducer';
 
 const INITIALIZED_SUCSESS = 'INITIALIZED_SUCSESS';
 
@@ -32,8 +33,10 @@ export const initializedApp = () => dispatch => {
   Promise.all([getUserData]).then(() => {
     dispatch(initializedSuccess());
     dispatch(getDialogsUsersList());
+    dispatch(getTopHeadlines());
     setInterval(() => {
       dispatch(getDialogsUsersList());
+      dispatch(getTopHeadlines());
     }, 20000);
   });
 };

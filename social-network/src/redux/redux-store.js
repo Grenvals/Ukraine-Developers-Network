@@ -4,6 +4,7 @@ import appReducer from './appReducer';
 import authReducer from './authReducer';
 import dialogsReducer from './dialogsReducer';
 import { reducer as formReducer } from 'redux-form';
+import { newsReducer } from './newsReducer';
 import profileReducer from './profileReducer';
 import { sidebarReducer } from './sidebarReducer';
 import thunkMiddleware from 'redux-thunk';
@@ -17,6 +18,7 @@ const redusers = combineReducers({
   auth: authReducer,
   form: formReducer,
   app: appReducer,
+  news: newsReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

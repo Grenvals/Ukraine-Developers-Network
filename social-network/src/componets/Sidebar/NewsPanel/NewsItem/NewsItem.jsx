@@ -1,5 +1,4 @@
 import React from 'react';
-import { dateHandler } from '../../../../utils/handlers/handlers';
 import style from './NewsItem.module.scss';
 
 export const NewsItem = ({ photoUrl, title, link, publishedAt }) => {
@@ -10,7 +9,7 @@ export const NewsItem = ({ photoUrl, title, link, publishedAt }) => {
           <img src={photoUrl} alt="news" className={style.newsItem__photo} />
           <div className={style.newsItem__content}>
             <h3 className={style.newsItem__title}>{title}</h3>
-            <span className={style.newsItem__date}>{dateHandler(publishedAt)}</span>
+            <span className={style.newsItem__date}>{publishedAt}</span>
           </div>
         </article>
       </a>

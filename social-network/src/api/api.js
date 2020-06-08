@@ -12,6 +12,11 @@ const instanse = axios.create({
   },
 });
 
+const newsInstanse = axios.create({
+  baseURL: 'https://newsapi.org/v2/',
+});
+const newsApiKey = '&apiKey=08ec5abbba254b49a6288d68358823ba';
+
 export const authAPI = {
   getAuthUserData: () => {
     return instanse.get(`auth/me`, {});
@@ -102,6 +107,14 @@ export const profileAPI = {
   },
   updateProfile: profile => {
     return instanse.put(`profile/`, profile).then(response => response.data);
+  },
+};
+
+export const newsAPI = {
+  getTopHeadlines: userId => {
+    return newsInstanse
+      .get(`top-headlines?country=ua&category=technology` + newsApiKey, {})
+      .then(response => response.data);
   },
 };
 

@@ -12,6 +12,7 @@
     bottom: 0px;
     border-radius: 50%;
     object-fit: cover;
+    box-shadow: $shadowligth;
   }
   &__count {
     @include flexbox();
