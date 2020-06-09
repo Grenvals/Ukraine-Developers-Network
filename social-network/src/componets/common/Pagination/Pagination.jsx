@@ -4,6 +4,7 @@ import { PaginationButton } from './PaginationButton/PaginationButton';
 import PaginationCountItem from './PaginationCountItem/PaginationCountItem';
 import arrowLeft from './../../../assets/images/arrows/left-arrow.svg';
 import arrowRight from './../../../assets/images/arrows/right-arrow.svg';
+import cn from 'classnames';
 import style from './Pagination.module.scss';
 
 const Pagination = React.memo(props => {
@@ -62,7 +63,7 @@ const Pagination = React.memo(props => {
   }, [leftPortionPageNumber, portionCount, portionNumber]);
 
   return (
-    <div className={style.pagination}>
+    <div className={cn(style.pagination, { [props.className]: props.className })}>
       <PaginationButton
         icon={arrowLeft}
         onClick={onLeftButtonClick}

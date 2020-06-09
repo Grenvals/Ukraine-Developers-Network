@@ -28,7 +28,6 @@ const User = ({
   const onClick = () => {};
   const startDialog = () => {
     startDialogWithUser(id);
-    console.log(startDialogWithUser);
   };
   return (
     <li className={style.user}>

@@ -5,6 +5,7 @@ const FOLLOW = 'users/FOLLOW';
 const UNFOLLOW = 'users/UNFOLLOW';
 const SET_USERS = 'users/SET_USERS';
 const SET_CURRENT_PAGE = 'users/SET_CURRENT_PAGE';
+const SET_PAGE_SIZE = 'users/SET_PAGE_SIZE';
 const SET_TOTAL_USERS_COUNT = 'users/SET_TOTAL_USERS_COUNT';
 const SET_LOADING_STATUS = 'users/SET_LOADING_STATUS';
 const TOOGLE_FOLLOWNG_PROGRESS = 'users/TOOGLE_FOLLOWNG_PROGRESS';
@@ -48,6 +49,12 @@ let usersReducer = (state = initialState, action) => {
         currentPage: action.currentPage,
       };
     }
+    case 'users/SET_PAGE_SIZE': {
+      return {
+        ...state,
+        pageSize: action.pageSize,
+      };
+    }
     case 'users/SET_TOTAL_USERS_COUNT': {
       return {
         ...state,
@@ -73,6 +80,7 @@ let usersReducer = (state = initialState, action) => {
   }
 };
 
+// AC
 export const follow = userID => ({
   type: FOLLOW,
   userID,
@@ -91,6 +99,10 @@ export const setCurrentPage = currentPage => ({
   type: SET_CURRENT_PAGE,
   currentPage: currentPage,
 });
+export const setPageSize = pageSize => ({
+  type: SET_PAGE_SIZE,
+  pageSize,
+});
 export const setTotalUsersCount = totalUsersCount => ({
   type: SET_TOTAL_USERS_COUNT,
   count: totalUsersCount,
@@ -105,12 +117,19 @@ export const toogleFollowingProgress = (userId, isFetching) => ({
   isFetching: isFetching,
 });
 
+// Thunks
 export const getRequestUsers = (currentPage, pageSize) => async dispatch => {
   dispatch(setLoadingStatus(true));
   let response = await usersAPI.getUsers(currentPage, pageSize);
   dispatch(setUsers(response.items));
   dispatch(setTotalUsersCount(response.totalCount));
   dispatch(setLoadingStatus(false));
+};
+
+export const updatePageSize = pageSize => async dispatch => {
+  dispatch(setPageSize(pageSize));
+  dispatch(getRequestUsers(1, pageSize));
+  console.log(pageSize);
 };
 
 const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) => {

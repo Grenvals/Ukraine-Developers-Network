@@ -1,0 +1,96 @@
+@import "./../../../scss/main.scss";
+
+
+$heigth: 32px;
+.singleSelect {
+	@include flexbox();
+	align-items: center;
+	&__label {
+		font-size: 14px;
+		font-weight: 600;
+		margin-right: 10px;
+	}
+	.select {
+		min-width: 85px;
+		font-size: 13px;
+		color: $first; 
+		&-container {
+			color: $first; 
+		}
+		&__control {
+			background: lighten($accent, 6%);
+			border-radius: 14px;
+			color: $first; 
+			min-height: $heigth;
+			height: $heigth;
+			padding: 0px 10px;
+			border: none;
+			box-shadow: $shadowligth;
+			&:hover, &:focus {
+				border: none!important;
+			}
+		}
+		&__value-container {
+			color: $first; 
+		}
+		&__single-value {
+			color: $first; 
+			font-weight: 600;
+			min-height: $heigth;
+			height: $heigth;
+			line-height: $heigth;
+		}
+		&__indicators {
+			color: $second; 
+			min-height: $heigth;
+			height: $heigth;
+			svg {
+				fill: $second; 
+				width: 15px;
+			}
+		&__indicator {
+			min-height: $heigth;
+			height: $heigth;
+		}
+		.select__indicator-separator {
+			display: none;
+		}
+		}
+		&__menu {
+			width: auto;
+			left: 10px;
+			right: 10px;
+			background: $second;
+			border: none;
+			box-shadow: $shadow;
+			border-radius: 0px 0px 13px 13px;
+			overflow: hidden;
+			padding: 0px;
+			margin: 0px;
+			
+		}
+		&__menu-list { 
+			padding: 0px;
+		}
+		&__option {
+			min-height: $heigth;
+			height: $heigth;
+			line-height: $heigth;
+			padding: 0px;
+			color: $accent; 
+			text-align: center;
+			transition: background 0.1s;
+			&:active {
+				background: darken($first, 15%);
+			}
+			&--is-focused {
+				background: $first;
+			}
+			&--is-selected {
+				background: $accent3;
+				color: $first;
+				box-shadow: $shadowligth;
+			}
+		}
+	}
+}

@@ -14,17 +14,16 @@
 	}
 	&__scrollbar {
 		height: 100%;
-		.ps__thumb-y {
-			padding: 15px 0px!important;
-		}
 	}
 	&__settings {
 		@include flexbox();
-		overflow: auto;
-		justify-content: flex-end;
 		padding: 0px 20px;
 		align-items: center;
 		height: 50px;
 		border-bottom: 1px solid $first;
+	}
+	&__pagination {
+		margin-left: auto;
+		margin-right: 0;
 	}
 }

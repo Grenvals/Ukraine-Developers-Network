@@ -3,6 +3,7 @@ import {
   getRequestUsers,
   setCurrentPage,
   unfollowUser,
+  updatePageSize,
 } from '../../redux/usersReducer';
 import {
   getCurrentPage,
@@ -45,6 +46,7 @@ class UsersContainer extends React.Component {
         followUser={this.props.followUser}
         isLoading={this.props.isLoading}
         startDialogWithUser={this.props.startDialogWithUser}
+        updatePageSize={this.props.updatePageSize}
       />
     );
   }
@@ -69,6 +71,7 @@ export default compose(
     unfollowUser,
     startDialogWithUser,
     toogleRightSidebar,
+    updatePageSize,
   }),
   withAuthRedirect
 )(UsersContainer);

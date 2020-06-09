@@ -9,9 +9,7 @@ export const Sidebar = ({ dialogs, startDialogWithUser, match }) => {
   return (
     <div className={style.sidebar}>
       <Navbar />
-      {dialogs.length !== 0 && (
-        <DialogsPanel state={dialogs} openDialogWithUser={openDialogWithUser} />
-      )}
+      <DialogsPanel dialogs={dialogs} openDialogWithUser={openDialogWithUser} />
     </div>
   );
 };

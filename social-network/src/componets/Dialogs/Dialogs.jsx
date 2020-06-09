@@ -7,6 +7,7 @@ import {
 
 import { Chat } from './Сhat/Сhat';
 import { DialogsList } from './DialogsList/DialogsList';
+import { Preloader } from '../common/Preloader/Preloader';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import style from './Dialogs.module.scss';
@@ -33,22 +34,26 @@ const Dialogs = ({
   let activeDialogUserId = match.params.userId;
   return (
     <div className={style.dialogs}>
-      <div className={style.dialogs__container}>
-        <DialogsList
-          dialogs={dialogs}
-          getDialogsUsersList={getDialogsUsersList}
-          getDialogMessages={getDialogMessages}
-        />
-        {profile && (
-          <Chat
-            messages={messages}
-            sendMessage={sendMessage}
-            profile={profile}
-            activeDialogUserId={activeDialogUserId}
+      {dialogs && profile ? (
+        <div className={style.dialogs__container}>
+          <DialogsList
             dialogs={dialogs}
+            getDialogsUsersList={getDialogsUsersList}
+            getDialogMessages={getDialogMessages}
           />
-        )}
-      </div>
+          {profile && (
+            <Chat
+              messages={messages}
+              sendMessage={sendMessage}
+              profile={profile}
+              activeDialogUserId={activeDialogUserId}
+              dialogs={dialogs}
+            />
+          )}
+        </div>
+      ) : (
+        <Preloader />
+      )}
     </div>
   );
 };

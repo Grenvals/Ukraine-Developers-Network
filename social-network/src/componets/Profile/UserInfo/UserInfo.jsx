@@ -17,8 +17,12 @@ const UserInfo = ({
   updateUserPhoto,
   status,
   updateUserStatus,
+  startDialogWithUser,
 }) => {
   const onClick = () => {};
+  const startDialog = () => {
+    startDialogWithUser(profile.userId);
+  };
   return (
     <div className={style.userInfo}>
       <HeadImage image={backgroundImg} />
@@ -48,6 +52,7 @@ const UserInfo = ({
               link={'/dialogs/' + profile.userId}
               className={style.userInfo__button}
               name={'Send message'}
+              onClick={startDialog}
               icon={messageIcon}
             />
           )}

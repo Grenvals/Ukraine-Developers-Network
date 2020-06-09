@@ -19,6 +19,7 @@ const Profile = props => {
               updateUserStatus={props.updateUserStatus}
               isLoggedUser={props.isLoggedUser}
               updateUserPhoto={props.updateUserPhoto}
+              startDialogWithUser={props.startDialogWithUser}
             />
             {props.isLoggedUser && <MyPostsContainer />}
           </div>

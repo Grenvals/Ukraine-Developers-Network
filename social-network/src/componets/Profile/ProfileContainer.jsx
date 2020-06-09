@@ -9,6 +9,7 @@ import ProfileUI from './Profile';
 import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { startDialogWithUser } from '../../redux/dialogsReducer';
 import { toogleRightSidebar } from './../../redux/sidebarReducer';
 import { withRouter } from 'react-router';
 
@@ -65,6 +66,7 @@ export const Profile = compose(
     updateUserStatus,
     updateUserPhoto,
     toogleRightSidebar,
+    startDialogWithUser,
   }),
   withRouter
 )(ProfileContainer);

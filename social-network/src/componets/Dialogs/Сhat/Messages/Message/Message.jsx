@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserPhoto } from '../../../common/UserFoto/UserFoto';
+import { UserPhoto } from '../../../../common/UserFoto/UserFoto';
 import cn from 'classnames';
 import style from './Message.module.scss';
 

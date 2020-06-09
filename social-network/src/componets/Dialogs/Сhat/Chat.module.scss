@@ -3,14 +3,4 @@
 .chat {
   flex: 1;
   position: relative;
-  &__wrap {
-    position: absolute;
-    top: 50px;
-    left: 0px;
-    right: 0px;
-    bottom: 130px;
-  }
-  &__list {
-    padding: 15px;
-  }
 }

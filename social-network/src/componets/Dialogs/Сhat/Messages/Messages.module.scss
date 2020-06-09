@@ -1,0 +1,27 @@
+@import "./../../../../scss/main.scss";
+
+ 
+.messages {
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    bottom: 130px;
+    &__list {
+      padding: 15px;
+    }
+    &__preview {
+      @include flexbox();
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 92%;
+    }
+    &__quote {
+      font-size: 14px;
+      max-width: 350px;
+      line-height: 1.6;
+      text-align: center;
+      color: $textLight;
+    }
+  }

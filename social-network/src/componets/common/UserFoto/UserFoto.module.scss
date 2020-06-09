@@ -57,6 +57,7 @@
     border-radius: 50%;
     font-size: 9px;
     color: $second;
+    box-shadow: $shadowligth;
   }
   &__animate {
     top: 40%;
@@ -66,6 +67,7 @@
     animation: orbit2 8s linear infinite;
     height: 40px;
     width: 40px;
+    box-shadow: none;
     &:before {
       content: 'js';
       position: absolute;

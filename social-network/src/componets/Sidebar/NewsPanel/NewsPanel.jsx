@@ -17,7 +17,7 @@ export const NewsPanel = props => {
   ));
   return (
     <div className={style.newsPanel}>
-      <h2 className={style.newsPanel__title}>Last developers news</h2>
+      <h2 className={style.newsPanel__title}>Google Tech News</h2>
       <div className={style.newsPanel__container}>
         <PerfectScrollbar className={style.newsPanel__scrollbar} component="div">
           <ul className={style.newsPanel__list}>{newsItem}</ul>

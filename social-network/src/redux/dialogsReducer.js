@@ -8,8 +8,8 @@ const SET_DIALOGS_USERS_LIST = 'dialogs/SET_DIALOGS_USERS_LIST';
 const SET_DIALOG_MESSAGES = 'dialogs/SET_DIALOG_MESSAGES';
 
 const initialState = {
-  dialogs: [],
-  messages: [],
+  dialogs: null,
+  messages: null,
   newDialogMessage: '',
 };
 
@@ -67,6 +67,7 @@ export const getDialogsUsersList = () => async dispatch => {
 };
 
 export const getDialogMessages = userId => async dispatch => {
+  dispatch(setDialogMessages(null));
   const response = await dialogsAPI.getDialogMessagesList(userId);
   const messages = response.items.map(u => {
     return {
