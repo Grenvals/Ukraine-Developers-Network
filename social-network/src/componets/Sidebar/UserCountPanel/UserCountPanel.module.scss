@@ -1,0 +1,61 @@
+@import "./../../../scss/main.scss";
+
+.userCount {
+  background: $second;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: $shadow;
+  text-decoration: none;
+  color: $accent;
+  &__title {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 30px;
+    height: 30px;
+    color: $first;
+    background: $accent;
+    box-shadow: $shadowligth;
+  }
+  &__container {
+    position: relative;
+    padding: 15px;
+  }
+  &__total {
+    @include flexbox();
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    border: 5px solid $accent3;
+    box-shadow: $shadow;
+    span {
+      font-size: 30px;
+      font-weight: 600;
+      color: $accent;
+    }
+    img {
+      position: absolute;
+      width: 15px;
+      top: 17px;
+    }
+  }
+  .userCount__label {
+    position: absolute;
+    bottom: 20px;
+    font-size: 11px;
+  }
+  .userCount__small {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    font-size: 9px;
+    text-align: center;
+  }
+}
+
+// @include flexbox();

@@ -1,6 +1,7 @@
 import { getAuthUserData } from './authReducer';
 import { getDialogsUsersList } from './dialogsReducer';
 import { getTopHeadlines } from './newsReducer';
+import { getTotalUsersCount } from './usersReducer';
 
 const INITIALIZED_SUCSESS = 'INITIALIZED_SUCSESS';
 
@@ -34,6 +35,7 @@ export const initializedApp = () => dispatch => {
     dispatch(initializedSuccess());
     dispatch(getDialogsUsersList());
     dispatch(getTopHeadlines());
+    dispatch(getTotalUsersCount());
     setInterval(() => {
       dispatch(getDialogsUsersList());
       dispatch(getTopHeadlines());

@@ -126,6 +126,11 @@ export const getRequestUsers = (currentPage, pageSize) => async dispatch => {
   dispatch(setLoadingStatus(false));
 };
 
+export const getTotalUsersCount = () => async dispatch => {
+  let response = await usersAPI.getUsers(1, 5);
+  dispatch(setTotalUsersCount(response.totalCount));
+};
+
 export const updatePageSize = pageSize => async dispatch => {
   dispatch(setPageSize(pageSize));
   dispatch(getRequestUsers(1, pageSize));
