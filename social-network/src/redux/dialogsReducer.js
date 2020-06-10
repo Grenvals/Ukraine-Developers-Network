@@ -87,8 +87,6 @@ export const sendMessage = (userId, message) => async dispatch => {
 
 export const startDialogWithUser = userId => async dispatch => {
   await dialogsAPI.startDialogWithUser(userId);
-  dispatch(getDialogsUsersList());
-  dispatch(getDialogMessages(userId));
 };
 
 export const openDialogWithUser = userId => dispatch => {

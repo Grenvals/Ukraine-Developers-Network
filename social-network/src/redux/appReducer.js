@@ -36,10 +36,10 @@ export const initializedApp = () => dispatch => {
     dispatch(getDialogsUsersList());
     dispatch(getTopHeadlines());
     dispatch(getTotalUsersCount());
-    setInterval(() => {
-      dispatch(getDialogsUsersList());
-      dispatch(getTopHeadlines());
-    }, 20000);
+    // setInterval(() => {
+    //   dispatch(getDialogsUsersList());
+    //   dispatch(getTopHeadlines());
+    // }, 20000);
   });
 };
 

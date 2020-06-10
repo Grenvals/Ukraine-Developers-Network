@@ -7,7 +7,7 @@ import arrowRight from './../../../assets/images/arrows/right-arrow.svg';
 import cn from 'classnames';
 import style from './Pagination.module.scss';
 
-const Pagination = React.memo(props => {
+export const Pagination = React.memo(props => {
   let [portionNumber, setPortionNumber] = useState(1);
   let [leftButtonMode, setleftButtonMode] = useState(false);
   let [RightButtonMode, setRigthButtonMode] = useState(false);
@@ -82,5 +82,3 @@ const Pagination = React.memo(props => {
     </div>
   );
 });
-
-export default Pagination;

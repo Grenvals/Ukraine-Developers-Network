@@ -9,18 +9,14 @@ export const DialogItem = ({
   userLogo,
   newMessagesCount,
   lastUserActivity,
-  getDialogMessages,
 }) => {
-  const onClick = () => {
-    getDialogMessages(id);
-  };
   return (
     <li className={style.dialogItem}>
       <NavLink
         className={style.dialogItem__link}
         activeClassName={style.dialogItem__link_active}
         to={'/dialogs/' + id}
-        onClick={onClick}>
+        onClick={() => {}}>
         exact
         <UserPhotoLink
           className={style.dialogItem__logo}

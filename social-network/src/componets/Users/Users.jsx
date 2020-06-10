@@ -1,5 +1,5 @@
 import { Head } from '../common/Head/Head';
-import Pagination from '../common/Pagination/Pagination';
+import { Pagination } from '../common/Pagination/Pagination';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { Preloader } from '../common/Preloader/Preloader';
 import React from 'react';

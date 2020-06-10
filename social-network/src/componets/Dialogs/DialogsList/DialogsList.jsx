@@ -5,7 +5,7 @@ import { Head } from '../../common/Head/Head';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import style from './DialogsList.module.scss';
 
-export const DialogsList = ({ dialogs, getDialogsUsersList, getDialogMessages }) => {
+export const DialogsList = ({ dialogs, getDialogsUsersList }) => {
   useEffect(() => {
     getDialogsUsersList();
   }, [getDialogsUsersList]);
@@ -18,7 +18,6 @@ export const DialogsList = ({ dialogs, getDialogsUsersList, getDialogMessages })
       userLogo={d.photos.small}
       newMessagesCount={d.newMessagesCount}
       lastUserActivity={d.lastUserActivityDate}
-      getDialogMessages={getDialogMessages}
     />
   ));
   return (
