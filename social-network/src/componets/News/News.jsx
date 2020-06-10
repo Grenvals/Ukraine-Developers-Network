@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   getNewsArticles,
   setCurrentCategory,
@@ -32,6 +32,7 @@ const News = ({
   useEffect(() => {
     toogleRightSidebar(false);
   }, [toogleRightSidebar]);
+  const [vievMode, setViewMode] = useState('tablet');
 
   return (
     <div className={style.news}>
@@ -44,8 +45,9 @@ const News = ({
             pageSize={pageSize}
             setCurrentCategory={setCurrentCategory}
             setPageSize={setPageSize}
+            setViewMode={setViewMode}
           />
-          <NewsBlock articles={articles} />
+          <NewsBlock articles={articles} viewMode={vievMode} />
         </div>
       </PerfectScrollbar>
     </div>

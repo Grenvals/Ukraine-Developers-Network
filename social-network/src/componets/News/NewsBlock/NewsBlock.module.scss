@@ -2,17 +2,32 @@
 @import "./../../../scss/main.scss";
 
 .newsBlock {
-	// height: 100%;
+	padding: 15px 15px 0px 15px;
 	&__list {
 		@include flexbox();
 		flex-wrap: wrap;
-		justify-content: space-between;
-		padding: 15px;
-		margin-bottom: -15px;
+		margin: 0px -7.5px;
 		& > * {
-			flex: 1 1 32%;
-			max-width: 32.19%;
+			flex: 1 1 25%;
+			max-width: 50%;
+			padding: 0px 7.5px;
 			margin-bottom: 15px;
+		}
+		&_tabletLargeMode {
+			& > * {
+				flex: 1 1 50%;
+				max-width: 100%;
+				margin-bottom: 15px;
+			}
+		}
+		&_listMode {
+			display: block;
+			margin: 0px;
+			& > * {
+				max-width: 100%;
+				padding: 0px;
+				margin-bottom: 15px;
+			}
 		}
 	}
 	&__preloader {

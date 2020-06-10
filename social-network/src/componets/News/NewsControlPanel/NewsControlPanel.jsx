@@ -9,6 +9,7 @@ export const NewsControlPanel = ({
   pageSize,
   setCurrentCategory,
   setPageSize,
+  setViewMode,
 }) => {
   // let pagesCount = Math.ceil(totalUsersCount / pageSize);
   let pagesCount = 55;
@@ -16,7 +17,6 @@ export const NewsControlPanel = ({
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
-  const handleChange = value => {};
 
   const newsCategoryOpt = categoryList.map(с => ({ value: с, label: с }));
 
@@ -30,6 +30,7 @@ export const NewsControlPanel = ({
   const newsViewOpt = [
     { value: 'tablet', label: 'tablet' },
     { value: 'list', label: 'list' },
+    { value: 'large', label: 'large' },
   ];
 
   const handleChangeCategory = value => {
@@ -38,6 +39,10 @@ export const NewsControlPanel = ({
 
   const handleChangePageSize = value => {
     setPageSize(value.value);
+  };
+
+  const handleChangeViewMode = value => {
+    setViewMode(value.value);
   };
 
   return (
@@ -59,7 +64,7 @@ export const NewsControlPanel = ({
       <Select
         className={style.controlPanel__selectView}
         label={'View'}
-        onChange={handleChange}
+        onChange={handleChangeViewMode}
         options={newsViewOpt}
         defaultValue={newsViewOpt[0]}
       />
