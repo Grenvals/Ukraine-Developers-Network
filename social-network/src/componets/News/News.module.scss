@@ -1,5 +1,18 @@
 
 @import "./../../scss/main.scss";
+
 .news {
-	display: block;
+	height: 100%;
+	&__scrollbar {
+		height: 100%;
+	}
+	&__container {
+		@include flexbox();
+		flex-direction: column;
+		background-color: $second;
+		box-shadow: $shadow;
+		border-radius: 6px;
+		min-height: 670px;
+		margin: 15px 15px;
+	}
 }

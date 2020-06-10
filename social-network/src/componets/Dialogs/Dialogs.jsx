@@ -31,7 +31,6 @@ const Dialogs = React.memo(
     let activeDialogUserId = match.params.userId;
     useEffect(() => {
       if (activeDialogUserId) {
-        console.log('1');
         getDialogMessages(activeDialogUserId);
       }
     }, [activeDialogUserId, getDialogMessages]);

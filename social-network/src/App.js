@@ -5,6 +5,7 @@ import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { DialogsContainer } from './componets/Dialogs/Dialogs';
 import { Header } from './componets/Header/HeaderContainer';
+import { News } from './componets/News/News';
 import { NotFound } from './componets/NotFound/NotFound';
 import { Preloader } from './componets/common/Preloader/Preloader';
 import { Profile } from './componets/Profile/ProfileContainer';
@@ -20,7 +21,6 @@ import { store } from './redux/redux-store';
 import style from './App.module.scss';
 import { withSuspense } from './hoc/withSuspense';
 
-const News = React.lazy(() => import('./componets/News/News'));
 const UsersContainer = React.lazy(() => import('./componets/Users/UsersContainer'));
 const Login = React.lazy(() => import('./componets/Login/Login'));
 

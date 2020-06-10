@@ -1,0 +1,63 @@
+
+@import "./../../../../scss/main.scss";
+
+.newsArticle {
+  position: relative;
+  color: $accent;
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: $shadow;
+  overflow: hidden;
+  &__content {
+    font-size: 14px;
+  }
+  &__img {
+    img {
+      border-radius: 2px;
+      box-shadow: $shadowligth;
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+    margin: 0px -15px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
+  &__title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    max-height: 35px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  &__descr {
+    // max-height: 50px;
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+  }
+  &__info {
+    position: absolute;
+    top: 15px;
+    left: 0px;
+    width: 100%;
+    padding: 0px 15px;
+    @include flexbox();
+    justify-content: space-between;
+    color: $textLight;
+  }
+  &__name {
+    font-size: 11px;
+  }
+  &__date {
+    font-size: 11px;
+  }
+}

@@ -111,14 +111,23 @@ export const profileAPI = {
 };
 
 export const newsAPI = {
-  getTopHeadlines: userId => {
+  getTopHeadlines: () => {
     return newsInstanse
       .get(`top-headlines?country=ua&category=technology` + newsApiKey, {})
       .then(response => response.data);
   },
+  getNews: (category, pageSize, currentPage) => {
+    return newsInstanse
+      .get(
+        `top-headlines?country=ua&category=` +
+          category +
+          '&pageSize=' +
+          pageSize +
+          '&page=' +
+          currentPage +
+          newsApiKey,
+        {}
+      )
+      .then(response => response.data);
+  },
 };
-
-// axios
-// .get(
-// 	'https://newsapi.org/v2/top-headlines?country=ua&category=technology&apiKey=08ec5abbba254b49a6288d68358823ba'
-// )
