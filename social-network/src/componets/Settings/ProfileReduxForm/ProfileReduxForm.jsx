@@ -1,23 +1,24 @@
-import React from 'react'
-import style from '../Settings.module.scss'
-import facebookIcon from '../../../assets/images/contacts/facebook.svg'
-import githubIcon from '../../../assets/images/contacts/github.svg'
-import instagramIcon from '../../../assets/images/contacts/instagram.svg'
-import twitterIcon from '../../../assets/images/contacts/twitter.svg'
-import siteIcon from '../../../assets/images/contacts/site.svg'
 import {
-  InputItem,
   CheckboxItem,
+  InputItem,
   TextareaItem,
-} from '../../common/Form/FormItem/InputItem'
-import { reduxForm } from 'redux-form'
-import { maxLengthCreator, required } from '../../../utils/validators/validators'
-import { Button } from '../../common/Buttons/Buttons'
-import { Head } from '../../common/Head/Head'
+} from '../../common/Form/FormItem/InputItem';
+import { maxLengthCreator, required } from '../../../utils/validators/validators';
 
-export const maxLength = maxLengthCreator(60)
-export const maxLengthSummury = maxLengthCreator(200)
-export const maxLengthAboutMe = maxLengthCreator(600)
+import { Button } from '../../common/Buttons/Buttons';
+import { Head } from '../../common/Head/Head';
+import React from 'react';
+import facebookIcon from '../../../assets/images/contacts/facebook.svg';
+import githubIcon from '../../../assets/images/contacts/github.svg';
+import instagramIcon from '../../../assets/images/contacts/instagram.svg';
+import { reduxForm } from 'redux-form';
+import siteIcon from '../../../assets/images/contacts/site.svg';
+import style from '../Settings.module.scss';
+import twitterIcon from '../../../assets/images/contacts/twitter.svg';
+
+export const maxLength = maxLengthCreator(60);
+export const maxLengthSummury = maxLengthCreator(200);
+export const maxLengthAboutMe = maxLengthCreator(600);
 
 const ProfileForm = ({ handleSubmit, error, pristine, submitting }) => {
   return (
@@ -43,7 +44,6 @@ const ProfileForm = ({ handleSubmit, error, pristine, submitting }) => {
           placeholder="About you"
           name="lookingForAJobDescription"
           validate={[required, maxLengthSummury]}
-          rows="5"
         />
         <TextareaItem
           className={style.aboutMe}
@@ -96,8 +96,8 @@ const ProfileForm = ({ handleSubmit, error, pristine, submitting }) => {
         <Button name={'Save'} disabled={pristine || submitting} />
       </div>
     </form>
-  )
-}
+  );
+};
 export const ProfileReduxForm = reduxForm({
   form: 'userProfile',
-})(ProfileForm)
+})(ProfileForm);

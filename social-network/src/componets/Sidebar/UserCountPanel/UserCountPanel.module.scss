@@ -55,6 +55,10 @@
     left: 15px;
     font-size: 9px;
     text-align: center;
+    &_right {
+      left: auto;
+      right: 15px;
+    }
   }
 }
 

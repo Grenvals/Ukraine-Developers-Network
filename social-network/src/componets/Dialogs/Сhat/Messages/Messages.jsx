@@ -31,7 +31,10 @@ export const Messages = ({ messages, profile, dialogs, activeDialogUserId }) => 
             <div className={style.messages__preview}>
               <p className={style.messages__quote}>
                 The most important kind of freedom is to be what you really are... Write a
-                message first... <span></span>🙂
+                message first...{' '}
+                <span role="img" aria-label="smile">
+                  🙂👨🏻‍🚀
+                </span>
               </p>
             </div>
           )}
