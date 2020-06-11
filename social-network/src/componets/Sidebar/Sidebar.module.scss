@@ -4,6 +4,7 @@
   flex: 0 0 270px;
   width: 270px;
   margin: 15px 0px 15px 15px;
+  height: 100vh;
   &>* {
     margin-bottom: 15px;
   }
@@ -22,7 +23,8 @@
 }
 
 .rightSidebar {
-  flex: 0 0 270px;
+  flex: 0 0 260px;
+  height: 100vh;
   margin: 15px 15px 15px 0px;
   &>* {
     margin-bottom: 15px;

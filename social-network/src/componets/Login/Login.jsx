@@ -6,9 +6,14 @@ import { Redirect } from 'react-router-dom';
 import backgroundImg from '../../assets/images/background.jpg';
 import { connect } from 'react-redux';
 import style from './Login.module.scss';
+import { toogleRightSidebar } from './../../redux/sidebarReducer';
+import { useEffect } from 'react';
 
-const Login = ({ logIn, isAuth, captcha, getCaptchaUrl }) => {
-  const onSubmit = formData => {
+const Login = ({ logIn, isAuth, captcha, getCaptchaUrl, toogleRightSidebar }) => {
+  useEffect(() => {
+    toogleRightSidebar(false);
+  }, [toogleRightSidebar]);
+  const handleSubmit = formData => {
     logIn(
       formData.user_email,
       formData.user_password,
@@ -24,7 +29,7 @@ const Login = ({ logIn, isAuth, captcha, getCaptchaUrl }) => {
       <div className={style.login__container}>
         <h2 className={style.login__title}>Login</h2>
         <LoginReduxForm
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit}
           captcha={captcha}
           updateCaptcha={getCaptchaUrl}
         />
@@ -44,4 +49,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { logIn, getCaptchaUrl })(Login);
+export default connect(mapStateToProps, { logIn, getCaptchaUrl, toogleRightSidebar })(
+  Login
+);
