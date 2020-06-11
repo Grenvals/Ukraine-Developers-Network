@@ -21,19 +21,21 @@ export const NewsBlock = ({ articles, viewMode }) => {
     ));
   }
   return (
-    <div className={style.newsBlock}>
+    <React.Fragment>
       {articles ? (
-        <ul
-          className={cn(
-            style.newsBlock__list,
-            { [style.newsBlock__list_listMode]: viewMode === 'list' },
-            { [style.newsBlock__list_tabletLargeMode]: viewMode === 'large' }
-          )}>
-          {newsList}
-        </ul>
+        <div className={style.newsBlock}>
+          <ul
+            className={cn(
+              style.newsBlock__list,
+              { [style.newsBlock__list_listMode]: viewMode === 'list' },
+              { [style.newsBlock__list_tabletLargeMode]: viewMode === 'large' }
+            )}>
+            {newsList}
+          </ul>
+        </div>
       ) : (
         <Preloader className={style.newsBlock__preloader} />
       )}
-    </div>
+    </React.Fragment>
   );
 };

@@ -2,7 +2,9 @@
 @import "./../../../../scss/main.scss";
 
 .newsArticle {
+  transition: all 0.3s;
   &__wrap {
+    display: block;
     position: relative;
     color: $accent;
     font-size: 14px;
@@ -11,6 +13,12 @@
     box-shadow: $shadow;
     overflow: hidden;
     height: 100%;
+    transition: background 0.2s;
+    padding-bottom: 60px;
+    transition: box-shadow 0.2s ease;
+    &:hover {
+      box-shadow: $shadowAccent;
+    }
   }
   &__content {
     font-size: 14px;
@@ -19,6 +27,7 @@
     position: relative;
     padding-top: 65%;
     img {
+      background: $first;
       position: absolute;
       top: 0;
       left: 0;
@@ -28,7 +37,30 @@
       box-shadow: $shadowligth;
       height: 100%;
       width: 100%;
+      overflow: hidden;
       object-fit: cover;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        background: $first;
+        z-index: 1;
+      }
+      &:after {  
+        content: "Sorry, image link crashed :(";
+        display: block;
+        width: 50%;
+        text-align: center;
+        font-size: 12px;
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
     }
     margin: 0px -15px;
     margin-top: 25px;
@@ -70,9 +102,16 @@
   &__date {
     font-size: 11px;
   }
+  &__link {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    z-index: 1;
+  }
   &_listMode {
     .newsArticle__wrap {
       @include flexbox();
+      padding-bottom: 15px;
     }
     .newsArticle__img {
       flex: 0 0 150px;
@@ -85,6 +124,7 @@
       }
     }
     .newsArticle__content {
+      width: 100%;
       position: relative;
       padding-bottom: 15px;
     }
@@ -100,6 +140,9 @@
     .newsArticle__descr {
       max-height: 55px;
       -webkit-line-clamp: 3;
+    }
+    .newsArticle__link {
+      display: none;
     }
   }
 }

@@ -1,7 +1,7 @@
-import React from 'react';
-import style from './Buttons.module.scss';
 import { NavLink } from 'react-router-dom';
+import React from 'react';
 import cn from 'classnames';
+import style from './Buttons.module.scss';
 
 export const NavLinkButton = ({
   name = null,
@@ -17,7 +17,7 @@ export const NavLinkButton = ({
       <NavLink
         to={link}
         onClick={() => {
-          onClick();
+          onClick && onClick();
         }}
         className={cn(
           style.button,
@@ -44,6 +44,9 @@ export const Button = ({
   text = true,
   onClick,
 }) => {
+  const handleSubmit = () => {
+    onClick && onClick();
+  };
   return (
     <div className={`${className} ${style.button__wrap}`}>
       <button
@@ -56,10 +59,37 @@ export const Button = ({
           { [style.button_noText]: name === null },
           { [style.button_adaptive]: adaptive === true }
         )}
-        onClick={onClick}>
+        onClick={handleSubmit}>
         <p className={style.button__text}>{name}</p>
         {icon !== null && <img src={icon} alt="icon" className={style.button__icon} />}
       </button>
+    </div>
+  );
+};
+
+export const LinkButton = ({
+  className = style.button__wrap,
+  name = null,
+  accent = false,
+  icon = null,
+  adaptive = false,
+  link,
+}) => {
+  return (
+    <div className={`${className} ${style.button__wrap}`}>
+      <a
+        href={link}
+        target={'blank'}
+        className={cn(
+          style.button,
+          { [style.button_withIcon]: icon !== null },
+          { [style.button_accent]: accent === true },
+          { [style.button_noText]: name === null },
+          { [style.button_adaptive]: adaptive === true }
+        )}>
+        <p className={style.button__text}>{name}</p>
+        {icon !== null && <img src={icon} alt="icon" className={style.button__icon} />}
+      </a>
     </div>
   );
 };
