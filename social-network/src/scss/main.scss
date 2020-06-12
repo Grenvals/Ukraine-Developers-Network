@@ -8,9 +8,56 @@
 @mixin tr($x,$y,$z){transform: translate3d($x, $y, $z);};
 @mixin flexbox() {display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;font-size: 0;} 
 @mixin flexorder($val){-webkit-box-ordinal-group: $val;-moz-box-ordinal-group: $val;-ms-flex-order: $val;-webkit-order: $val;order: $val;}
- 
+// Fonts 
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../assets/fonts/OpenSans-Bold.eot');
+	src: url('../assets/fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
+			url('../assets/fonts/OpenSans-Bold.woff2') format('woff2'),
+			url('../assets/fonts/OpenSans-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../assets/fonts/OpenSans-Regular.eot');
+	src: url('../assets/fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+			url('../assets/fonts/OpenSans-Regular.woff2') format('woff2'),
+			url('../assets/fonts/OpenSans-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../assets/fonts/OpenSans-SemiBold.eot');
+	src: url('../assets/fonts/OpenSans-SemiBold.eot?#iefix') format('embedded-opentype'),
+			url('../assets/fonts/OpenSans-SemiBold.woff2') format('woff2'),
+			url('../assets/fonts/OpenSans-SemiBold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../assets/fonts/OpenSans-Light.eot');
+	src: url('../assets/fonts/OpenSans-Light.eot?#iefix') format('embedded-opentype'),
+			url('../assets/fonts/OpenSans-Light.woff2') format('woff2'),
+			url('../assets/fonts/OpenSans-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
 $fontfamily:"Open Sans";
- 
+
+
+
+// Vars 
 @import "vars.scss";
 
 // Reset 
@@ -52,6 +99,7 @@ input, button, a, label {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
 
 // Grid
 .wrapper{width: 100%;min-height: 100%;overflow: hidden;
