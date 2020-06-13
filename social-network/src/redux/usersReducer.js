@@ -5,6 +5,7 @@ const FOLLOW = 'users/FOLLOW';
 const UNFOLLOW = 'users/UNFOLLOW';
 const SET_USERS = 'users/SET_USERS';
 const SET_CURRENT_PAGE = 'users/SET_CURRENT_PAGE';
+const SET_PUG_PORTION_NUMBER = 'users/SET_PUG_PORTION_NUMBER';
 const SET_PAGE_SIZE = 'users/SET_PAGE_SIZE';
 const SET_TOTAL_USERS_COUNT = 'users/SET_TOTAL_USERS_COUNT';
 const SET_LOADING_STATUS = 'users/SET_LOADING_STATUS';
@@ -15,6 +16,7 @@ let initialState = {
   pageSize: 25,
   totalUsersCount: null,
   currentPage: 1,
+  pagPortionNumber: 2,
   isLoading: true,
   followingInProgress: [],
 };
@@ -47,6 +49,12 @@ let usersReducer = (state = initialState, action) => {
       return {
         ...state,
         currentPage: action.currentPage,
+      };
+    }
+    case 'users/SET_PUG_PORTION_NUMBER': {
+      return {
+        ...state,
+        pagPortionNumber: action.pagPortionNumber,
       };
     }
     case 'users/SET_PAGE_SIZE': {
@@ -98,6 +106,10 @@ export const setUsers = users => ({
 export const setCurrentPage = currentPage => ({
   type: SET_CURRENT_PAGE,
   currentPage: currentPage,
+});
+export const setPagPortionNumber = pagPortionNumber => ({
+  type: SET_PUG_PORTION_NUMBER,
+  pagPortionNumber,
 });
 export const setPageSize = pageSize => ({
   type: SET_PAGE_SIZE,

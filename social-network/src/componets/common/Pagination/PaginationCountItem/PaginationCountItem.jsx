@@ -1,23 +1,20 @@
-import React from 'react'
-import style from './PaginationCountItem.module.scss'
+import React from 'react';
+import style from './PaginationCountItem.module.scss';
 
-const PaginationСountItem = props => {
-  let setCurrentPage = () => {
-    props.setCurrentPage(props.countNumber)
-  }
+export const PaginationСountItem = ({ countNumber, currentItem, setCurrentItem }) => {
+  const onChange = () => {
+    setCurrentItem(countNumber);
+  };
 
   return (
     <li
       className={
-        props.countNumber === props.currentPage
+        countNumber === currentItem
           ? `${style.countItem} ${style.countItem_active}`
           : style.countItem
       }
-      onClick={setCurrentPage}
-    >
-      {props.countNumber}
+      onClick={onChange}>
+      {countNumber}
     </li>
-  )
-}
-
-export default PaginationСountItem
+  );
+};

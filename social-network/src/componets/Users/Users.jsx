@@ -11,7 +11,7 @@ export const Users = ({
   users,
   totalUsersCount,
   pageSize,
-  onPageChanget,
+  onPageChanget: onPageChange,
   currentPage,
   isLoading,
   followingInProgress,
@@ -19,9 +19,11 @@ export const Users = ({
   unfollowUser,
   startDialogWithUser,
   updatePageSize,
+  pagPortionNumber,
+  setPagPortionNumber,
 }) => {
-  let pagesCount = Math.ceil(totalUsersCount / pageSize);
-  let pages = [];
+  const pagesCount = Math.ceil(totalUsersCount / pageSize);
+  const pages = [];
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
@@ -35,7 +37,6 @@ export const Users = ({
     { value: '25', label: '25' },
     { value: '50', label: '50' },
   ];
-
   return (
     <div className={style.users__wrap}>
       <PerfectScrollbar className={style.users__scrollbar} component="div">
@@ -52,10 +53,11 @@ export const Users = ({
               />
               <Pagination
                 className={style.users__pagination}
-                pages={pages}
-                setCurrentPage={onPageChanget}
-                currentPage={currentPage}
-                portionSize={5}
+                items={pages}
+                setCurrentItem={onPageChange}
+                currentItem={currentPage}
+                pagPortionNumber={pagPortionNumber}
+                setPagPortionNumber={setPagPortionNumber}
               />
             </div>
           )}
@@ -83,10 +85,11 @@ export const Users = ({
               <div className={style.users__settings}>
                 <Pagination
                   className={style.users__pagination}
-                  pages={pages}
-                  setCurrentPage={onPageChanget}
-                  currentPage={currentPage}
-                  portionSize={5}
+                  items={pages}
+                  setCurrentItem={onPageChange}
+                  currentItem={currentPage}
+                  pagPortionNumber={pagPortionNumber}
+                  setPagPortionNumber={setPagPortionNumber}
                 />
               </div>
             </React.Fragment>

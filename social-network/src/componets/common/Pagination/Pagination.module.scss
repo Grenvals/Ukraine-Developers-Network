@@ -5,10 +5,11 @@
 	@include flexbox();
 	&__list {
 		@include flexbox();
-		padding: 0px 10px;
-		font-size: 14px;
+		padding: 0px 10px; 
+		font-size: 14px; 
 	}
 	&__dots {
 		padding: 0px 10px;
+		cursor: pointer;
 	}
 }

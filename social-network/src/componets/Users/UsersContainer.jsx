@@ -2,6 +2,7 @@ import {
   followUser,
   getRequestUsers,
   setCurrentPage,
+  setPagPortionNumber,
   unfollowUser,
   updatePageSize,
 } from '../../redux/usersReducer';
@@ -47,6 +48,8 @@ class UsersContainer extends React.Component {
         isLoading={this.props.isLoading}
         startDialogWithUser={this.props.startDialogWithUser}
         updatePageSize={this.props.updatePageSize}
+        pagPortionNumber={this.props.pagPortionNumber}
+        setPagPortionNumber={this.props.setPagPortionNumber}
       />
     );
   }
@@ -60,6 +63,7 @@ let mapStateToProps = state => {
     currentPage: getCurrentPage(state),
     isLoading: getIsLoading(state),
     followingInProgress: getFollowingInProgress(state),
+    pagPortionNumber: state.usersPage.pagPortionNumber,
   };
 };
 
@@ -72,6 +76,7 @@ export default compose(
     startDialogWithUser,
     toogleRightSidebar,
     updatePageSize,
+    setPagPortionNumber,
   }),
   withAuthRedirect
 )(UsersContainer);

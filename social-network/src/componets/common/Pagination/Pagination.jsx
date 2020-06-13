@@ -1,84 +1,108 @@
 import React, { useEffect, useState } from 'react';
 
 import { PaginationButton } from './PaginationButton/PaginationButton';
-import PaginationCountItem from './PaginationCountItem/PaginationCountItem';
+import { PaginationСountItem } from './PaginationCountItem/PaginationCountItem';
 import arrowLeft from './../../../assets/images/arrows/left-arrow.svg';
 import arrowRight from './../../../assets/images/arrows/right-arrow.svg';
 import cn from 'classnames';
 import style from './Pagination.module.scss';
 
-export const Pagination = React.memo(props => {
-  let [portionNumber, setPortionNumber] = useState(1);
-  let [leftButtonMode, setleftButtonMode] = useState(false);
-  let [RightButtonMode, setRigthButtonMode] = useState(false);
+export const Pagination = React.memo(
+  ({
+    className,
+    items,
+    currentItem,
+    setCurrentItem,
+    pagPortionNumber,
+    setPagPortionNumber,
+  }) => {
+    const portionSize = 4;
+    const endPortionSize = 2;
+    // const [portionNumber, setPortionNumber] = useState(1);
 
-  let pages = [...props.pages];
-  let allPagesCount = props.pages.length;
-  let portionCount = Math.ceil(allPagesCount / props.portionSize);
-  let leftPortionPageNumber = (portionNumber - 1) * props.portionSize + 1;
-  let rightPortionPageNumber = portionNumber * props.portionSize;
-  let lastPages = [];
+    const [leftButtonMode, setleftButtonMode] = useState(false);
+    const [RightButtonMode, setRigthButtonMode] = useState(false);
+    const allPagesCount = items.length;
+    const portionCount = Math.ceil(allPagesCount / portionSize);
 
-  for (let i = 0; i <= 1; i++) {
-    lastPages.unshift(allPagesCount - i);
-    pages.pop();
+    // Pagination portion kernel
+    const leftPortionBorder = (pagPortionNumber - 1) * portionSize + 1;
+    const rightPortionBorder = leftPortionBorder + portionSize - 1;
+    console.log(pagPortionNumber);
+
+    const countItem = items
+      .filter(
+        p =>
+          p >= leftPortionBorder &&
+          p <= rightPortionBorder &&
+          p <= items.length - endPortionSize
+      )
+      .map(p => (
+        <PaginationСountItem
+          key={p}
+          countNumber={p}
+          currentItem={currentItem}
+          setCurrentItem={setCurrentItem}
+        />
+      ));
+
+    const lastPagesCountItem = items
+      .filter(p => p > items.length - endPortionSize)
+      .map(p => (
+        <PaginationСountItem
+          key={p}
+          countNumber={p}
+          currentItem={currentItem}
+          setCurrentItem={setCurrentItem}
+        />
+      ));
+
+    const onLeftButtonClick = () => {
+      setPagPortionNumber(pagPortionNumber - 1);
+    };
+
+    const onRightButtonClick = () => {
+      setPagPortionNumber(pagPortionNumber + 1);
+    };
+
+    const onDotsClick = () => {
+      setPagPortionNumber(portionCount / 2);
+    };
+
+    useEffect(() => {
+      if (leftPortionBorder <= 1) {
+        setleftButtonMode(false);
+      } else {
+        setleftButtonMode(true);
+      }
+      if (pagPortionNumber < portionCount) {
+        setRigthButtonMode(true);
+      } else {
+        setRigthButtonMode(false);
+      }
+    }, [leftPortionBorder, portionCount, pagPortionNumber]);
+
+    return (
+      <div className={cn(style.pagination, { [className]: className })}>
+        <PaginationButton
+          icon={arrowLeft}
+          onClick={onLeftButtonClick}
+          active={leftButtonMode}
+        />
+        <ul className={style.pagination__list}>
+          {countItem}
+          <li className={style.pagination__dots} onClick={onDotsClick}>
+            {' '}
+            ...{' '}
+          </li>
+          {lastPagesCountItem}
+        </ul>
+        <PaginationButton
+          icon={arrowRight}
+          onClick={onRightButtonClick}
+          active={RightButtonMode}
+        />
+      </div>
+    );
   }
-  const countItem = pages
-    .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
-    .map(p => (
-      <PaginationCountItem
-        key={p}
-        countNumber={p}
-        currentPage={props.currentPage}
-        setCurrentPage={props.setCurrentPage}
-      />
-    ));
-
-  const lastPagesCountItem = lastPages.map(p => (
-    <PaginationCountItem
-      key={p}
-      countNumber={p}
-      currentPage={props.currentPage}
-      setCurrentPage={props.setCurrentPage}
-    />
-  ));
-  const onLeftButtonClick = () => {
-    setPortionNumber(portionNumber - 1);
-  };
-  const onRightButtonClick = () => {
-    setPortionNumber(portionNumber + 1);
-  };
-
-  useEffect(() => {
-    if (leftPortionPageNumber <= 1) {
-      setleftButtonMode(false);
-    } else {
-      setleftButtonMode(true);
-    }
-    if (portionNumber < portionCount - 1) {
-      setRigthButtonMode(true);
-    } else {
-      setRigthButtonMode(false);
-    }
-  }, [leftPortionPageNumber, portionCount, portionNumber]);
-
-  return (
-    <div className={cn(style.pagination, { [props.className]: props.className })}>
-      <PaginationButton
-        icon={arrowLeft}
-        onClick={onLeftButtonClick}
-        active={leftButtonMode}
-      />
-      <ul className={style.pagination__list}>
-        {countItem}
-        <li className={style.pagination__dots}> ... </li>
-        {portionCount > 2 && lastPagesCountItem}
-      </ul>
-      <PaginationButton
-        icon={arrowRight}
-        onClick={onRightButtonClick}
-        active={RightButtonMode}
-      />
-    </div>
-  );
-});
+);
