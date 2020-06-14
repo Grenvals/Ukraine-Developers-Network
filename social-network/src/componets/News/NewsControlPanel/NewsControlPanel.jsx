@@ -1,4 +1,3 @@
-import { Pagination } from '../../common/Pagination/Pagination';
 import React from 'react';
 import { Select } from '../../common/Select/Select';
 import style from './NewsControlPanel.module.scss';
@@ -10,14 +9,8 @@ export const NewsControlPanel = ({
   setCurrentCategory,
   setPageSize,
   setViewMode,
+  totalResults,
 }) => {
-  // let pagesCount = Math.ceil(totalUsersCount / pageSize);
-  let pagesCount = 55;
-  let pages = [];
-  for (let i = 1; i <= pagesCount; i++) {
-    pages.push(i);
-  }
-
   const newsCategoryOpt = categoryList.map(с => ({ value: с, label: с }));
 
   const usersOnPageOpt = [
@@ -68,13 +61,9 @@ export const NewsControlPanel = ({
         options={newsViewOpt}
         defaultValue={newsViewOpt[0]}
       />
-      <Pagination
-        className={style.controlPanel__pagination}
-        pages={pages}
-        // setCurrentPage={onPageChanget}
-        // currentPage={currentPage}
-        portionSize={5}
-      />
+      <p className={style.controlPanel__totalResults}>
+        Results:<span>{totalResults}</span>
+      </p>
     </div>
   );
 };

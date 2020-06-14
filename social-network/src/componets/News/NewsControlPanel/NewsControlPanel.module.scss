@@ -31,4 +31,11 @@
 			margin-left: auto;
 			margin-right: 0;
 		}
+		&__totalResults {
+			font-size: 14px;
+			font-weight: 600;
+			span {
+				margin-left: 5px;
+			}
+		}
 }

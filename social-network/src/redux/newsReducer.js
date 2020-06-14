@@ -3,8 +3,9 @@ import { newsAPI } from '../api/api';
 
 // Actions
 const SET_TOP_HEADLINES = 'news/SET_TOP_HEADLINES';
-const SET_NEWS_ARTICLES = 'news/SET_NEWS_ARTICLES';
 const SET_CURRENT_CATEGORY = 'news/SET_CURRENT_CATEGORY';
+const SET_NEWS_ARTICLES = 'news/SET_NEWS_ARTICLES';
+const SET_TOTAL_RESULTS = 'news/SET_TOTAL_RESULTS';
 const SET_PAGE_SIZE = 'news/SET_PAGE_SIZE';
 
 const initialState = {
@@ -36,6 +37,9 @@ export const newsReducer = (state = initialState, action) => {
     case 'news/SET_CURRENT_CATEGORY': {
       return { ...state, currentCategory: action.currentCategory };
     }
+    case 'news/SET_TOTAL_RESULTS': {
+      return { ...state, totalResults: action.totalResults };
+    }
     case 'news/SET_PAGE_SIZE': {
       return { ...state, pageSize: action.pageSize };
     }
@@ -56,6 +60,10 @@ export const setNewsArticles = articles => ({
 export const setCurrentCategory = currentCategory => ({
   type: SET_CURRENT_CATEGORY,
   currentCategory,
+});
+export const setTotalResults = totalResults => ({
+  type: SET_TOTAL_RESULTS,
+  totalResults,
 });
 export const setPageSize = pageSize => ({
   type: SET_PAGE_SIZE,
@@ -84,4 +92,5 @@ export const getNewsArticles = (category, pageSize, currentPage) => async dispat
     };
   });
   dispatch(setNewsArticles(newsList));
+  dispatch(setTotalResults(response.totalResults));
 };

@@ -25,6 +25,7 @@ const News = ({
   pageSize,
   setCurrentCategory,
   setPageSize,
+  totalResults,
 }) => {
   useEffect(() => {
     getNewsArticles(currentCategory, pageSize, currentPage);
@@ -46,6 +47,7 @@ const News = ({
             setCurrentCategory={setCurrentCategory}
             setPageSize={setPageSize}
             setViewMode={setViewMode}
+            totalResults={totalResults}
           />
           <NewsBlock articles={articles} viewMode={vievMode} />
         </div>
