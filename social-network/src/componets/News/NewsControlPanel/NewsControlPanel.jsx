@@ -1,3 +1,4 @@
+import { Pagination } from '../../common/Pagination/Pagination';
 import React from 'react';
 import { Select } from '../../common/Select/Select';
 import style from './NewsControlPanel.module.scss';
@@ -10,7 +11,17 @@ export const NewsControlPanel = ({
   setPageSize,
   setViewMode,
   totalResults,
+  setCurrentPage,
+  setPagPortionNumber,
+  currentPage,
+  pugPortionNumber,
+  pages,
 }) => {
+  console.log(setCurrentPage);
+  console.log(setPagPortionNumber);
+  console.log(currentPage);
+  console.log(pugPortionNumber);
+
   const newsCategoryOpt = categoryList.map(с => ({ value: с, label: с }));
 
   const usersOnPageOpt = [
@@ -64,6 +75,14 @@ export const NewsControlPanel = ({
       <p className={style.controlPanel__totalResults}>
         Results:<span>{totalResults}</span>
       </p>
+      <Pagination
+        className={style.controlPanel__pagination}
+        items={pages}
+        setCurrentItem={setCurrentPage}
+        currentItem={currentPage}
+        pagPortionNumber={pugPortionNumber}
+        setPagPortionNumber={setPagPortionNumber}
+      />
     </div>
   );
 };

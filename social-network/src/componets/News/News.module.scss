@@ -15,4 +15,15 @@
 		min-height: 670px;
 		margin: 15px 15px;
 	}
+	&__bottomControl {
+		@include flexbox();
+		flex-wrap: wrap;
+		padding: 0px 20px;
+		align-items: center;
+		height: 50px;
+	}
+	&__pagination {
+		margin-left: auto;
+		margin-right: 0;
+	}
 }

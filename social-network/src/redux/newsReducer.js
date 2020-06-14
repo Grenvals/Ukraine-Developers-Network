@@ -7,12 +7,15 @@ const SET_CURRENT_CATEGORY = 'news/SET_CURRENT_CATEGORY';
 const SET_NEWS_ARTICLES = 'news/SET_NEWS_ARTICLES';
 const SET_TOTAL_RESULTS = 'news/SET_TOTAL_RESULTS';
 const SET_PAGE_SIZE = 'news/SET_PAGE_SIZE';
+const SET_CURRENT_PAGE = 'news/SET_CURRENT_PAGE';
+const SET_PUG_PORTION_NUMBER = 'news/SET_PUG_PORTION_NUMBER';
 
 const initialState = {
   headlines: null,
   articles: null,
   totalResults: null,
   currentPage: 1,
+  pugPortionNumber: 1,
   pageSize: 18,
   currentCategory: 'technology',
   categoryList: [
@@ -35,13 +38,25 @@ export const newsReducer = (state = initialState, action) => {
       return { ...state, articles: action.articles };
     }
     case 'news/SET_CURRENT_CATEGORY': {
-      return { ...state, currentCategory: action.currentCategory };
+      return { ...state, currentPage: 1, currentCategory: action.currentCategory };
     }
     case 'news/SET_TOTAL_RESULTS': {
       return { ...state, totalResults: action.totalResults };
     }
     case 'news/SET_PAGE_SIZE': {
       return { ...state, pageSize: action.pageSize };
+    }
+    case 'news/SET_CURRENT_PAGE': {
+      return {
+        ...state,
+        currentPage: action.currentPage,
+      };
+    }
+    case 'news/SET_PUG_PORTION_NUMBER': {
+      return {
+        ...state,
+        pagPortionNumber: action.pagPortionNumber,
+      };
     }
     default:
       return state;
@@ -69,6 +84,14 @@ export const setPageSize = pageSize => ({
   type: SET_PAGE_SIZE,
   pageSize,
 });
+export const setCurrentPage = currentPage => ({
+  type: SET_CURRENT_PAGE,
+  currentPage: currentPage,
+});
+export const setPagPortionNumber = pagPortionNumber => ({
+  type: SET_PUG_PORTION_NUMBER,
+  pagPortionNumber,
+});
 
 // Async
 export const getTopHeadlines = () => async dispatch => {
@@ -93,4 +116,5 @@ export const getNewsArticles = (category, pageSize, currentPage) => async dispat
   });
   dispatch(setNewsArticles(newsList));
   dispatch(setTotalResults(response.totalResults));
+  dispatch(setCurrentPage(currentPage));
 };

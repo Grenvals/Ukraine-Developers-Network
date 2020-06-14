@@ -18,7 +18,6 @@ export const Pagination = React.memo(
   }) => {
     const portionSize = 4;
     const endPortionSize = 2;
-    // const [portionNumber, setPortionNumber] = useState(1);
 
     const [leftButtonMode, setleftButtonMode] = useState(false);
     const [RightButtonMode, setRigthButtonMode] = useState(false);
@@ -28,7 +27,6 @@ export const Pagination = React.memo(
     // Pagination portion kernel
     const leftPortionBorder = (pagPortionNumber - 1) * portionSize + 1;
     const rightPortionBorder = leftPortionBorder + portionSize - 1;
-    console.log(pagPortionNumber);
 
     const countItem = items
       .filter(
@@ -91,10 +89,12 @@ export const Pagination = React.memo(
         />
         <ul className={style.pagination__list}>
           {countItem}
-          <li className={style.pagination__dots} onClick={onDotsClick}>
-            {' '}
-            ...{' '}
-          </li>
+          {portionCount > 1 && (
+            <li className={style.pagination__dots} onClick={onDotsClick}>
+              ...
+            </li>
+          )}
+
           {lastPagesCountItem}
         </ul>
         <PaginationButton

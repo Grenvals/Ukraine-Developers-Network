@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import {
   getNewsArticles,
   setCurrentCategory,
+  setCurrentPage,
+  setPagPortionNumber,
   setPageSize,
 } from './../../redux/newsReducer';
 
 import { Head } from '../common/Head/Head';
 import { NewsBlock } from './NewsBlock/NewsBlock';
 import { NewsControlPanel } from './NewsControlPanel/NewsControlPanel';
+import { Pagination } from '../common/Pagination/Pagination';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -26,6 +29,9 @@ const News = ({
   setCurrentCategory,
   setPageSize,
   totalResults,
+  setCurrentPage,
+  setPagPortionNumber,
+  pugPortionNumber,
 }) => {
   useEffect(() => {
     getNewsArticles(currentCategory, pageSize, currentPage);
@@ -35,6 +41,11 @@ const News = ({
   }, [toogleRightSidebar]);
   const [vievMode, setViewMode] = useState('tablet');
 
+  const pagesCount = Math.ceil(totalResults / pageSize);
+  const pages = [];
+  for (let i = 1; i <= pagesCount; i++) {
+    pages.push(i);
+  }
   return (
     <div className={style.news}>
       <PerfectScrollbar className={style.news__scrollbar} component="div">
@@ -48,8 +59,23 @@ const News = ({
             setPageSize={setPageSize}
             setViewMode={setViewMode}
             totalResults={totalResults}
+            setCurrentPage={setCurrentPage}
+            setPagPortionNumber={setPagPortionNumber}
+            currentPage={currentPage}
+            pugPortionNumber={pugPortionNumber}
+            pages={pages}
           />
           <NewsBlock articles={articles} viewMode={vievMode} />
+          <div className={style.news__bottomControl}>
+            <Pagination
+              className={style.news__pagination}
+              items={pages}
+              setCurrentItem={setCurrentPage}
+              currentItem={currentPage}
+              pagPortionNumber={pugPortionNumber}
+              setPagPortionNumber={setPagPortionNumber}
+            />
+          </div>
         </div>
       </PerfectScrollbar>
     </div>
@@ -64,6 +90,7 @@ let mapStateToProps = state => {
     currentPage: state.news.currentPage,
     categoryList: state.news.categoryList,
     currentCategory: state.news.currentCategory,
+    pugPortionNumber: state.news.pugPortionNumber,
   };
 };
 
@@ -73,6 +100,8 @@ const NewsContainer = compose(
     getNewsArticles,
     setCurrentCategory,
     setPageSize,
+    setCurrentPage,
+    setPagPortionNumber,
   }),
   withAuthRedirect
 )(News);
