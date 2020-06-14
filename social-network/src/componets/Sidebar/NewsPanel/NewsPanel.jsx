@@ -9,9 +9,9 @@ import style from './NewsPanel.module.scss';
 export const NewsPanel = props => {
   let newsItem = [];
   if (props.headlines !== null) {
-    newsItem = props.headlines.map(u => (
+    newsItem = props.headlines.map((u, i) => (
       <NewsItem
-        key={u.source.id}
+        key={i}
         photoUrl={u.urlToImage}
         title={u.title}
         publishedAt={u.publishedAt}

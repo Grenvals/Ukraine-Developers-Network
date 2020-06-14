@@ -5,6 +5,7 @@ import authReducer from './authReducer';
 import dialogsReducer from './dialogsReducer';
 import { reducer as formReducer } from 'redux-form';
 import { newsReducer } from './newsReducer';
+import { notificationReducer } from './notificationReducer';
 import profileReducer from './profileReducer';
 import { sidebarReducer } from './sidebarReducer';
 import thunkMiddleware from 'redux-thunk';
@@ -19,6 +20,7 @@ const redusers = combineReducers({
   form: formReducer,
   app: appReducer,
   news: newsReducer,
+  notifications: notificationReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

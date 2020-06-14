@@ -7,6 +7,7 @@ import { DialogsContainer } from './componets/Dialogs/Dialogs';
 import { Header } from './componets/Header/HeaderContainer';
 import { News } from './componets/News/News';
 import { NotFound } from './componets/NotFound/NotFound';
+import { NotificationsContainer } from './componets/Notifications/Notifications';
 import { Preloader } from './componets/common/Preloader/Preloader';
 import { Profile } from './componets/Profile/ProfileContainer';
 import { Provider } from 'react-redux';
@@ -50,6 +51,7 @@ class App extends React.Component {
             </Switch>
           </div>
           {this.props.isActiveRightSidebar && <RightSidebarContainer />}
+          <NotificationsContainer />
         </div>
       </div>
     );

@@ -1,4 +1,5 @@
 import { dateHandler, stringSpaceHandler } from '../utils/handlers/handlers';
+import { setNotification, setSuspenseStatus } from './notificationReducer';
 
 import { dialogsAPI } from '../api/api';
 
@@ -79,9 +80,14 @@ export const getDialogMessages = userId => async dispatch => {
 };
 
 export const sendMessage = (userId, message) => async dispatch => {
+  dispatch(setSuspenseStatus(true));
   const response = await dialogsAPI.sendMessage(userId, message);
+  dispatch(setSuspenseStatus(false));
   if (response.resultCode === 0) {
     dispatch(getDialogMessages(userId));
+    dispatch(
+      setNotification('Server: message sent to ' + response.data.message.recipientName)
+    );
   }
 };
 

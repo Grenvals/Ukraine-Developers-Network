@@ -1,0 +1,27 @@
+
+@import "./../../../scss/main.scss";
+.notification {
+	&__container {
+		position: relative;
+		padding: 15px 15px 15px 40px;
+		border-radius: 10px;
+		font-size: 13px;
+		display: inline-block;
+		background: $second;
+		box-shadow: $shadow;
+	}
+	&__img {
+		position: absolute;
+		width: 15px;
+		height: 15px;
+		overflow: hidden;
+		top: 50%;
+		left: 15px;
+		transform: translateY(-50%);
+		img {
+			width: 15px;
+			height: 15px;
+			object-fit: contain;
+		}
+	}
+}

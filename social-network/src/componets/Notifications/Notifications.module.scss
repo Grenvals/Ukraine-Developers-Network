@@ -1,0 +1,42 @@
+
+@import "./../../scss/main.scss";
+.notifications {
+	position: fixed;
+	z-index: 999;
+	bottom: 25px;
+	left: 15px;
+	width: 260px;
+	&__loader {
+		display: inline-block;
+		padding: 3px;
+		border-radius: 50%;
+		background: $second;
+		box-shadow: $shadow;
+		&:after {
+			content: " ";
+			display: block;
+			width: 25px;
+			height: 25px;
+			border-radius: 50%;
+			border: 3px solid $accent;
+			border-color:  lighten($accent, 15%) transparent  lighten($accent, 15%) transparent;
+			animation: lds-dual-ring 1.2s linear infinite;
+		}
+		
+	}
+	&__list {
+		& > * {
+			margin-bottom: 15px;
+		}
+	}
+
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
