@@ -15,7 +15,7 @@ const initialState = {
   articles: null,
   totalResults: null,
   currentPage: 1,
-  pugPortionNumber: 1,
+  pagPortionNumber: 1,
   pageSize: 18,
   currentCategory: 'technology',
   categoryList: [

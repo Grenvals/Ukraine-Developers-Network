@@ -29,23 +29,27 @@ const Dialogs = React.memo(
   }) => {
     const history = useHistory();
     let activeDialogUserId = match.params.userId;
+
     useEffect(() => {
       if (activeDialogUserId) {
         getDialogMessages(activeDialogUserId);
       }
     }, [activeDialogUserId, getDialogMessages]);
+
     useEffect(() => {
-      if (dialogs) {
-        console.log('2');
+      if (dialogs && !activeDialogUserId) {
         history.push('/dialogs/' + dialogs[0].id);
       }
-    }, [dialogs, history]);
+    }, [activeDialogUserId, dialogs, history]);
+
     useEffect(() => {
       getDialogsUsersList();
     }, [getDialogsUsersList]);
+
     useEffect(() => {
       toogleRightSidebar(false);
     }, [toogleRightSidebar]);
+
     return (
       <div className={style.dialogs}>
         {dialogs && profile ? (

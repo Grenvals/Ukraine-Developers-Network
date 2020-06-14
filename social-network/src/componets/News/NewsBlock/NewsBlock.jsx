@@ -7,9 +7,9 @@ import style from './NewsBlock.module.scss';
 export const NewsBlock = ({ articles, viewMode }) => {
   let newsList = [];
   if (articles !== null) {
-    newsList = articles.map(u => (
+    newsList = articles.map((u, i) => (
       <NewsArticle
-        key={u.source.id}
+        key={i}
         photoUrl={u.urlToImage}
         title={u.title}
         description={u.description}

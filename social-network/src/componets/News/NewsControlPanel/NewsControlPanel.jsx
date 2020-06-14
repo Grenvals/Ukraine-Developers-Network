@@ -17,9 +17,9 @@ export const NewsControlPanel = ({
   pugPortionNumber,
   pages,
 }) => {
-  console.log(setCurrentPage);
-  console.log(setPagPortionNumber);
-  console.log(currentPage);
+  // console.log(setCurrentPage);
+  // console.log(setPagPortionNumber);
+  // console.log(currentPage);
   console.log(pugPortionNumber);
 
   const newsCategoryOpt = categoryList.map(с => ({ value: с, label: с }));

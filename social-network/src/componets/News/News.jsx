@@ -31,7 +31,7 @@ const News = ({
   totalResults,
   setCurrentPage,
   setPagPortionNumber,
-  pugPortionNumber,
+  pagPortionNumber,
 }) => {
   useEffect(() => {
     getNewsArticles(currentCategory, pageSize, currentPage);
@@ -62,7 +62,7 @@ const News = ({
             setCurrentPage={setCurrentPage}
             setPagPortionNumber={setPagPortionNumber}
             currentPage={currentPage}
-            pugPortionNumber={pugPortionNumber}
+            pugPortionNumber={pagPortionNumber}
             pages={pages}
           />
           <NewsBlock articles={articles} viewMode={vievMode} />
@@ -72,7 +72,7 @@ const News = ({
               items={pages}
               setCurrentItem={setCurrentPage}
               currentItem={currentPage}
-              pagPortionNumber={pugPortionNumber}
+              pagPortionNumber={pagPortionNumber}
               setPagPortionNumber={setPagPortionNumber}
             />
           </div>
@@ -90,7 +90,7 @@ let mapStateToProps = state => {
     currentPage: state.news.currentPage,
     categoryList: state.news.categoryList,
     currentCategory: state.news.currentCategory,
-    pugPortionNumber: state.news.pugPortionNumber,
+    pagPortionNumber: state.news.pagPortionNumber,
   };
 };
 
