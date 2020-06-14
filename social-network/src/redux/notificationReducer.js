@@ -34,16 +34,16 @@ export let notificationReducer = (state = initialState, action) => {
   }
 };
 
-export const addNotification = (id, message, error) => ({
+const addNotification = (id, message, error) => ({
   type: ADD_NOTIFICATION,
   id,
   message,
   error,
 });
 
-export const deleteNotification = id => ({
+const deleteNotification = id => ({
   type: DELETE_NOTIFICATION,
-  id: id,
+  id,
 });
 
 export const setSuspenseStatus = isSuspense => ({
@@ -51,8 +51,8 @@ export const setSuspenseStatus = isSuspense => ({
   isSuspense,
 });
 
-export const setNotification = (message, error = false) => (dispatch, getState) => {
-  const notificationId = getState().notifications.notifications.length + 1;
+export const setNotification = (message, error = false) => dispatch => {
+  const notificationId = `f${(+new Date()).toString(16)}`;
   dispatch(addNotification(notificationId, message, error));
   setTimeout(() => {
     dispatch(deleteNotification(notificationId));

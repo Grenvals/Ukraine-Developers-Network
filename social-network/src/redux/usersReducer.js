@@ -1,3 +1,5 @@
+import { setNotification, setSuspenseStatus } from './notificationReducer';
+
 import { updateObjectInArray } from '../utils/object-helper';
 import { usersAPI } from '../api/api';
 
@@ -151,9 +153,15 @@ export const updatePageSize = pageSize => async dispatch => {
 
 const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) => {
   dispatch(toogleFollowingProgress(userId, true));
-  let response = await apiMethod(userId);
+  dispatch(setSuspenseStatus(true));
+  const response = await apiMethod(userId);
+  dispatch(setSuspenseStatus(false));
   if (response.resultCode === 0) {
     dispatch(actionCreator(userId));
+    console.log(response);
+    dispatch(setNotification('Server: status saved'));
+  } else {
+    dispatch(setNotification('Error on server'));
   }
   dispatch(toogleFollowingProgress(userId, false));
 };
