@@ -1,5 +1,6 @@
 import { dateHandler } from '../utils/handlers/handlers';
 import { newsAPI } from '../api/api';
+import { setSuspenseStatus } from './notificationReducer';
 
 // Actions
 const SET_TOP_HEADLINES = 'news/SET_TOP_HEADLINES';
@@ -107,7 +108,9 @@ export const getTopHeadlines = () => async dispatch => {
 
 export const getNewsArticles = (category, pageSize, currentPage) => async dispatch => {
   dispatch(setNewsArticles(null));
+  dispatch(setSuspenseStatus(true));
   const response = await newsAPI.getNews(category, pageSize, currentPage);
+  dispatch(setSuspenseStatus(false));
   const newsList = response.articles.map(a => {
     return {
       ...a,

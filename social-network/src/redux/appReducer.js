@@ -2,6 +2,7 @@ import { getAuthUserData } from './authReducer';
 import { getDialogsUsersList } from './dialogsReducer';
 import { getTopHeadlines } from './newsReducer';
 import { getTotalUsersCount } from './usersReducer';
+import { setSuspenseStatus } from './notificationReducer';
 
 const INITIALIZED_SUCSESS = 'INITIALIZED_SUCSESS';
 
@@ -28,18 +29,26 @@ export const initializedSuccess = () => {
   };
 };
 
-export const initializedApp = () => dispatch => {
+export const initializedApp = () => (dispatch, getState) => {
   const getUserData = dispatch(getAuthUserData());
-  // Watchers
-  Promise.all([getUserData]).then(() => {
+  Promise.all([getUserData]).then(response => {
+    let isAuth = getState().auth.isAuth;
     dispatch(initializedSuccess());
-    dispatch(getDialogsUsersList());
+    if (isAuth) {
+      dispatch(getDialogsUsersList());
+    }
     dispatch(getTopHeadlines());
     dispatch(getTotalUsersCount());
+    // Watchers
     setInterval(() => {
-      dispatch(getDialogsUsersList());
+      isAuth = getState().auth.isAuth;
+      if (isAuth) {
+        dispatch(getDialogsUsersList());
+      }
+      dispatch(setSuspenseStatus(true));
       dispatch(getTopHeadlines());
-    }, 20000);
+      dispatch(setSuspenseStatus(false));
+    }, 15000);
   });
 };
 

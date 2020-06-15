@@ -1,13 +1,14 @@
-import React from 'react'
-import style from '../Settings.module.scss'
-import { InputItem } from '../../common/Form/FormItem/InputItem'
-import { maxLengthCreator, required } from '../../../utils/validators/validators'
-import { reduxForm } from 'redux-form'
-import { UserProfilePhoto } from '../../common/UserFoto/UserFoto'
-import { Button } from '../../common/Buttons/Buttons'
-import { Head } from '../../common/Head/Head'
+import { maxLengthCreator, required } from '../../../utils/validators/validators';
 
-export const maxLength = maxLengthCreator(100)
+import { Button } from '../../common/Buttons/Buttons';
+import { Head } from '../../common/Head/Head';
+import { InputItem } from '../../common/Form/FormItem/InputItem';
+import React from 'react';
+import { UserProfilePhoto } from '../../common/UserFoto/UserFoto';
+import { reduxForm } from 'redux-form';
+import style from '../Settings.module.scss';
+
+export const maxLength = maxLengthCreator(100);
 
 const StatusForm = ({
   handleSubmit,
@@ -16,6 +17,7 @@ const StatusForm = ({
   submitting,
   photo,
   updateUserPhoto,
+  userId,
 }) => {
   return (
     <div className="">
@@ -26,13 +28,13 @@ const StatusForm = ({
             isLoggedUser={true}
             photo={photo}
             updateUserPhoto={updateUserPhoto}
+            userId={userId}
           />
         </div>
 
         <form
           className={`${style.settings__form} ${style.settings__form_inline}`}
-          onSubmit={handleSubmit}
-        >
+          onSubmit={handleSubmit}>
           <InputItem
             label="Status"
             placeholder="user status"
@@ -43,8 +45,8 @@ const StatusForm = ({
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 export const StatusReduxForm = reduxForm({
   form: 'userStatus',
-})(StatusForm)
+})(StatusForm);

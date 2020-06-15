@@ -134,31 +134,31 @@ export const toogleFollowingProgress = (userId, isFetching) => ({
 // Thunks
 export const getRequestUsers = (currentPage, pageSize) => async dispatch => {
   dispatch(setLoadingStatus(true));
-  let response = await usersAPI.getUsers(currentPage, pageSize);
+  const response = await usersAPI.getUsers(currentPage, pageSize);
   dispatch(setUsers(response.items));
   dispatch(setTotalUsersCount(response.totalCount));
   dispatch(setLoadingStatus(false));
 };
 
 export const getTotalUsersCount = () => async dispatch => {
-  let response = await usersAPI.getUsers(1, 5);
+  const response = await usersAPI.getUsers(1, 5);
   dispatch(setTotalUsersCount(response.totalCount));
 };
 
 export const updatePageSize = pageSize => async dispatch => {
+  dispatch(setSuspenseStatus(true));
   dispatch(setPageSize(pageSize));
-  dispatch(getRequestUsers(1, pageSize));
-  console.log(pageSize);
+  await dispatch(getRequestUsers(1, pageSize));
+  dispatch(setSuspenseStatus(false));
 };
 
 const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) => {
-  dispatch(toogleFollowingProgress(userId, true));
   dispatch(setSuspenseStatus(true));
+  dispatch(toogleFollowingProgress(userId, true));
   const response = await apiMethod(userId);
   dispatch(setSuspenseStatus(false));
   if (response.resultCode === 0) {
     dispatch(actionCreator(userId));
-    console.log(response);
     dispatch(setNotification('Server: status saved'));
   } else {
     dispatch(setNotification('Error on server'));

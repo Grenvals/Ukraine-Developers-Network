@@ -30,6 +30,7 @@ const Settings = props => {
               onSubmit={onSubmit}
               photo={props.profile.photos.large}
               updateUserPhoto={props.updateUserPhoto}
+              userId={props.profile.userId}
             />
             <ProfileReduxForm initialValues={props.profile} onSubmit={onProfileSubmit} />
           </div>

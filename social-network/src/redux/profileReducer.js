@@ -1,4 +1,5 @@
 import { profileAPI, usersAPI } from '../api/api';
+import { setNotification, setSuspenseStatus } from './notificationReducer';
 
 import { getAuthUserProfile } from './authReducer';
 import postImage1 from '../assets/images/profile/posts/jobs-1.jpg';
@@ -100,16 +101,21 @@ export const saveFotoSuccess = data => ({
 });
 
 export const getUserProfile = userId => async dispatch => {
+  dispatch(setSuspenseStatus(true));
   dispatch(setUserProfile(null));
   let response = await usersAPI.getProfile(userId);
   dispatch(setUserProfile(response));
+  dispatch(setSuspenseStatus(false));
 };
 
 export const updateUserProfile = (userId, formData) => async dispatch => {
+  dispatch(setSuspenseStatus(true));
   let response = await profileAPI.updateProfile(formData);
+  dispatch(setSuspenseStatus(false));
   if (response.resultCode === 0) {
     dispatch(getUserProfile(userId));
     dispatch(getAuthUserProfile(userId));
+    dispatch(setNotification('Server: profile updated'));
   } else {
     let key = response.messages[0].match(/Contacts->(\w+)/)[1].toLowerCase();
     dispatch(
@@ -126,17 +132,23 @@ export const getUserStatus = userId => async dispatch => {
 };
 
 export const updateUserStatus = status => async dispatch => {
+  dispatch(setSuspenseStatus(true));
   let response = await profileAPI.updateStatus(status);
+  dispatch(setSuspenseStatus(false));
   if (response.resultCode === 0) {
     dispatch(setUserStatus(status));
+    dispatch(setNotification('Server: status updated'));
   }
 };
 
 export const updateUserPhoto = (data, id) => async dispatch => {
+  dispatch(setSuspenseStatus(true));
   let response = await profileAPI.updateUserPhoto(data);
+  dispatch(setSuspenseStatus(false));
   if (response.resultCode === 0) {
     dispatch(saveFotoSuccess(response.data.photos));
     dispatch(getAuthUserProfile(id));
+    dispatch(setNotification('Server: user photo updated'));
   }
 };
 

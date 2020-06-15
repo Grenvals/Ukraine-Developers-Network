@@ -1,5 +1,6 @@
 import { authAPI, securityAPI } from '../api/api';
 
+import { setSuspenseStatus } from './notificationReducer';
 import { stopSubmit } from 'redux-form';
 import { usersAPI } from '../api/api';
 
@@ -106,16 +107,16 @@ export const setCaptchaUrl = captchaUrl => {
 };
 
 export const getAuthUserData = () => async dispatch => {
-  let response = await authAPI.getAuthUserData();
+  const response = await authAPI.getAuthUserData();
   if (response.data.resultCode === 0) {
-    let { id, email, login } = response.data.data;
+    const { id, email, login } = response.data.data;
     dispatch(setAuthUserData(id, email, login, true));
     dispatch(getAuthUserProfile(id));
   }
 };
 
 export const getAuthUserProfile = userId => async dispatch => {
-  let response = await usersAPI.getProfile(userId);
+  const response = await usersAPI.getProfile(userId);
   dispatch(setAuthUserProfile(response));
 };
 
@@ -125,27 +126,29 @@ export const logIn = (
   userRemember,
   captcha
 ) => async dispatch => {
-  let response = await authAPI.logIn(userEmail, userPassword, userRemember, captcha);
+  dispatch(setSuspenseStatus(true));
+  const response = await authAPI.logIn(userEmail, userPassword, userRemember, captcha);
   if (response.resultCode === 0) {
     dispatch(getAuthUserData());
   } else if (response.resultCode === 10) {
     dispatch(getCaptchaUrl()); // api captcha protection work incorrect, moved getCapcha to all errors
-    let message =
+    const message =
       response.messages.length > 0
         ? 'Error on server: ' + response.messages[0]
         : 'Errors, your login or emails are not valid';
     dispatch(stopSubmit('Login', { _error: message }));
   } else {
-    let message =
+    const message =
       response.messages.length > 0
         ? 'Error on server: ' + response.messages[0]
         : 'Errors, your login or emails are not valid';
     dispatch(stopSubmit('Login', { _error: message }));
   }
+  dispatch(setSuspenseStatus(false));
 };
 
 export const getCaptchaUrl = () => async dispatch => {
-  let response = await securityAPI.getCaptchaUrl();
+  const response = await securityAPI.getCaptchaUrl();
   if (response.data.url.length > 0) {
     dispatch(setCaptchaUrl(response.data.url));
     console.log(response.data.url);
@@ -153,10 +156,12 @@ export const getCaptchaUrl = () => async dispatch => {
 };
 
 export const logOut = (userEmail, userPassword, userRemember) => async dispatch => {
-  let response = await authAPI.logOut();
+  dispatch(setSuspenseStatus(true));
+  const response = await authAPI.logOut();
   if (response.resultCode === 0) {
     dispatch(setAuthUserData(null, null, null, false));
   }
+  dispatch(setSuspenseStatus(false));
 };
 
 export default authReducer;

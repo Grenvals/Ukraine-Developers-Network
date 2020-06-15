@@ -56,7 +56,9 @@ export const setDialogMessages = messages => ({
 
 // Async
 export const getDialogsUsersList = () => async dispatch => {
+  dispatch(setSuspenseStatus(true));
   const response = await dialogsAPI.getDialogsUsersList();
+  dispatch(setSuspenseStatus(false));
   const dialogsList = response.map(u => {
     return {
       ...u,
@@ -69,7 +71,9 @@ export const getDialogsUsersList = () => async dispatch => {
 
 export const getDialogMessages = userId => async dispatch => {
   dispatch(setDialogMessages(null));
+  dispatch(setSuspenseStatus(true));
   const response = await dialogsAPI.getDialogMessagesList(userId);
+  dispatch(setSuspenseStatus(false));
   const messages = response.items.map(u => {
     return {
       ...u,
@@ -92,12 +96,16 @@ export const sendMessage = (userId, message) => async dispatch => {
 };
 
 export const startDialogWithUser = userId => async dispatch => {
+  dispatch(setSuspenseStatus(true));
   await dialogsAPI.startDialogWithUser(userId);
+  dispatch(setSuspenseStatus(false));
 };
 
-export const openDialogWithUser = userId => dispatch => {
-  dispatch(getDialogsUsersList());
-  dispatch(getDialogMessages(userId));
+export const openDialogWithUser = userId => async dispatch => {
+  dispatch(setSuspenseStatus(true));
+  await dispatch(getDialogsUsersList());
+  await dispatch(getDialogMessages(userId));
+  dispatch(setSuspenseStatus(false));
 };
 
 export default dialogsReducer;
