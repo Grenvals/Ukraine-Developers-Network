@@ -1,7 +1,12 @@
-import React from 'react';
-import style from './Header.module.scss';
-import { UserPhoto } from '../common/UserFoto/UserFoto';
-import { Button, NavLinkButton } from '../common/Buttons/Buttons';
+import {
+  Button,
+  NavLinkButton,
+  React,
+  UserPhoto,
+  connect,
+  logOut,
+  style,
+} from 'index.js';
 
 const Header = ({ login, isAuth, profile, logOut }) => {
   return (
@@ -36,4 +41,17 @@ const Header = ({ login, isAuth, profile, logOut }) => {
   );
 };
 
-export default Header;
+const mapStateToProps = state => {
+  return {
+    isAuth: state.auth.isAuth,
+    login: state.auth.login,
+    userId: state.auth.userId,
+    profile: state.auth.profile,
+  };
+};
+
+const HeaderContainer = connect(mapStateToProps, {
+  logOut,
+})(Header);
+
+export { HeaderContainer as Header };

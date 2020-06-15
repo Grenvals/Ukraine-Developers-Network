@@ -4,7 +4,7 @@ import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 
 import { BrowserRouter } from 'react-router-dom';
 import { DialogsContainer } from './componets/Dialogs/Dialogs';
-import { Header } from './componets/Header/HeaderContainer';
+import { Header } from './componets/Header/Header';
 import { News } from './componets/News/News';
 import { NotFound } from './componets/NotFound/NotFound';
 import { NotificationsContainer } from './componets/Notifications/Notifications';

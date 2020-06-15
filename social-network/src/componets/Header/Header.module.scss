@@ -5,12 +5,14 @@
   top: 0;
   left: 0;
   right: 0;
-  grid-area: header;
   background: $accent;
   color: #fff;
   height: 60px;
   box-shadow: $shadow;
   z-index: 999;
+  @media (max-width: $md3+px) {
+    height: 55px;
+  }
   &__button {
     margin-left: 15px;
   }
@@ -18,6 +20,10 @@
     text-transform: uppercase;
     font-size: 40px;
     font-weight: 600;
+    @media (max-width: $md3+px) {
+      font-size: 30px;
+      line-height: 55px;
+    }
   }
   &__title {
     display: inline;
@@ -40,6 +46,9 @@
   &__logo {
     width: 40px;
     margin-left: 15px;
+    @media (max-width: $md3+px) {
+      width: 33px;
+    }
   }
   &__flag {
     background: $second;
