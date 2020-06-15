@@ -159,7 +159,7 @@ const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) =>
   dispatch(setSuspenseStatus(false));
   if (response.resultCode === 0) {
     dispatch(actionCreator(userId));
-    dispatch(setNotification('Server: status saved'));
+    dispatch(setNotification('Server: action saved'));
   } else {
     dispatch(setNotification('Error on server'));
   }

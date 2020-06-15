@@ -1,3 +1,4 @@
+import { AudioPlayer } from '../common/Player/Player';
 import { DialogsPanel } from './DialogsPanel/DialogsPanel';
 import { Navbar } from './Navbar/Navbar';
 import { NewsPanel } from './NewsPanel/NewsPanel';
@@ -28,6 +29,7 @@ export const Sidebar = ({
           <NewsPanel state={dialogs} headlines={headlines} />
         </React.Fragment>
       )}
+      <AudioPlayer />
     </div>
   );
 };

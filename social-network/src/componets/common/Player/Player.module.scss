@@ -1,0 +1,46 @@
+
+@import "./../../../scss/main.scss";
+.player {
+	@include flexbox();
+	align-items: center;
+	background: $second;
+	border-radius: 10px;
+	box-shadow: $shadow;
+	display: inline-flex;
+	overflow: hidden;
+	&__name {
+		font-size: 13px;
+		padding: 0px 13px;
+		font-weight: 600;
+	}
+	&__btn {
+		@include flexbox();
+		justify-content: center;
+		align-items: center;
+		background: lighten($accent, 0%);
+		width: 30px;
+		height: 23px;
+		box-shadow: $shadow;
+	}
+	&__icon {
+		width: 10px;
+	}
+	&__indicator {
+		height: 6px;
+		width: 6px;
+		border-radius: 50%;
+		background: $accent3;
+		box-shadow: $shadow;
+		margin-right: 10px;
+	}
+}
+
+.animate {
+	animation: blinking 1.8s linear infinite;
+}
+@keyframes blinking {
+  0% { opacity: 0; }
+	35%   { opacity: 1; }
+	60% {opacity: 1;}
+	100% {opacity: 0;}
+ }
