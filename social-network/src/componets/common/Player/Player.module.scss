@@ -12,6 +12,7 @@
 		font-size: 13px;
 		padding: 0px 13px;
 		font-weight: 600;
+		color: $textLight;
 	}
 	&__btn {
 		@include flexbox();
