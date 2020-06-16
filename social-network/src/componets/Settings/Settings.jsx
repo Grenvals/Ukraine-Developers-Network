@@ -7,20 +7,24 @@ import { StatusForm } from './StatusForm/StatusForm';
 import background from '../../assets/images/settings/settings-bg.jpg';
 import style from './Settings.module.scss';
 
-// import { ProfileForm } from './ProfileForm/ProfileForm';
-
-const Settings = props => {
-  if (!props.profile || !props.status) {
+const Settings = ({
+  profile,
+  status,
+  updateUserStatus,
+  updateUserProfile,
+  updateUserPhoto,
+}) => {
+  if (!profile || !status) {
     return <Preloader />;
   } else {
     const initialData = {
-      status: props.status,
+      status: status,
     };
-    const onSubmit = formData => {
-      props.updateUserStatus(formData.status);
+    const handleSubmit = formData => {
+      updateUserStatus(formData.status);
     };
     const onProfileSubmit = formData => {
-      props.updateUserProfile(props.profile.userId, formData);
+      updateUserProfile(profile.userId, formData);
     };
     return (
       <div className={style.settings}>
@@ -29,12 +33,12 @@ const Settings = props => {
             <HeadImage image={background} />
             <StatusForm
               initialValues={initialData}
-              onSubmit={onSubmit}
-              photo={props.profile.photos.large}
-              updateUserPhoto={props.updateUserPhoto}
-              userId={props.profile.userId}
+              onSubmit={handleSubmit}
+              photo={profile.photos.large}
+              updateUserPhoto={updateUserPhoto}
+              userId={profile.userId}
             />
-            <ProfileForm initialValues={props.profile} onSubmit={onProfileSubmit} />
+            <ProfileForm initialValues={profile} onSubmit={onProfileSubmit} />
           </div>
         </PerfectScrollbar>
       </div>
