@@ -1,14 +1,15 @@
-import React from 'react';
-import style from './Captcha.module.scss';
+import { maxLengthCreator, required } from '../../../../utils/validators/validators';
+
 import { Field } from 'redux-form';
 import { Input } from '../../../common/Form/FormControls/FormControls';
-import { required, maxLengthCreator } from '../../../../utils/validators/validators';
-import reload from '../../../../assets/images/reload.svg';
+import React from 'react';
 import check from '../../../../assets/images/check.svg';
+import reload from '../../../../assets/images/reload.svg';
+import style from './Captcha.module.scss';
 
 const maxLength = maxLengthCreator(28);
 
-export const Captcha = ({ captcha, updateCaptcha }) => {
+const Captcha = ({ captcha, updateCaptcha }) => {
   return (
     <React.Fragment>
       {captcha === null ? (
@@ -45,3 +46,5 @@ export const Captcha = ({ captcha, updateCaptcha }) => {
     </React.Fragment>
   );
 };
+
+export { Captcha };

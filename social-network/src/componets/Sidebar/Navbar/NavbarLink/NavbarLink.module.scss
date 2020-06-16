@@ -42,6 +42,7 @@
     }
     @media (max-width: $md3+px) {
       border-bottom: 0px;
+      padding: 0px;
     }
     &:hover {
       background: darken($first, 5%);

@@ -46,6 +46,7 @@ const UserInfo = ({
               name={'Edit profile'}
               icon={editIcon}
               onClick={onClick}
+              adaptive={true}
             />
           ) : (
             <NavLinkButton
@@ -54,6 +55,7 @@ const UserInfo = ({
               name={'Send message'}
               onClick={startDialog}
               icon={messageIcon}
+              adaptive={true}
             />
           )}
         </div>
@@ -74,4 +76,4 @@ const UserInfo = ({
   );
 };
 
-export default UserInfo;
+export { UserInfo };

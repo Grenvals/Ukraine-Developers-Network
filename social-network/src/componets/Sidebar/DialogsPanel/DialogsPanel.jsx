@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import { Preloader } from '../../common/Preloader/Preloader';
 import React from 'react';
-import UserItem from './UserItem/UserItem';
+import { UserItem } from './UserItem/UserItem';
 import style from './DialogsPanel.module.scss';
 
-export const DialogsPanel = ({ dialogs, openDialogWithUser }) => {
+const DialogsPanel = ({ dialogs, openDialogWithUser }) => {
   let userItem = [];
   if (dialogs !== null) {
     userItem = dialogs
@@ -20,7 +20,6 @@ export const DialogsPanel = ({ dialogs, openDialogWithUser }) => {
         />
       ));
   }
-
   return (
     <div className={style.dialogsPanel}>
       <h2 className={style.dialogsPanel__title}>Dialods</h2>
@@ -37,3 +36,5 @@ export const DialogsPanel = ({ dialogs, openDialogWithUser }) => {
     </div>
   );
 };
+
+export { DialogsPanel };

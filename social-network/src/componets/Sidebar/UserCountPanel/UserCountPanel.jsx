@@ -3,7 +3,7 @@ import React from 'react';
 import style from './UserCountPanel.module.scss';
 import usersIcon from '../../../assets/images/nav/users.svg';
 
-export const UserCountPanel = ({ userCount, userId }) => {
+const UserCountPanel = ({ userCount, userId }) => {
   return (
     <div className={style.userCount}>
       <h2 className={style.userCount__title}>Users count</h2>
@@ -27,3 +27,5 @@ export const UserCountPanel = ({ userCount, userId }) => {
     </div>
   );
 };
+
+export { UserCountPanel };

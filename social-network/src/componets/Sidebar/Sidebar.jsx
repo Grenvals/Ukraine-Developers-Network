@@ -9,7 +9,7 @@ import { openDialogWithUser } from '../../redux/dialogsReducer';
 import style from './Sidebar.module.scss';
 import { useMediaQuery } from 'react-responsive';
 
-export const Sidebar = ({
+const Sidebar = ({
   dialogs,
   startDialogWithUser,
   isAuth,
@@ -50,4 +50,6 @@ const mapStateToProps = state => {
   };
 };
 
-export const SidebarContainer = connect(mapStateToProps, { openDialogWithUser })(Sidebar);
+const SidebarContainer = connect(mapStateToProps, { openDialogWithUser })(Sidebar);
+
+export { SidebarContainer as Sidebar };

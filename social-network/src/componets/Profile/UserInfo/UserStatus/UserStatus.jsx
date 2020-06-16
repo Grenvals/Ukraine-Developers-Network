@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import style from './UserStatus.module.scss';
-import editImg from '../../../../assets/images/profile/edit.svg';
+import React, { useEffect, useState } from 'react';
 
-export const UserStatus = props => {
+import editImg from '../../../../assets/images/profile/edit.svg';
+import style from './UserStatus.module.scss';
+
+const UserStatus = props => {
   const [editMode, setEditMode] = useState(false);
   const [status, setStatus] = useState(props.status);
   useEffect(() => {
     setStatus(props.status);
   }, [props.status]);
 
-  let activateEditMode = () => {
+  const activateEditMode = () => {
     setEditMode(true);
   };
-  let deactivateEditMode = () => {
+  const deactivateEditMode = () => {
     setEditMode(false);
     props.updateUserStatus(status);
   };
 
-  let onStatusChange = e => {
+  const onStatusChange = e => {
     setStatus(e.currentTarget.value);
   };
   if (!props.isLoggedUser) {
@@ -30,12 +31,12 @@ export const UserStatus = props => {
   return (
     <div className={`${style.userStatus} ${style.userStatus_active}`}>
       {!editMode && (
-        <div onClick={activateEditMode} className={style.statusText}>
+        <div onClick={activateEditMode} className={style.userStatus__text}>
           <p>{props.status || 'status not set'}</p>
         </div>
       )}
       {editMode ? (
-        <div className={style.inputBlock}>
+        <div className={style.userStatus__input}>
           <input
             onChange={onStatusChange}
             value={status}
@@ -45,10 +46,12 @@ export const UserStatus = props => {
           />
         </div>
       ) : (
-        <div className={style.editImg} onClick={activateEditMode}>
+        <div className={style.userStatus__icon} onClick={activateEditMode}>
           <img src={editImg} alt="edit" />
         </div>
       )}
     </div>
   );
 };
+
+export { UserStatus };

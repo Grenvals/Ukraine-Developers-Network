@@ -39,5 +39,9 @@
 		font-size: 14px;
 		margin-bottom: 10px;
 		max-width: 500px;
+		line-height: 1.8;
+		@media (max-width: $md3+px) {
+       text-align: left;
+    }
 	}
 }

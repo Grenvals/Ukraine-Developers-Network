@@ -22,9 +22,9 @@ export const NavLinkButton = ({
         className={cn(
           style.button,
           { [style.button_withIcon]: icon !== null },
-          { [style.button_accent]: accent === true },
+          { [style.button_accent]: accent },
           { [style.button_noText]: name === null },
-          { [style.button_adaptive]: adaptive === true }
+          { [style.button_adaptive]: adaptive }
         )}>
         {icon !== null && <img src={icon} alt="icon" className={style.button__icon} />}
         <p className={style.button__text}>{name}</p>

@@ -6,7 +6,7 @@ import React from 'react';
 import newsLogo from '../../../assets/images/news/google-news.jpg';
 import style from './NewsPanel.module.scss';
 
-export const NewsPanel = props => {
+const NewsPanel = props => {
   let newsItem = [];
   if (props.headlines !== null) {
     newsItem = props.headlines.map((u, i) => (
@@ -38,3 +38,5 @@ export const NewsPanel = props => {
     </div>
   );
 };
+
+export { NewsPanel };

@@ -1,6 +1,6 @@
 import { getCaptchaUrl, logIn } from '../../redux/authReducer';
 
-import { LoginReduxForm } from './LoginForm/LoginForm';
+import { LoginForm } from './LoginForm/LoginForm';
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import backgroundImg from '../../assets/images/background.jpg';
@@ -28,7 +28,7 @@ const Login = ({ logIn, isAuth, captcha, getCaptchaUrl, toogleRightSidebar }) =>
     <div className={style.login}>
       <div className={style.login__container}>
         <h2 className={style.login__title}>Login</h2>
-        <LoginReduxForm
+        <LoginForm
           onSubmit={handleSubmit}
           captcha={captcha}
           updateCaptcha={getCaptchaUrl}
@@ -49,6 +49,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { logIn, getCaptchaUrl, toogleRightSidebar })(
-  Login
-);
+const LoginContainer = connect(mapStateToProps, {
+  logIn,
+  getCaptchaUrl,
+  toogleRightSidebar,
+})(Login);
+
+export { LoginContainer as Login };

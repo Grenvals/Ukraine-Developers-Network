@@ -6,15 +6,16 @@ import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { DialogsContainer } from './componets/Dialogs/Dialogs';
 import { Header } from './componets/Header/Header';
+import { Login } from './componets/Login/Login';
 import { News } from './componets/News/News';
 import { NotFound } from './componets/NotFound/NotFound';
 import { NotificationsContainer } from './componets/Notifications/Notifications';
 import { Preloader } from './componets/common/Preloader/Preloader';
 import { Profile } from './componets/Profile/ProfileContainer';
 import { Provider } from 'react-redux';
-import { RightSidebarContainer } from './componets/Sidebar/RightSidebar';
+import { RightSidebar } from './componets/Sidebar/RightSidebar';
 import { SettingsContainers } from './componets/Settings/SettingsContainer';
-import { SidebarContainer } from './componets/Sidebar/Sidebar';
+import { Sidebar } from './componets/Sidebar/Sidebar';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { initializedApp } from './redux/appReducer';
@@ -24,7 +25,6 @@ import { useMediaQuery } from 'react-responsive';
 import { withSuspense } from './hoc/withSuspense';
 
 const UsersContainer = React.lazy(() => import('./componets/Users/UsersContainer'));
-const Login = React.lazy(() => import('./componets/Login/Login'));
 
 export const App = ({ initialized, initializedApp, isActiveRightSidebar }) => {
   const isDesktopOrLaptop = useMediaQuery({
@@ -40,11 +40,11 @@ export const App = ({ initialized, initializedApp, isActiveRightSidebar }) => {
     <div className={style.app}>
       <div className={style.app__wrap}>
         <Header />
-        <SidebarContainer />
+        <Sidebar />
         <div className={style.app__container}>
           <Switch>
             <Route exact path="/" render={() => <Redirect to={'/profile'} />} />
-            <Route path="/login" render={withSuspense(Login)} />
+            <Route path="/login" render={() => <Login />} />
             <Route path="/profile/:userId?" render={() => <Profile />} />
             <Route path="/dialogs/:userId?" render={() => <DialogsContainer />} />
             <Route path="/users" render={withSuspense(UsersContainer)} />
@@ -53,7 +53,7 @@ export const App = ({ initialized, initializedApp, isActiveRightSidebar }) => {
             <Route path="*" render={withSuspense(NotFound)} />
           </Switch>
         </div>
-        {isDesktopOrLaptop && isActiveRightSidebar && <RightSidebarContainer />}
+        {isDesktopOrLaptop && isActiveRightSidebar && <RightSidebar />}
         <NotificationsContainer />
       </div>
     </div>

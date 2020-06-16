@@ -24,4 +24,4 @@ const UserItem = ({ id, userLogo, userName, newMessagesCount, openDialogWithUser
   );
 };
 
-export default UserItem;
+export { UserItem };

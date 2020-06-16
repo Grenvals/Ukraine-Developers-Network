@@ -76,6 +76,10 @@
   }
 
   &_adaptive {
-    .button__icon {}
+    @media (max-width: $md3+px) {
+      .button__text {
+        display: none;
+      }
+    }
   }
 }

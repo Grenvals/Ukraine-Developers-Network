@@ -4,7 +4,7 @@ import { UserCountPanel } from './UserCountPanel/UserCountPanel';
 import { connect } from 'react-redux';
 import style from './Sidebar.module.scss';
 
-export const RightSidebar = ({
+const RightSidebar = ({
   dialogs,
   getTopHeadlines,
   headlines,
@@ -32,4 +32,6 @@ const mapStateToProps = state => {
   };
 };
 
-export const RightSidebarContainer = connect(mapStateToProps, {})(RightSidebar);
+const RightSidebarContainer = connect(mapStateToProps, {})(RightSidebar);
+
+export { RightSidebarContainer as RightSidebar };

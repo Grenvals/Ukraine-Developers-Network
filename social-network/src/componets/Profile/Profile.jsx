@@ -1,8 +1,8 @@
-import MyPostsContainer from './MyPosts/MyPostsContainer';
 import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Posts } from './Posts/PostsContainer';
 import { Preloader } from '../common/Preloader/Preloader';
 import React from 'react';
-import UserInfo from './UserInfo/UserInfo';
+import { UserInfo } from './UserInfo/UserInfo';
 import style from './Profile.module.scss';
 
 const Profile = props => {
@@ -21,7 +21,7 @@ const Profile = props => {
               updateUserPhoto={props.updateUserPhoto}
               startDialogWithUser={props.startDialogWithUser}
             />
-            {props.isLoggedUser && <MyPostsContainer />}
+            {props.isLoggedUser && <Posts />}
           </div>
         </PerfectScrollbar>
       </div>
@@ -29,4 +29,4 @@ const Profile = props => {
   }
 };
 
-export default Profile;
+export { Profile };

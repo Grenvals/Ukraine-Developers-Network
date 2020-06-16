@@ -1,8 +1,8 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
+import React from 'react';
 import style from './NavbarLink.module.scss';
 
-export const NavbarLink = ({ title, link, linkIcon }) => {
+const NavbarLink = ({ title, link, linkIcon }) => {
   return (
     <li className={style.navbarLink}>
       <NavLink
@@ -15,3 +15,5 @@ export const NavbarLink = ({ title, link, linkIcon }) => {
     </li>
   );
 };
+
+export { NavbarLink };

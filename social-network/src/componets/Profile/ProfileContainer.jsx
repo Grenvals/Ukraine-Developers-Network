@@ -5,7 +5,7 @@ import {
   updateUserStatus,
 } from '../../redux/profileReducer';
 
-import ProfileUI from './Profile';
+import { Profile } from './Profile';
 import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -39,7 +39,7 @@ class ProfileContainer extends React.Component {
   }
   render() {
     return (
-      <ProfileUI
+      <Profile
         {...this.props}
         profile={this.props.profile}
         status={this.props.status}
@@ -50,7 +50,7 @@ class ProfileContainer extends React.Component {
   }
 }
 
-let mapStateToProps = state => {
+const mapStateToProps = state => {
   return {
     profile: state.profilePage.profile,
     status: state.profilePage.status,
@@ -59,7 +59,7 @@ let mapStateToProps = state => {
   };
 };
 
-export const Profile = compose(
+const ProfileCompose = compose(
   connect(mapStateToProps, {
     getUserProfile,
     getUserStatus,
@@ -70,3 +70,5 @@ export const Profile = compose(
   }),
   withRouter
 )(ProfileContainer);
+
+export { ProfileCompose as Profile };

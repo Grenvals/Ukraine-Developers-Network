@@ -1,10 +1,11 @@
-import React from 'react';
-import style from './LoginForm.module.scss';
+import { Checkbox, Input } from '../../common/Form/FormControls/FormControls';
 import { Field, reduxForm } from 'redux-form';
-import { Input, Checkbox } from '../../common/Form/FormControls/FormControls';
-import { required, maxLengthCreator } from '../../../utils/validators/validators';
+import { maxLengthCreator, required } from '../../../utils/validators/validators';
+
 import { Button } from '../../common/Buttons/Buttons';
 import { Captcha } from './Captcha/Captcha';
+import React from 'react';
+import style from './LoginForm.module.scss';
 
 const maxLength = maxLengthCreator(28);
 const LoginForm = ({ handleSubmit, captcha, updateCaptcha, error }) => {
@@ -59,6 +60,8 @@ const LoginForm = ({ handleSubmit, captcha, updateCaptcha, error }) => {
     </form>
   );
 };
-export const LoginReduxForm = reduxForm({
+const LoginReduxForm = reduxForm({
   form: 'Login',
 })(LoginForm);
+
+export { LoginReduxForm as LoginForm };

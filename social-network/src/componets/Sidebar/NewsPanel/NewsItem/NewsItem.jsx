@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './NewsItem.module.scss';
 
-export const NewsItem = ({ photoUrl, title, link, publishedAt }) => {
+const NewsItem = ({ photoUrl, title, link, publishedAt }) => {
   return (
     <li className={style.newsItem}>
       <a className={style.newsItem__link} href={link} target={'blank'}>
@@ -16,3 +16,5 @@ export const NewsItem = ({ photoUrl, title, link, publishedAt }) => {
     </li>
   );
 };
+
+export { NewsItem };

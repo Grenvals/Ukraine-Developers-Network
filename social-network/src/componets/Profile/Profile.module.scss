@@ -1,6 +1,9 @@
 @import "./../../scss/main.scss";
 .profile {
   margin: 15px 15px;
+  @media (max-width: $md4+px) {
+    margin: 7px;
+  }
   &__wrap {
     height: 100%;
     overflow: hidden;

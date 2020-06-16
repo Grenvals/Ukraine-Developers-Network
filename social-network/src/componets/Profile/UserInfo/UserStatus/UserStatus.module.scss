@@ -3,34 +3,36 @@
 	margin: 0 auto;
 	max-width: 500px;
 	font-size: 14px;
-	line-height: 1.7;
+	line-height: 1.8;
 	text-align: center;
 	position: relative;
-	margin-bottom: 3px;
-	height: 25px;
+	margin-bottom: 5px;
+	&__input {
+		margin: 0px 15px;
+		input {
+			height: 25px;
+			border: 1px solid $accent;
+			border-radius: 4px;
+			padding: 0px 15px;
+			line-height: 1.8;
+		}
+	}
+	&__icon {
+		position: absolute;
+		cursor: pointer;
+		top: 0px;
+		right: 0px;
+		width: 14px;
+		img {
+			max-width: 100%;
+			fill: $accent;
+		}
+	}
 	&_active {
 		padding: 0px 20px;
 		cursor: pointer;
-	}
-}
-.editImg {
-	position: absolute;
-	cursor: pointer;
-	top: 0px;
-	right: 0px;
-	width: 14px;
-	img {
-		max-width: 100%;
-		fill: $accent;
-	}
-}
-.inputBlock {
-	margin: 0px 15px;
-	input {
-		height: 25px;
-		border: 1px solid $accent;
-		border-radius: 4px;
-		padding: 0px 15px;
-		line-height: 1.8;
+		@media (max-width: $md3+px) {
+			padding: 0px 15px;
+    }
 	}
 }
