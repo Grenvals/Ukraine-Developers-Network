@@ -3,46 +3,46 @@
 
 .controlPanel {
 	@include flexbox();
-		flex-wrap: wrap;
-		padding: 10px 15px 0px 15px;
-		align-items: center;
-		border-bottom: 1px solid $first;
-		& > * {
-			margin-bottom: 10px;
-		}
-		@media (max-width: $md4+px) {
-			display: block;
-    }
-		&__selectCount {
-			margin-right: 15px;
-		}
-		&__selectCategory {
-			margin-right: 15px;
-			:global {
-				.select {
-					min-width: 150px;
-				}
+	flex-wrap: wrap;
+	padding: 10px 15px 0px 15px;
+	align-items: center;
+	border-bottom: 1px solid $first;
+	& > * {
+		margin-bottom: 10px;
+	}
+	@media (max-width: $md4+px) {
+		display: block;
+	}
+	&__selectCount {
+		margin-right: 15px;
+	}
+	&__selectCategory {
+		margin-right: 15px;
+		:global {
+			.select {
+				min-width: 150px;
 			}
 		}
-		&__selectView {
-			margin-right: 15px;
-			:global {
-				.select {
-					min-width: 100px;
-				}
+	}
+	&__selectView {
+		margin-right: 15px;
+		:global {
+			.select {
+				min-width: 100px;
 			}
 		}
-		&__pagination {
-			margin-left: auto;
-			margin-right: 0;
-			justify-content: flex-end;
+	}
+	&__pagination {
+		margin-left: auto;
+		margin-right: 0;
+		justify-content: flex-end;
+	}
+	&__totalResults {
+		font-size: 14px;
+		font-weight: 600;
+		margin-right: 15px;
+		span {
+			margin-left: 5px;
 		}
-		&__totalResults {
-			font-size: 14px;
-			font-weight: 600;
-			margin-right: 15px;
-			span {
-				margin-left: 5px;
-			}
-		}
+	}
 }

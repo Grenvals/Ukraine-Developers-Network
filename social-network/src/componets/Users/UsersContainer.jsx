@@ -67,7 +67,7 @@ let mapStateToProps = state => {
   };
 };
 
-export default compose(
+const UsersCompose = compose(
   connect(mapStateToProps, {
     setCurrentPage,
     getUsers: getRequestUsers,
@@ -80,3 +80,5 @@ export default compose(
   }),
   withAuthRedirect
 )(UsersContainer);
+
+export default UsersCompose;

@@ -6,6 +6,7 @@ import followIcon from '../../../assets/images/users/follow.svg';
 import messageIcon from '../../../assets/images/message-white.svg';
 import style from './User.module.scss';
 import unfollowIcon from '../../../assets/images/users/unfollow.svg';
+import { useMediaQuery } from 'react-responsive';
 import userIcon from '../../../assets/images/user-icon.svg';
 
 const User = ({
@@ -19,12 +20,23 @@ const User = ({
   followingInProgress,
   startDialogWithUser,
 }) => {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-device-width: 1224px)',
+  });
+  const isTablet = useMediaQuery({
+    query: '(min-device-width: 767.98px)',
+  });
+
   const follow = () => {
     followUser(id);
   };
   const unfollow = () => {
     unfollowUser(id);
   };
+  let followName = null;
+  if (isTablet) {
+    followName = followed ? 'unfollow' : 'follow';
+  }
   const onClick = () => {};
   const startDialog = () => {
     startDialogWithUser(id);
@@ -49,13 +61,13 @@ const User = ({
       <NavLinkButton
         className={style.user__dialog}
         link={'/dialogs/' + id}
-        name={'Message'}
+        name={isDesktopOrLaptop ? 'Message' : null}
         onClick={startDialog}
         icon={messageIcon}
       />
       <Button
         className={style.user__follow}
-        name={followed ? 'Unfollow' : 'Follow'}
+        name={followName}
         disabled={followingInProgress.some(userId => userId === id)}
         onClick={followed ? unfollow : follow}
         accent={!followed && true}
@@ -65,4 +77,4 @@ const User = ({
   );
 };
 
-export default User;
+export { User };

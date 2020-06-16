@@ -4,10 +4,10 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 import { Preloader } from '../common/Preloader/Preloader';
 import React from 'react';
 import { Select } from '../common/Select/Select';
-import User from './User/User';
+import { User } from './User/User';
 import style from './Users.module.scss';
 
-export const Users = ({
+const Users = ({
   users,
   totalUsersCount,
   pageSize,
@@ -99,3 +99,5 @@ export const Users = ({
     </div>
   );
 };
+
+export { Users };

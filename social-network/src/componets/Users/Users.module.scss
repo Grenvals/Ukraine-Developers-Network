@@ -9,6 +9,10 @@
   border-radius: 6px;
 	min-height: 670px;
 	margin: 15px 15px;
+	@media (max-width: $md3+px) {
+		margin: 0px;
+		border-radius: 0px;
+	}
 	&__wrap {
 		height: 100%;
 	}
@@ -17,10 +21,14 @@
 	}
 	&__settings {
 		@include flexbox();
-		padding: 0px 20px;
+		flex-wrap: wrap;
+		padding: 8px 15px 0px 15px;
 		align-items: center;
-		height: 50px;
 		border-bottom: 1px solid $first;
+		& > * {
+			margin-bottom: 8px;
+		}
+
 	}
 	&__pagination {
 		margin-left: auto;

@@ -6,6 +6,7 @@ import arrowLeft from './../../../assets/images/arrows/left-arrow.svg';
 import arrowRight from './../../../assets/images/arrows/right-arrow.svg';
 import cn from 'classnames';
 import style from './Pagination.module.scss';
+import { useMediaQuery } from 'react-responsive';
 
 export const Pagination = React.memo(
   ({
@@ -16,8 +17,16 @@ export const Pagination = React.memo(
     pagPortionNumber,
     setPagPortionNumber,
   }) => {
-    const portionSize = 4;
-    const endPortionSize = 2;
+    const isPhone = useMediaQuery({
+      query: '(max-device-width: 468.98px)',
+    });
+
+    let portionSize = 2;
+    let endPortionSize = 1;
+    if (!isPhone) {
+      portionSize = 4;
+      endPortionSize = 2;
+    }
 
     const [leftButtonMode, setleftButtonMode] = useState(false);
     const [RightButtonMode, setRigthButtonMode] = useState(false);
