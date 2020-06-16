@@ -6,7 +6,7 @@ import {
   connect,
   logOut,
   style,
-} from 'index.js';
+} from './index.js';
 
 const Header = ({ login, isAuth, profile, logOut }) => {
   return (
