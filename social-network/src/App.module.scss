@@ -10,6 +10,9 @@
     width: 100%;
     max-width: 1420px;
     margin: 0 auto;
+    @media (max-width: $md3+px) {
+      padding: 54px 0px 0px 0px;
+    }
   }
   &__container {
     width: 100%;
