@@ -7,6 +7,7 @@ import { UserCountPanel } from './UserCountPanel/UserCountPanel';
 import { connect } from 'react-redux';
 import { openDialogWithUser } from '../../redux/dialogsReducer';
 import style from './Sidebar.module.scss';
+import { useMediaQuery } from 'react-responsive';
 
 export const Sidebar = ({
   dialogs,
@@ -16,20 +17,25 @@ export const Sidebar = ({
   totalUsersCount,
   userId,
 }) => {
+  const isTablet = useMediaQuery({
+    query: '(min-device-width: 767.98px)',
+  });
   return (
     <div className={style.sidebar}>
       {isAuth ? (
         <React.Fragment>
           <Navbar />
-          <DialogsPanel dialogs={dialogs} openDialogWithUser={openDialogWithUser} />
+          {isTablet && (
+            <DialogsPanel dialogs={dialogs} openDialogWithUser={openDialogWithUser} />
+          )}
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <UserCountPanel userCount={totalUsersCount} userId={userId} />
-          <NewsPanel state={dialogs} headlines={headlines} />
+          {isTablet && <UserCountPanel userCount={totalUsersCount} userId={userId} />}
+          {isTablet && <NewsPanel state={dialogs} headlines={headlines} />}
         </React.Fragment>
       )}
-      <AudioPlayer />
+      {isTablet && <AudioPlayer />}
     </div>
   );
 };

@@ -17,6 +17,9 @@
   &__link {
     display: block;
     padding: 15px 10px;
+    @media (max-width: $md2+px) {
+      padding: 10px 5px;
+    }
   }
   &__photo {
     display: block;
