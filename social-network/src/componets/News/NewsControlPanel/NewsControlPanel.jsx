@@ -3,7 +3,7 @@ import React from 'react';
 import { Select } from '../../common/Select/Select';
 import style from './NewsControlPanel.module.scss';
 
-export const NewsControlPanel = ({
+const NewsControlPanel = ({
   categoryList,
   currentCategory,
   pageSize,
@@ -81,3 +81,5 @@ export const NewsControlPanel = ({
     </div>
   );
 };
+
+export { NewsControlPanel };

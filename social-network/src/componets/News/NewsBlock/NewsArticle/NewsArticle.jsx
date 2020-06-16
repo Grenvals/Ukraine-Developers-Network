@@ -4,7 +4,7 @@ import cn from 'classnames';
 import newsDefaultImg from '../../../../assets/images/default-img.png';
 import style from './NewsArticle.module.scss';
 
-export const NewsArticle = ({
+const NewsArticle = ({
   photoUrl,
   title,
   description,
@@ -39,3 +39,5 @@ export const NewsArticle = ({
     </li>
   );
 };
+
+export { NewsArticle };

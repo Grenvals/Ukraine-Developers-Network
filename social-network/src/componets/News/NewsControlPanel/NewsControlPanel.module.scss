@@ -4,10 +4,15 @@
 .controlPanel {
 	@include flexbox();
 		flex-wrap: wrap;
-		padding: 0px 20px;
+		padding: 10px 15px 0px 15px;
 		align-items: center;
-		height: 50px;
 		border-bottom: 1px solid $first;
+		& > * {
+			margin-bottom: 10px;
+		}
+		@media (max-width: $md4+px) {
+			display: block;
+    }
 		&__selectCount {
 			margin-right: 15px;
 		}
@@ -30,10 +35,12 @@
 		&__pagination {
 			margin-left: auto;
 			margin-right: 0;
+			justify-content: flex-end;
 		}
 		&__totalResults {
 			font-size: 14px;
 			font-weight: 600;
+			margin-right: 15px;
 			span {
 				margin-left: 5px;
 			}

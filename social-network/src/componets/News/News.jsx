@@ -82,7 +82,7 @@ const News = ({
   );
 };
 
-let mapStateToProps = state => {
+const mapStateToProps = state => {
   return {
     articles: state.news.articles,
     totalResults: state.news.totalResults,

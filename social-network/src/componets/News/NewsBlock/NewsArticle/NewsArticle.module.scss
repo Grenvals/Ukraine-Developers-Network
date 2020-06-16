@@ -119,8 +119,16 @@
       height: 100px;
       padding: 0px;
       margin: 0px 15px 0px -15px;
+      @media (max-width: $md4+px) {
+        flex: 0 0 100px;
+        width: 100px;
+        height: 100px;
+      }
       img {
         border-radius: 6px 10px 10px 6px;
+        @media (max-width: $md4+px) {
+          border-radius: 0px 10px 10px 0px;
+        }
       }
     }
     .newsArticle__content {

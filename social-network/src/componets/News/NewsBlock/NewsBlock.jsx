@@ -4,7 +4,7 @@ import React from 'react';
 import cn from 'classnames';
 import style from './NewsBlock.module.scss';
 
-export const NewsBlock = ({ articles, viewMode }) => {
+const NewsBlock = ({ articles, viewMode }) => {
   let newsList = [];
   if (articles !== null) {
     newsList = articles.map((u, i) => (
@@ -39,3 +39,5 @@ export const NewsBlock = ({ articles, viewMode }) => {
     </React.Fragment>
   );
 };
+
+export { NewsBlock };
