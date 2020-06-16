@@ -7,7 +7,7 @@ import {
 } from '../../redux/profileReducer';
 
 import React from 'react';
-import Settings from './Settings';
+import { Settings } from './Settings';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { toogleRightSidebar } from './../../redux/sidebarReducer';
@@ -22,7 +22,6 @@ class SettingsContainer extends React.Component {
     this.refreshUserDate();
     this.props.toogleRightSidebar(true);
   }
-
   render() {
     return (
       <Settings
@@ -35,7 +34,7 @@ class SettingsContainer extends React.Component {
   }
 }
 
-let mapStateToProps = state => {
+const mapStateToProps = state => {
   return {
     profile: state.auth.profile,
     status: state.profilePage.status,
@@ -43,7 +42,7 @@ let mapStateToProps = state => {
   };
 };
 
-export const SettingsContainers = compose(
+const SettingsContainers = compose(
   connect(mapStateToProps, {
     getUserProfile,
     getUserStatus,
@@ -54,3 +53,5 @@ export const SettingsContainers = compose(
   }),
   withAuthRedirect
 )(SettingsContainer);
+
+export { SettingsContainers as Settings };

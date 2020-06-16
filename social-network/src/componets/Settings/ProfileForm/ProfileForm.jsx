@@ -46,7 +46,7 @@ const ProfileForm = ({ handleSubmit, error, pristine, submitting }) => {
           validate={[required, maxLengthSummury]}
         />
         <TextareaItem
-          className={style.aboutMe}
+          className={style.settings__aboutUser}
           label="About me"
           placeholder="About you"
           name="aboutMe"
@@ -98,6 +98,8 @@ const ProfileForm = ({ handleSubmit, error, pristine, submitting }) => {
     </form>
   );
 };
-export const ProfileReduxForm = reduxForm({
+const ProfileReduxForm = reduxForm({
   form: 'userProfile',
 })(ProfileForm);
+
+export { ProfileReduxForm as ProfileForm };

@@ -47,6 +47,9 @@ const StatusForm = ({
     </div>
   );
 };
-export const StatusReduxForm = reduxForm({
+
+const StatusReduxForm = reduxForm({
   form: 'userStatus',
 })(StatusForm);
+
+export { StatusReduxForm as StatusForm };

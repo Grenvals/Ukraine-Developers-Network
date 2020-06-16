@@ -14,7 +14,7 @@ import { Preloader } from './componets/common/Preloader/Preloader';
 import { Profile } from './componets/Profile/ProfileContainer';
 import { Provider } from 'react-redux';
 import { RightSidebar } from './componets/Sidebar/RightSidebar';
-import { SettingsContainers } from './componets/Settings/SettingsContainer';
+import { Settings } from './componets/Settings/SettingsContainer';
 import { Sidebar } from './componets/Sidebar/Sidebar';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -26,7 +26,7 @@ import { withSuspense } from './hoc/withSuspense';
 
 const UsersContainer = React.lazy(() => import('./componets/Users/UsersContainer'));
 
-export const App = ({ initialized, initializedApp, isActiveRightSidebar }) => {
+const App = ({ initialized, initializedApp, isActiveRightSidebar }) => {
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-device-width: 1224px)',
   });
@@ -49,7 +49,7 @@ export const App = ({ initialized, initializedApp, isActiveRightSidebar }) => {
             <Route path="/dialogs/:userId?" render={() => <DialogsContainer />} />
             <Route path="/users" render={withSuspense(UsersContainer)} />
             <Route path="/news" render={withSuspense(News)} />
-            <Route path="/settings" component={SettingsContainers} />
+            <Route path="/settings" component={Settings} />
             <Route path="*" render={withSuspense(NotFound)} />
           </Switch>
         </div>
@@ -73,7 +73,7 @@ const AppContainer = compose(
   connect(mapStateToProps, { initializedApp })
 )(App);
 
-export const SocialNetworkApp = props => {
+const SocialNetworkApp = props => {
   return (
     <BrowserRouter>
       <Provider store={store}>
@@ -82,6 +82,8 @@ export const SocialNetworkApp = props => {
     </BrowserRouter>
   );
 };
+
+export { SocialNetworkApp };
 
 // ! Переписати на класові компоненти(user итд).
 // ! Пропрацювати анімацію і ефекти.

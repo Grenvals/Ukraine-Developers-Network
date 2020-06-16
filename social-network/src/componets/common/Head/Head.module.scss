@@ -1,9 +1,9 @@
 
 @import "../../../scss/main.scss";
 .header {
+  @include flexbox();
   height: 50px;
   padding: 0px 20px;
-  @include flexbox();
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid $first;
@@ -66,6 +66,9 @@
     height: 150px;
     width: 100%;
     object-fit: cover;
+    @media (max-width: $md3+px) {
+			height: 110px;
+    }
 	}
 }
 

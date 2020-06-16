@@ -7,17 +7,26 @@
 		background: $second;
 		border-radius: 8px;
 		overflow: hidden;
+		@media (max-width: $md3+px) {
+			margin: 7px;
+    }
 	}
 	&__container {
 		padding: 25px 30px;
+		@media (max-width: $md3+px) {
+			padding: 20px 15px;
+    }
 	}
 	&__form {
 		&_inline {
 			@include flexbox();
 			align-items: center;
+			@media (max-width: $md4+px) {
+				display: block;
+			}
 		}
 	}
-}
-.aboutMe {
-	height: 230px;
+	&__aboutUser {
+		height: 230px;
+	}
 }

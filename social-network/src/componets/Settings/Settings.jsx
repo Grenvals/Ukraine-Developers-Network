@@ -1,11 +1,13 @@
 import { HeadImage } from '../common/Head/Head';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { Preloader } from '../common/Preloader/Preloader';
-import { ProfileReduxForm } from './ProfileReduxForm/ProfileReduxForm';
+import { ProfileForm } from './ProfileForm/ProfileForm';
 import React from 'react';
-import { StatusReduxForm } from './StatusReduxForm/StatusReduxForm';
+import { StatusForm } from './StatusForm/StatusForm';
 import background from '../../assets/images/settings/settings-bg.jpg';
 import style from './Settings.module.scss';
+
+// import { ProfileForm } from './ProfileForm/ProfileForm';
 
 const Settings = props => {
   if (!props.profile || !props.status) {
@@ -25,14 +27,14 @@ const Settings = props => {
         <PerfectScrollbar className={style.settings__scrollbar} component="div">
           <div className={style.settings__wrap}>
             <HeadImage image={background} />
-            <StatusReduxForm
+            <StatusForm
               initialValues={initialData}
               onSubmit={onSubmit}
               photo={props.profile.photos.large}
               updateUserPhoto={props.updateUserPhoto}
               userId={props.profile.userId}
             />
-            <ProfileReduxForm initialValues={props.profile} onSubmit={onProfileSubmit} />
+            <ProfileForm initialValues={props.profile} onSubmit={onProfileSubmit} />
           </div>
         </PerfectScrollbar>
       </div>
@@ -40,4 +42,4 @@ const Settings = props => {
   }
 };
 
-export default Settings;
+export { Settings };
