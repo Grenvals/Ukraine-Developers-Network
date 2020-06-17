@@ -9,7 +9,7 @@ import { Header } from './componets/Header/Header';
 import { Login } from './componets/Login/Login';
 import { News } from './componets/News/News';
 import { NotFound } from './componets/NotFound/NotFound';
-import { NotificationsContainer } from './componets/Notifications/Notifications';
+import { Notifications } from './componets/Notifications/Notifications';
 import { Preloader } from './componets/common/Preloader/Preloader';
 import { Profile } from './componets/Profile/ProfileContainer';
 import { Provider } from 'react-redux';
@@ -54,7 +54,7 @@ const App = ({ initialized, initializedApp, isActiveRightSidebar }) => {
           </Switch>
         </div>
         {isDesktopOrLaptop && isActiveRightSidebar && <RightSidebar />}
-        <NotificationsContainer />
+        <Notifications />
       </div>
     </div>
   );

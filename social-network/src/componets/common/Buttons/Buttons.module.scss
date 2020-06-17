@@ -30,38 +30,30 @@
     height: 12px;
     object-fit: contain;
   }
-
   &:hover {
     background: lighten($accent, 10%);
   }
-
   &:active {
     background: darken($accent, 10%);
   }
-
   &:disabled {
     cursor: default;
     background: lighten($accent, 20%);
   }
-
   &_accent {
     background: $accent3;
-
     &:hover {
       background: lighten($accent3, 5%);
     }
-
     &:disabled {
       background: rgba($accent3, 0.3);
     }
   }
-
   &_withIcon {
     .button__text {
       padding-left: 15px;
     }
   }
-
   &_noText {
     padding: 0px 18px;
     .button__icon {
@@ -74,7 +66,6 @@
       display: none;
     }
   }
-
   &_adaptive {
     @media (max-width: $md3+px) {
       .button__text {

@@ -27,4 +27,6 @@ const mapStateToProps = state => {
   };
 };
 
-export const NotificationsContainer = connect(mapStateToProps, {})(Notifications);
+const NotificationsContainer = connect(mapStateToProps, {})(Notifications);
+
+export { NotificationsContainer as Notifications };

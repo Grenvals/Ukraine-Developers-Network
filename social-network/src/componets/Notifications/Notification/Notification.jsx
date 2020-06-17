@@ -3,7 +3,7 @@ import errorIcon from '../../../assets/images/notification/error.svg';
 import notificationIcon from '../../../assets/images/notification/notification.svg';
 import style from './Notification.module.scss';
 
-export const Notification = ({ message, error }) => {
+const Notification = ({ message, error }) => {
   return (
     <li className={style.notification}>
       <div className={style.notification__container}>
@@ -15,3 +15,5 @@ export const Notification = ({ message, error }) => {
     </li>
   );
 };
+
+export { Notification };

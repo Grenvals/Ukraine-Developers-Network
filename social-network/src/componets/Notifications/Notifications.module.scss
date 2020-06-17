@@ -6,6 +6,9 @@
 	bottom: 15px;
 	left: 15px;
 	width: 260px;
+	@media (max-width: $md3+px) {
+		bottom: 60px;
+	}
 	&__list {
 		& > * {
 			margin-bottom: 15px;
