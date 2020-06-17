@@ -1,14 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { DialogItem } from './DialogItem/DialogItem';
 import { Head } from '../../common/Head/Head';
 import PerfectScrollbar from 'react-perfect-scrollbar';
+import cn from 'classnames';
+import dialogsIcon from '../../../assets/images/dialogs/dialoglist.svg';
 import style from './DialogsList.module.scss';
 
-export const DialogsList = ({ dialogs, getDialogsUsersList }) => {
+const DialogsList = ({ dialogs, getDialogsUsersList }) => {
   useEffect(() => {
     getDialogsUsersList();
   }, [getDialogsUsersList]);
+
+  const [isActive, setIsActive] = useState(true);
+  const onHandleClick = () => {
+    if (isActive) {
+      setIsActive(false);
+    } else {
+      setIsActive(true);
+    }
+  };
   let notificationItem = dialogs.map(d => (
     <DialogItem
       key={d.id}
@@ -21,13 +32,26 @@ export const DialogsList = ({ dialogs, getDialogsUsersList }) => {
     />
   ));
   return (
-    <div className={style.dialogs}>
+    <div
+      className={cn(
+        style.dialogs,
+        { [style.dialogs_active]: isActive },
+        { [style.dialogs_disabled]: !isActive }
+      )}>
       <Head title={'Dialogs / Chat'} />
       <div className={style.dialogs__container}>
         <PerfectScrollbar className={style.dialogs__scrollbar} component={'div'}>
           <ul className={style.dialogs__usersList}>{notificationItem}</ul>
         </PerfectScrollbar>
       </div>
+      <button
+        className={cn(style.dialogs__btn, { [style.dialogs__btn_active]: isActive })}
+        onClick={onHandleClick}
+        type="button">
+        <img src={dialogsIcon} alt="dialogs" />
+      </button>
     </div>
   );
 };
+
+export { DialogsList };

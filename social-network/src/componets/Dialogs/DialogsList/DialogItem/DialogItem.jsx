@@ -3,13 +3,7 @@ import React from 'react';
 import { UserPhotoLink } from '../../../common/UserFoto/UserFoto';
 import style from './DialogItem.module.scss';
 
-export const DialogItem = ({
-  id,
-  userName,
-  userLogo,
-  newMessagesCount,
-  lastUserActivity,
-}) => {
+const DialogItem = ({ id, userName, userLogo, newMessagesCount, lastUserActivity }) => {
   return (
     <li className={style.dialogItem}>
       <NavLink
@@ -37,3 +31,5 @@ export const DialogItem = ({
     </li>
   );
 };
+
+export { DialogItem };

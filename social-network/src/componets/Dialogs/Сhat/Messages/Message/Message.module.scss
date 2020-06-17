@@ -7,6 +7,9 @@
   padding-left: 50px;
   max-width: 400px;
   margin-bottom: 5px;
+  @media (max-width: $md4+px) {
+    margin-bottom: 15px;
+  }
   &__item {
     box-shadow: $shadowligth;
     position: relative;

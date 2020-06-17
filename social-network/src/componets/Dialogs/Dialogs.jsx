@@ -81,7 +81,7 @@ const mapStateToProps = state => {
   };
 };
 
-export const DialogsContainer = compose(
+const DialogsContainer = compose(
   connect(mapStateToProps, {
     getDialogsUsersList,
     getDialogMessages,
@@ -91,3 +91,5 @@ export const DialogsContainer = compose(
   withAuthRedirect,
   withRouter
 )(Dialogs);
+
+export { DialogsContainer as Dialogs };

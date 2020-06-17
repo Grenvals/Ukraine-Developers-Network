@@ -3,7 +3,7 @@ import { UserPhoto } from '../../../../common/UserFoto/UserFoto';
 import cn from 'classnames';
 import style from './Message.module.scss';
 
-export const Message = ({
+const Message = ({
   body,
   addedAt,
   senderId,
@@ -36,3 +36,5 @@ export const Message = ({
     </li>
   );
 };
+
+export { Message };

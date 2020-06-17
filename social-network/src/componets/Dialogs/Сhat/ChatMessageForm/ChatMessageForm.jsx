@@ -26,10 +26,12 @@ const AddMessageReduxForm = reduxForm({
   form: 'DialogsChat',
 })(AddMessageForm);
 
-export const ChatMessageForm = ({ activeDialogUserId, sendMessage }) => {
+const ChatMessageForm = ({ activeDialogUserId, sendMessage }) => {
   const onSubmit = (formData, dispatch) => {
     sendMessage(activeDialogUserId, formData.user_message);
     dispatch(reset('DialogsChat'));
   };
   return <AddMessageReduxForm onSubmit={onSubmit} />;
 };
+
+export { ChatMessageForm };

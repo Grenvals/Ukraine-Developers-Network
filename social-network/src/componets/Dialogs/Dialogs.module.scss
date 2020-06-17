@@ -15,5 +15,12 @@
     box-shadow: $shadow;
     border-radius: 10px;
     overflow: hidden;
+    @media (max-width: $md3+px) {
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      border-radius: 0px;
+    }
   }
 }

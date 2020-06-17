@@ -6,7 +6,7 @@ import { Preloader } from '../../../common/Preloader/Preloader';
 import React from 'react';
 import style from './Messages.module.scss';
 
-export const Messages = ({ messages, profile, dialogs, activeDialogUserId }) => {
+const Messages = ({ messages, profile, dialogs, activeDialogUserId }) => {
   let message = [];
   if (messages) {
     message = messages.map(m => (
@@ -46,3 +46,5 @@ export const Messages = ({ messages, profile, dialogs, activeDialogUserId }) => 
     </div>
   );
 };
+
+export { Messages };

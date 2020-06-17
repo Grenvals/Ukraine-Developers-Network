@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 
 import { BrowserRouter } from 'react-router-dom';
-import { DialogsContainer } from './componets/Dialogs/Dialogs';
+import { Dialogs } from './componets/Dialogs/Dialogs';
 import { Header } from './componets/Header/Header';
 import { Login } from './componets/Login/Login';
 import { News } from './componets/News/News';
@@ -46,7 +46,7 @@ const App = ({ initialized, initializedApp, isActiveRightSidebar }) => {
             <Route exact path="/" render={() => <Redirect to={'/profile'} />} />
             <Route path="/login" render={() => <Login />} />
             <Route path="/profile/:userId?" render={() => <Profile />} />
-            <Route path="/dialogs/:userId?" render={() => <DialogsContainer />} />
+            <Route path="/dialogs/:userId?" render={() => <Dialogs />} />
             <Route path="/users" render={withSuspense(UsersContainer)} />
             <Route path="/news" render={withSuspense(News)} />
             <Route path="/settings" component={Settings} />

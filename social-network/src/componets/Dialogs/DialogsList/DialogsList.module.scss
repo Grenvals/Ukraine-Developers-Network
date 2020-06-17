@@ -2,8 +2,38 @@
 
 .dialogs {
   flex: 0 0 350px;
-  height: 100%;
   position: relative;
+  background: $second;
+  @media (max-width: $md1+px) {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: -340px;
+    width: 340px;
+    max-width: 350px;
+    z-index: 4;
+    transition: left 0.3s;
+  }
+  @media (max-width: $md3+px) {
+    left: -330px;
+    width: 330px;
+  }
+  @media (max-width: $md4+px) {
+    left: -300px;
+    width: 300px;
+  }
+  @media (max-width: $md5+px) {
+    left: -270px;
+    width: 270px;
+  }
+  &_active {
+    right: auto;
+    left: 0px;
+    box-shadow: $shadow;
+  }
+  &_disabled {
+    animation: slideIn 0.4s  ease-out reverse;
+  }
   &__container {
     position: absolute;
     top: 49px;
@@ -19,5 +49,32 @@
     border-right: 1px solid $first;
     display: block;
     width: 100%;
+  }
+  &__btn {
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 100%;
+    height: 40px;
+    width: 50px;
+    background: lighten($accent, 10%);
+    border-radius: 0px 10px 10px 0px;
+    box-shadow: $shadow;
+    @media (max-width: $md1+px) {
+      display: block;
+    }
+    &:active {
+      background: $accent;
+    }
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      width: 25px;
+    }
+    &_active {
+      background: lighten( $accent3, 7% )  ;
+    }
   }
 }

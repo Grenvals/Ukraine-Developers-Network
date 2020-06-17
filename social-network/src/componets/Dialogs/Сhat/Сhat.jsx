@@ -6,7 +6,7 @@ import { Messages } from './Messages/Messages';
 import React from 'react';
 import style from './Chat.module.scss';
 
-export const Chat = ({ messages, profile, dialogs, activeDialogUserId, sendMessage }) => {
+const Chat = ({ messages, profile, dialogs, activeDialogUserId, sendMessage }) => {
   return (
     <div className={style.chat}>
       <Head title="Messages" />
@@ -23,3 +23,5 @@ export const Chat = ({ messages, profile, dialogs, activeDialogUserId, sendMessa
     </div>
   );
 };
+
+export { Chat };
