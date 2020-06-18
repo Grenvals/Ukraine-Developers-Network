@@ -1,17 +1,17 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
+import { compose } from 'redux';
+
+import { startDialogWithUser } from '../../redux/dialogsReducer';
 import {
   getUserProfile,
   getUserStatus,
   updateUserPhoto,
   updateUserStatus,
 } from '../../redux/profileReducer';
-
-import { Profile } from './Profile';
-import React from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { startDialogWithUser } from '../../redux/dialogsReducer';
 import { toogleRightSidebar } from './../../redux/sidebarReducer';
-import { withRouter } from 'react-router';
+import { Profile } from './Profile';
 
 class ProfileContainer extends React.Component {
   refreshProfile() {

@@ -1,8 +1,8 @@
 import { getAuthUserData } from './authReducer';
 import { getDialogsUsersList } from './dialogsReducer';
 import { getTopHeadlines } from './newsReducer';
-import { getTotalUsersCount } from './usersReducer';
 import { setSuspenseStatus } from './notificationReducer';
+import { getTotalUsersCount } from './usersReducer';
 
 const INITIALIZED_SUCSESS = 'INITIALIZED_SUCSESS';
 

@@ -1,7 +1,6 @@
-import { setNotification, setSuspenseStatus } from './notificationReducer';
-
-import { updateObjectInArray } from '../utils/object-helper';
 import { usersAPI } from '../api/api';
+import { updateObjectInArray } from '../utils/object-helper';
+import { setNotification, setSuspenseStatus } from './notificationReducer';
 
 const FOLLOW = 'users/FOLLOW';
 const UNFOLLOW = 'users/UNFOLLOW';

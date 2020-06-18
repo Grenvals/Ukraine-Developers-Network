@@ -1,14 +1,15 @@
-import { Head, HeadImage } from '../../common/Head/Head';
-
-import { NavLinkButton } from '../../common/Buttons/Buttons';
 import React from 'react';
-import { UserContacts } from './UserContacts/UserContacts';
-import { UserDescription } from './UserDescription/UserDescription';
-import { UserProfilePhoto } from '../../common/UserFoto/UserFoto';
-import { UserStatus } from './UserStatus/UserStatus';
-import backgroundImg from '../../../assets/images/profile/profile-bg.jpg';
+
 import editIcon from '../../../assets/images/edit-white.svg';
 import messageIcon from '../../../assets/images/message-white.svg';
+import backgroundImg from '../../../assets/images/profile/profile-bg.jpg';
+import { NavLinkButton } from '../../common/Buttons/Buttons';
+import { Head, HeadImage } from '../../common/Head/Head';
+import { UserProfilePhoto } from '../../common/UserFoto/UserFoto';
+import { UserContacts } from './UserContacts/UserContacts';
+import { UserDescription } from './UserDescription/UserDescription';
+import { UserStatus } from './UserStatus/UserStatus';
+
 import style from './UserInfo.module.scss';
 
 const UserInfo = ({

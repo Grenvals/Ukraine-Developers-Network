@@ -1,4 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { Head } from '../common/Head/Head';
+import { Pagination } from '../common/Pagination/Pagination';
 import {
   getNewsArticles,
   setCurrentCategory,
@@ -6,17 +13,11 @@ import {
   setPagPortionNumber,
   setPageSize,
 } from './../../redux/newsReducer';
-
-import { Head } from '../common/Head/Head';
+import { toogleRightSidebar } from './../../redux/sidebarReducer';
 import { NewsBlock } from './NewsBlock/NewsBlock';
 import { NewsControlPanel } from './NewsControlPanel/NewsControlPanel';
-import { Pagination } from '../common/Pagination/Pagination';
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
+
 import style from './News.module.scss';
-import { toogleRightSidebar } from './../../redux/sidebarReducer';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 const News = ({
   toogleRightSidebar,

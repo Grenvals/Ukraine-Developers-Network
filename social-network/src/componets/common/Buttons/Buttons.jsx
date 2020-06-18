@@ -1,6 +1,8 @@
-import { NavLink } from 'react-router-dom';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
 import cn from 'classnames';
+
 import style from './Buttons.module.scss';
 
 export const NavLinkButton = ({

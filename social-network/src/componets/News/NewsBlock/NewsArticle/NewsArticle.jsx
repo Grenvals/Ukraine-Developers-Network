@@ -1,7 +1,10 @@
-import { LinkButton } from '../../../common/Buttons/Buttons';
 import React from 'react';
+
 import cn from 'classnames';
+
 import newsDefaultImg from '../../../../assets/images/default-img.png';
+import { LinkButton } from '../../../common/Buttons/Buttons';
+
 import style from './NewsArticle.module.scss';
 
 const NewsArticle = ({

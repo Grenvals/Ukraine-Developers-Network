@@ -1,10 +1,12 @@
+import React from 'react';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+
 import { Head } from '../common/Head/Head';
 import { Pagination } from '../common/Pagination/Pagination';
-import PerfectScrollbar from 'react-perfect-scrollbar';
 import { Preloader } from '../common/Preloader/Preloader';
-import React from 'react';
 import { Select } from '../common/Select/Select';
 import { User } from './User/User';
+
 import style from './Users.module.scss';
 
 const Users = ({

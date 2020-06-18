@@ -1,11 +1,11 @@
-import { profileAPI, usersAPI } from '../api/api';
-import { setNotification, setSuspenseStatus } from './notificationReducer';
-
-import { getAuthUserProfile } from './authReducer';
-import postImage1 from '../assets/images/profile/posts/jobs-1.jpg';
-import postImage2 from '../assets/images/profile/posts/P10рр132.JPG';
-import postImage3 from '../assets/images/profile/posts/P1013597.JPG';
 import { stopSubmit } from 'redux-form';
+
+import { profileAPI, usersAPI } from '../api/api';
+import postImage3 from '../assets/images/profile/posts/P1013597.JPG';
+import postImage2 from '../assets/images/profile/posts/P10рр132.JPG';
+import postImage1 from '../assets/images/profile/posts/jobs-1.jpg';
+import { getAuthUserProfile } from './authReducer';
+import { setNotification, setSuspenseStatus } from './notificationReducer';
 
 // jobs-1
 const ADD_POST = 'profile/ADD-POST';

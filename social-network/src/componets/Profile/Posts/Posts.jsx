@@ -1,7 +1,9 @@
+import React from 'react';
+
+import { Preloader } from '../../common/Preloader/Preloader';
 import { Post } from './Post/Post';
 import { PostForm } from './PostForm/PostForm';
-import { Preloader } from '../../common/Preloader/Preloader';
-import React from 'react';
+
 import style from './Posts.module.scss';
 
 const Posts = React.memo(({ profile, posts, addPost, deletePost }) => {

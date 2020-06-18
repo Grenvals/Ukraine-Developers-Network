@@ -1,6 +1,8 @@
-import { NavLink } from 'react-router-dom';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
 import { UserPhotoLink } from '../../../common/UserFoto/UserFoto';
+
 import style from './DialogItem.module.scss';
 
 const DialogItem = ({ id, userName, userLogo, newMessagesCount, lastUserActivity }) => {

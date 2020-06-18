@@ -1,5 +1,5 @@
-import { dateHandler } from '../utils/handlers/handlers';
 import { newsAPI } from '../api/api';
+import { dateHandler } from '../utils/handlers/handlers';
 import { setSuspenseStatus } from './notificationReducer';
 
 // Actions

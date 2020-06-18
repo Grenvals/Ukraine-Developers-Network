@@ -1,10 +1,11 @@
-import { Checkbox, Input } from '../../common/Form/FormControls/FormControls';
-import { Field, reduxForm } from 'redux-form';
-import { maxLengthCreator, required } from '../../../utils/validators/validators';
-
-import { Button } from '../../common/Buttons/Buttons';
-import { Captcha } from './Captcha/Captcha';
 import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+
+import { maxLengthCreator, required } from '../../../utils/validators/validators';
+import { Button } from '../../common/Buttons/Buttons';
+import { Checkbox, Input } from '../../common/Form/FormControls/FormControls';
+import { Captcha } from './Captcha/Captcha';
+
 import style from './LoginForm.module.scss';
 
 const maxLength = maxLengthCreator(28);

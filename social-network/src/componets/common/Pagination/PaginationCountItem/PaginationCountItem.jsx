@@ -1,4 +1,5 @@
 import React from 'react';
+
 import style from './PaginationCountItem.module.scss';
 
 export const PaginationСountItem = ({ countNumber, currentItem, setCurrentItem }) => {

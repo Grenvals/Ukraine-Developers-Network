@@ -1,6 +1,8 @@
 import React from 'react';
+
 import errorIcon from '../../../assets/images/notification/error.svg';
 import notificationIcon from '../../../assets/images/notification/notification.svg';
+
 import style from './Notification.module.scss';
 
 const Notification = ({ message, error }) => {

@@ -1,11 +1,9 @@
-import {
-  followUser,
-  getRequestUsers,
-  setCurrentPage,
-  setPagPortionNumber,
-  unfollowUser,
-  updatePageSize,
-} from '../../redux/usersReducer';
+import React from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { startDialogWithUser } from '../../redux/dialogsReducer';
 import {
   getCurrentPage,
   getFollowingInProgress,
@@ -14,14 +12,16 @@ import {
   getTotalUsersCount,
   getUsers,
 } from '../../redux/users-selectors';
-
-import React from 'react';
-import { Users } from './Users';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { startDialogWithUser } from '../../redux/dialogsReducer';
+import {
+  followUser,
+  getRequestUsers,
+  setCurrentPage,
+  setPagPortionNumber,
+  unfollowUser,
+  updatePageSize,
+} from '../../redux/usersReducer';
 import { toogleRightSidebar } from './../../redux/sidebarReducer';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { Users } from './Users';
 
 class UsersContainer extends React.Component {
   componentDidMount() {

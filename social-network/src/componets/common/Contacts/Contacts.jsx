@@ -1,5 +1,6 @@
-import React from 'react'
-import style from './Contacts.module.scss'
+import React from 'react';
+
+import style from './Contacts.module.scss';
 
 export const ContactIcon = ({ name, link, icon }) => {
   return (
@@ -16,5 +17,5 @@ export const ContactIcon = ({ name, link, icon }) => {
         />
       )}
     </li>
-  )
-}
+  );
+};

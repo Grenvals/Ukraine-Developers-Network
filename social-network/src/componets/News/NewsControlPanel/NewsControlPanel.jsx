@@ -1,6 +1,8 @@
-import { Pagination } from '../../common/Pagination/Pagination';
 import React from 'react';
+
+import { Pagination } from '../../common/Pagination/Pagination';
 import { Select } from '../../common/Select/Select';
+
 import style from './NewsControlPanel.module.scss';
 
 const NewsControlPanel = ({

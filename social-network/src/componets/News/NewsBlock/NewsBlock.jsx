@@ -1,7 +1,10 @@
-import { NewsArticle } from './NewsArticle/NewsArticle';
-import { Preloader } from '../../common/Preloader/Preloader';
 import React from 'react';
+
 import cn from 'classnames';
+
+import { Preloader } from '../../common/Preloader/Preloader';
+import { NewsArticle } from './NewsArticle/NewsArticle';
+
 import style from './NewsBlock.module.scss';
 
 const NewsBlock = ({ articles, viewMode }) => {

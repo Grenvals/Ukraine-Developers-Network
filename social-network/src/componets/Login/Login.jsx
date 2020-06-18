@@ -1,13 +1,14 @@
-import { getCaptchaUrl, logIn } from '../../redux/authReducer';
-
-import { LoginForm } from './LoginForm/LoginForm';
 import React from 'react';
-import { Redirect } from 'react-router-dom';
-import backgroundImg from '../../assets/images/background.jpg';
-import { connect } from 'react-redux';
-import style from './Login.module.scss';
-import { toogleRightSidebar } from './../../redux/sidebarReducer';
 import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+
+import backgroundImg from '../../assets/images/background.jpg';
+import { getCaptchaUrl, logIn } from '../../redux/authReducer';
+import { toogleRightSidebar } from './../../redux/sidebarReducer';
+import { LoginForm } from './LoginForm/LoginForm';
+
+import style from './Login.module.scss';
 
 const Login = ({ logIn, isAuth, captcha, getCaptchaUrl, toogleRightSidebar }) => {
   useEffect(() => {

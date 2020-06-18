@@ -1,7 +1,9 @@
-import React from 'react'
-import style from './InputItem.module.scss'
-import { Input, ToogleButton, Textarea } from '../FormControls/FormControls'
-import { Field } from 'redux-form'
+import React from 'react';
+import { Field } from 'redux-form';
+
+import { Input, ToogleButton, Textarea } from '../FormControls/FormControls';
+
+import style from './InputItem.module.scss';
 
 export const InputItem = ({ name, validate, placeholder, label, icon, disabled }) => {
   return (
@@ -22,8 +24,8 @@ export const InputItem = ({ name, validate, placeholder, label, icon, disabled }
         {icon && <img className={style.InputItem__icon} src={icon} alt="icon" />}
       </div>
     </div>
-  )
-}
+  );
+};
 export const CheckboxItem = ({ name, label }) => {
   return (
     <div className={`${style.InputItem} ${style.InputItem__inline}`}>
@@ -32,8 +34,8 @@ export const CheckboxItem = ({ name, label }) => {
         {label}
       </label>
     </div>
-  )
-}
+  );
+};
 export const TextareaItem = ({ name, validate, placeholder, label, icon, className }) => {
   return (
     <div className={style.InputItem}>
@@ -50,5 +52,5 @@ export const TextareaItem = ({ name, validate, placeholder, label, icon, classNa
       />
       {icon && <img className={style.InputItem__icon} src={icon} alt="icon" />}
     </div>
-  )
-}
+  );
+};

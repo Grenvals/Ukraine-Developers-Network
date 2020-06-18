@@ -1,4 +1,5 @@
 import React from 'react';
+
 import style from './PaginationButton.module.scss';
 
 export const PaginationButton = ({ onClick, icon, active = false }) => {

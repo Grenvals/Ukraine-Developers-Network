@@ -1,7 +1,9 @@
-import { LikesCount } from '../../../common/likesCount/LikesCount';
 import React from 'react';
-import { UserPhoto } from '../../../common/UserFoto/UserFoto';
+
 import editImg from '../../../../assets/images/profile/edit.svg';
+import { UserPhoto } from '../../../common/UserFoto/UserFoto';
+import { LikesCount } from '../../../common/likesCount/LikesCount';
+
 import style from './Post.module.scss';
 
 const Post = ({ id, userPhoto, userName, date, message, image, likes, deletePost }) => {

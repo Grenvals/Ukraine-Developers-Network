@@ -1,8 +1,7 @@
-import { authAPI, securityAPI } from '../api/api';
-
-import { setSuspenseStatus } from './notificationReducer';
 import { stopSubmit } from 'redux-form';
-import { usersAPI } from '../api/api';
+
+import { authAPI, securityAPI, usersAPI } from '../api/api';
+import { setSuspenseStatus } from './notificationReducer';
 
 const FOLLOW = 'auth/FOLLOW';
 const UNFOLLOW = 'auth/UNFOLLOW';

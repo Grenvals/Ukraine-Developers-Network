@@ -1,8 +1,10 @@
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import { Posts } from './Posts/PostsContainer';
-import { Preloader } from '../common/Preloader/Preloader';
 import React from 'react';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+
+import { Preloader } from '../common/Preloader/Preloader';
+import { Posts } from './Posts/PostsContainer';
 import { UserInfo } from './UserInfo/UserInfo';
+
 import style from './Profile.module.scss';
 
 const Profile = props => {

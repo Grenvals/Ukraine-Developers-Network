@@ -1,7 +1,9 @@
-import { Preloader } from '../../common/Preloader/Preloader';
 import React from 'react';
-import style from './UserCountPanel.module.scss';
+
 import usersIcon from '../../../assets/images/nav/users.svg';
+import { Preloader } from '../../common/Preloader/Preloader';
+
+import style from './UserCountPanel.module.scss';
 
 const UserCountPanel = ({ userCount, userId }) => {
   return (

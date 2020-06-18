@@ -1,10 +1,11 @@
-import { maxLengthCreator, required } from '../../../../utils/validators/validators';
-
-import { Field } from 'redux-form';
-import { Input } from '../../../common/Form/FormControls/FormControls';
 import React from 'react';
+import { Field } from 'redux-form';
+
 import check from '../../../../assets/images/check.svg';
 import reload from '../../../../assets/images/reload.svg';
+import { maxLengthCreator, required } from '../../../../utils/validators/validators';
+import { Input } from '../../../common/Form/FormControls/FormControls';
+
 import style from './Captcha.module.scss';
 
 const maxLength = maxLengthCreator(28);

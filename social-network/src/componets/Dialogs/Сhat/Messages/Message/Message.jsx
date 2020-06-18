@@ -1,6 +1,9 @@
 import React from 'react';
-import { UserPhoto } from '../../../../common/UserFoto/UserFoto';
+
 import cn from 'classnames';
+
+import { UserPhoto } from '../../../../common/UserFoto/UserFoto';
+
 import style from './Message.module.scss';
 
 const Message = ({

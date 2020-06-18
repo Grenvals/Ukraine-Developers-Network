@@ -1,6 +1,8 @@
-import { Notification } from './Notification/Notification';
 import React from 'react';
 import { connect } from 'react-redux';
+
+import { Notification } from './Notification/Notification';
+
 import style from './Notifications.module.scss';
 
 const Notifications = ({ notifications, isSuspense }) => {

@@ -1,8 +1,8 @@
-// import './select.scss';
-
 import React from 'react';
 import Select from 'react-select';
+
 import cn from 'classnames';
+
 import style from './Select.module.scss';
 
 const SelectBlock = ({ label, onChange, options, defaultValue, className }) => {

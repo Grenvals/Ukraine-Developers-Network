@@ -1,5 +1,7 @@
 import React from 'react';
+
 import cn from 'classnames';
+
 import style from './UserDescription.module.scss';
 
 const UserDescription = ({ profile }) => (

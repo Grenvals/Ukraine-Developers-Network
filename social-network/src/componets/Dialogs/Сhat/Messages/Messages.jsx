@@ -1,9 +1,11 @@
 import 'react-perfect-scrollbar/dist/css/styles.css';
 
-import { Message } from './Message/Message';
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import { Preloader } from '../../../common/Preloader/Preloader';
 import React from 'react';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+
+import { Preloader } from '../../../common/Preloader/Preloader';
+import { Message } from './Message/Message';
+
 import style from './Messages.module.scss';
 
 const Messages = ({ messages, profile, dialogs, activeDialogUserId }) => {

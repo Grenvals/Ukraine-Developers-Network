@@ -1,9 +1,11 @@
-import { NavLink } from 'react-router-dom';
-import { NewsItem } from './NewsItem/NewsItem';
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import { Preloader } from '../../common/Preloader/Preloader';
 import React from 'react';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import { NavLink } from 'react-router-dom';
+
 import newsLogo from '../../../assets/images/news/google-news.jpg';
+import { Preloader } from '../../common/Preloader/Preloader';
+import { NewsItem } from './NewsItem/NewsItem';
+
 import style from './NewsPanel.module.scss';
 
 const NewsPanel = props => {

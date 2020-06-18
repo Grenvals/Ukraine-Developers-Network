@@ -1,6 +1,8 @@
 import React from 'react';
-import style from './Preloader.module.scss';
+
 import cn from 'classnames';
+
+import style from './Preloader.module.scss';
 
 export const Preloader = ({ className = null }) => {
   return (

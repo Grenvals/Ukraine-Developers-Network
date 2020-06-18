@@ -1,4 +1,5 @@
 import React from 'react';
+
 import style from './NewsItem.module.scss';
 
 const NewsItem = ({ photoUrl, title, link, publishedAt }) => {

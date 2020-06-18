@@ -1,7 +1,9 @@
-import { NewsPanel } from './NewsPanel/NewsPanel';
 import React from 'react';
-import { UserCountPanel } from './UserCountPanel/UserCountPanel';
 import { connect } from 'react-redux';
+
+import { NewsPanel } from './NewsPanel/NewsPanel';
+import { UserCountPanel } from './UserCountPanel/UserCountPanel';
+
 import style from './Sidebar.module.scss';
 
 const RightSidebar = ({

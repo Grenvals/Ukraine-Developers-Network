@@ -1,10 +1,11 @@
-import React from 'react'
-import './index.css'
-import * as serviceWorker from './serviceWorker'
-import ReactDOM from 'react-dom'
-import './index.css'
-import { SocialNetworkApp } from './App'
+import './index.css';
 
-ReactDOM.render(<SocialNetworkApp />, document.getElementById('root'))
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-serviceWorker.unregister()
+import { SocialNetworkApp } from './App';
+import * as serviceWorker from './serviceWorker';
+
+ReactDOM.render(<SocialNetworkApp />, document.getElementById('root'));
+
+serviceWorker.unregister();

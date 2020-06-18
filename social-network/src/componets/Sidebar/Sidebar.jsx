@@ -1,13 +1,15 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
+
+import { openDialogWithUser } from '../../redux/dialogsReducer';
 import { AudioPlayer } from '../common/Player/Player';
 import { DialogsPanel } from './DialogsPanel/DialogsPanel';
 import { Navbar } from './Navbar/Navbar';
 import { NewsPanel } from './NewsPanel/NewsPanel';
-import React from 'react';
 import { UserCountPanel } from './UserCountPanel/UserCountPanel';
-import { connect } from 'react-redux';
-import { openDialogWithUser } from '../../redux/dialogsReducer';
+
 import style from './Sidebar.module.scss';
-import { useMediaQuery } from 'react-responsive';
 
 const Sidebar = ({
   dialogs,

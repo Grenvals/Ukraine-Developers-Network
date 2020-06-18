@@ -1,11 +1,13 @@
-import { NavbarLink } from './NavbarLink/NavbarLink';
 import React from 'react';
+
 import messageIcon from '../../../assets/images/nav/message.svg';
 import newspaperIcon from '../../../assets/images/nav/newspaper.svg';
-import profileIcon from '../../../assets/images/nav/user.svg';
 import settingsIcon from '../../../assets/images/nav/settings.svg';
-import style from './Navbar.module.scss';
+import profileIcon from '../../../assets/images/nav/user.svg';
 import usersIcon from '../../../assets/images/nav/users.svg';
+import { NavbarLink } from './NavbarLink/NavbarLink';
+
+import style from './Navbar.module.scss';
 
 const Navbar = () => {
   return (

@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 
 import cn from 'classnames';
+
+import treck1 from '../../../assets/audio/The_Xx_-_The_Xx_Intro(uzimusic.ru).mp3';
 import pauseIcon from '../../../assets/images/controls/pause.svg';
 import playIcon from '../../../assets/images/controls/play.svg';
+
 import style from './Player.module.scss';
-import { useEffect } from 'react';
 
 export const AudioPlayer = () => {
   const [myAudio] = useState(
-    new Audio('https://coderadio-admin.freecodecamp.org/radio/8010/radio.mp3?1592237491')
+    new Audio(treck1)
+    // new Audio('https://coderadio-admin.freecodecamp.org/radio/8010/radio.mp3?1592237491')
   );
-  const [isPlay, setPlay] = useState(true);
+  const [isPlay, setPlay] = useState(false);
   useEffect(() => {
-    myAudio.autoplay = true;
+    myAudio.autoplay = false;
   }, [myAudio]);
   if (isPlay) {
     myAudio.play();

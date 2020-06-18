@@ -1,3 +1,8 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import {
   getUserProfile,
   getUserStatus,
@@ -5,13 +10,8 @@ import {
   updateUserProfile,
   updateUserStatus,
 } from '../../redux/profileReducer';
-
-import React from 'react';
-import { Settings } from './Settings';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
 import { toogleRightSidebar } from './../../redux/sidebarReducer';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { Settings } from './Settings';
 
 class SettingsContainer extends React.Component {
   refreshUserDate() {

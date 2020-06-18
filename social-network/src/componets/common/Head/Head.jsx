@@ -1,6 +1,8 @@
 import React from 'react';
-import style from './Head.module.scss';
+
 import defaultBg from '../../../assets/images/background.jpg';
+
+import style from './Head.module.scss';
 
 export const Head = props => {
   return (

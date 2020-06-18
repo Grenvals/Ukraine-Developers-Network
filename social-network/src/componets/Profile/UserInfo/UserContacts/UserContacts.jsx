@@ -1,12 +1,15 @@
-import { ContactIcon } from '../../../common/Contacts/Contacts';
 import React from 'react';
+
 import cn from 'classnames';
+
 import facebookImg from '../../../../assets/images/contacts/facebook.svg';
 import githubImg from '../../../../assets/images/contacts/github.svg';
 import instagramImg from '../../../../assets/images/contacts/instagram.svg';
-import style from './UserContacts.module.scss';
-import twitterImg from '../../../../assets/images/contacts/twitter.svg';
 import websiteImg from '../../../../assets/images/contacts/site.svg';
+import twitterImg from '../../../../assets/images/contacts/twitter.svg';
+import { ContactIcon } from '../../../common/Contacts/Contacts';
+
+import style from './UserContacts.module.scss';
 
 const UserContacts = ({ contacts, className = null }) => {
   return (

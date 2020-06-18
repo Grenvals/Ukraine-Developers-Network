@@ -1,13 +1,14 @@
-import { Button, NavLinkButton } from '../../common/Buttons/Buttons';
-
 import React from 'react';
-import { UserPhotoLink } from '../../common/UserFoto/UserFoto';
-import followIcon from '../../../assets/images/users/follow.svg';
-import messageIcon from '../../../assets/images/message-white.svg';
-import style from './User.module.scss';
-import unfollowIcon from '../../../assets/images/users/unfollow.svg';
 import { useMediaQuery } from 'react-responsive';
+
+import messageIcon from '../../../assets/images/message-white.svg';
 import userIcon from '../../../assets/images/user-icon.svg';
+import followIcon from '../../../assets/images/users/follow.svg';
+import unfollowIcon from '../../../assets/images/users/unfollow.svg';
+import { Button, NavLinkButton } from '../../common/Buttons/Buttons';
+import { UserPhotoLink } from '../../common/UserFoto/UserFoto';
+
+import style from './User.module.scss';
 
 const User = ({
   id,

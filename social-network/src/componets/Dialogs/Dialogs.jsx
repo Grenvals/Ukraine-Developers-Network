@@ -1,20 +1,21 @@
 import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
+import { useHistory } from 'react-router-dom';
+import { compose } from 'redux';
+
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { Preloader } from '../common/Preloader/Preloader';
 import {
   getDialogMessages,
   getDialogsUsersList,
   sendMessage,
 } from './../../redux/dialogsReducer';
-
-import { Chat } from './Сhat/Сhat';
-import { DialogsList } from './DialogsList/DialogsList';
-import { Preloader } from '../common/Preloader/Preloader';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import style from './Dialogs.module.scss';
 import { toogleRightSidebar } from './../../redux/sidebarReducer';
-import { useHistory } from 'react-router-dom';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
-import { withRouter } from 'react-router';
+import { DialogsList } from './DialogsList/DialogsList';
+import { Chat } from './Сhat/Сhat';
+
+import style from './Dialogs.module.scss';
 
 const Dialogs = React.memo(
   ({

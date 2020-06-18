@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import editImg from '../../../../assets/images/profile/edit.svg';
+
 import style from './UserStatus.module.scss';
 
 const UserStatus = props => {

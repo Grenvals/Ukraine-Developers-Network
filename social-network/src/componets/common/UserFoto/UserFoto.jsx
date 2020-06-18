@@ -1,9 +1,12 @@
 import React from 'react';
-import style from './UserFoto.module.scss';
-import defaultUserPhoto from '../../../assets/images/user-default.svg';
-import fileUploadIcon from '../../../assets/images/file.svg';
 import { NavLink } from 'react-router-dom';
+
 import cn from 'classnames';
+
+import fileUploadIcon from '../../../assets/images/file.svg';
+import defaultUserPhoto from '../../../assets/images/user-default.svg';
+
+import style from './UserFoto.module.scss';
 
 export const UserPhoto = ({ photo = null, count, className = null }) => {
   return (

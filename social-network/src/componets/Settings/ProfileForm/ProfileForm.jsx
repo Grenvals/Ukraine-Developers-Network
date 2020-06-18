@@ -1,20 +1,21 @@
+import React from 'react';
+import { reduxForm } from 'redux-form';
+
+import facebookIcon from '../../../assets/images/contacts/facebook.svg';
+import githubIcon from '../../../assets/images/contacts/github.svg';
+import instagramIcon from '../../../assets/images/contacts/instagram.svg';
+import siteIcon from '../../../assets/images/contacts/site.svg';
+import twitterIcon from '../../../assets/images/contacts/twitter.svg';
+import { maxLengthCreator, required } from '../../../utils/validators/validators';
+import { Button } from '../../common/Buttons/Buttons';
 import {
   CheckboxItem,
   InputItem,
   TextareaItem,
 } from '../../common/Form/FormItem/InputItem';
-import { maxLengthCreator, required } from '../../../utils/validators/validators';
-
-import { Button } from '../../common/Buttons/Buttons';
 import { Head } from '../../common/Head/Head';
-import React from 'react';
-import facebookIcon from '../../../assets/images/contacts/facebook.svg';
-import githubIcon from '../../../assets/images/contacts/github.svg';
-import instagramIcon from '../../../assets/images/contacts/instagram.svg';
-import { reduxForm } from 'redux-form';
-import siteIcon from '../../../assets/images/contacts/site.svg';
+
 import style from '../Settings.module.scss';
-import twitterIcon from '../../../assets/images/contacts/twitter.svg';
 
 export const maxLength = maxLengthCreator(60);
 export const maxLengthSummury = maxLengthCreator(200);

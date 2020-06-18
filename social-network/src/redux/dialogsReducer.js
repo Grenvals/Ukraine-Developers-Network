@@ -1,7 +1,6 @@
+import { dialogsAPI } from '../api/api';
 import { dateHandler, stringSpaceHandler } from '../utils/handlers/handlers';
 import { setNotification, setSuspenseStatus } from './notificationReducer';
-
-import { dialogsAPI } from '../api/api';
 
 // Actions
 const ADD_MESSAGE = 'ADD-MESSAGE';

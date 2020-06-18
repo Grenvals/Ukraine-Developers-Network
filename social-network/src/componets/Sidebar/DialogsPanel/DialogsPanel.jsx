@@ -1,7 +1,9 @@
-import { NavLink } from 'react-router-dom';
-import { Preloader } from '../../common/Preloader/Preloader';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+import { Preloader } from '../../common/Preloader/Preloader';
 import { UserItem } from './UserItem/UserItem';
+
 import style from './DialogsPanel.module.scss';
 
 const DialogsPanel = ({ dialogs, openDialogWithUser }) => {

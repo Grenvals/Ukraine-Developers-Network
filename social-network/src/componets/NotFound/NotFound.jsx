@@ -1,8 +1,10 @@
 import React from 'react';
-import style from './NotFound.module.scss';
+
 import { NavLinkButton } from '../common/Buttons/Buttons';
 
-export const NotFound = props => {
+import style from './NotFound.module.scss';
+
+const NotFound = props => {
   return (
     <div className={style.notFound}>
       <div className={style.notFound__item}>
@@ -13,3 +15,5 @@ export const NotFound = props => {
     </div>
   );
 };
+
+export { NotFound };

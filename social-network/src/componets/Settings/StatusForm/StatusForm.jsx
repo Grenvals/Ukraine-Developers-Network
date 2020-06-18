@@ -1,11 +1,12 @@
-import { maxLengthCreator, required } from '../../../utils/validators/validators';
-
-import { Button } from '../../common/Buttons/Buttons';
-import { Head } from '../../common/Head/Head';
-import { InputItem } from '../../common/Form/FormItem/InputItem';
 import React from 'react';
-import { UserProfilePhoto } from '../../common/UserFoto/UserFoto';
 import { reduxForm } from 'redux-form';
+
+import { maxLengthCreator, required } from '../../../utils/validators/validators';
+import { Button } from '../../common/Buttons/Buttons';
+import { InputItem } from '../../common/Form/FormItem/InputItem';
+import { Head } from '../../common/Head/Head';
+import { UserProfilePhoto } from '../../common/UserFoto/UserFoto';
+
 import style from '../Settings.module.scss';
 
 export const maxLength = maxLengthCreator(100);

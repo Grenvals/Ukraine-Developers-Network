@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
-import { PaginationButton } from './PaginationButton/PaginationButton';
-import { PaginationСountItem } from './PaginationCountItem/PaginationCountItem';
+import cn from 'classnames';
+
 import arrowLeft from './../../../assets/images/arrows/left-arrow.svg';
 import arrowRight from './../../../assets/images/arrows/right-arrow.svg';
-import cn from 'classnames';
+import { PaginationButton } from './PaginationButton/PaginationButton';
+import { PaginationСountItem } from './PaginationCountItem/PaginationCountItem';
+
 import style from './Pagination.module.scss';
-import { useMediaQuery } from 'react-responsive';
 
 export const Pagination = React.memo(
   ({

@@ -1,10 +1,12 @@
-import { HeadImage } from '../common/Head/Head';
+import React from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
+
+import background from '../../assets/images/settings/settings-bg.jpg';
+import { HeadImage } from '../common/Head/Head';
 import { Preloader } from '../common/Preloader/Preloader';
 import { ProfileForm } from './ProfileForm/ProfileForm';
-import React from 'react';
 import { StatusForm } from './StatusForm/StatusForm';
-import background from '../../assets/images/settings/settings-bg.jpg';
+
 import style from './Settings.module.scss';
 
 const Settings = ({
