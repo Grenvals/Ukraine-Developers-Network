@@ -12,18 +12,22 @@ const Notifications = ({ notifications, isSuspense }) => {
       <ul className={style.notifications__list}>
         <TransitionGroup className={style.notifications__list}>
           {[...notifications].map(n => (
-            <CSSTransition key={n.id} timeout={300} classNames="notificationItem">
+            <CSSTransition key={n.id} timeout={1000} classNames="notificationItem">
               <Notification key={n.id} message={n.message} error={n.error} />
             </CSSTransition>
           ))}
         </TransitionGroup>
       </ul>
-      {isSuspense && (
-        <div className={style.notifications__suspense}>
-          <div className={style.notifications__loader}></div>
-          <span className={style.notifications__descr}>Connecting to server</span>
-        </div>
-      )}
+      <TransitionGroup>
+        {isSuspense && (
+          <CSSTransition timeout={300} classNames="notificationItem">
+            <div className={style.notifications__suspense}>
+              <div className={style.notifications__loader}></div>
+              <span className={style.notifications__descr}>Connecting to server</span>
+            </div>
+          </CSSTransition>
+        )}
+      </TransitionGroup>
     </div>
   );
 };

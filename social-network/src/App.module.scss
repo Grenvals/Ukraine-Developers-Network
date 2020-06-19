@@ -28,3 +28,20 @@
     height: 100vh;
   }
 }
+
+:global {
+	.notificationItem-enter {
+		opacity: 0;
+	}
+	.notificationItem-enter-active {
+		opacity: 1;
+		transition: opacity 500ms ease-out;
+	}
+	.notificationItem-exit {
+		opacity: 1;
+	}
+	.notificationItem-exit-active {
+		opacity: 0;
+		transition: opacity 500ms ease-out;
+	}
+}

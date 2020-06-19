@@ -4,8 +4,10 @@
 $heigth: 32px;
 
 .singleSelect {
+	position: relative;
 	@include flexbox();
 	align-items: center;
+	z-index: 3;
 	&__label {
 		font-size: 14px;
 		font-weight: 600;

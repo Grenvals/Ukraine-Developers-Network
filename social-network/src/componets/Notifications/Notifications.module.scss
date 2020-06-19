@@ -44,22 +44,6 @@
 		}
 		
 	}
-	:global {
-		.notificationItem-enter {
-			opacity: 0;
-		}
-		.notificationItem-enter-active {
-			opacity: 1;
-			transition: opacity 1000ms ease-out;
-		}
-		.notificationItem-exit {
-			opacity: 1;
-		}
-		.notificationItem-exit-active {
-			opacity: 0;
-			transition: opacity 1000ms ease-out;
-		}
-	}
 }
 
 @keyframes loaderAnimation {
@@ -70,3 +54,4 @@
     transform: rotate(360deg);
   }
 }
+
