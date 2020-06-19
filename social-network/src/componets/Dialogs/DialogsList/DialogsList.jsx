@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import PerfectScrollbar from 'react-perfect-scrollbar';
 
-import cn from 'classnames';
-
-import dialogsIcon from '../../../assets/images/dialogs/dialoglist.svg';
-import { Head } from '../../common/Head/Head';
 import { DialogItem } from './DialogItem/DialogItem';
-
+import { Head } from '../../common/Head/Head';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import cn from 'classnames';
+import dialogsIcon from '../../../assets/images/dialogs/dialoglist.svg';
 import style from './DialogsList.module.scss';
 
 const DialogsList = ({ dialogs, getDialogsUsersList }) => {
@@ -14,7 +12,7 @@ const DialogsList = ({ dialogs, getDialogsUsersList }) => {
     getDialogsUsersList();
   }, [getDialogsUsersList]);
 
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
   const onHandleClick = () => {
     if (isActive) {
       setIsActive(false);

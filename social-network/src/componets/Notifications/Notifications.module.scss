@@ -7,7 +7,7 @@
 	left: 15px;
 	width: 260px;
 	@media (max-width: $md3+px) {
-		bottom: 60px;
+		bottom: 85px;
 	}
 	&__list {
 		& > * {
@@ -20,6 +20,9 @@
 		left: 15px;
 		@include flexbox();
 		align-items: center;
+		@media (max-width: $md3+px) {
+			bottom: 60px;
+		}
 	}
 	&__descr {
 		font-size: 13px;

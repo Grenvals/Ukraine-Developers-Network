@@ -12,7 +12,7 @@ const Notifications = ({ notifications, isSuspense }) => {
       <ul className={style.notifications__list}>
         <TransitionGroup className={style.notifications__list}>
           {[...notifications].map(n => (
-            <CSSTransition key={n.id} timeout={1000} classNames="notificationItem">
+            <CSSTransition key={n.id} timeout={1600} classNames="notificationItem">
               <Notification key={n.id} message={n.message} error={n.error} />
             </CSSTransition>
           ))}

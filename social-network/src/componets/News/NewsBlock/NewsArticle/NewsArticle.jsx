@@ -3,7 +3,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import newsDefaultImg from '../../../../assets/images/default-img.png';
-import { LinkButton } from '../../../common/Buttons/Buttons';
+import { Button } from '../../../common/Buttons/Buttons';
 
 import style from './NewsArticle.module.scss';
 
@@ -37,7 +37,7 @@ const NewsArticle = ({
             <span className={style.newsArticle__date}>{publishedAt}</span>
           </div>
         </div>
-        <LinkButton className={style.newsArticle__link} name={'Read'} link={link} />
+        <Button className={style.newsArticle__link} name={'Read'} />
       </a>
     </li>
   );

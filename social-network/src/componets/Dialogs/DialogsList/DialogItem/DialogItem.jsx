@@ -8,18 +8,18 @@ import style from './DialogItem.module.scss';
 const DialogItem = ({ id, userName, userLogo, newMessagesCount, lastUserActivity }) => {
   return (
     <li className={style.dialogItem}>
+      <UserPhotoLink
+        className={style.dialogItem__logo}
+        photo={userLogo}
+        count={newMessagesCount}
+        link={'/profile/' + id}
+      />
       <NavLink
         className={style.dialogItem__link}
         activeClassName={style.dialogItem__link_active}
         to={'/dialogs/' + id}
         onClick={() => {}}>
         exact
-        <UserPhotoLink
-          className={style.dialogItem__logo}
-          photo={userLogo}
-          count={newMessagesCount}
-          link={'/profile/' + id}
-        />
         <div className={style.dialogItem__container}>
           <p className={style.dialogItem__name}>{userName}</p>
           <div className={style.dialogItem__activity}>

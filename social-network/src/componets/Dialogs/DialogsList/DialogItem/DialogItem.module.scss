@@ -1,37 +1,24 @@
 @import "../../../../scss/main.scss";
 
 .dialogItem {
-  display: block;
+  @include flexbox();
+  position: relative;
+  min-height: 80px;
   &__logo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15px;
     width: 55px;
     margin-right: 15px;
   } 
-  &__name {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-  &__activity {
-    font-size: 12px;
-    color: $textLight;
-    transition: color 0.2s;
-    span {
-      margin-left: 5px;
-    }
-  }
-  &__messageIcon {
-    height: 20px;
-    width: 20px;
-    fill: $first;
-    margin-right: 0px;
-    margin-left: auto;
-    transition: fill 0.2s;
-  }
   &__link {
     @include flexbox();
+    flex: 1;
     border-bottom: 1px solid $first;
     align-items: center;
     padding: 15px;
+    padding-left: 85px;
     transition: background 0.1s;
     text-decoration: none;
     color: $accent;
@@ -52,5 +39,26 @@
         color: $first;
       }
     }
+  }
+  &__name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  &__activity {
+    font-size: 12px;
+    color: $textLight;
+    transition: color 0.2s;
+    span {
+      margin-left: 5px;
+    }
+  }
+  &__messageIcon {
+    height: 20px;
+    width: 20px;
+    fill: $first;
+    margin-right: 0px;
+    margin-left: auto;
+    transition: fill 0.2s;
   }
 }

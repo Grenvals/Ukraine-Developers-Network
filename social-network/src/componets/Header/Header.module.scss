@@ -37,6 +37,8 @@
     @include flexbox();
     justify-content: space-between;
     max-width: 1420px;
+    margin: 0 auto;
+    padding: 0px 15px;
   }
 }
 
