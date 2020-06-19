@@ -6,11 +6,11 @@ import { getTotalUsersCount } from './usersReducer';
 
 const INITIALIZED_SUCSESS = 'INITIALIZED_SUCSESS';
 
-let initialState = {
+const initialState = {
   initialized: false,
 };
 
-let appReducer = (state = initialState, action) => {
+const appReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'INITIALIZED_SUCSESS': {
       return {
@@ -52,4 +52,4 @@ export const initializedApp = () => (dispatch, getState) => {
   });
 };
 
-export default appReducer;
+export { appReducer };

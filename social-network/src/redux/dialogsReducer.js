@@ -107,4 +107,4 @@ export const openDialogWithUser = userId => async dispatch => {
   dispatch(setSuspenseStatus(false));
 };
 
-export default dialogsReducer;
+export { dialogsReducer };

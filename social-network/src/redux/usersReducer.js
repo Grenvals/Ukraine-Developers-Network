@@ -173,4 +173,4 @@ export const unfollowUser = userId => dispatch => {
   followUnfollowFlow(dispatch, userId, usersAPI.unfollowUser.bind(usersAPI), unfollow);
 };
 
-export default usersReducer;
+export { usersReducer };

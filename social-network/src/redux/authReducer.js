@@ -10,7 +10,7 @@ const SET_AUTH_USER_DATA = 'auth/SET_AUTH_USER_DATA';
 const SET_AUTH_USER_PROFILE = 'auth/SET_AUTH_USER_PROFILE';
 const SET_CAPTCHA_URL = 'auth/SET_CAPTCHA_URL';
 
-let initialState = {
+const initialState = {
   userId: null,
   email: null,
   login: null,
@@ -22,7 +22,7 @@ let initialState = {
   profile: null,
 };
 
-let authReducer = (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'auth/SET_AUTH_USER_PROFILE': {
       return { ...state, profile: action.profile };
@@ -163,4 +163,4 @@ export const logOut = (userEmail, userPassword, userRemember) => async dispatch 
   dispatch(setSuspenseStatus(false));
 };
 
-export default authReducer;
+export { authReducer };

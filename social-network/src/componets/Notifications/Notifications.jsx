@@ -1,17 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import { Notification } from './Notification/Notification';
 
 import style from './Notifications.module.scss';
 
 const Notifications = ({ notifications, isSuspense }) => {
-  const notificationList = [...notifications]
-    .reverse()
-    .map(n => <Notification key={n.id} message={n.message} error={n.error} />);
   return (
     <div className={style.notifications}>
-      <ul className={style.notifications__list}>{notificationList}</ul>
+      <ul className={style.notifications__list}>
+        <TransitionGroup className={style.notifications__list}>
+          {[...notifications].map(n => (
+            <CSSTransition key={n.id} timeout={300} classNames="notificationItem">
+              <Notification key={n.id} message={n.message} error={n.error} />
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
+      </ul>
       {isSuspense && (
         <div className={style.notifications__suspense}>
           <div className={style.notifications__loader}></div>

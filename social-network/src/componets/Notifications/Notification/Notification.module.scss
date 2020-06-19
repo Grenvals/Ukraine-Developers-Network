@@ -1,6 +1,7 @@
 
 @import "./../../../scss/main.scss";
 .notification {
+	overflow: hidden;
 	&__container {
 		position: relative;
 		padding: 15px 15px 15px 40px;

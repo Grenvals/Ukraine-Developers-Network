@@ -14,7 +14,7 @@ const SET_USER_PROFILE = 'profile/SET_USER_PROFILE';
 const SET_USER_STATUS = 'profile/SET_USER_STATUS';
 const SAVE_PHOTO_SUCCESS = 'profile/SAVE_PHOTO_SUCCESS';
 
-let initialState = {
+const initialState = {
   profile: null,
   posts: [
     {
@@ -46,7 +46,7 @@ let initialState = {
   status: '',
 };
 
-let profileReducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'profile/ADD-POST': {
       let newPost = {
@@ -152,4 +152,4 @@ export const updateUserPhoto = (data, id) => async dispatch => {
   }
 };
 
-export default profileReducer;
+export { profileReducer };

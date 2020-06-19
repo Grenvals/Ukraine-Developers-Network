@@ -1,4 +1,8 @@
+:global {
+  @import "scss/global.scss";
+}
 @import "scss/main.scss";
+
 
 .app {
   background: $first;
