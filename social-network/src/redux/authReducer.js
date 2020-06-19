@@ -1,6 +1,6 @@
 import { stopSubmit } from 'redux-form';
 
-import { authAPI, securityAPI, usersAPI } from '../api/api';
+import { authAPI, securityAPI, profileAPI } from '../api/api';
 import { setSuspenseStatus } from './notificationReducer';
 
 const FOLLOW = 'auth/FOLLOW';
@@ -115,7 +115,7 @@ export const getAuthUserData = () => async dispatch => {
 };
 
 export const getAuthUserProfile = userId => async dispatch => {
-  const response = await usersAPI.getProfile(userId);
+  const response = await profileAPI.getProfile(userId);
   dispatch(setAuthUserProfile(response));
 };
 

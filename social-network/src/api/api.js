@@ -53,10 +53,6 @@ export const usersAPI = {
   unfollowUser: userId => {
     return instanse.delete(`follow/${userId}`, {}).then(response => response.data);
   },
-  getProfile: userId => {
-    console.log('api is old, please use profileAPI()');
-    return profileAPI.getProfile(userId);
-  },
 };
 
 export const dialogsAPI = {

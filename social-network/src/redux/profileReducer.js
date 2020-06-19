@@ -1,6 +1,6 @@
 import { stopSubmit } from 'redux-form';
 
-import { profileAPI, usersAPI } from '../api/api';
+import { profileAPI } from '../api/api';
 import postImage3 from '../assets/images/profile/posts/P1013597.JPG';
 import postImage2 from '../assets/images/profile/posts/P10рр132.JPG';
 import postImage1 from '../assets/images/profile/posts/jobs-1.jpg';
@@ -103,7 +103,7 @@ export const saveFotoSuccess = data => ({
 export const getUserProfile = userId => async dispatch => {
   dispatch(setSuspenseStatus(true));
   dispatch(setUserProfile(null));
-  let response = await usersAPI.getProfile(userId);
+  let response = await profileAPI.getProfile(userId);
   dispatch(setUserProfile(response));
   dispatch(setSuspenseStatus(false));
 };
