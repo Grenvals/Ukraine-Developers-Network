@@ -1,5 +1,15 @@
 import { createSelector } from 'reselect';
 
+// Auth
+export const getAuthUserId = state => {
+  return state.auth.userId;
+};
+
+export const getIsAuth = state => {
+  return state.auth.isAuth;
+};
+
+// Users
 const getUsersSelector = state => {
   return state.usersPage.users;
 };
@@ -26,4 +36,18 @@ export const getIsLoading = state => {
 
 export const getFollowingInProgress = state => {
   return state.usersPage.followingInProgress;
+};
+
+export const getPagPortionNumber = state => {
+  return state.usersPage.pagPortionNumber;
+};
+
+// Dialogs
+export const getDialogs = state => {
+  return state.dialogsPage.dialogs;
+};
+
+// News
+export const getNewsHeadlines = state => {
+  return state.news.headlines;
 };

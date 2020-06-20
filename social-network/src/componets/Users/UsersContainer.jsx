@@ -5,14 +5,6 @@ import { compose } from 'redux';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { startDialogWithUser } from '../../redux/dialogsReducer';
 import {
-  getCurrentPage,
-  getFollowingInProgress,
-  getIsLoading,
-  getPageSize,
-  getTotalUsersCount,
-  getUsers,
-} from '../../redux/users-selectors';
-import {
   followUser,
   getRequestUsers,
   setCurrentPage,
@@ -20,6 +12,15 @@ import {
   unfollowUser,
   updatePageSize,
 } from '../../redux/usersReducer';
+import {
+  getCurrentPage,
+  getFollowingInProgress,
+  getIsLoading,
+  getPageSize,
+  getTotalUsersCount,
+  getUsers,
+  getPagPortionNumber,
+} from '../../selectors/selectors';
 import { toogleRightSidebar } from './../../redux/sidebarReducer';
 import { Users } from './Users';
 
@@ -63,7 +64,7 @@ let mapStateToProps = state => {
     currentPage: getCurrentPage(state),
     isLoading: getIsLoading(state),
     followingInProgress: getFollowingInProgress(state),
-    pagPortionNumber: state.usersPage.pagPortionNumber,
+    pagPortionNumber: getPagPortionNumber(state),
   };
 };
 

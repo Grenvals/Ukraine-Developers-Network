@@ -1,6 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import {
+  getNewsHeadlines,
+  getAuthUserId,
+  getTotalUsersCount,
+} from '../../selectors/selectors';
 import { NewsPanel } from './NewsPanel/NewsPanel';
 import { UserCountPanel } from './UserCountPanel/UserCountPanel';
 
@@ -28,9 +33,9 @@ const RightSidebar = ({
 
 const mapStateToProps = state => {
   return {
-    headlines: state.news.headlines,
-    totalUsersCount: state.usersPage.totalUsersCount,
-    userId: state.auth.userId,
+    headlines: getNewsHeadlines(state),
+    totalUsersCount: getTotalUsersCount(state),
+    userId: getAuthUserId(state),
   };
 };
 

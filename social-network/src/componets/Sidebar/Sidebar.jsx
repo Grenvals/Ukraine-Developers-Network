@@ -3,6 +3,13 @@ import { connect } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 
 import { openDialogWithUser } from '../../redux/dialogsReducer';
+import {
+  getAuthUserId,
+  getIsAuth,
+  getDialogs,
+  getNewsHeadlines,
+  getTotalUsersCount,
+} from '../../selectors/selectors';
 import { AudioPlayer } from '../common/Player/Player';
 import { DialogsPanel } from './DialogsPanel/DialogsPanel';
 import { Navbar } from './Navbar/Navbar';
@@ -11,14 +18,7 @@ import { UserCountPanel } from './UserCountPanel/UserCountPanel';
 
 import style from './Sidebar.module.scss';
 
-const Sidebar = ({
-  dialogs,
-  startDialogWithUser,
-  isAuth,
-  headlines,
-  totalUsersCount,
-  userId,
-}) => {
+const Sidebar = ({ dialogs, isAuth, headlines, totalUsersCount, userId }) => {
   const isTablet = useMediaQuery({
     query: '(min-device-width: 767.98px)',
   });
@@ -44,11 +44,11 @@ const Sidebar = ({
 
 const mapStateToProps = state => {
   return {
-    dialogs: state.dialogsPage.dialogs,
-    isAuth: state.auth.isAuth,
-    headlines: state.news.headlines,
-    totalUsersCount: state.usersPage.totalUsersCount,
-    userId: state.auth.userId,
+    dialogs: getDialogs(state),
+    isAuth: getIsAuth(state),
+    headlines: getNewsHeadlines(state),
+    totalUsersCount: getTotalUsersCount(state),
+    userId: getAuthUserId(state),
   };
 };
 
