@@ -4,12 +4,13 @@ import {
   addPostActionCreator,
   deletePostActionCreator,
 } from '../../../redux/profileReducer';
+import { getAuthProfile, getProfilePosts } from '../../../selectors/selectors';
 import { Posts } from './Posts';
 
 const mapStateToProps = state => {
   return {
-    posts: state.profilePage.posts,
-    profile: state.auth.profile,
+    posts: getProfilePosts(state),
+    profile: getAuthProfile(state),
   };
 };
 
