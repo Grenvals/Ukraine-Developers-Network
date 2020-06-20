@@ -9,6 +9,15 @@ export const getIsAuth = state => {
   return state.auth.isAuth;
 };
 
+export const getAuthProfile = state => {
+  return state.auth.profile;
+};
+
+// Profile
+export const getProfileStatus = state => {
+  return state.profilePage.status;
+};
+
 // Users
 const getUsersSelector = state => {
   return state.usersPage.users;

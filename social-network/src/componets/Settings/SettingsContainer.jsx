@@ -10,6 +10,11 @@ import {
   updateUserProfile,
   updateUserStatus,
 } from '../../redux/profileReducer';
+import {
+  getAuthProfile,
+  getAuthUserId,
+  getProfileStatus,
+} from '../../selectors/selectors';
 import { toogleRightSidebar } from './../../redux/sidebarReducer';
 import { Settings } from './Settings';
 
@@ -36,9 +41,9 @@ class SettingsContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    profile: state.auth.profile,
-    status: state.profilePage.status,
-    autorizedUserId: state.auth.userId,
+    profile: getAuthProfile(state),
+    status: getProfileStatus(state),
+    autorizedUserId: getAuthUserId(state),
   };
 };
 
