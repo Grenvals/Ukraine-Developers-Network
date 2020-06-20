@@ -17,6 +17,10 @@ export const getAuthProfile = state => {
   return state.auth.profile;
 };
 
+export const getAuthLogin = state => {
+  return state.auth.login;
+};
+
 // Notifications
 export const getNotifications = state => {
   return state.notifications.notifications;

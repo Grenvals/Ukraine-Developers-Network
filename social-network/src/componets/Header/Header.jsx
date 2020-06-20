@@ -1,4 +1,10 @@
 import {
+  getIsAuth,
+  getAuthLogin,
+  getAuthUserId,
+  getAuthProfile,
+} from '../../selectors/selectors.js';
+import {
   Button,
   NavLinkButton,
   React,
@@ -43,10 +49,10 @@ const Header = ({ login, isAuth, profile, logOut }) => {
 
 const mapStateToProps = state => {
   return {
-    isAuth: state.auth.isAuth,
-    login: state.auth.login,
-    userId: state.auth.userId,
-    profile: state.auth.profile,
+    isAuth: getIsAuth(state),
+    login: getAuthLogin(state),
+    userId: getAuthUserId(state),
+    profile: getAuthProfile(state),
   };
 };
 
