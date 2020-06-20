@@ -5,6 +5,11 @@ import { useHistory } from 'react-router-dom';
 import { compose } from 'redux';
 
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import {
+  getAuthProfile,
+  getDialogs,
+  getDialogMessagesList,
+} from '../../selectors/selectors';
 import { Preloader } from '../common/Preloader/Preloader';
 import {
   getDialogMessages,
@@ -76,9 +81,9 @@ const Dialogs = React.memo(
 
 const mapStateToProps = state => {
   return {
-    dialogs: state.dialogsPage.dialogs,
-    messages: state.dialogsPage.messages,
-    profile: state.auth.profile,
+    dialogs: getDialogs(state),
+    messages: getDialogMessagesList(state),
+    profile: getAuthProfile(state),
   };
 };
 

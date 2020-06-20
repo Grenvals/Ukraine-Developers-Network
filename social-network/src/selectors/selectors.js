@@ -81,6 +81,10 @@ export const getDialogs = state => {
   return state.dialogsPage.dialogs;
 };
 
+export const getDialogMessagesList = state => {
+  return state.dialogsPage.messages;
+};
+
 // News
 export const getNewsHeadlines = state => {
   return state.news.headlines;
