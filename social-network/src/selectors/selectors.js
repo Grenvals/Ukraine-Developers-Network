@@ -13,6 +13,15 @@ export const getAuthProfile = state => {
   return state.auth.profile;
 };
 
+// Notifications
+export const getNotifications = state => {
+  return state.notifications.notifications;
+};
+
+export const getNotificationsIsSuspense = state => {
+  return state.notifications.isSuspense;
+};
+
 // Profile
 export const getProfileInfo = state => {
   return state.profilePage.profile;

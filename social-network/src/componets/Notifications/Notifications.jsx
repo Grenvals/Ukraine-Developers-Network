@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
+import { getNotifications, getNotificationsIsSuspense } from '../../selectors/selectors';
 import { Notification } from './Notification/Notification';
 
 import style from './Notifications.module.scss';
@@ -11,7 +12,7 @@ const Notifications = ({ notifications, isSuspense }) => {
     <div className={style.notifications}>
       <ul className={style.notifications__list}>
         <TransitionGroup className={style.notifications__list}>
-          {[...notifications].map(n => (
+          {notifications.map(n => (
             <CSSTransition key={n.id} timeout={1600} classNames="notificationItem">
               <Notification key={n.id} message={n.message} error={n.error} />
             </CSSTransition>
@@ -34,8 +35,8 @@ const Notifications = ({ notifications, isSuspense }) => {
 
 const mapStateToProps = state => {
   return {
-    notifications: state.notifications.notifications,
-    isSuspense: state.notifications.isSuspense,
+    notifications: getNotifications(state),
+    isSuspense: getNotificationsIsSuspense(state),
   };
 };
 
