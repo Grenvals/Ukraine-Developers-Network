@@ -4,6 +4,15 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import {
+  getNewsArticlesList,
+  getNewsTotalResults,
+  getNewsPageSize,
+  getNewsCurrentPage,
+  getNewsCategoryList,
+  getNewsCurrentCategory,
+  getNewsPagPortionNumber,
+} from '../../selectors/selectors';
 import { Head } from '../common/Head/Head';
 import { Pagination } from '../common/Pagination/Pagination';
 import {
@@ -85,13 +94,13 @@ const News = ({
 
 const mapStateToProps = state => {
   return {
-    articles: state.news.articles,
-    totalResults: state.news.totalResults,
-    pageSize: state.news.pageSize,
-    currentPage: state.news.currentPage,
-    categoryList: state.news.categoryList,
-    currentCategory: state.news.currentCategory,
-    pagPortionNumber: state.news.pagPortionNumber,
+    articles: getNewsArticlesList(state),
+    totalResults: getNewsTotalResults(state),
+    pageSize: getNewsPageSize(state),
+    currentPage: getNewsCurrentPage(state),
+    categoryList: getNewsCategoryList(state),
+    currentCategory: getNewsCurrentCategory(state),
+    pagPortionNumber: getNewsPagPortionNumber(state),
   };
 };
 

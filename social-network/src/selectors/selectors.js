@@ -77,3 +77,31 @@ export const getDialogs = state => {
 export const getNewsHeadlines = state => {
   return state.news.headlines;
 };
+
+export const getNewsArticlesList = state => {
+  return state.news.articles;
+};
+
+export const getNewsTotalResults = state => {
+  return state.news.totalResults;
+};
+
+export const getNewsPageSize = state => {
+  return state.news.pageSize;
+};
+
+export const getNewsCurrentPage = state => {
+  return state.news.currentPage;
+};
+
+export const getNewsCategoryList = state => {
+  return state.news.categoryList;
+};
+
+export const getNewsCurrentCategory = state => {
+  return state.news.currentCategory;
+};
+
+export const getNewsPagPortionNumber = state => {
+  return state.news.pagPortionNumber;
+};
