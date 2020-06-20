@@ -9,6 +9,10 @@ export const getIsAuth = state => {
   return state.auth.isAuth;
 };
 
+export const getAuthCaptcha = state => {
+  return state.auth.captcha;
+};
+
 export const getAuthProfile = state => {
   return state.auth.profile;
 };

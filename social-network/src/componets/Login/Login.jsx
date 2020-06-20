@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 
 import backgroundImg from '../../assets/images/background.jpg';
 import { getCaptchaUrl, logIn } from '../../redux/authReducer';
+import { getIsAuth, getAuthCaptcha } from '../../selectors/selectors';
 import { toogleRightSidebar } from './../../redux/sidebarReducer';
 import { LoginForm } from './LoginForm/LoginForm';
 
@@ -45,8 +46,8 @@ const Login = ({ logIn, isAuth, captcha, getCaptchaUrl, toogleRightSidebar }) =>
 
 const mapStateToProps = state => {
   return {
-    isAuth: state.auth.isAuth,
-    captcha: state.auth.captcha,
+    isAuth: getIsAuth(state),
+    captcha: getAuthCaptcha(state),
   };
 };
 
