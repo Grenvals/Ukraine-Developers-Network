@@ -143,10 +143,15 @@ export const toogleFollowingProgress = (userId, isFetching) => ({
 // Async
 export const getRequestUsers = (currentPage, pageSize) => async dispatch => {
   dispatch(setLoadingStatus(true));
-  const response = await usersAPI.getUsers(currentPage, pageSize);
-  dispatch(setUsers(response.items));
-  dispatch(setTotalUsersCount(response.totalCount));
-  dispatch(setLoadingStatus(false));
+  try {
+    const response = await usersAPI.getUsers(currentPage, pageSize);
+    dispatch(setUsers(response.items));
+    dispatch(setTotalUsersCount(response.totalCount));
+  } catch (error) {
+    dispatch(setNotification('Server: ' + error.message, true));
+  } finally {
+    dispatch(setSuspenseStatus(false));
+  }
 };
 
 export const getTotalUsersCount = () => async dispatch => {

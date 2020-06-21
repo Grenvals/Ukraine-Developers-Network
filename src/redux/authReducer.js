@@ -1,7 +1,7 @@
 import { stopSubmit } from 'redux-form';
 
 import { authAPI, securityAPI, profileAPI } from '../api/api';
-import { setSuspenseStatus } from './notificationReducer';
+import { setSuspenseStatus, setNotification } from './notificationReducer';
 
 // Actions
 const FOLLOW = 'auth/FOLLOW';
@@ -113,17 +113,31 @@ export const setCaptchaUrl = captchaUrl => {
 
 // Async
 export const getAuthUserData = () => async dispatch => {
-  const response = await authAPI.getAuthUserData();
-  if (response.data.resultCode === 0) {
-    const { id, email, login } = response.data.data;
-    dispatch(setAuthUserData(id, email, login, true));
-    dispatch(getAuthUserProfile(id));
+  dispatch(setSuspenseStatus(true));
+  try {
+    const response = await authAPI.getAuthUserData();
+    if (response.data.resultCode === 0) {
+      const { id, email, login } = response.data.data;
+      dispatch(setAuthUserData(id, email, login, true));
+      dispatch(getAuthUserProfile(id));
+    }
+  } catch (error) {
+    dispatch(setNotification('Server: ' + error.message, true));
+  } finally {
+    dispatch(setSuspenseStatus(false));
   }
 };
 
 export const getAuthUserProfile = userId => async dispatch => {
-  const response = await profileAPI.getProfile(userId);
-  dispatch(setAuthUserProfile(response));
+  dispatch(setSuspenseStatus(true));
+  try {
+    const response = await profileAPI.getProfile(userId);
+    dispatch(setAuthUserProfile(response));
+  } catch (error) {
+    dispatch(setNotification('Server: ' + error.message, true));
+  } finally {
+    dispatch(setSuspenseStatus(false));
+  }
 };
 
 export const logIn = (

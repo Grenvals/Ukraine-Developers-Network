@@ -57,55 +57,73 @@ export const setDialogMessages = messages => ({
 // Async
 export const getDialogsUsersList = () => async dispatch => {
   dispatch(setSuspenseStatus(true));
-  const response = await dialogsAPI.getDialogsUsersList();
-  dispatch(setSuspenseStatus(false));
-  const dialogsList = response.map(u => {
-    return {
-      ...u,
-      userName: stringSpaceHandler(u.userName),
-      lastUserActivityDate: dateHandler(u.lastUserActivityDate),
-    };
-  });
-  dispatch(setDialogsUsersList(dialogsList));
+  try {
+    const response = await dialogsAPI.getDialogsUsersList();
+    const dialogsList = response.map(u => {
+      return {
+        ...u,
+        userName: stringSpaceHandler(u.userName),
+        lastUserActivityDate: dateHandler(u.lastUserActivityDate),
+      };
+    });
+    dispatch(setDialogsUsersList(dialogsList));
+  } catch (error) {
+    dispatch(setNotification('Server: ' + error.message, true));
+  } finally {
+    dispatch(setSuspenseStatus(false));
+  }
 };
 
 export const getDialogMessages = userId => async dispatch => {
   dispatch(setDialogMessages(null));
   dispatch(setSuspenseStatus(true));
-  const response = await dialogsAPI.getDialogMessagesList(userId);
-  dispatch(setSuspenseStatus(false));
-  const messages = response.items.map(u => {
-    return {
-      ...u,
-      addedAt: dateHandler(u.addedAt),
-    };
-  });
-  dispatch(setDialogMessages(messages));
+  try {
+    const response = await dialogsAPI.getDialogMessagesList(userId);
+    const messages = response.items.map(u => {
+      return {
+        ...u,
+        addedAt: dateHandler(u.addedAt),
+      };
+    });
+    dispatch(setDialogMessages(messages));
+  } catch (error) {
+    dispatch(setNotification('Server: ' + error.message, true));
+  } finally {
+    dispatch(setSuspenseStatus(false));
+  }
 };
 
 export const sendMessage = (userId, message) => async dispatch => {
   dispatch(setSuspenseStatus(true));
-  const response = await dialogsAPI.sendMessage(userId, message);
-  dispatch(setSuspenseStatus(false));
-  if (response.resultCode === 0) {
-    dispatch(getDialogMessages(userId));
-    dispatch(
-      setNotification('Server: message sent to ' + response.data.message.recipientName)
-    );
+  try {
+    const response = await dialogsAPI.sendMessage(userId, message);
+    if (response.resultCode === 0) {
+      dispatch(getDialogMessages(userId));
+      dispatch(
+        setNotification('Server: message sent to ' + response.data.message.recipientName)
+      );
+    }
+  } catch (error) {
+    dispatch(setNotification('Server: ' + error.message, true));
+  } finally {
+    dispatch(setSuspenseStatus(false));
   }
 };
 
 export const startDialogWithUser = userId => async dispatch => {
   dispatch(setSuspenseStatus(true));
-  await dialogsAPI.startDialogWithUser(userId);
-  dispatch(setSuspenseStatus(false));
+  try {
+    await dialogsAPI.startDialogWithUser(userId);
+  } catch (error) {
+    dispatch(setNotification('Server: ' + error.message, true));
+  } finally {
+    dispatch(setSuspenseStatus(false));
+  }
 };
 
 export const openDialogWithUser = userId => async dispatch => {
-  dispatch(setSuspenseStatus(true));
   await dispatch(getDialogsUsersList());
-  await dispatch(getDialogMessages(userId));
-  dispatch(setSuspenseStatus(false));
+  dispatch(getDialogMessages(userId));
 };
 
 export { dialogsReducer };

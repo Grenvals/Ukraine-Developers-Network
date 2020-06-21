@@ -123,52 +123,79 @@ export const deletePost = id => async dispatch => {
 export const getUserProfile = userId => async dispatch => {
   dispatch(setSuspenseStatus(true));
   dispatch(setUserProfile(null));
-  let response = await profileAPI.getProfile(userId);
-  dispatch(setUserProfile(response));
-  dispatch(setSuspenseStatus(false));
+  try {
+    const response = await profileAPI.getProfile(userId);
+    dispatch(setUserProfile(response));
+  } catch (error) {
+    dispatch(setNotification('Server: ' + error.message, true));
+  } finally {
+    dispatch(setSuspenseStatus(false));
+  }
 };
 
 export const updateUserProfile = (userId, formData) => async dispatch => {
   dispatch(setSuspenseStatus(true));
-  let response = await profileAPI.updateProfile(formData);
-  dispatch(setSuspenseStatus(false));
-  if (response.resultCode === 0) {
-    dispatch(getUserProfile(userId));
-    dispatch(getAuthUserProfile(userId));
-    dispatch(setNotification('Server: profile updated'));
-  } else {
-    let key = response.messages[0].match(/Contacts->(\w+)/)[1].toLowerCase();
-    dispatch(
-      stopSubmit('userProfile', {
-        contacts: { [key]: response.messages[0] },
-      })
-    );
+  try {
+    const response = await profileAPI.updateProfile(formData);
+    if (response.resultCode === 0) {
+      dispatch(getUserProfile(userId));
+      dispatch(getAuthUserProfile(userId));
+      dispatch(setNotification('Server: profile updated'));
+    } else {
+      const key = response.messages[0].match(/Contacts->(\w+)/)[1].toLowerCase();
+      dispatch(
+        stopSubmit('userProfile', {
+          contacts: { [key]: response.messages[0] },
+        })
+      );
+    }
+  } catch (error) {
+    dispatch(setNotification('Server: ' + error.message, true));
+  } finally {
+    dispatch(setSuspenseStatus(false));
   }
 };
 
 export const getUserStatus = userId => async dispatch => {
-  let response = await profileAPI.getStatus(userId);
-  dispatch(setUserStatus(response));
+  dispatch(setSuspenseStatus(true));
+  try {
+    const response = await profileAPI.getStatus(userId);
+    dispatch(setUserStatus(response));
+  } catch (error) {
+    dispatch(setNotification('Server: ' + error.message, true));
+  } finally {
+    dispatch(setSuspenseStatus(false));
+  }
 };
 
 export const updateUserStatus = status => async dispatch => {
   dispatch(setSuspenseStatus(true));
-  let response = await profileAPI.updateStatus(status);
-  dispatch(setSuspenseStatus(false));
-  if (response.resultCode === 0) {
-    dispatch(setUserStatus(status));
-    dispatch(setNotification('Server: status updated'));
+  try {
+    const response = await profileAPI.updateStatus(status);
+    if (response.resultCode === 0) {
+      dispatch(setUserStatus(status));
+      dispatch(setNotification('Server: status updated'));
+    }
+  } catch (error) {
+    dispatch(setNotification('Server: ' + error.message, true));
+  } finally {
+    dispatch(setSuspenseStatus(false));
   }
 };
 
 export const updateUserPhoto = (data, id) => async dispatch => {
   dispatch(setSuspenseStatus(true));
-  let response = await profileAPI.updateUserPhoto(data);
-  dispatch(setSuspenseStatus(false));
-  if (response.resultCode === 0) {
-    dispatch(saveFotoSuccess(response.data.photos));
-    dispatch(getAuthUserProfile(id));
-    dispatch(setNotification('Server: user photo updated'));
+  try {
+    const response = await profileAPI.updateUserPhoto(data);
+    if (response.resultCode === 0) {
+      dispatch(saveFotoSuccess(response.data.photos));
+      dispatch(getAuthUserProfile(id));
+      dispatch(setNotification('Server: user photo updated'));
+    }
+  } catch (error) {
+    dispatch(setNotification('Server: ' + error.message, true));
+  } finally {
+    dispatch(setSuspenseStatus(false));
   }
 };
 
