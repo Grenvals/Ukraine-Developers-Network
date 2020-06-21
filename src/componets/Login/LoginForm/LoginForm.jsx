@@ -1,7 +1,12 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-import { maxLengthCreator, required } from '../../../utils/validators/validators';
+import {
+  maxLengthCreator,
+  minLengthCreator,
+  emailCreator,
+  required,
+} from '../../../utils/validators/validators';
 import { Button } from '../../common/Buttons/Buttons';
 import { Checkbox, Input } from '../../common/Form/FormControls/FormControls';
 import { Captcha } from './Captcha/Captcha';
@@ -9,6 +14,8 @@ import { Captcha } from './Captcha/Captcha';
 import style from './LoginForm.module.scss';
 
 const maxLength = maxLengthCreator(28);
+const minLength = minLengthCreator(8);
+const emailTest = emailCreator();
 const LoginForm = ({ handleSubmit, captcha, updateCaptcha, error }) => {
   return (
     <form className={style.loginForm} onSubmit={handleSubmit}>
@@ -21,7 +28,7 @@ const LoginForm = ({ handleSubmit, captcha, updateCaptcha, error }) => {
           placeholder="Email"
           name={'user_email'}
           component={Input}
-          validate={[required, maxLength]}
+          validate={[required, maxLength, minLength, emailTest]}
         />
       </div>
       <div className={style.loginForm__item}>
@@ -33,7 +40,7 @@ const LoginForm = ({ handleSubmit, captcha, updateCaptcha, error }) => {
           name={'user_password'}
           placeholder="******"
           component={Input}
-          validate={[required, maxLength]}
+          validate={[required, maxLength, minLength]}
           type={'password'}
         />
       </div>
