@@ -14,6 +14,12 @@ const instanse = axios.create({
 
 const newsInstanse = axios.create({
   baseURL: 'https://newsapi.org/v2/',
+  method: 'HEAD',
+  mode: 'no-cors',
+  // headers: {
+  //   'Access-Control-Allow-Origin': '*',
+  // },
+  crossdomain: true,
 });
 const newsApiKey = '&apiKey=08ec5abbba254b49a6288d68358823ba';
 
