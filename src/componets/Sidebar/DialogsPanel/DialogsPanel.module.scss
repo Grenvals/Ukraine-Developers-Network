@@ -24,6 +24,7 @@
   &__list {
     @include flexbox();
     flex-wrap: wrap;
+    animation: showIn 0.3s ease;
   }
   &__button {
     @include flexbox();
@@ -61,4 +62,9 @@
       right: -10px;
     }
   }
+}
+
+@keyframes showIn {
+  from {  opacity: 0; }
+  to   {  opacity: 1; }
 }

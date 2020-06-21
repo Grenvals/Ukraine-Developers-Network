@@ -73,4 +73,12 @@
     width: 70px;
     margin-right: 5px;
   }
+  &__list {
+		animation: showIn 0.3s ease;
+  }
+}
+
+@keyframes showIn {
+  from {  opacity: 0; }
+  to   {  opacity: 1; }
 }

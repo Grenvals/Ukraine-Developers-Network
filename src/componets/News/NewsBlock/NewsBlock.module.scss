@@ -4,6 +4,7 @@
 .newsBlock {
 	padding: 15px 15px 0px 15px;
 	height: 100%;
+	animation: showIn 0.5s ease;
 	@media (max-width: $md4+px) {
 		padding: 15px 10px 0px 10px;
 	}
@@ -59,3 +60,8 @@
 		margin-bottom: 15px;
 	}
 }
+
+@keyframes showIn {
+  from {  opacity: 0; }
+  to   {  opacity: 1; }
+ }

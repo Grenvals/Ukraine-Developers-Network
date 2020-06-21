@@ -9,9 +9,15 @@
   border-radius: 6px;
 	min-height: 670px;
 	margin: 15px 15px;
+	animation: showIn 0.3s ease;
 	@media (max-width: $md3+px) {
 		margin: 0px;
 		border-radius: 0px;
+	}
+	&__preloader {
+		margin: 15px;
+    width: auto;
+    border-radius: 10px;
 	}
 	&__wrap {
 		height: 100%;
@@ -28,7 +34,6 @@
 		& > * {
 			margin-bottom: 8px;
 		}
-
 	}
 	&__select {
 		margin-right: 15px;
@@ -37,4 +42,13 @@
 		margin-left: auto;
 		margin-right: 0;
 	}
+	&__list {
+		animation: showIn 0.5s ease;
+	}
+}
+
+
+@keyframes showIn {
+  from {  opacity: 0; }
+  to   {  opacity: 1; }
 }

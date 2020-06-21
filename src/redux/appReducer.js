@@ -4,12 +4,14 @@ import { getTopHeadlines } from './newsReducer';
 import { setSuspenseStatus } from './notificationReducer';
 import { getTotalUsersCount } from './usersReducer';
 
+// Actions
 const INITIALIZED_SUCSESS = 'INITIALIZED_SUCSESS';
 
 const initialState = {
   initialized: false,
 };
 
+// Reducer
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'INITIALIZED_SUCSESS': {
@@ -23,12 +25,14 @@ const appReducer = (state = initialState, action) => {
   }
 };
 
+// Action creators
 export const initializedSuccess = () => {
   return {
     type: INITIALIZED_SUCSESS,
   };
 };
 
+// Async
 export const initializedApp = () => (dispatch, getState) => {
   const getUserData = dispatch(getAuthUserData());
   Promise.all([getUserData]).then(response => {

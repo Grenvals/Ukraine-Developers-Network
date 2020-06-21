@@ -17,7 +17,7 @@ const Settings = ({
   updateUserPhoto,
 }) => {
   if (!profile || !status) {
-    return <Preloader />;
+    return <Preloader className={style.settings__preloader} />;
   } else {
     const initialData = {
       status: status,

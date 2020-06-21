@@ -4,6 +4,8 @@
   position: relative;
   width: 100%;
   padding-top: 100%;
+  border-radius: 50%;
+  background: $first;
   &__img {
     position: absolute;
     top: 0px;

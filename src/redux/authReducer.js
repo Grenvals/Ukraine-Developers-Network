@@ -3,6 +3,7 @@ import { stopSubmit } from 'redux-form';
 import { authAPI, securityAPI, profileAPI } from '../api/api';
 import { setSuspenseStatus } from './notificationReducer';
 
+// Actions
 const FOLLOW = 'auth/FOLLOW';
 const UNFOLLOW = 'auth/UNFOLLOW';
 const SET_LOADING_STATUS = 'auth/SET_LOADING_STATUS';
@@ -22,6 +23,7 @@ const initialState = {
   profile: null,
 };
 
+// Reducer
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'auth/SET_AUTH_USER_PROFILE': {
@@ -72,20 +74,24 @@ const authReducer = (state = initialState, action) => {
   }
 };
 
+// Action creators
 export const follow = userID => ({
   type: FOLLOW,
   userID,
 });
+
 export const unfollow = userID => {
   return {
     type: UNFOLLOW,
     userID,
   };
 };
+
 export const setLoadingStatus = loadingStatus => ({
   type: SET_LOADING_STATUS,
   loading: loadingStatus,
 });
+
 export const setAuthUserData = (userId, email, login, isAuth) => {
   return {
     type: SET_AUTH_USER_DATA,
@@ -105,6 +111,7 @@ export const setCaptchaUrl = captchaUrl => {
   };
 };
 
+// Async
 export const getAuthUserData = () => async dispatch => {
   const response = await authAPI.getAuthUserData();
   if (response.data.resultCode === 0) {

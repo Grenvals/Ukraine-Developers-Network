@@ -2,6 +2,7 @@ import { usersAPI } from '../api/api';
 import { updateObjectInArray } from '../utils/object-helper';
 import { setNotification, setSuspenseStatus } from './notificationReducer';
 
+// Actions
 const FOLLOW = 'users/FOLLOW';
 const UNFOLLOW = 'users/UNFOLLOW';
 const SET_USERS = 'users/SET_USERS';
@@ -12,17 +13,18 @@ const SET_TOTAL_USERS_COUNT = 'users/SET_TOTAL_USERS_COUNT';
 const SET_LOADING_STATUS = 'users/SET_LOADING_STATUS';
 const TOOGLE_FOLLOWNG_PROGRESS = 'users/TOOGLE_FOLLOWNG_PROGRESS';
 
-let initialState = {
+const initialState = {
   users: [],
   pageSize: 25,
   totalUsersCount: null,
   currentPage: 1,
-  pagPortionNumber: 2,
+  pagPortionNumber: 1,
   isLoading: true,
   followingInProgress: [],
 };
 
-let usersReducer = (state = initialState, action) => {
+// Reducer
+const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'users/FOLLOW': {
       return {
@@ -89,48 +91,56 @@ let usersReducer = (state = initialState, action) => {
   }
 };
 
-// AC
+// Action creators
 export const follow = userID => ({
   type: FOLLOW,
   userID,
 });
+
 export const unfollow = userID => {
   return {
     type: UNFOLLOW,
     userID,
   };
 };
+
 export const setUsers = users => ({
   type: SET_USERS,
   users,
 });
+
 export const setCurrentPage = currentPage => ({
   type: SET_CURRENT_PAGE,
   currentPage: currentPage,
 });
+
 export const setPagPortionNumber = pagPortionNumber => ({
   type: SET_PUG_PORTION_NUMBER,
   pagPortionNumber,
 });
+
 export const setPageSize = pageSize => ({
   type: SET_PAGE_SIZE,
   pageSize,
 });
+
 export const setTotalUsersCount = totalUsersCount => ({
   type: SET_TOTAL_USERS_COUNT,
   count: totalUsersCount,
 });
+
 export const setLoadingStatus = loadingStatus => ({
   type: SET_LOADING_STATUS,
   loading: loadingStatus,
 });
+
 export const toogleFollowingProgress = (userId, isFetching) => ({
   type: TOOGLE_FOLLOWNG_PROGRESS,
   userId: userId,
   isFetching: isFetching,
 });
 
-// Thunks
+// Async
 export const getRequestUsers = (currentPage, pageSize) => async dispatch => {
   dispatch(setLoadingStatus(true));
   const response = await usersAPI.getUsers(currentPage, pageSize);

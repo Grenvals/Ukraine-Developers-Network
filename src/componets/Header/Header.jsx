@@ -14,7 +14,7 @@ import {
   style,
 } from './index.js';
 
-const Header = ({ login, isAuth, profile, logOut }) => {
+const Header = React.memo(({ login, isAuth, profile, logOut }) => {
   return (
     <header className={style.header}>
       <div className={style.container}>
@@ -45,7 +45,7 @@ const Header = ({ login, isAuth, profile, logOut }) => {
       </div>
     </header>
   );
-};
+});
 
 const mapStateToProps = state => {
   return {

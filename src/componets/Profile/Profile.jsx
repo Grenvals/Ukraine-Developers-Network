@@ -2,14 +2,14 @@ import React from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 import { Preloader } from '../common/Preloader/Preloader';
-import { Posts } from './Posts/PostsContainer';
+import { Posts } from './Posts/Posts';
 import { UserInfo } from './UserInfo/UserInfo';
 
 import style from './Profile.module.scss';
 
 const Profile = props => {
   if (!props.profile) {
-    return <Preloader />;
+    return <Preloader className={style.profile__preloader} />;
   } else {
     return (
       <div className={style.profile__wrap}>

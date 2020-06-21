@@ -4,6 +4,12 @@
   height: 100%;
   max-width: 1100px;
   position: relative;
+  animation: showIn 0.2s ease;
+  &__preloader {
+    margin: 15px;
+    width: auto;
+    border-radius: 10px;
+  }
   &__container {
     @include flexbox();
     position: absolute;
@@ -23,4 +29,9 @@
       border-radius: 0px;
     }
   }
+}
+
+@keyframes showIn {
+  from {  opacity: 0; }
+  to   {  opacity: 1; }
 }

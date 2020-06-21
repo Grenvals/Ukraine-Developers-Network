@@ -105,7 +105,6 @@ export const Pagination = React.memo(
               ...
             </li>
           )}
-
           {lastPagesCountItem}
         </ul>
         <PaginationButton

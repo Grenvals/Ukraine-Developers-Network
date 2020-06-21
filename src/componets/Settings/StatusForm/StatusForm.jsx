@@ -21,7 +21,7 @@ const StatusForm = ({
   userId,
 }) => {
   return (
-    <div className="">
+    <div className={style.settings}>
       <Head title="Previev settings" />
       <div className={style.settings__container}>
         <div className="">

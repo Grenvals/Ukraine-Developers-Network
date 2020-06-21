@@ -1,16 +1,18 @@
+// Actions
 const ADD_NOTIFICATION = 'notifications/ADD_NOTIFICATION';
 const DELETE_NOTIFICATION = 'notifications/DELETE_NOTIFICATION';
 const SET_SUSPENSE_STATUS = 'notifications/SET_SUSPENSE_STATUS';
 
-let initialState = {
+const initialState = {
   isSuspense: false,
   notifications: [],
 };
 
-export let notificationReducer = (state = initialState, action) => {
+// Reducer
+const notificationReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'notifications/ADD_NOTIFICATION': {
-      let newNotification = {
+      const newNotification = {
         id: action.id,
         message: action.message,
         error: action.error,
@@ -34,6 +36,7 @@ export let notificationReducer = (state = initialState, action) => {
   }
 };
 
+// Action creators
 const addNotification = (id, message, error) => ({
   type: ADD_NOTIFICATION,
   id,
@@ -51,6 +54,7 @@ export const setSuspenseStatus = isSuspense => ({
   isSuspense,
 });
 
+// Async
 export const setNotification = (message, error = false) => dispatch => {
   const notificationId = `f${(+new Date()).toString(16)}`;
   dispatch(addNotification(notificationId, message, error));
@@ -58,3 +62,4 @@ export const setNotification = (message, error = false) => dispatch => {
     dispatch(deleteNotification(notificationId));
   }, 6000);
 };
+export { notificationReducer };

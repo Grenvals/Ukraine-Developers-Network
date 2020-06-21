@@ -7,7 +7,7 @@ import style from './LikesCount.module.scss';
 export const LikesCount = ({ likes }) => {
   return (
     <div className={style.likesCount}>
-      <img className={style.likesCount__img} src={likeImg} alt="" />
+      <img className={style.likesCount__img} src={likeImg} alt="likes" />
       <span className={style.likesCount__value}>{likes}</span>
     </div>
   );

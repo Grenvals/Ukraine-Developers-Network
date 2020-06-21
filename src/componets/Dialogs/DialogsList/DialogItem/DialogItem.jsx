@@ -17,8 +17,7 @@ const DialogItem = ({ id, userName, userLogo, newMessagesCount, lastUserActivity
       <NavLink
         className={style.dialogItem__link}
         activeClassName={style.dialogItem__link_active}
-        to={'/dialogs/' + id}
-        onClick={() => {}}>
+        to={'/dialogs/' + id}>
         exact
         <div className={style.dialogItem__container}>
           <p className={style.dialogItem__name}>{userName}</p>

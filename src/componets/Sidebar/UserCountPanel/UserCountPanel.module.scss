@@ -21,6 +21,7 @@
   &__container {
     position: relative;
     padding: 15px;
+    animation: showIn 0.3s ease;
   }
   &__total {
     @include flexbox();
@@ -60,4 +61,9 @@
       right: 15px;
     }
   }
+}
+
+@keyframes showIn {
+  from {  opacity: 0; }
+  to   {  opacity: 1; }
 }

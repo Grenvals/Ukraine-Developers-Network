@@ -7,9 +7,9 @@ import postImage1 from '../assets/images/profile/posts/jobs-1.jpg';
 import { getAuthUserProfile } from './authReducer';
 import { setNotification, setSuspenseStatus } from './notificationReducer';
 
-// jobs-1
-const ADD_POST = 'profile/ADD-POST';
-const DELETE_POST = 'profile/DELETE-POST';
+// Actions
+const SET_USER_POST = 'profile/SET_USER_POST';
+const DELETE_USER_POST = 'profile/DELETE_USER_POST';
 const SET_USER_PROFILE = 'profile/SET_USER_PROFILE';
 const SET_USER_STATUS = 'profile/SET_USER_STATUS';
 const SAVE_PHOTO_SUCCESS = 'profile/SAVE_PHOTO_SUCCESS';
@@ -46,10 +46,11 @@ const initialState = {
   status: '',
 };
 
+// Reducer
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'profile/ADD-POST': {
-      let newPost = {
+    case 'profile/SET_USER_POST': {
+      const newPost = {
         id: state.posts.length + 1,
         message: action.message,
         date: action.date,
@@ -57,7 +58,7 @@ const profileReducer = (state = initialState, action) => {
       };
       return { ...state, newPostMessage: '', posts: [...state.posts, newPost] };
     }
-    case 'profile/DELETE-POST': {
+    case 'profile/DELETE_USER_POST': {
       return {
         ...state,
         posts: state.posts.filter(p => p.id !== action.id),
@@ -77,19 +78,23 @@ const profileReducer = (state = initialState, action) => {
   }
 };
 
-export const addPostActionCreator = (message, date) => ({
-  type: ADD_POST,
+// Action creators
+const setUserPost = (message, date) => ({
+  type: SET_USER_POST,
   message: message,
   date: date,
 });
-export const deletePostActionCreator = id => ({
-  type: DELETE_POST,
+
+const deleteUserPost = id => ({
+  type: DELETE_USER_POST,
   id: id,
 });
+
 export const setUserProfile = profile => ({
   type: SET_USER_PROFILE,
   profile,
 });
+
 export const setUserStatus = status => ({
   type: SET_USER_STATUS,
   status,
@@ -99,6 +104,21 @@ export const saveFotoSuccess = data => ({
   type: SAVE_PHOTO_SUCCESS,
   userPhoto: data,
 });
+
+// Async
+export const addPost = (message, date) => async dispatch => {
+  dispatch(setSuspenseStatus(true));
+  await dispatch(setUserPost(message, date));
+  dispatch(setSuspenseStatus(false));
+  dispatch(setNotification('Post added'));
+};
+
+export const deletePost = id => async dispatch => {
+  dispatch(setSuspenseStatus(true));
+  await dispatch(deleteUserPost(id));
+  dispatch(setSuspenseStatus(false));
+  dispatch(setNotification('Post deleted'));
+};
 
 export const getUserProfile = userId => async dispatch => {
   dispatch(setSuspenseStatus(true));

@@ -14,13 +14,14 @@ export const NavLinkButton = ({
   adaptive = false,
   onClick,
 }) => {
+  const handleClick = () => {
+    onClick && onClick();
+  };
   return (
     <div className={className}>
       <NavLink
         to={link}
-        onClick={() => {
-          onClick && onClick();
-        }}
+        onClick={handleClick}
         className={cn(
           style.button,
           { [style.button_withIcon]: icon !== null },

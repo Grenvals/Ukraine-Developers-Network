@@ -30,7 +30,8 @@ const initialState = {
   ],
 };
 
-export const newsReducer = (state = initialState, action) => {
+// Reducer
+const newsReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'news/SET_TOP_HEADLINES': {
       return { ...state, headlines: action.headlines };
@@ -121,3 +122,5 @@ export const getNewsArticles = (category, pageSize, currentPage) => async dispat
   dispatch(setTotalResults(response.totalResults));
   dispatch(setCurrentPage(currentPage));
 };
+
+export { newsReducer };

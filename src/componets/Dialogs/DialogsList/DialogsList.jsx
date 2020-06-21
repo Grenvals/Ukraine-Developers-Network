@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-
-import { DialogItem } from './DialogItem/DialogItem';
-import { Head } from '../../common/Head/Head';
 import PerfectScrollbar from 'react-perfect-scrollbar';
+
 import cn from 'classnames';
+
 import dialogsIcon from '../../../assets/images/dialogs/dialoglist.svg';
+import { Head } from '../../common/Head/Head';
+import { DialogItem } from './DialogItem/DialogItem';
+
 import style from './DialogsList.module.scss';
 
 const DialogsList = ({ dialogs, getDialogsUsersList }) => {
@@ -20,7 +22,8 @@ const DialogsList = ({ dialogs, getDialogsUsersList }) => {
       setIsActive(true);
     }
   };
-  let notificationItem = dialogs.map(d => (
+
+  const notificationItem = dialogs.map(d => (
     <DialogItem
       key={d.id}
       id={d.id}

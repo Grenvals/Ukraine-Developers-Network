@@ -9,6 +9,7 @@
 	overflow: hidden;
 	height: 100%;
 	margin-left: 15px;
+	animation: showIn 0.2s ease;
 	@media (max-width: $md3+px) {
 		margin: 0px;
 	}
@@ -59,4 +60,10 @@
 		text-align: right;
 		font-size: 13px;
 	}
+}
+
+
+@keyframes showIn {
+  from {  opacity: 0; }
+  to   {  opacity: 1; }
 }

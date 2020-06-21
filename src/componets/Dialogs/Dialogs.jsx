@@ -72,7 +72,7 @@ const Dialogs = React.memo(
             )}
           </div>
         ) : (
-          <Preloader />
+          <Preloader className={style.dialogs__preloader} />
         )}
       </div>
     );

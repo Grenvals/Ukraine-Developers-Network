@@ -38,7 +38,7 @@ const User = ({
   if (isTablet) {
     followName = followed ? 'unfollow' : 'follow';
   }
-  const onClick = () => {};
+  const handleClick = () => {};
   const startDialog = () => {
     startDialogWithUser(id);
   };
@@ -57,7 +57,7 @@ const User = ({
         className={style.user__profile}
         link={'/profile/' + id}
         icon={userIcon}
-        onClick={onClick}
+        onClick={handleClick}
       />
       <NavLinkButton
         className={style.user__dialog}

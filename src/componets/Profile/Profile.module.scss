@@ -1,6 +1,7 @@
 @import "./../../scss/main.scss";
 .profile {
   margin: 15px 15px;
+  animation: showIn 0.2s ease;
   @media (max-width: $md4+px) {
     margin: 7px;
   }
@@ -8,4 +9,14 @@
     height: 100%;
     overflow: hidden;
   }
+  &__preloader {
+    margin: 15px;
+    width: auto;
+    border-radius: 10px;
+  }
+}
+
+@keyframes showIn {
+  from {  opacity: 0; }
+  to   {  opacity: 1; }
 }

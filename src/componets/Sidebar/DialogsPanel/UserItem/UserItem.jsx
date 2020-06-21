@@ -6,14 +6,15 @@ import { UserPhoto } from '../../../common/UserFoto/UserFoto';
 import style from './UserItem.module.scss';
 
 const UserItem = ({ id, userLogo, userName, newMessagesCount, openDialogWithUser }) => {
+  const handleClick = () => {
+    openDialogWithUser(id);
+  };
   return (
     <li className={style.userItem}>
       <NavLink
         className={style.userItem__link}
         to={'/dialogs/' + id}
-        onClick={() => {
-          openDialogWithUser(id);
-        }}
+        onClick={handleClick}
         exact>
         <UserPhoto
           className={style.userItem__photo}

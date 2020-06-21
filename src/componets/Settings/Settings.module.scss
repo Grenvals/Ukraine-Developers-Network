@@ -2,6 +2,12 @@
 @import "./../../scss/main.scss";
 .settings {
 	height: 100%;
+	animation: showIn 0.2s ease;
+	&__preloader {
+		margin: 15px;
+    width: auto;
+    border-radius: 10px;
+	}
 	&__wrap {
 		margin: 15px;
 		background: $second;
@@ -30,4 +36,9 @@
 	&__aboutUser {
 		height: 230px;
 	}
+}
+
+@keyframes showIn {
+  from {  opacity: 0; }
+  to   {  opacity: 1; }
 }

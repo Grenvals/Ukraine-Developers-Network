@@ -45,7 +45,22 @@
 			border-color:  lighten($accent, 15%) transparent  lighten($accent, 15%) transparent;
 			animation: loaderAnimation 1.2s linear infinite;
 		}
-		
+	}
+	:global {
+		.notificationItem-enter {
+			opacity: 0;
+		}
+		.notificationItem-enter-active {
+			opacity: 1;
+			transition: opacity 500ms ease-out;
+		}
+		.notificationItem-exit {
+			opacity: 1;
+		}
+		.notificationItem-exit-active {
+			opacity: 0;
+			transition: opacity 500ms ease-out;
+		}
 	}
 }
 

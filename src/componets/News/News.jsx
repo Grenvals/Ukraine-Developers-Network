@@ -46,13 +46,15 @@ const News = ({
   useEffect(() => {
     getNewsArticles(currentCategory, pageSize, currentPage);
   }, [currentCategory, currentPage, getNewsArticles, pageSize]);
+
   useEffect(() => {
     toogleRightSidebar(false);
   }, [toogleRightSidebar]);
-  const [vievMode, setViewMode] = useState('tablet');
 
+  const [vievMode, setViewMode] = useState('tablet');
   const pagesCount = Math.ceil(totalResults / pageSize);
   const pages = [];
+
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }

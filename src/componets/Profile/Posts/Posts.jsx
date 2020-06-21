@@ -1,5 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
+import { addPost, deletePost } from '../../../redux/profileReducer';
+import { getAuthProfile, getProfilePosts } from '../../../selectors/selectors';
 import { Preloader } from '../../common/Preloader/Preloader';
 import { Post } from './Post/Post';
 import { PostForm } from './PostForm/PostForm';
@@ -24,7 +27,7 @@ const Posts = React.memo(({ profile, posts, addPost, deletePost }) => {
         />
       ));
     return (
-      <div className={posts}>
+      <div className={style.posts}>
         <PostForm addPost={addPost} />
         {postItem}
       </div>
@@ -34,4 +37,13 @@ const Posts = React.memo(({ profile, posts, addPost, deletePost }) => {
   }
 });
 
-export { Posts };
+const mapStateToProps = state => {
+  return {
+    posts: getProfilePosts(state),
+    profile: getAuthProfile(state),
+  };
+};
+
+const PostsContainer = connect(mapStateToProps, { addPost, deletePost })(Posts);
+
+export { PostsContainer as Posts };
