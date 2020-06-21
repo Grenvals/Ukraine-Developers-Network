@@ -5,6 +5,7 @@ import {
   getNewsHeadlines,
   getAuthUserId,
   getTotalUsersCount,
+  getNewsError,
 } from '../../selectors/selectors';
 import { NewsPanel } from './NewsPanel/NewsPanel';
 import { UserCountPanel } from './UserCountPanel/UserCountPanel';
@@ -18,6 +19,7 @@ const RightSidebar = ({
   totalUsersCount,
   userId,
   match,
+  newsError,
 }) => {
   return (
     <div className={style.rightSidebar}>
@@ -26,6 +28,7 @@ const RightSidebar = ({
         state={dialogs}
         headlines={headlines}
         getTopHeadlines={getTopHeadlines}
+        newsError={newsError}
       />
     </div>
   );
@@ -34,6 +37,7 @@ const RightSidebar = ({
 const mapStateToProps = state => {
   return {
     headlines: getNewsHeadlines(state),
+    newsError: getNewsError(state),
     totalUsersCount: getTotalUsersCount(state),
     userId: getAuthUserId(state),
   };

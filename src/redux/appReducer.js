@@ -52,7 +52,7 @@ export const initializedApp = () => (dispatch, getState) => {
       dispatch(setSuspenseStatus(true));
       dispatch(getTopHeadlines());
       dispatch(setSuspenseStatus(false));
-    }, 15000);
+    }, 25000);
   });
 };
 

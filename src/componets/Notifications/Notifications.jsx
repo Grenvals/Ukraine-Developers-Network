@@ -8,15 +8,16 @@ import { Notification } from './Notification/Notification';
 import style from './Notifications.module.scss';
 
 const Notifications = ({ notifications, isSuspense }) => {
+  const notificationsList = notifications.map(n => (
+    <CSSTransition key={n.id} timeout={1600} classNames="notificationItem">
+      <Notification key={n.id} message={n.message} error={n.error} />
+    </CSSTransition>
+  ));
   return (
     <div className={style.notifications}>
       <ul className={style.notifications__list}>
         <TransitionGroup className={style.notifications__list}>
-          {notifications.map(n => (
-            <CSSTransition key={n.id} timeout={1600} classNames="notificationItem">
-              <Notification key={n.id} message={n.message} error={n.error} />
-            </CSSTransition>
-          ))}
+          {notificationsList}
         </TransitionGroup>
       </ul>
       <TransitionGroup>

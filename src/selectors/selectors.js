@@ -117,3 +117,7 @@ export const getNewsCurrentCategory = state => {
 export const getNewsPagPortionNumber = state => {
   return state.news.pagPortionNumber;
 };
+
+export const getNewsError = state => {
+  return state.news.error;
+};

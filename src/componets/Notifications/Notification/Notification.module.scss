@@ -24,4 +24,11 @@
 			object-fit: contain;
 		}
 	}
+	&__info {
+		max-width: 300px;
+		word-wrap: break-word;
+		&_error {
+			color: rgb(194, 80, 80);
+		}
+	}
 }

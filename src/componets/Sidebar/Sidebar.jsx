@@ -9,6 +9,7 @@ import {
   getDialogs,
   getNewsHeadlines,
   getTotalUsersCount,
+  getNewsError,
 } from '../../selectors/selectors';
 import { AudioPlayer } from '../common/Player/Player';
 import { DialogsPanel } from './DialogsPanel/DialogsPanel';
@@ -18,7 +19,7 @@ import { UserCountPanel } from './UserCountPanel/UserCountPanel';
 
 import style from './Sidebar.module.scss';
 
-const Sidebar = ({ dialogs, isAuth, headlines, totalUsersCount, userId }) => {
+const Sidebar = ({ dialogs, isAuth, headlines, newsError, totalUsersCount, userId }) => {
   const isTablet = useMediaQuery({
     query: '(min-device-width: 767.98px)',
   });
@@ -34,7 +35,9 @@ const Sidebar = ({ dialogs, isAuth, headlines, totalUsersCount, userId }) => {
       ) : (
         <React.Fragment>
           {isTablet && <UserCountPanel userCount={totalUsersCount} userId={userId} />}
-          {isTablet && <NewsPanel state={dialogs} headlines={headlines} />}
+          {isTablet && (
+            <NewsPanel state={dialogs} headlines={headlines} newsError={newsError} />
+          )}
         </React.Fragment>
       )}
       {isTablet && <AudioPlayer />}
@@ -47,6 +50,7 @@ const mapStateToProps = state => {
     dialogs: getDialogs(state),
     isAuth: getIsAuth(state),
     headlines: getNewsHeadlines(state),
+    newsError: getNewsError(state),
     totalUsersCount: getTotalUsersCount(state),
     userId: getAuthUserId(state),
   };

@@ -20,6 +20,7 @@
   }
   &__container {
     height: 260px;
+    position: relative;
   }
   &__button {
     @include flexbox();
@@ -75,6 +76,17 @@
   }
   &__list {
 		animation: showIn 0.3s ease;
+  }
+  &__error {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    width: 100%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 15px;
+    text-align: center;
   }
 }
 
