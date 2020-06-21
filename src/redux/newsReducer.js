@@ -124,7 +124,7 @@ export const getTopHeadlines = () => async dispatch => {
     });
     dispatch(setTopHeadlines(healinesList));
   } catch (error) {
-    dispatch(setNotification('Google News ' + error, true));
+    dispatch(setNotification('Google News ' + error.message, true));
     dispatch(setNewsError('Google News ' + error, true));
   } finally {
     dispatch(setSuspenseStatus(false));
@@ -146,15 +146,15 @@ export const getNewsArticles = (category, pageSize, currentPage) => async dispat
     dispatch(setTotalResults(response.totalResults));
     dispatch(setCurrentPage(currentPage));
   } catch (error) {
-    dispatch(setNotification('Google News: ' + error, true));
-    dispatch(setNewsError('Google News: ' + error, true));
+    dispatch(setNotification('Google News: ' + error.message, true));
+    dispatch(setNewsError('Google News: ' + error.message, true));
   } finally {
     dispatch(setSuspenseStatus(false));
   }
 
   try {
   } catch (error) {
-    dispatch(setNotification('Server: ' + error, true));
+    dispatch(setNotification('Server: ' + error.message, true));
   } finally {
     dispatch(setSuspenseStatus(false));
   }

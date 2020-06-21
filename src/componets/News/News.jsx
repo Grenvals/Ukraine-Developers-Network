@@ -12,6 +12,7 @@ import {
   getNewsCategoryList,
   getNewsCurrentCategory,
   getNewsPagPortionNumber,
+  getNewsError,
 } from '../../selectors/selectors';
 import { Head } from '../common/Head/Head';
 import { Pagination } from '../common/Pagination/Pagination';
@@ -42,6 +43,7 @@ const News = ({
   setCurrentPage,
   setPagPortionNumber,
   pagPortionNumber,
+  newsError,
 }) => {
   useEffect(() => {
     getNewsArticles(currentCategory, pageSize, currentPage);
@@ -77,17 +79,19 @@ const News = ({
             pugPortionNumber={pagPortionNumber}
             pages={pages}
           />
-          <NewsBlock articles={articles} viewMode={vievMode} />
-          <div className={style.news__bottomControl}>
-            <Pagination
-              className={style.news__pagination}
-              items={pages}
-              setCurrentItem={setCurrentPage}
-              currentItem={currentPage}
-              pagPortionNumber={pagPortionNumber}
-              setPagPortionNumber={setPagPortionNumber}
-            />
-          </div>
+          <NewsBlock articles={articles} viewMode={vievMode} newsError={newsError} />
+          {totalResults && (
+            <div className={style.news__bottomControl}>
+              <Pagination
+                className={style.news__pagination}
+                items={pages}
+                setCurrentItem={setCurrentPage}
+                currentItem={currentPage}
+                pagPortionNumber={pagPortionNumber}
+                setPagPortionNumber={setPagPortionNumber}
+              />
+            </div>
+          )}
         </div>
       </PerfectScrollbar>
     </div>
@@ -103,6 +107,7 @@ const mapStateToProps = state => {
     categoryList: getNewsCategoryList(state),
     currentCategory: getNewsCurrentCategory(state),
     pagPortionNumber: getNewsPagPortionNumber(state),
+    newsError: getNewsError(state),
   };
 };
 

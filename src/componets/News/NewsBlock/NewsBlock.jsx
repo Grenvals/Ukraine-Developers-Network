@@ -7,7 +7,7 @@ import { NewsArticle } from './NewsArticle/NewsArticle';
 
 import style from './NewsBlock.module.scss';
 
-const NewsBlock = ({ articles, viewMode }) => {
+const NewsBlock = ({ articles, viewMode, newsError }) => {
   let newsList = [];
   if (articles !== null) {
     newsList = articles.map((u, i) => (
@@ -37,7 +37,15 @@ const NewsBlock = ({ articles, viewMode }) => {
           </ul>
         </div>
       ) : (
-        <Preloader className={style.newsBlock__preloader} />
+        <React.Fragment>
+          {newsError ? (
+            <p className={style.newsBlock__error}>
+              <span>{newsError}</span>
+            </p>
+          ) : (
+            <Preloader className={style.newsBlock__preloader} />
+          )}
+        </React.Fragment>
       )}
     </React.Fragment>
   );

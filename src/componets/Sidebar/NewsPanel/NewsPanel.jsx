@@ -32,7 +32,7 @@ const NewsPanel = ({ headlines, newsError }) => {
         ) : (
           <React.Fragment>
             {newsError ? (
-              <div className={style.newsPanel__error}>{newsError}</div>
+              <p className={style.newsPanel__error}>{newsError}</p>
             ) : (
               <Preloader />
             )}
