@@ -14,7 +14,7 @@ import { Captcha } from './Captcha/Captcha';
 import style from './LoginForm.module.scss';
 
 const maxLength = maxLengthCreator(28);
-const minLength = minLengthCreator(8);
+const minLength = minLengthCreator(4);
 const emailTest = emailCreator();
 const LoginForm = ({ handleSubmit, captcha, updateCaptcha, error }) => {
   return (

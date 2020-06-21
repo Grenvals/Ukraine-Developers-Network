@@ -23,6 +23,11 @@ const Login = ({ logIn, isAuth, captcha, getCaptchaUrl, toogleRightSidebar }) =>
       formData.user_captcha
     );
   };
+
+  const initialTestLogin = {
+    // user_email: 'upitersong@gmail.com',
+    // user_password: 'ukrainedevelopersnetwork',
+  };
   if (isAuth) {
     return <Redirect to={'/Profile'} />;
   }
@@ -34,6 +39,7 @@ const Login = ({ logIn, isAuth, captcha, getCaptchaUrl, toogleRightSidebar }) =>
           onSubmit={handleSubmit}
           captcha={captcha}
           updateCaptcha={getCaptchaUrl}
+          initialValues={initialTestLogin}
         />
         <p className={style.login__quate}>
           Have the courage to follow your heart and intuition. Steve Jobs

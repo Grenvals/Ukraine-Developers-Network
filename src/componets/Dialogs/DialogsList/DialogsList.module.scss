@@ -4,6 +4,7 @@
   flex: 0 0 350px;
   position: relative;
   background: $second;
+  border-right: 1px solid $first;
   @media (max-width: $md1+px) {
     position: absolute;
     top: 0px;
@@ -46,7 +47,7 @@
     padding: 0px;
   }
   &__usersList {
-    border-right: 1px solid $first;
+    // border-right: 1px solid $first;
     display: block;
     width: 100%;
   }
