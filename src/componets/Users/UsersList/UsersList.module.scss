@@ -1,0 +1,13 @@
+
+@import "./../../../scss/main.scss";
+
+.users {
+	&__list {
+		animation: showIn 0.5s ease;
+	}
+}
+
+@keyframes showIn {
+  from {  opacity: 0; }
+  to   {  opacity: 1; }
+}

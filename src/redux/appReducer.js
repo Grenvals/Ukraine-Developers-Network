@@ -1,7 +1,6 @@
 import { getAuthUserData } from './authReducer';
 import { getDialogsUsersList } from './dialogsReducer';
 import { getTopHeadlines } from './newsReducer';
-import { setSuspenseStatus } from './notificationReducer';
 import { getTotalUsersCount } from './usersReducer';
 
 // Actions
@@ -49,10 +48,10 @@ export const initializedApp = () => (dispatch, getState) => {
       if (isAuth) {
         dispatch(getDialogsUsersList());
       }
-      dispatch(setSuspenseStatus(true));
+    }, 25000);
+    setInterval(() => {
       dispatch(getTopHeadlines());
-      dispatch(setSuspenseStatus(false));
-    }, 15000);
+    }, 150000);
   });
 };
 

@@ -8,6 +8,9 @@
 	box-shadow: $shadow;
 	display: inline-flex;
 	overflow: hidden;
+	@media (max-width: $md3+px) {
+    display: none;
+  }
 	&__name {
 		font-size: 13px;
 		padding: 0px 13px;

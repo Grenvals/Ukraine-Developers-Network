@@ -5,7 +5,7 @@ import { Head } from '../common/Head/Head';
 import { Pagination } from '../common/Pagination/Pagination';
 import { Preloader } from '../common/Preloader/Preloader';
 import { Select } from '../common/Select/Select';
-import { User } from './User/User';
+import { UsersList } from './UsersList/UsersList';
 
 import style from './Users.module.scss';
 
@@ -39,26 +39,6 @@ const Users = ({
     { value: '25', label: '25' },
     { value: '50', label: '50' },
   ];
-
-  let usersList;
-
-  if (users !== null) {
-    usersList = users.map(u => (
-      <User
-        key={u.id}
-        user={u}
-        id={u.id}
-        photo={u.photos.small}
-        name={u.name}
-        status={u.status}
-        followed={u.followed}
-        followingInProgress={followingInProgress}
-        followUser={followUser}
-        unfollowUser={unfollowUser}
-        startDialogWithUser={startDialogWithUser}
-      />
-    ));
-  }
   return (
     <div className={style.users__wrap}>
       <PerfectScrollbar className={style.users__scrollbar} component="div">
@@ -87,7 +67,13 @@ const Users = ({
             <Preloader />
           ) : (
             <React.Fragment>
-              <ul className={style.users__list}>{usersList}</ul>
+              <UsersList
+                users={users}
+                followingInProgress={followingInProgress}
+                followUser={followUser}
+                unfollowUser={unfollowUser}
+                startDialogWithUser={startDialogWithUser}
+              />
               <div className={style.users__settings}>
                 <Pagination
                   className={style.users__pagination}
