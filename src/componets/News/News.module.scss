@@ -17,6 +17,10 @@
 		@media (max-width: $md3+px) {
 			margin: 0px;
 			border-radius: 0px;
+			min-height: 550px;
+    }
+		@media (max-width: $md4+px) {
+			min-height: 400px;
     }
 	}
 	&__bottomControl {
