@@ -5,6 +5,7 @@
 	padding: 15px 15px 0px 15px;
 	height: 100%;
 	animation: showIn 0.5s ease;
+	transform: translateZ(0);
 	@media (max-width: $md4+px) {
 		padding: 15px 10px 0px 10px;
 	}

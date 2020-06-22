@@ -7,6 +7,7 @@
     right: 0px;
     bottom: 130px;
     animation: showIn 0.3s ease;
+    transform: translateZ(0);
     &__list {
       padding: 15px;
     }

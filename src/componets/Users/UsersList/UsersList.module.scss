@@ -4,6 +4,7 @@
 .users {
 	&__list {
 		animation: showIn 0.5s ease;
+		transform: translateZ(0);
 	}
 }
 

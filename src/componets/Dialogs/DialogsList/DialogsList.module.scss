@@ -14,6 +14,7 @@
     max-width: 360px;
     z-index: 4;
     transition: left 0.3s;
+    transform: translateZ(0);
   }
   @media (max-width: $md3+px) {
     left: -360px;
@@ -34,6 +35,7 @@
   }
   &_disabled {
     animation: slideIn 0.4s  ease-out reverse;
+    transform: translateZ(0);
   }
   &__container {
     position: absolute;
@@ -53,6 +55,7 @@
     z-index: 3;
     display: none;
     transition: background 0.2s;
+    transform: translateZ(0);
     &_active {
       display: block;
       background: rgba(0, 0, 0, 0.1);

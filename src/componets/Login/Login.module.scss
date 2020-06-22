@@ -10,6 +10,7 @@
 	height: 100%;
 	margin-left: 15px;
 	animation: showIn 0.2s ease;
+	transform: translateZ(0);
 	@media (max-width: $md3+px) {
 		margin: 0px;
 	}

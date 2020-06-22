@@ -10,6 +10,7 @@
 	min-height: 670px;
 	margin: 15px 15px;
 	animation: showIn 0.3s ease;
+	transform: translateZ(0);
 	@media (max-width: $md3+px) {
 		margin: 0px;
 		border-radius: 0px;
@@ -17,7 +18,11 @@
 	&__preloader {
 		margin: 15px;
     width: auto;
-    border-radius: 10px;
+		border-radius: 10px;
+		@media (max-width: $md3+px) {
+      margin: 0px;  
+      border-radius: 0;
+    }
 	}
 	&__wrap {
 		height: 100%;
@@ -41,9 +46,6 @@
 	&__pagination {
 		margin-left: auto;
 		margin-right: 0;
-	}
-	&__list {
-		animation: showIn 0.5s ease;
 	}
 }
 
