@@ -11,17 +11,17 @@
     bottom: 0px;
     left: -340px;
     width: 340px;
-    max-width: 350px;
+    max-width: 360px;
     z-index: 4;
     transition: left 0.3s;
   }
   @media (max-width: $md3+px) {
-    left: -330px;
-    width: 330px;
+    left: -360px;
+    width: 360px;
   }
   @media (max-width: $md4+px) {
-    left: -300px;
-    width: 300px;
+    left: -330px;
+    width: 330px;
   }
   @media (max-width: $md5+px) {
     left: -270px;
@@ -43,11 +43,25 @@
     left: 0px;
     overflow: hidden;
   }
+  &__clickArea {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background: rgba(0, 0, 0, 0.0);
+    z-index: 3;
+    display: none;
+    transition: background 0.2s;
+    &_active {
+      display: block;
+      background: rgba(0, 0, 0, 0.065);
+    }
+  }
   &__scrollbar {
     padding: 0px;
   }
   &__usersList {
-    // border-right: 1px solid $first;
     display: block;
     width: 100%;
   }

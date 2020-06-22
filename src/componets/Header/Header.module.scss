@@ -11,7 +11,7 @@
   box-shadow: $shadow;
   z-index: 999;
   @media (max-width: $md3+px) {
-    height: 55px;
+    height: 46px;
   }
   &__button {
     margin-left: 15px;
@@ -22,7 +22,6 @@
     font-weight: 600;
     @media (max-width: $md3+px) {
       font-size: 30px;
-      line-height: 55px;
     }
   }
   &__title {
@@ -39,6 +38,7 @@
     max-width: 1420px;
     margin: 0 auto;
     padding: 0px 15px;
+    height: 100%;
   }
 }
 

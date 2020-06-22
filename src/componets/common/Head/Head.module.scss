@@ -54,6 +54,9 @@
   position: relative;
   background: $first;
   height: 150px;
+  @media (max-width: $md3+px) {
+    height: 110px;
+  }
   &:before {
     content: '';
     position: absolute;
@@ -64,12 +67,12 @@
     background: rgba(0, 0, 0, 0.1)
   }
   &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
     object-fit: cover;
-    @media (max-width: $md3+px) {
-			height: 110px;
-    }
 	}
 }
 

@@ -35,25 +35,32 @@ const DialogsList = ({ dialogs, getDialogsUsersList }) => {
     />
   ));
   return (
-    <div
-      className={cn(
-        style.dialogs,
-        { [style.dialogs_active]: isActive },
-        { [style.dialogs_disabled]: !isActive }
-      )}>
-      <Head title={'Dialogs / Chat'} />
-      <div className={style.dialogs__container}>
-        <PerfectScrollbar className={style.dialogs__scrollbar} component={'div'}>
-          <ul className={style.dialogs__usersList}>{notificationItem}</ul>
-        </PerfectScrollbar>
+    <React.Fragment>
+      <div
+        className={cn(
+          style.dialogs,
+          { [style.dialogs_active]: isActive },
+          { [style.dialogs_disabled]: !isActive }
+        )}>
+        <Head title={'Dialogs / Chat'} />
+        <div className={style.dialogs__container}>
+          <PerfectScrollbar className={style.dialogs__scrollbar} component={'div'}>
+            <ul className={style.dialogs__usersList}>{notificationItem}</ul>
+          </PerfectScrollbar>
+        </div>
+        <button
+          className={cn(style.dialogs__btn, { [style.dialogs__btn_active]: isActive })}
+          onClick={onHandleClick}
+          type="button">
+          <img src={dialogsIcon} alt="dialogs" />
+        </button>
       </div>
-      <button
-        className={cn(style.dialogs__btn, { [style.dialogs__btn_active]: isActive })}
-        onClick={onHandleClick}
-        type="button">
-        <img src={dialogsIcon} alt="dialogs" />
-      </button>
-    </div>
+      <div
+        className={cn(style.dialogs__clickArea, {
+          [style.dialogs__clickArea_active]: isActive,
+        })}
+        onClick={onHandleClick}></div>
+    </React.Fragment>
   );
 };
 

@@ -151,13 +151,6 @@ export const getNewsArticles = (category, pageSize, currentPage) => async dispat
   } finally {
     dispatch(setSuspenseStatus(false));
   }
-
-  try {
-  } catch (error) {
-    dispatch(setNotification('Server: ' + error.message, true));
-  } finally {
-    dispatch(setSuspenseStatus(false));
-  }
 };
 
 export { newsReducer };

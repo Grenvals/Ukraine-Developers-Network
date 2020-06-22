@@ -40,21 +40,25 @@ const Users = ({
     { value: '50', label: '50' },
   ];
 
-  const usersList = users.map(u => (
-    <User
-      key={u.id}
-      user={u}
-      id={u.id}
-      photo={u.photos.small}
-      name={u.name}
-      status={u.status}
-      followed={u.followed}
-      followingInProgress={followingInProgress}
-      followUser={followUser}
-      unfollowUser={unfollowUser}
-      startDialogWithUser={startDialogWithUser}
-    />
-  ));
+  let usersList;
+
+  if (users !== null) {
+    usersList = users.map(u => (
+      <User
+        key={u.id}
+        user={u}
+        id={u.id}
+        photo={u.photos.small}
+        name={u.name}
+        status={u.status}
+        followed={u.followed}
+        followingInProgress={followingInProgress}
+        followUser={followUser}
+        unfollowUser={unfollowUser}
+        startDialogWithUser={startDialogWithUser}
+      />
+    ));
+  }
   return (
     <div className={style.users__wrap}>
       <PerfectScrollbar className={style.users__scrollbar} component="div">
@@ -79,7 +83,7 @@ const Users = ({
               />
             </div>
           )}
-          {isLoading ? (
+          {users === null ? (
             <Preloader />
           ) : (
             <React.Fragment>

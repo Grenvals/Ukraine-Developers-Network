@@ -14,7 +14,7 @@ const SET_LOADING_STATUS = 'users/SET_LOADING_STATUS';
 const TOOGLE_FOLLOWNG_PROGRESS = 'users/TOOGLE_FOLLOWNG_PROGRESS';
 
 const initialState = {
-  users: [],
+  users: null,
   pageSize: 25,
   totalUsersCount: null,
   currentPage: 1,
@@ -142,7 +142,8 @@ export const toogleFollowingProgress = (userId, isFetching) => ({
 
 // Async
 export const getRequestUsers = (currentPage, pageSize) => async dispatch => {
-  dispatch(setLoadingStatus(true));
+  dispatch(setSuspenseStatus(true));
+  dispatch(setUsers(null));
   try {
     const response = await usersAPI.getUsers(currentPage, pageSize);
     dispatch(setUsers(response.items));
