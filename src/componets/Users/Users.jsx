@@ -64,7 +64,7 @@ const Users = ({
             </div>
           )}
           {users === null ? (
-            <Preloader />
+            <Preloader className={style.users__preloader} />
           ) : (
             <React.Fragment>
               <UsersList

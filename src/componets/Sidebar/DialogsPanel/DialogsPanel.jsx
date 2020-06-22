@@ -24,7 +24,7 @@ const DialogsPanel = ({ dialogs, openDialogWithUser }) => {
   }
   return (
     <div className={style.dialogsPanel}>
-      <h2 className={style.dialogsPanel__title}>Dialods</h2>
+      <h2 className={style.dialogsPanel__title}>Dialogs</h2>
       {dialogs !== null ? (
         <ul className={style.dialogsPanel__list}>
           {userItem}

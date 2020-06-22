@@ -14,15 +14,11 @@
 	@media (max-width: $md3+px) {
 		margin: 0px;
 		border-radius: 0px;
-		min-height: 570px;
 	}
 	&__preloader {
-		margin: 15px;
-    width: auto;
-		border-radius: 10px;
-		@media (max-width: $md3+px) {
-      margin: 0px;  
-      border-radius: 0;
+		width: auto;
+		@media (max-width: $md4+px) {
+			max-height: 400px;
     }
 	}
 	&__wrap {
