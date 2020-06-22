@@ -9,7 +9,7 @@ import { DialogItem } from './DialogItem/DialogItem';
 
 import style from './DialogsList.module.scss';
 
-const DialogsList = ({ dialogs, getDialogsUsersList }) => {
+const DialogsList = React.memo(({ dialogs, getDialogsUsersList }) => {
   useEffect(() => {
     getDialogsUsersList();
   }, [getDialogsUsersList]);
@@ -62,6 +62,6 @@ const DialogsList = ({ dialogs, getDialogsUsersList }) => {
         onClick={onHandleClick}></div>
     </React.Fragment>
   );
-};
+});
 
 export { DialogsList };

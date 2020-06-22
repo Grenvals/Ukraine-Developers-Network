@@ -7,7 +7,7 @@ import { NewsArticle } from './NewsArticle/NewsArticle';
 
 import style from './NewsBlock.module.scss';
 
-const NewsBlock = ({ articles, viewMode, newsError }) => {
+const NewsBlock = React.memo(({ articles, viewMode, newsError }) => {
   let newsList = [];
   if (articles !== null) {
     newsList = articles.map((u, i) => (
@@ -49,6 +49,6 @@ const NewsBlock = ({ articles, viewMode, newsError }) => {
       )}
     </React.Fragment>
   );
-};
+});
 
 export { NewsBlock };

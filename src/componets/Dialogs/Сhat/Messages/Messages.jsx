@@ -8,7 +8,7 @@ import { Message } from './Message/Message';
 
 import style from './Messages.module.scss';
 
-const Messages = ({ messages, profile, dialogs, activeDialogUserId }) => {
+const Messages = React.memo(({ messages, profile, dialogs, activeDialogUserId }) => {
   let message = [];
   if (messages) {
     message = messages.map(m => (
@@ -47,6 +47,6 @@ const Messages = ({ messages, profile, dialogs, activeDialogUserId }) => {
       )}
     </div>
   );
-};
+});
 
 export { Messages };
