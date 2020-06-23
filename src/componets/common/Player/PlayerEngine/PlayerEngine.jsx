@@ -7,7 +7,7 @@ export const PlayerEngine = React.memo(({ isPlay }) => {
   // const liveRadio = 'https://coderadio-admin.freecodecamp.org/radio/8010/radio.mp3?1592237491';
   const [myAudio] = useState(new Audio(treck1));
   useEffect(() => {
-    myAudio.autoplay = false;
+    myAudio.autoplay = true;
   }, [myAudio]);
   if (isPlay) {
     myAudio.play();
