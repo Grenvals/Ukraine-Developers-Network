@@ -4,18 +4,14 @@ const instanse = axios.create({
   baseURL: 'https://social-network.samuraijs.com/api/1.0/',
   withCredentials: true,
   headers: {
-    'API-KEY': '8fc471c4-748c-4bc5-bda6-3ac04c8f38c0', // General
-    // 'API-KEY': '12b67446-7c55-4a5c-842b-1e8e1fa4adf5', // Alex Chicago
-    // 'API-KEY': '27dca8c2-5064-4ee7-80d6-ba4f1d4449de', // Artem Demin
-    // 'API-KEY': '9f2f55ef-fa5c-4c8a-993f-090bae48ac1f', //  Eduardo Saverin
-    // 'API-KEY': '94b1e093-e969-4288-8857-a0aa0ea49407', //  GunsNRoses
+    'API-KEY': '94b1e093-e969-4288-8857-a0aa0ea49407', //  DEFAULT API KEY FOR TESTS, YOU CAN GENERATE YOUR NEW KEYS, read readme.md
   },
 });
 
 const newsInstanse = axios.create({
   baseURL: 'https://newsapi.org/v2/',
 });
-const newsApiKey = '&apiKey=08ec5abbba254b49a6288d68358823ba';
+const newsApiKey = '&apiKey=08ec5abbba254b49a6288d68358823ba'; //  DEFAULT GOOGLE API KEY FOR TESTS, YOU CAN GENERATE YOUR NEW KEYS, read readme.md
 
 export const authAPI = {
   getAuthUserData: () => {

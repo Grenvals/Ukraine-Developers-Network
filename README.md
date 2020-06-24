@@ -131,7 +131,12 @@ src
    - *Система відображення повідомлень.*
    - *Обробка і виведення помилок.*
    
- 
+## 📱 Authentication, API keys
+  -  In the application set default API keys fot tests, you can use it, but they have limit of requests.
+  -  You can generate your new keys here and set their in api.js: 
+      - [Google News API](https://newsapi.org/s/google-news-api)
+      - [Social Network API](https://social-network.samuraijs.com/) (also you can register new user)
+
 ## 🚀 Running aplication local in 5 Minutes
 You can running aplication on your local dev environment in 5 minutes with these steps:
 1. **Install Node.js** [download](https://nodejs.org/en/). 
