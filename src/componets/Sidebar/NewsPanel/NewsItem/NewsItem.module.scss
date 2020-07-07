@@ -1,7 +1,6 @@
 @import "./../../../../scss/main.scss";
 
 .newsItem {
-  translate: background-color 0.1s;
   &:hover {
     background-color: darken($first, 5%);
   }

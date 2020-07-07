@@ -4,7 +4,6 @@
   display: block;
   flex: 0 0 33.33%;
   width: 33%;
-  translate: background-color 0.1s;
   &:hover {
     background-color: darken($first, 5%);
   }
