@@ -5,9 +5,11 @@
 ## [Review](https://www.youtube.com/watch?v=wipq1YQxvFU)
 [![Review](https://user-images.githubusercontent.com/40334272/85372438-8312cf00-b53a-11ea-885f-b994aba5a635.jpg)](https://www.youtube.com/watch?v=wipq1YQxvFU)
 
+   Always in childhood dreamed of creating a social network. I would be grateful for any comments and suggestions for improving the code.
+
 ## 🌎 [Demo online](https://ukrainedn.herokuapp.com/) (heroku)
 
-   Google news don't work through CORS, if you want to test it, you must download and run aplication in local host. Sometimes through server overload, there may be errors.
+   Google news don't work through CORS, if you want to test it, you must download and run application in local host. Sometimes through server overload, there may be errors.
   
 ## 📂 Folder structure 
 

@@ -4,9 +4,9 @@
   display: block;
   flex: 0 0 33.33%;
   width: 33%;
-  translate: background 0.1s;
+  translate: background-color 0.1s;
   &:hover {
-    background: darken($first, 5%);
+    background-color: darken($first, 5%);
   }
   & > * {
     margin-bottom: 6px;

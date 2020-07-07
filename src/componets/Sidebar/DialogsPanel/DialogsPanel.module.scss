@@ -33,9 +33,9 @@
     flex: 0 0 33.33%;
     min-height: 40px;
     width: 33%;
-    translate: background 0.1s;
+    translate: background-color 0.1s;
     &:hover {
-      background: darken($first, 5%);
+      background-color: darken($first, 5%);
     }
   }
   &__dots {
